@@ -7,10 +7,6 @@ Helpful information about Shopify 2.0 Store.
 - [Introduction](#introduction)
 - [Files Included](#filesincluded)
 - [Installation](#theme-installation)
-- [Navigation Setup](#main-menu)
-- [Product](#create-product)
-- [Manual Settings](#manual-settings)
-- [Theme Customize](#theme-customize)
 
 ## Introduction
 

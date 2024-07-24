@@ -1,7 +1,7 @@
 /*============================================================================
   Ajax the add to cart experience by revealing it in a side drawer
   Plugin Documentation - http://shopify.github.io/sp/#ajax-cart
-  (c) Copyright 2015 Shopify Inc. Author: Carson Shold (@cshold). All Rights Reserved.
+  (c) Copyright 2015 Shopify Inc. Author: Devolution (@devolution007). All Rights Reserved.
 
   This file includes:
     - Basic Shopify Ajax API calls
@@ -14,7 +14,7 @@
     - snippet/ajax-cart-template.liquid
 
   Customized version of Shopify's jQuery API
-  (c) Copyright 2009-2015 Shopify Inc. Author: Caroline Schnapp. All Rights Reserved.
+  (c) Copyright 2009-2015 Shopify Inc. Author: Devolution. All Rights Reserved.
 ==============================================================================*/
 if ((typeof ShopifyAPI) === 'undefined') { ShopifyAPI = {}; }
 

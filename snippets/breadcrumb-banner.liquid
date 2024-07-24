@@ -1,0 +1,109 @@
+<!-- breadcrumb-area start -->
+{% if settings.breadcrumb_banner_enable %}
+{% unless template == 'index' or template == 'product' %}
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-index">
+                    <!-- breadcrumb main-title start-->
+                    <div class="breadcrumb-title">
+                        {% if template contains 'product' %}
+                        <h2>{{ product.title | truncate: 30 }}</h2>
+                        {% elsif template contains 'collection' and collection.handle %}
+                        <h2>{{ collection.title | truncate: 30 }}</h2>
+                        {% elsif template == 'blog' %}
+                        <h2>{{ blog.title | truncate: 30 }}</h2>
+                        {% elsif template == 'article' %}
+                        <h2>{{ blog.title | truncate: 30 }}</h2>
+                        {% else %}
+                        <h2>{{ page_title | truncate: 30 }}</h2>
+                        {% endif %}
+                    </div>
+                    <!-- breadcrumb main-title end-->
+
+                    <!-- breadcrumb-list start -->
+                    {% render 'breadcrumb-builtin' %}
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endunless %}
+{% endif %}
+<!-- breadcrumb-area end -->
+<style>
+    .breadcrumb-area {
+        padding-top: {{ settings.breadcrumb_padding_top }}px;
+        padding-bottom: {{ settings.breadcrumb_padding_bottom }}px;
+        {% if settings.breadcrumb_bg_image_enable %}
+        background-image: url('{% if settings.breadcrumb_bg_image %}{{ settings.breadcrumb_bg_image | image_url }}{% else %}https://dummyimage.com/1920x300/f7f7f7/999999{% endif %}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        {% else %}
+        background-color: {{ settings.breadcrumb_bg_color }};
+        {% endif %}
+        position: relative;
+
+        {% if settings.breadcrumb_bottom_border_enable %}
+        border-top: var(--sti-border);
+        border-bottom: var(--sti-border);
+        {% endif %}
+    }
+    {% if settings.breadcrumb_bg_image_enable %}
+    .breadcrumb-area::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        {% if settings.enable_rtl %}
+        right: 0;
+        {% else %}
+        left: 0;
+        {% endif %}
+        width: 100%;
+        height: 100%;
+        background-color: {{ settings.breadcrumb_bg_image_overlay_color }};
+        opacity: {{ settings.breadcrumb_bg_image_overlay_color_opacity }};
+    }
+    {% endif %}
+    @media (max-width: 1199px) {
+        .breadcrumb-area {
+            padding-top: {{ settings.breadcrumb_padding_top_md }}px;
+            padding-bottom: {{ settings.breadcrumb_padding_bottom_md }}px;
+        }
+    }
+
+
+/* breadcrumb title css */
+.breadcrumb-area .breadcrumb-index{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.breadcrumb-area .breadcrumb-index .breadcrumb-title h2{
+    color: {{ settings.breadcrumb_title_color }};
+    font-size: 34px;
+    font-weight: var(--font-custom-weight-section-header);
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 1199px) {
+    .breadcrumb-area .breadcrumb-index{
+        flex-direction: column;
+    }
+    .breadcrumb-area .breadcrumb-index .breadcrumb-list {
+        margin-top: 15px;
+    }
+    .breadcrumb-area .breadcrumb-index .breadcrumb-title h2{
+        font-size: 24px;
+    }
+}
+@media (max-width: 767px) {
+    .breadcrumb-area .breadcrumb-index .breadcrumb-title h2{
+        font-size: 20px;
+    }
+}
+</style>

@@ -1,0 +1,405 @@
+<!-- shop-sidebar-wrap start -->
+<div class="blog-sidebar-wrap">
+  {% if section.settings.blog_search_bar_enable %}
+  <div class="blog-sidebar blog-search">
+    {% if settings.archive_title != '' %}
+    <h6 class="blog-sidebar-title">{{ settings.search_title }}</h6>
+    {% endif %}
+    <div class="search-post">
+      <form action="/search" method="get" role="search">
+        <input type="hidden" name="type" value="article">
+        <input type="hidden" name="options[prefix]" value="last">
+        <input id="search" type="search" name="q" class="input-text" value="{{ search.terms | escape }}" placeholder="{{ settings.blog_search_placeholder }}">
+        <button class="btn-search" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if section.settings.archive_enable %}
+  <div class="blog-sidebar blog-archive">
+    {% if settings.archive_title != '' %}
+    <h6 class="blog-sidebar-title">{{ settings.archive_title }}</h6>
+    {% endif %}
+
+    {%- liquid 
+      capture ddmm
+        echo 'now' | date: "%B %Y"
+      endcapture
+      capture month
+        echo 'now' | date: "%B" 
+      endcapture
+      capture year
+        echo 'now' | date: "%Y" 
+      endcapture
+      case month
+      when 'January' 
+        assign k = 1
+      when 'February' 
+        assign k = 2
+      when 'March' 
+        assign k = 3
+      when 'April' 
+        assign k = 4
+      when 'June'
+        assign k = 5
+      when 'July' 
+        assign k = 6
+      when 'August' 
+        assign k = 7
+      when 'September'
+        assign k = 8
+      when 'October'
+        assign k = 9
+      when 'November'
+        assign k = 10
+      when 'December' 
+        assign k = 11
+    endcase 
+   -%}
+
+    <ul class="archive-sidebar">
+      {% for i in (1..k) %}
+        {%- liquid
+          case month
+        when 'January' assign previous_month = 'December'
+        when 'February'
+        assign previous_month = 'January'
+        when 'March'
+        assign previous_month = 'February'
+        when 'April'
+        assign previous_month = 'March'
+        when 'May'
+        assign previous_month = 'April'
+        when 'June'
+        assign previous_month = 'May'
+        when 'July'
+        assign previous_month = 'June'
+        when 'August'
+        assign previous_month = 'July'
+        when 'September'
+        assign previous_month = 'August'
+        when 'October'
+        assign previous_month = 'September'
+        when 'November'
+        assign previous_month = 'October'
+        when 'December'
+        assign previous_month = 'November'
+        endcase 
+       -%}
+          {%- liquid assign blogPresent = 0 
+            for article in blogs[blog.handle].articles limit: 10
+              capture date
+                echo article.published_at | date: "%B %Y"
+              endcapture
+              assign checkDate = month | append: ' ' | append: year
+              if date contains checkDate
+                assign blogPresent = 1
+              endif
+            endfor
+         -%}
+          
+            {%- if blogPresent == 1 -%}
+            <h4>{{ month }} {{ year }}</h4>
+            {%- else -%}
+            {%- endif -%}
+
+        {% for article in blogs[blog.handle].articles limit: 10 %}
+        {% capture date %}
+        {{ article.published_at | date: "%B %Y" }}
+        {% endcapture %}
+        {% assign checkDate = month | append: ' ' | append: year %}
+        {% if date contains checkDate %}
+        <li>{{ article.title | link_to: article.url }}</li>
+        {% endif %}
+        {% endfor %}
+      
+
+        {% assign month = previous_month %}
+      {% endfor %}
+    </ul>
+
+    {% comment %}
+    {% assign prevYearsMonths = 'December' %}
+    {% assign year = year | minus: 1 %}
+    <ul class="archive-sidebar">
+      {% for y in (1..15) %}
+      {% for i in (1..12) %}
+      {% case prevYearsMonths %}
+      {% when 'January' %}{% assign previous_month = 'December' %}
+      {% when 'February' %}{% assign previous_month = 'January' %}
+      {% when 'March' %}{% assign previous_month = 'February' %}
+      {% when 'April' %}{% assign previous_month = 'March' %}
+      {% when 'May' %}{% assign previous_month = 'April' %}
+      {% when 'June' %}{% assign previous_month = 'May' %}
+      {% when 'July' %}{% assign previous_month = 'June' %}
+      {% when 'August' %}{% assign previous_month = 'July' %}
+      {% when 'September' %}{% assign previous_month = 'August' %}
+      {% when 'October' %}{% assign previous_month = 'September' %}
+      {% when 'November' %}{% assign previous_month = 'October' %}
+      {% when 'December' %}{% assign previous_month = 'November' %}
+      {% endcase %}
+
+        {% assign test = prevYearsMonths | append: ' ' | append: year %}
+        {% assign blogPresent = 0 %}
+        {% for article in blogs[blog.handle].articles limit: 10 %}
+        {% capture date %}
+        {{ article.published_at | date: "%B %Y" }}
+        {% endcapture %}
+        {% assign checkDate = prevYearsMonths | append: ' ' | append: year %}
+        {% if date contains checkDate %}
+        {% assign blogPresent = 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if blogPresent == 1 %}
+        {{ prevYearsMonths }} {{year}}
+        {% else %}
+        {% endif %}
+        
+        {% for article in blogs[blog.handle].articles limit: 10 %}
+        {% capture date %}
+        {{ article.published_at | date: "%B %Y" }}
+        {% endcapture %}
+        {% if date contains test %}
+        <li>{{ article.title | link_to: article.url }}</li>
+        {% endif %}
+        {% endfor %}
+      {% assign prevYearsMonths = previous_month %}
+      {% endfor %}
+      {% assign year = year | minus: 1 %}
+      {% endfor %}
+    </ul>
+    {% endcomment %}
+  </div>
+  {% endif %}
+
+  {% if section.settings.recent_post_enable %}
+  <div class="blog-sidebar blog-sidebar-recent-post">
+    <h6 class="blog-sidebar-title">{{ settings.recent_title }}</h6>
+    {% assign recent_post_limit = settings.recent_post_limit_handle %}
+    {% for article in blogs[blog.handle].articles limit: recent_post_limit %}
+    <div class="sidbar-inner">
+      <div class="post-image">
+        <a href="{{ article.url }}">
+          {{ article | image_url: width: 85, height: 70, crop: 'center' | image_tag:
+            loading: 'lazy',
+            width: article.width,
+            height: article.height,
+            class: "img-fluid",
+            alt: article.alt | escape }}
+        </a>
+      </div>  
+      <div class="recent-blog-content">
+        <a class="article-title" href="{{ article.url }}">{{ article.title | truncate: 50 }}</a>
+        <span>{{ article.published_at | date: "%b %d, %Y" }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if section.settings.tags_enable and blog.all_tags.size > 0 %}
+  <div class="blog-sidebar blog-tags">
+    <h6 class="blog-sidebar-title">{{ settings.blog_tags_title }}</h6>
+    <ul class="sidebar-tag">
+      {% assign tags_list_limit = settings.tag_limit_handle %}
+      {% for tag in blog.all_tags limit: tags_list_limit %}
+      <li>
+        <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+<!-- shop-sidebar-wrap end -->
+<style>
+  .blog-sidebar-wrap {
+    position: sticky;
+    top: 0;
+  }
+  .blog-sidebar-wrap .blog-sidebar{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--sti-border);
+  } 
+  .blog-sidebar-wrap .blog-sidebar h6.blog-sidebar-title {
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    line-height: 1;
+  }
+
+  /* blog sidebar search css */
+  {% if section.settings.blog_search_bar_enable %}
+  .blog-sidebar-wrap .blog-sidebar .search-post{
+    position: relative;
+    margin-top: 15px;
+  }
+  .blog-sidebar-wrap .blog-sidebar .search-post form {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .blog-sidebar-wrap .blog-sidebar .search-post form input{
+    width: 100%;
+  }
+  .blog-sidebar-wrap .blog-sidebar .search-post button{
+    color: var(--font-color-primary);
+    font-size: 18px;
+    position: absolute;
+    {% if settings.enable_rtl %}
+    left: 15px;
+    {% else %}
+    right: 15px;
+    {% endif %}
+    background-color: transparent;
+    line-height: 0;
+  }
+  {% endif %}
+
+  /* blog sidebar archive css */
+  {% if section.settings.archive_enable %}
+  .blog-sidebar-wrap .blog-sidebar.blog-archive{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--sti-border);
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.archive-sidebar{
+    margin-top: 15px;
+    {% if settings.enable_rtl %}
+    padding-right: 15px;
+    {% else %}
+    padding-left: 15px;
+    {% endif %}
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.archive-sidebar h4{
+    color: var(--font-color-primary);
+    font-size: 14px;
+    font-weight: var(--font-custom-weight-header); 
+    line-height: 1;
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.archive-sidebar li{
+    padding: 0px 15px;
+    position: relative;
+    margin-top: 10px;
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.archive-sidebar li::before{
+    content: '';
+    position: absolute;
+    {% if settings.enable_rtl %}
+    right: 0;
+    {% else %}
+    left: 0;
+    {% endif %}
+    bottom: 50%;
+    transform: translateY(50%);
+    height: 6px;
+    width: 6px;
+    background-color: var(--font-color-primary);
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.archive-sidebar li a{
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  {% endif %}
+
+  /* blog sidebar recent post css */
+  {% if section.settings.recent_post_enable %}
+  .blog-sidebar-wrap .blog-sidebar.blog-sidebar-recent-post{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--sti-border);
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner .post-image a {
+    border-radius: var(--sti-border-radius);
+    overflow: hidden;
+    display: block;
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner .recent-blog-content{
+    width: calc(100% - 100px);
+    {% if settings.enable_rtl %}
+    margin-right: 15px;
+    {% else %}
+    margin-left: 15px;
+    {% endif %}
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner .recent-blog-content a.article-title{
+    color: var(--font-color-header);
+    font-weight: var(--font-custom-weight-header);
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner .recent-blog-content a.article-title:hover{
+    color: var(--font-color-primary);
+  }
+  .blog-sidebar-wrap .blog-sidebar .sidbar-inner .recent-blog-content span{
+    color: var(--font-color-primary);
+    margin-top: 11px;
+    font-weight: var(--font-custom-weight-header);
+    display: block;
+    line-height: 1;
+  }
+  {% endif %}
+
+  /* blog sidebar tag css */
+  {% if section.settings.tags_enable %}
+  .blog-sidebar-wrap .blog-sidebar.blog-tags{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--sti-border);
+  }
+  .blog-sidebar-wrap .blog-sidebar:last-child.blog-tags{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.sidebar-tag{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    {% if settings.enable_rtl %}
+    margin-right: -5px;
+    {% else %}
+    margin-left: -5px;
+    {% endif %}
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.sidebar-tag li{
+    {% if settings.enable_rtl %}
+    margin: 5px 5px 0 0px;
+    {% else %}
+    margin: 5px 0px 0 5px;
+    {% endif %}
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.sidebar-tag li a{
+    color: #fff;
+    padding: 5px 15px;
+    background-color: #333333;
+    position: relative;
+    font-weight: 300;
+    border-radius: var(--sti-border-radius);
+  }
+  .blog-sidebar-wrap .blog-sidebar ul.sidebar-tag li a:hover{
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 0px 15px rgb(0 0 0 / 25%);
+  }
+  @media (max-width: 767px){
+    .blog-sidebar-wrap .blog-sidebar.blog-tags{
+      margin-top: 20px;
+    }
+  }
+  {% endif %}
+</style>

@@ -1,0 +1,78 @@
+{% form 'new_comment', article %}
+{{ form.errors | default_errors }}
+<div class="comments-reply-area">
+  <h2 class="comment-title">{{ 'blogs.comments.title' | t }}</h2>
+  <form action="#" class="comment-form-area">
+    <div class="form-wrap">
+      <div class="form-filed">
+        <label>Name <span class="required">*</span></label>
+        <input type="text" class="{% if form.errors contains 'author' %}error{% endif %}" name="comment[author]" id="commentAuthor" value="{{ form.author }}" placeholder="{{ 'blogs.comments.name' | t }}">
+      </div>
+      <div class="form-filed">
+        <label>Email <span class="required">*</span></label>
+        <input type="text" class="{% if form.errors contains 'email' %}error{% endif %}" name="comment[email]" id="commentEmail" value="{{ form.email }}" placeholder="{{ 'blogs.comments.email' | t }}">
+      </div>
+      <div class="form-filed">
+        <label>Comment <span class="required">*</span></label>
+        <textarea class="comment-notes{% if form.errors contains 'body' %} error{% endif %}" name="comment[body]" id="commentBody"  placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+      </div>
+    </div>
+    {% if blog.moderated? %}
+    <p>{{ 'blogs.comments.moderated' | t }}</p>
+    {% endif %}
+    <div class="comment-form-submit">
+      <button class="btn-style2" type="submit">
+        <span class="pre-msg">{{ 'blogs.comments.post' | t }}</span>
+      </button>
+    </div>
+  </form>
+</div>
+{% endform %}
+<style>
+  .comments-reply-area h2.comment-title {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .comments-reply-area .errors{
+    padding: 10px 15px;
+    margin: 18px 0;
+    border: 1px solid #d02e2e;
+    border-radius: 0;
+  }
+  .comments-reply-area .form-wrap .form-filed {
+    margin-top: 13px;
+  }
+  .comments-reply-area .form-wrap .form-filed:first-child{
+    margin-top: 16px;
+  }
+  .comments-reply-area .form-wrap .form-filed label {
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .comments-reply-area .form-wrap .form-filed input,
+  .comments-reply-area .form-wrap .form-filed textarea {
+    width: 100%;
+  }
+  .comments-reply-area .form-wrap .form-filed input::placeholder,
+  .comments-reply-area .form-wrap .form-filed textarea::placeholder {
+    color: #bbb;
+  }
+  .comments-reply-area .form-wrap .form-filed textarea {
+    resize: none;
+  }
+  .comments-reply-area .form-wrap .form-filed input:focus,
+  .comments-reply-area .form-wrap .form-filed textarea:focus {
+    color: #bbb;
+  }
+  .comments-reply-area .form-wrap .form-filed textarea:focus {
+    outline: none;
+  }
+  .comments-reply-area .form-wrap .form-filed input.error,
+  .comments-reply-area .form-wrap .form-filed textarea.error {
+    border: 1px solid #d02e2e;
+  }
+  .comments-reply-area .comment-form-submit {
+    margin-top: 11px;
+  }
+</style>

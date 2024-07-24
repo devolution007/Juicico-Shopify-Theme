@@ -1,0 +1,80 @@
+<!-- Share -->
+<div class="share-icons">
+  
+  {% liquid
+    if template contains 'article' or template contains 'blog'
+      capture permalinkURL
+        echo shop.url 
+        echo article.url
+      endcapture
+      capture shareTitle 
+        echo article.title | url_param_escape
+      endcapture
+    elsif template contains 'product'
+      capture permalinkURL 
+        echo shop.url 
+        echo product.url
+      endcapture
+      capture shareTitle
+        echo product.title | url_param_escape
+      endcapture
+    elsif template == 'password'
+      capture permalinkURL
+        echo shop.url
+      endcapture
+      capture shareTitle 
+      unless shop.description == blank
+      echo shop.description | url_param_escape
+    else 
+      echo shop.name | url_param_escape 
+      endunless
+      endcapture
+    endif
+  -%}
+  
+  <h6>{{ 'products.general.share' | t }}</h6>
+  <ul class="pro_social_link">
+    <li>
+      <a target="_blank" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" class="facebook" title="Share on Facebook" tabindex="0"><i class="ri-facebook-fill"></i></a>
+    </li>
+    <li>
+      <a target="_blank" href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }};source=webclient" class="twitter" title="Share on Twitter" tabindex="0"><i class="ri-twitter-fill"></i></a>
+    </li>
+    {% if product.featured_image or article.image %}
+    <li>
+      <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | image_url: '1024x1024' }}{% else %}{{ article | image_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}" class="pinterest" title="Share on Pinterest" tabindex="0"><i class="ri-pinterest-fill"></i></a>
+    </li>
+    {% endif %}
+  </ul>
+</div>
+<style>
+  ul.pro_social_link{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  ul.pro_social_link li:not(:last-child){
+    {%- if settings.enable_rtl -%}
+    margin-left: 15px;
+    {%- else -%}
+    margin-right: 15px;
+    {%- endif -%}
+  }
+  ul.pro_social_link li a{
+    font-size: 18px;
+    line-height: 0;
+  }
+  ul.pro_social_link li a.facebook{
+    color: #3b5999;
+  }
+  ul.pro_social_link li a.twitter{
+    color: #55acee;
+  }
+  ul.pro_social_link li a.googleplus{
+    color: #dd4b39;
+  }
+  ul.pro_social_link li a.pinterest{
+    color: #bd081c;
+  }
+</style>

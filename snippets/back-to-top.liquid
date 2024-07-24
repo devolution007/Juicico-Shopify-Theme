@@ -1,0 +1,34 @@
+<a href="javascript:void(0)" id="top" class="scroll">
+    <i class="ri-arrow-up-line"></i>
+</a>
+<style>
+a.scroll {
+    display: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 0;
+    padding: 14px;
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 9;
+    border-radius: 0;
+    transition: 0.3s ease-in-out;
+    background-color: var(--font-color-primary);
+    border-radius: var(--sti-border-radius);
+}
+a.scroll:hover{
+    color: #ffffff;
+    background-color: var(--font-color-secondary);
+}
+@media(max-width: 767px){
+    a.scroll{
+        font-size: 12px;
+        height: 30px;
+        width: 30px;
+        right: 15px;
+        padding: 9px;
+    }
+}
+</style>

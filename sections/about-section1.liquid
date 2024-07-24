@@ -1,0 +1,218 @@
+<section class="about-section1">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% if section.settings.pay_policy_title != '' %}
+        <div class="section-capture">
+          <div class="section-title">
+            <h2>{{ section.settings.pay_policy_title }}</h2>
+          </div>
+        </div>
+        {% endif %}
+        <div class="que-ans">
+          <ul>
+            {% for block in section.blocks %}
+            <li>
+              <h6 class="question">{{ block.settings.pay_policy_que }}</h6>
+              <div class="ans-accordian">
+                <p>{{ block.settings.pay_policy_ans1 }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About section 1",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "pay_policy_title",
+      "label": "Title",
+      "default": "Payment Policy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "pay_policy_que",
+          "label": "Question",
+          "info": "Type Here For Question?",
+          "default": "Type In SideBox For Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "pay_policy_ans1",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "Type In SideBox For Answer."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About section 1"
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+  .about-section1 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px) {
+    .about-section1 {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .about-section1 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .about-section1 .que-ans ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -60px;
+    margin-left: -30px;
+  }
+  .about-section1 .que-ans ul li{
+    width: calc(33.33% - 30px);
+    margin-top: 60px;
+    margin-left: 30px;
+  }
+  .about-section1 .que-ans h6{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .about-section1 .que-ans .ans-accordian {
+    margin: 20px 0 0 20px;
+  }
+  @media(max-width: 1199px) {
+    .about-section1 .que-ans ul {
+      margin-top: -40px;
+    }
+    .about-section1 .que-ans ul li {
+      margin-top: 40px;
+    }
+  }
+  @media(max-width: 991px){
+    .about-section1 .que-ans ul li{
+      width: calc(50% - 30px);
+    }
+    .about-section1 .que-ans h6{
+      font-size: 16px;
+    }
+  }
+  @media(max-width: 767px){
+    .about-section1 .que-ans ul {
+      margin-top: -30px;
+      margin-left: -12px;
+    }
+    .about-section1 .que-ans ul li{
+      width: calc(50% - 12px);
+      margin-top: 30px;
+      margin-left: 12px;
+    }
+    .about-section1 .que-ans .ans-accordian {
+      margin: 15px 0 0 15px;
+    }
+  }
+  @media(max-width: 600px){
+    .about-section1 .que-ans ul li{
+      width: calc(100% - 12px);
+    }
+  }
+</style>

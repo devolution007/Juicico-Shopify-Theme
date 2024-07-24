@@ -1,0 +1,218 @@
+<!-- banner-area start -->
+<section class="banner-content" style="background-image: url('{%- if section.settings.banner_img -%}{{ section.settings.banner_img | image_url: width: 1920 }}{%- else -%}https://dummyimage.com/1920x800{%- endif -%}')">
+    <div class="container">
+        <div class="text-content">
+            {% if section.settings.banner_sub_title != '' %}
+                <span style="color: {{ section.settings.banner_sub_title_color }}">{{ section.settings.banner_sub_title }}</span>
+            {% endif %}
+            {% if section.settings.banner_title != '' %}
+            <h2 style="color: {{ section.settings.banner_title_color }}">{{ section.settings.banner_title }}</h2>
+            {% endif %}
+            <a href="{{ section.settings.banner_url }}" class="btn-style">
+                {{ section.settings.banner_button }}
+            </a>
+        </div>
+    </div>
+</section>
+<!-- banner-area end -->
+{% schema %}
+{
+  "name": "Banner Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner Image",
+      "info": "Recommended Size: 1920x800px"
+    },
+    {
+      "type": "text",
+      "id": "banner_sub_title",
+      "label": "Banner sub title",
+      "default": "Best deal: $540.00"
+    },
+    {
+      "type": "color",
+      "id": "banner_sub_title_color",
+      "label": "Banner title color",
+      "default": "#2f405e"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "Sport bermuda"
+    },
+    {
+      "type": "color",
+      "id": "banner_title_color",
+      "label": "Banner title color",
+      "default": "#333333"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "banner_button",
+      "label": "Banner button",
+      "default": "Shop now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Content"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.banner-content{
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media(max-width: 1199px){
+  .banner-content{
+    padding-top: {{ section.settings.section_padding_top_lg }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media(max-width: 767px){
+  .banner-content{
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+.banner-content .text-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.banner-content .text-content span {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: var(--font-custom-weight-header);
+}
+.banner-content .text-content h2 {
+  font-size: 75px;
+  line-height: 1;
+  margin-top: 15px;
+}
+.banner-content .text-content a.btn-style {
+  margin-top: 60px;
+}
+
+@media(max-width: 1199px){ 
+  .banner-content .text-content span {
+    font-size: 18px;
+  }
+  .banner-content .text-content h2 {
+    font-size: 50px;
+  }
+  .banner-content .text-content a.btn-style {
+    margin-top: 30px;
+  }
+}
+@media(max-width: 991px){
+  .banner-content .text-content h2 {
+    font-size: 40px;
+  }
+  .banner-content .text-content a.btn-style {
+    margin-top: 30px;
+  }
+}
+@media(max-width: 479px){
+  .banner-content .text-content span {
+    font-size: 14px;
+  }
+  .banner-content .text-content h2 {
+    font-size: 30px;
+  }
+}
+</style>

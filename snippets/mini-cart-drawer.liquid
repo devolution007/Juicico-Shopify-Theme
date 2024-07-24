@@ -1,0 +1,271 @@
+{%- liquid
+  assign itemStyle = ''
+  if cart.item_count == 0
+    assign itemStyle = ' style="display:none;"'
+  endif
+  assign itemEmpty = ''
+  if cart.item_count == 0
+    assign itemEmpty = ' style="display:block;"'
+  endif
+-%}
+
+<div class="mini-cart">
+  <a href="javascript:void(0)" class="shopping-cart-close">
+    <i class="feather-x"></i>
+  </a>
+  <div class="cart-empty-title" {{ itemEmpty }}>
+    <p>{{ settings.empty_cart }}</p>
+  </div>
+  <div class="cart-item-title" {{ itemStyle }}>
+    <p>
+      <span class="cart-count-desc">{{ settings.cart_desc1 }}</span>
+      <span class="cart-count-item bigcounter">{{ cart.item_count }}</span>
+      <span class="cart-count-desc">{{ settings.cart_desc2 }}</span>
+    </p>
+  </div>
+  <ul class="cart-item-loop cart-item-wrap" {{ itemStyle }}>
+    {% for item in cart.items %}
+    <li class="cart-item">
+      <div class="cart-image">
+        <a href="{{ item.url }}">
+          <img
+            src="{{ item | image_url: width: 100, height: 100 }}"
+            class="img-fluid"
+            width="{{ item.width }}"
+            height="{{ item.height }}"
+            loading="lazy"
+            alt="{{ item.alt }}">
+        </a>
+      </div>
+      <div class="cart-title">
+        <a href="{{ item.url }}" title="{{ item.product.title }}">{{ item.product.title }}</a>
+        <div class="cart-pro-info">
+          <div class="cart-qty-price">
+            <span class="quantity-{{ item.id }}">{{ item.quantity }} </span><span> × </span>
+            <span class="price-box">
+              <span class="new-price">{{ item.price | money }}</span>
+            </span>
+          </div>
+          <div class="product-quantity-action">
+            <div class="product-quantity" data-variant="{{ item.id }}">
+              <div class="cart-plus-minus">
+                <input value="{{ item.quantity }}" type="text" name="quantity" min="1" pattern="[0-9]*">
+              </div>
+            </div>
+            <div class="delete-item-cart">
+              <a class="remove_from_cart" href="javascript:void(0);" onclick="Shopify.removeItem({{ item.variant.id }})"><i class="feather-trash-2"></i></a>
+            </div>
+          </div>              
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="subtotal-title-area" {{ itemStyle }}>
+    <li class="subtotal-titles">
+      <div class="subtotal-titles">
+        <h3>{{ settings.cart_sub_total }}</h3>
+        <span id="cart-total" class="subtotal-price">{{ cart.total_price | money }}</span>
+      </div>
+    </li>
+    <li class="mini-cart-btns">
+      <div class="cart-btns">
+        <a href="/cart" class="btn btn-style">{{ settings.cart_view }}</a>
+        <a href="/checkout" class="btn btn-style">{{ settings.cart_checkout }}</a>
+      </div>
+    </li>
+  </ul>
+</div>
+<style type="text/css">
+/* mini cart css */
+.mini-cart{
+  position: fixed;
+  top: 0;
+  {% if settings.enable_rtl %}
+  left: -300px;
+  {% else %}
+  right: -300px;
+  {% endif %}
+  width: 300px;
+  padding: 15px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 16px 26px -10px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+.mini-cart.show{
+  {% if settings.enable_rtl %}
+  left: 0;
+  {% else %}
+  right: 0;
+  {% endif %}
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+.mini-cart a.shopping-cart-close{
+  font-size: 18px;
+  line-height: 0;
+}
+.mini-cart .cart-empty-title {
+  display: none;
+}
+.mini-cart .cart-empty-title p{
+  color: var(--font-color-body);
+  margin-bottom: 0;
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+  line-height: normal;
+}
+
+.mini-cart .cart-item-title p{
+  color: var(--font-color-body);
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+  line-height: normal;
+  font-weight: var(--sti-font-weight);
+}
+.mini-cart ul.cart-item-loop{
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  max-height: calc(100% - 275px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.mini-cart .cart-item-title p span.cart-count-item,
+.mini-cart ul.subtotal-title-area li .subtotal-titles .subtotal-price{
+  color: var(--font-color-primary);
+}
+.mini-cart ul.cart-item-loop li.cart-item{
+  display: flex;
+  {% if settings.enable_rtl %}
+  text-align: right;
+  margin-right: 0;
+  {% else %}
+  margin-left: 0;
+  text-align: left;
+  {% endif %}
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+.mini-cart ul.cart-item-loop li.cart-item:last-child{
+  border-bottom: none;
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-image{
+  width: 25%;
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-image a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border: var(--sti-border);
+  border-radius: var(--sti-border-radius);
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title{
+  width: 75%;
+  {% if settings.enable_rtl %}
+  margin-right: 15px;
+  {% else %}
+  margin-left: 15px;
+  {% endif %}
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title h6{
+  font-size: 14px;
+  font-weight: var(--sti-font-weight);
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title .cart-pro-info{
+  margin-top: 10px;
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title .cart-qty-price{
+  display: flex;
+  align-items: center;
+}
+.mini-cart ul.cart-item-loop li.cart-item .product-quantity-action{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title span:nth-child(1){
+  color: var(--font-color-primary);
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title span:nth-child(2){
+  margin: 0 10px;
+}
+.mini-cart ul.cart-item-loop li.cart-item .cart-title .cart-pro-info .delete-item-cart a{
+  font-size: 13px;
+  font-weight: var(--sti-font-weight);
+}
+.mini-cart ul.subtotal-title-area{
+  position: absolute;
+  bottom: 0;
+  padding: 0 0 15px;
+  width: calc(100% - 30px);
+  background-color: #fff;
+}
+.mini-cart ul.subtotal-title-area li{
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+.mini-cart ul.subtotal-title-area li:first-child{
+  margin-top: 0;
+}
+.mini-cart ul.subtotal-title-area li .subtotal-titles{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mini-cart ul.subtotal-title-area li .subtotal-titles h3{
+  font-size: 18px;
+  font-weight: var(--font-subtitle-weight-body);
+}
+.mini-cart ul.subtotal-title-area li .subtotal-titles .subtotal-price{
+  margin-top: 0;
+  font-weight: var(--font-custom-weight-header);
+}
+.mini-cart ul.subtotal-title-area li .cart-btns {
+  display: flex;
+  flex-direction: column;
+}
+.mini-cart ul.subtotal-title-area li .cart-btns a {
+  margin-top: 15px;
+  text-align: center;
+}
+@media(max-width: 767px){
+  .mini-cart{
+    overflow-y: auto;
+  }
+  .mini-cart ul.cart-item-loop{
+    max-height: 100%;
+    overflow-y: unset;
+  }
+  .mini-cart ul.subtotal-title-area{
+    position: unset;
+    width: 100%;
+    padding: 0;
+  }
+}
+@media(max-width: 320px){
+  .mini-cart{
+    width: 100%;
+  }
+}
+</style>

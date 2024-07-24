@@ -1,0 +1,325 @@
+<section class="our-service-area">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+          <ul class="service-wrap">
+            {% for block in section.blocks %}
+            <li class="service-wrapper">
+              <div class="service-block">
+                <div class="icon-block">
+                  {% if block.settings.service_icon != '' %}
+                  <a href="{{ block.settings.service_url }}" class ="service-icon">
+                    <span class ="icon"><i class="{{ block.settings.service_icon }}"></i></span>
+                  </a>
+                  {% endif %}
+                </div>
+                <div class="service-text">
+                  {% if block.settings.service_title != '' %}
+                  <h6>{{ block.settings.service_title }}</h6>
+                  {% endif %}
+                  {% if block.settings.service_desc != '' %}
+                  <p class="desc">{{ block.settings.service_desc }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Our service",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgcolor_enable",
+      "label": "Show Background Color",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "our_services",
+      "name": "Our Services",
+      "settings": [
+        {
+          "type": "text",
+          "id": "service_icon",
+          "label": "Icon Class",
+          "default": "feather-feather",
+          "info": "[See Icon Name](https://remixicon.com/)"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Service Title",
+          "default": "Free delivery"
+        },
+        {
+          "type": "textarea",
+          "id": "service_desc",
+          "label": "Description",
+          "default": "Free shipping all order"
+        },
+        {
+          "type": "url",
+          "id": "service_url",
+          "label": "Service URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our service"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .our-service-area {
+    padding-top:{{ section.settings.section_padding_top }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+    {% if section.settings.section_bgcolor_enable %}
+    background-color: {{ section.settings.section_bgcolor }};
+    {% endif %}
+    {% if section.settings.border_enable %}
+    border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+    {% endif %}
+  }
+  @media (max-width: 1199px) {
+    .our-service-area {
+      padding-top:{{ section.settings.section_padding_top_lg }}px;
+      padding-bottom:{{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .our-service-area {
+      padding-top:{{ section.settings.section_padding_top_xs }}px;
+      padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .our-service-area ul.service-wrap {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -30px;
+    {% if settings.enable_rtl %}
+    margin-right: -30px;
+    {% else %}
+    margin-left: -30px;
+    {% endif %}
+  }
+  .our-service-area ul.service-wrap li.service-wrapper {
+    width: calc(25% - 30px);
+    margin-top: 30px;
+    {% if settings.enable_rtl %}
+    margin-right: 30px;
+    {% else %}
+    margin-left: 30px;
+    {% endif %}
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block {
+    text-align: center;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .icon-block a.service-icon {
+    position: relative;
+    color: var(--font-color-primary);
+    font-size: 32px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .icon-block a.service-icon::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border: 1px dashed var(--font-color-primary);
+    border-radius: 100%;
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .icon-block a.service-icon span.icon {
+    -webkit-transition: transform .3s ease-in-out;
+    -o-transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper:hover .service-block .icon-block a.service-icon span.icon {
+    transform: scaleX(-1);
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .icon-block a.service-icon span.icon {
+    display: block;
+    line-height: 0;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .service-text {
+    margin-top: 28px;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .service-text h6 {
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    line-height: 1;
+  }
+  .our-service-area ul.service-wrap li.service-wrapper .service-block .service-text p.desc {
+    margin-top: 7px;
+    font-weight: 500;
+  }
+  @media (max-width: 991px) {
+    .our-service-area ul.service-wrap li.service-wrapper {
+      width: calc(50% - 30px);
+    }
+  }
+  @media (max-width: 767px) {
+    .our-service-area ul.service-wrap {
+      {% if settings.enable_rtl %}
+      margin-right: -12px;
+      {% else %}
+      margin-left: -12px;
+      {% endif %}
+    }
+    .our-service-area ul.service-wrap li.service-wrapper {
+      width: calc(50% - 12px);
+      {% if settings.enable_rtl %}
+      margin-right: 12px;
+      {% else %}
+      margin-left: 12px;
+      {% endif %}
+    } 
+  }
+  @media (max-width: 479px) {
+    .our-service-area ul.service-wrap li.service-wrapper {
+      width: calc(100% - 12px);
+    } 
+  }
+</style>

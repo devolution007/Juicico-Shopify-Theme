@@ -1,0 +1,116 @@
+{% liquid
+  if template contains 'article' or template contains 'blog'
+    capture permalinkURL
+      echo shop.url 
+      echo article.url
+    endcapture
+    capture shareTitle 
+      echo article.title | url_param_escape
+    endcapture
+  elsif template contains 'product'
+    capture permalinkURL 
+      echo shop.url 
+      echo product.url
+    endcapture
+    capture shareTitle
+      echo product.title | url_param_escape
+    endcapture
+  elsif template == 'password'
+    capture permalinkURL
+      echo shop.url
+    endcapture
+    capture shareTitle 
+    unless shop.description == blank
+    echo shop.description | url_param_escape
+  else 
+    echo shop.name | url_param_escape 
+    endunless
+    endcapture
+  endif
+-%}
+
+<ul class="social-icons">
+  <li>
+    <a target="_blank" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" title="Share on Facebook" tabindex="0" class="facebook">
+      <i class="ri-facebook-fill"></i>
+    </a>
+  </li>
+  <li>
+    <a target="_blank" href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }};source=webclient" title="Share on Twitter" tabindex="0" class="twitter">
+      <i class="ri-twitter-fill"></i>
+    </a>
+  </li>
+  <li>
+    <a target="_blank" href="https://www.instagram.com/?url={{ permalinkURL }}" title="Share on Instagram" tabindex="0" class="gplus">
+      <i class="ri-instagram-fill"></i>
+    </a>
+  </li>
+  {% if product.featured_image or article.image %}
+  <li>
+    <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | image_url: width: 1024 }}{% else %}{{ article | image_url: width: 1024 }}{% endif %}&amp;description={{ shareTitle }}" tabindex="0" class="pinterest">
+      <i class="fa fa-pinterest"></i>
+    </a>
+  </li>
+  {% endif %}
+</ul>
+<style>
+  ul.social-icons {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    {% if settings.enable_rtl %}
+    margin-right: -5px;
+    {% else %}
+    margin-left: -5px;
+    {% endif %}
+  }
+  ul.social-icons li {
+    {% if settings.enable_rtl %}
+    margin: 5px 5px 0 0px;
+    {% else %}
+    margin: 5px 0px 0 5px;
+    {% endif %}
+  }
+  ul.social-icons li a{
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--sti-border-radius);
+  }
+  ul.social-icons li a.facebook{
+    background-color: #3b5999;
+    border: 2px solid #3b5999;
+  }
+  ul.social-icons li a.twitter{
+    background-color: #55acee;
+    border: 2px solid #55acee;
+  }
+  ul.social-icons li a.gplus{
+    background-color: #dd3971;
+    border: 2px solid #dd3971;
+  }
+  ul.social-icons li a.pinterest{
+    background-color: #bd081c;
+    border: 2px solid #bd081c;
+  }
+  ul.social-icons li a:hover{
+    color: #fff;
+    opacity: .5;
+  }
+  ul.social-icons li a span{
+    display: block;
+    font-size: 14px;
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+    
+    line-height: normal;
+  }
+</style>

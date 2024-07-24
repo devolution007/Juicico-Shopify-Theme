@@ -1,0 +1,135 @@
+{% if settings.newsletter_popup_enable %}
+<div class="popup_wrapper">
+  <div class="modal fade" id="news-letter-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="newsletter_popup">
+            <button type="button" class="close" id="popup-close" data-bs-dismiss="modal"><i class="ri-close-line"></i></button>
+            <div class="newsletter-info" style="background-image: url('{% if settings.newsletter_bgimg %}{{ settings.newsletter_bgimg | image_url }}{% else %}https://dummyimage.com/250x400/f7f7f7/999999{% endif %}');">
+            </div>
+            <div class="subscribe_area">
+              <div class="section-title">
+                <h2>
+                  <span>{{ settings.newsletter_popup_title }}</span>
+                </h2>
+                <p>{{ settings.newsletter_text }}</p>
+              </div>
+              <div class="popup-newsletter">
+                {%- render 'newsletter' -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .popup_wrapper .modal-dialog{
+    max-width: 600px;
+  }
+  .popup_wrapper .modal-content{
+    border: none;
+    border-radius: 0;
+  }
+  .popup_wrapper .modal-body{
+    padding: 0px;
+  }
+  .popup_wrapper .newsletter_popup{
+    display: flex;
+  }
+  .popup_wrapper .newsletter_popup button.close{
+    float: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    position: absolute;
+    top: 0px;
+    {% if settings.enable_rtl %}
+    left: 0px;
+    {% else %}
+    right: 0px;
+    {% endif %}
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: none;
+    opacity: 1;
+    background-color: var(--font-color-primary);
+  }
+  .popup_wrapper .newsletter_popup button.close:hover{
+    opacity: 1;
+    color: #fff;
+    background-color: var(--font-color-secondary);
+  }
+  .popup_wrapper .newsletter_popup .newsletter-info{
+    width: 250px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .popup_wrapper .newsletter_popup .subscribe_area{
+    width: calc(100% - 250px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 45px 30px;
+    text-align: center;
+  }
+  .newsletter_popup .subscribe_area .section-title h2{
+    font-size: 30px;
+  }
+  .newsletter_popup .subscribe_area .section-title p{
+    max-width: 100%;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter{
+    width: 100%;
+    margin-top: 22px;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content p.text-success{
+    margin: -7px 0 18px;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input{
+    width: 100%;
+    text-align: center;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input::-webkit-input-placeholder,
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input::-moz-placeholder,
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input::-ms-input-placeholder,
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input::placeholder{
+    color: {{ settings.input_placeholder_color }};
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block .email-submit{
+    margin-top: 18px;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block .email-submit button{
+    width: 100%;
+  }
+  .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block .email-submit button.news-sub{
+    display: none;
+  }
+  @media (max-width : 767px) {
+    .popup_wrapper .modal-dialog{
+      max-width: 100%;
+      margin: 0px;
+      padding: 15px;
+    }
+    .popup_wrapper .newsletter-info{
+      display: none;
+    }
+    .popup_wrapper .newsletter_popup .subscribe_area{
+      width: 100%;
+      padding: 30px 15px;
+    }
+    .newsletter_popup .subscribe_area .popup-newsletter .news-content .subscribe-block input{
+      width: 100%;
+    }
+  }
+</style>
+{% endif %}
+

@@ -1,0 +1,1797 @@
+{
+  "current": {
+    "color_primary": "#511fba",
+    "color_secondary": "#333333",
+    "body_text_color": "#333333",
+    "extra_bgcolor": "#f3f1f8",
+    "section_heading_text_color": "#333333",
+    "para_text_color": "#808080",
+    "theme_border_color": "#808080",
+    "theme_border_color_opacity": 0.2,
+    "body_font_handle": "poppins_n4",
+    "body_custom_font_handle_enable": true,
+    "body_custom_font_handle": "Urbanist",
+    "subtitle_custom_font_weight": 700,
+    "body_font_size": 16,
+    "body_letter_spacing": 0,
+    "header_font_handle": "poppins_n4",
+    "header_custom_font_handle_enable": true,
+    "header_custom_font_handle": "Urbanist",
+    "header_custom_font_weight": 600,
+    "section_header_custom_font_handle_enable": true,
+    "section_header_custom_font_handle": "Urbanist",
+    "section_header_custom_font_weight": 700,
+    "section_header_text_transform": "none",
+    "paragraph_font_handle": "poppins_n4",
+    "paragraph_custom_font_handle_enable": true,
+    "paragraph_custom_font_handle": "Urbanist",
+    "paragraph_custom_font_weight": 400,
+    "paragraph_font_line_height": 25,
+    "other_font_handle": "lora_n4",
+    "other_custom_font_handle_enable": true,
+    "other_custom_font_handle": "Dancing Script",
+    "tag_font_size": 16,
+    "tag_bgcolor": "#ffffff",
+    "tag_font_weight": 600,
+    "tag_border_color": "#808080",
+    "tag_border_color_opacity": 0.1,
+    "tag_border_radius": 0,
+    "enable_rtl": false,
+    "google_analytic_enable": true,
+    "google_tracking_id": "UA-110326897-1",
+    "newsletter_popup_enable": false,
+    "newsletter_bgimg": "shopify:\/\/shop_images\/popup.jpg",
+    "newsletter_popup_title": "20% off",
+    "newsletter_text": "On your first purchase",
+    "newsletter_success_text": "Thank you for subscribe use this code:",
+    "newsletter_coupan_code": "20%OFF",
+    "email_placeholder": "Enter your email..",
+    "input_placeholder_color": "#000000",
+    "logo_header_max_width": 148,
+    "logo_header": "shopify:\/\/shop_images\/logo_01433820-6156-4de4-bb25-4ece232fbe0f.png",
+    "logo_footer_max_width": 148,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "pro_rew_enable": false,
+    "show_product_type": true,
+    "day_title": "Day",
+    "hour_title": "Hrs",
+    "minute_title": "Min",
+    "second_title": "sec",
+    "count_text_enable": true,
+    "empty_cart": "No products in the cart.",
+    "cart_continue_shop": "Continue shopping",
+    "cart_continue_shop_link": "shopify:\/\/collections\/all",
+    "cart_desc1": "There are",
+    "cart_desc2": "products",
+    "cart_sub_total": "Sub Total:",
+    "cart_view": "View Cart",
+    "cart_checkout": "Checkout",
+    "product_quickview_enalbe": true,
+    "qcv_add_to_cart_text": "Add to cart",
+    "search_bar_placeholder": "Find our seach",
+    "breadcrumb_banner_enable": true,
+    "breadcrumb_padding_top": 80,
+    "breadcrumb_padding_bottom": 80,
+    "breadcrumb_padding_top_md": 50,
+    "breadcrumb_padding_bottom_md": 50,
+    "breadcrumb_bg_image_enable": true,
+    "breadcrumb_bg_image": "shopify:\/\/shop_images\/Breadcrumb_8d0bb2eb-5ff3-4c72-aea1-6720e4a37a35.jpg",
+    "breadcrumb_bg_image_overlay_color": "#222222",
+    "breadcrumb_bg_image_overlay_color_opacity": 0.2,
+    "breadcrumb_bg_color": "#ffffff",
+    "breadcrumb_bottom_border_enable": false,
+    "breadcrumb_title_color": "#ffffff",
+    "breadcrumb_main_color": "#ffffff",
+    "blog_read_btn": "Read more",
+    "search_title": "Search",
+    "blog_search_placeholder": "Search blog",
+    "archive_title": "Archive",
+    "recent_title": "Recent post",
+    "recent_post_limit_handle": "5",
+    "blog_tags_title": "Tags",
+    "blog_tags_list_limit_handle": "15",
+    "social_icon_1_name": "fa fa-facebook",
+    "social_icon_1_link": "https:\/\/www.facebook.com\/",
+    "social_icon_2_name": "fa fa-instagram",
+    "social_icon_2_link": "https:\/\/www.instagram.com\/",
+    "social_icon_3_name": "fa fa-twitter",
+    "social_icon_3_link": "https:\/\/twitter.com\/i\/flow\/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D",
+    "social_icon_4_name": "fa fa-dribbble",
+    "social_icon_4_link": "https:\/\/dribbble.com\/session\/new",
+    "social_icon_5_link": "https:\/\/www.youtube.com\/",
+    "payment_picker": "visa, paypal, master, american_express",
+    "payment_svg_width": 45,
+    "wishlist_enable": true,
+    "add_wishlit_title": "Add wishlist",
+    "loading_wishlist": "Loding..",
+    "remove_wishlit_title": "Remove From wishlist",
+    "go_to_wishlit_title": "Go to wishlist",
+    "wishlist_empty_title": "Your wishlist is currently empty!",
+    "login_request_title": "Please login your account",
+    "dnt_acc_title": "Don't have an account?",
+    "alredy_acc_title": "Already an account holder?",
+    "customer_logout_title": "Logout",
+    "section_padding_top": 100,
+    "section_padding_bottom": 100,
+    "section_padding_top_lg": 80,
+    "section_padding_bottom_lg": 80,
+    "section_padding_top_xs": 60,
+    "section_padding_bottom_xs": 60,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#333333",
+    "checkout_button_color": "#333333",
+    "checkout_error_color": "#e32c2b",
+    "box_enable": true,
+    "color_body_bg": "#fff",
+    "color_third": "#f2fa42",
+    "wishlist_empty_title1": "Your",
+    "wishlist_empty_title2": "wishlist",
+    "wishlist_empty_title3": "is currently",
+    "wishlist_empty_title4": "Empty!",
+    "login_sub_text": "Please login below account detail",
+    "register_sub_text": "Please register below account detail",
+    "company_details": "Lpsum is simply dummy text of the printing and typesetting industry has been \nthe industry's standard dummy text",
+    "add_icon": "<i class=\"ri-map-pin-line\"><\/i>",
+    "add1": "Calista Wise 7292 Str,",
+    "add2": "Sample State. Sample city",
+    "con_icon": "<i class=\"ri-phone-line\"><\/i>",
+    "mail_icon": "<i class=\"ri-mail-line\"><\/i>",
+    "email2": "youdomain@gmail.com",
+    "breadcrumb_padding_top_xs": 10,
+    "breadcrumb_padding_bottom_xs": 10,
+    "newsletter_action": "",
+    "company_logo": "shopify:\/\/shop_images\/logo_70516c9a-9198-49b8-aa29-5603397cc109.png",
+    "company_logo_footer": "shopify:\/\/shop_images\/logo_70516c9a-9198-49b8-aa29-5603397cc109.png",
+    "new_title": "New",
+    "sale_title": "Sale",
+    "soldout_title": "Soldout",
+    "sale_percent_enable": true,
+    "enable_preloader": false,
+    "preloader_bg": "#ffffff",
+    "preloader_color": "#000000",
+    "preloader_border_color": "#ffffff",
+    "preloader_border_width": "5px",
+    "topbar_notification_enable": true,
+    "notification_txt_color": "#333333",
+    "topbar_notification_text1": "Call : (000) 123 456 7890",
+    "enable_box": false,
+    "customer_page_bgimg": "shopify:\/\/shop_images\/contact.jpg",
+    "cart_button_title": "Add to cart",
+    "unavailable_title": "Soldout",
+    "soldout_button_title": "Soldout",
+    "product_variant_handle": "product_variant_swatch_option",
+    "product_variant_color_image_enable": false,
+    "popup_close_button_color": "#333333",
+    "popup_close_button_bgcolor": "rgba(0,0,0,0)",
+    "popup_close_button_hvr_color": "#1977f2",
+    "popup_close_button_hvr_bgcolor": "rgba(0,0,0,0)",
+    "newsletter_img": "shopify:\/\/shop_images\/popup.jpg",
+    "newletter_popup_title": "Subscribe <span>Votto<\/span>",
+    "popup_newsletter_title_color": "#333333",
+    "social_1_name": "",
+    "social_2_name": "",
+    "social_3_name": "",
+    "social_4_name": "",
+    "payment_visaimg": "shopify:\/\/shop_images\/payment-method-icon-01.jpg",
+    "payment_masterimg": "shopify:\/\/shop_images\/payment-method-icon-03.jpg",
+    "payment_paypalimg": "shopify:\/\/shop_images\/payment-method-icon-06.jpg",
+    "payment_expressimg": "shopify:\/\/shop_images\/payment-method-icon-02.jpg",
+    "payment_discoverimg": "shopify:\/\/shop_images\/payment-method-icon-04.jpg",
+    "logo_font_size": 20,
+    "logo_font_weight": 600,
+    "header_style": "Style7",
+    "footer_style": "Style7",
+    "one_day_popup_enable": true,
+    "email_button": "Subscribe",
+    "offer_text_enable": false,
+    "offer_label_img": "",
+    "offer_label_img_enable": false,
+    "offer1": "Every day upto 45% off",
+    "offer2": "End of hot summer sale",
+    "offer3": "Get 50% off on lens",
+    "wait_title": "",
+    "added_title": "",
+    "affiliate_cart_button_title": "Buy from amazon",
+    "successfull_note": "Added to cart successfully!",
+    "view_cart_button2": "View Cart",
+    "categories_title": "Categories",
+    "app_img_enable": false,
+    "truck_img": "",
+    "truck_icon": "",
+    "shipping_title": "Free Shipping",
+    "shipping_desc": "Oredr over $150 free",
+    "money_img": "",
+    "money_icon": "",
+    "money_title": "Money Back",
+    "money_desc": "100% Moneyback",
+    "support_img": "",
+    "support_icon": "",
+    "support_title": "Quality Support",
+    "support_desc": "Send within 30 days",
+    "gift_img": "",
+    "gift_icon": "",
+    "gift_title": "Gift & Voucher",
+    "gift_desc": "Oredr above $200",
+    "preloader_style": "Style_3",
+    "topbar_notification_text2": "Summer sale discount off 20%",
+    "topbar_notification_text_link": "Shop Now",
+    "topbar_notification_text_url": "shopify:\/\/collections\/best-for-gym",
+    "notification_bg_color": "#ffffff",
+    "section_title_img": "",
+    "qcv_cart_added_text": "",
+    "qcv_cart_error_text": "",
+    "qcv_cart_wait_text": "",
+    "heading_4041": "Page error!!!",
+    "opps_404": "shopify:\/\/shop_images\/404_f5fb5968-1375-41f0-b7fb-32f938ad4a23.png",
+    "sub_text_4041": "Not",
+    "sub_text_4042": "Found",
+    "desc_text_404": "Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarity unavailable.",
+    "button_title": "Go to home page",
+    "button_url": "\/",
+    "email": "info@yourdomain.com",
+    "contact": "Phone: 1-800-222-000 Fax: 1-800-222-002",
+    "notification_banner_enable": false,
+    "notification_bg_img": "",
+    "notification_banner1_img": "",
+    "notification_banner_offer": "70% off",
+    "notification_banner_offer_text": "on electronics today offer",
+    "notification_banner2_img": "",
+    "notification_banner3_img": "",
+    "categories_list_limit_hanlde": "50",
+    "vendors_title": "Vendors",
+    "vendors_list_limit_hanlde": "50",
+    "types_title": "Products Types",
+    "types_list_limit_hanlde": "50",
+    "color_title": "Color",
+    "color_picker": "DarkKhaki,\nBurlyWood,\nAntiqueWhite,\nGrey,\nLightSeaGreen,\nLightSalmon,\nFloralWhite,\nDarkSeaGreen,\nPaleVioletRed,\nPaleGoldenRod,\nMistyRose,\nSkyBlue,\nSilver,\nLinen,\nSkyBlue,\nSilver,\nSeaShell,\nTomato,\nThistle,\nSnow,\nWhite,\nSandyBrown,\nBlack,\nRosyBrown,\nPowderBlue,\nPapayaWhip,\nPink,\nRosyBrown,\nLinen,\nLightSlateGrey,\nMaroon,\nLightSteelBlue,\nWhite,\nBlack,",
+    "colors_list_limit_hanlde": "50",
+    "size_title": "Size",
+    "size_picker": "1\/kg,\n5\/kg,\n2\/kg,\n3\",\n4\",\n5\",\n9\",\n2.5\",\n8cm,\n9cm,\n10cm,\n15cm,\n9x6,\n12x10,\n5x5,\n30x30,\n18x18,\n20x20,\n15cm,\n6cm,\n2cm,\n30x30,\n35x35,\n15x24,\n1\/kg,\n2\/kg,\n5\/kg,\n11\",12\",8\",\n15\",16\",28\",\n12rose,\n24rose,\n48rose,",
+    "size_list_limit_hanlde": "50",
+    "tags_title": "Tags",
+    "tags_list_limit_hanlde": "50",
+    "best_product_limit_hanlde": "",
+    "best_product__title": "Best product",
+    "best_product_limit_hanlde5": "3",
+    "heading_4042": "0",
+    "heading_4043": "4",
+    "sub_text_4043": "Be",
+    "sub_text_4044": "Found",
+    "topbar_notification_text": "Welcome to fashcart store",
+    "acc_opacity": 0.1,
+    "log_term_con_syn": "*",
+    "log_term_con_text": "Terms & Conditions.",
+    "log_term_con_url": "",
+    "log_pri_pol_desc": "Your privacy and security are important to us. For more information on how we use your data read our",
+    "log_pri_pol_text": "privacy policy",
+    "log_pri_pol_url": "",
+    "breadcrumb_banner_image": "",
+    "breadcrumb_banner_bg": "#fafafa",
+    "breadcrumb_banner_overlay_color": "#000000",
+    "breadcrumb_banner_opacity": 0,
+    "breadcurmb_title_color": "#717171",
+    "breadcurmb_page_title_color": "#717171",
+    "active_breadcurmb_page_title_color": "#80bb01",
+    "company_logonotification_bg_img": "shopify:\/\/shop_images\/download_eab40c7c-6d47-4dd9-bb28-9cb5aa63bf60.jpg",
+    "foot_bg_img": "",
+    "foot_bg_img_enable": true,
+    "foot_bg_color": "#d8eadd",
+    "foot_bg_color_enable": true,
+    "notification_text": "Welcome to starplant store online",
+    "notification_text_color": "#222222",
+    "custom_page_margin_top": "100",
+    "custom_page_margin_bottom": "100",
+    "section_margin_top_xs": "70",
+    "section_margin_bottom_xs": "70",
+    "social_icon_7_name": "",
+    "social_7_name": "",
+    "social_icon_7_link": "",
+    "newsletter_button_name": "Subscribe",
+    "popup_newsletter_description_color": "#000000",
+    "input_fild_border_color": "#eee",
+    "input_fild_color": "#dddddd",
+    "newsletter_bg_img": "",
+    "newsletter_overlay_bgcolor": "#000",
+    "newsletter_overlay_opacicty": 0.1,
+    "notification_button_name": "",
+    "notification_button_url": "",
+    "notification_bg_image": "",
+    "topbar_color_1": "rgba(0,0,0,0)",
+    "topbar_color_2": "rgba(0,0,0,0)",
+    "notification_overlay_color": "rgba(0,0,0,0)",
+    "notification_overlay_opacity": 0,
+    "notificaction_button_bg_color": "#61ab00",
+    "notificaction_button_border_color": "#61ab00",
+    "notificaction_button_color": "#ffffff",
+    "notificaction_button_hover_bg_color": "rgba(0,0,0,0)",
+    "notificaction_button_hover_border_color": "#61ab00",
+    "notificaction_button_hover_color": "#61ab00",
+    "notificaction_close_button_bg_color": "",
+    "notificaction_close_button_border_color": "rgba(0,0,0,0)",
+    "notificaction_close_button_color": "#ffffff",
+    "notificaction_close_button_hover_bg_color": "rgba(0,0,0,0)",
+    "notificaction_close_button_hover_border_color": "rgba(0,0,0,0)",
+    "notificaction_close_button_hover_color": "#ffffff",
+    "heading_404": "404",
+    "sub_text_404": "PAGE NOT BE FOUND",
+    "button_name": "Subscribe",
+    "newsletter_overlay_color": "#000",
+    "newsletter_button_bg_color": "#d92542",
+    "newsletter_button_color": "#ffffff",
+    "newsletter_button_hover_bg_color": "#232323",
+    "newsletter_button_hover_color": "#fff",
+    "close_icon_color": "#ffffff",
+    "recent_post_title": "Recent Post",
+    "currency_enable": true,
+    "supported_currencies": "USD, USD - US Dollar | EUR, EUR - Euro | GBP, GBP - British Pound | INR, INR - Indian Rupee | BDT, BDT - Bangladesh Taka | JPY, JPY - Japan Yen | CAD, CAD - Canada Dollar | AUD, AUD - Australian Dollar",
+    "supported_currencies_code": "USD, USD - US Dollar | EUR, EUR - Euro | GBP, GBP - British Pound",
+    "h_social_icon_1_name": "twitter",
+    "h_social_icon_2_name": "instagram",
+    "h_social_icon_3_name": "google-plus",
+    "h_social_icon_4_name": "linkedin",
+    "h_social_icon_5_name": "pinterest",
+    "h_social_icon_6_name": "",
+    "h_social_icon_7_name": "",
+    "notification_overlay_rgb_colo": "#000000",
+    "notification_overlay_rgb_color": "0, 0, 0",
+    "product_quickview_description_enable": true,
+    "paragraph_font": "raleway_n4",
+    "body_font": "alfie_n4",
+    "type_header_font": "abril_fatface_n4",
+    "heading_font": "alfie_n4",
+    "breadcrumb_banner_image_enable": false,
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "logo_use_image": false,
+    "logo_max_width": "450",
+    "favicon_enable": false,
+    "show_multiple_currencies": true,
+    "currency_format": "money_with_currency_format",
+    "default_currency": "USD",
+    "color_body_text": "#333333",
+    "color_borders": "#e5e5e5",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_social_link": "#bbbbbb",
+    "color_footer_text": "#636363",
+    "footer_newsletter_enable": true,
+    "footer_social_enable": true,
+    "social_facebook_link": "",
+    "social_twitter_link": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_sticky_enable": true,
+          "header_top_bg_color": "#f3f1f8",
+          "header_top_text_color": "#333333",
+          "offer_text": "<p><a href=\"\/collections\/all\" title=\"All products\">Free shipping<\/a> in orders over $120!<\/p>",
+          "header_bottom_bg_color": "#f3f1f8",
+          "header_bottom_text_color": "#333333",
+          "border_enable": true,
+          "border": 1,
+          "border_color": "#808080",
+          "border_color_opacity": 0.1,
+          "header_main_menu": "main-menu",
+          "info_text": "<p>Call : <a href=\"tel:+(210) 123 456 7890\" title=\"tel:+(210) 123 456 7890\">+(210) 123 456 7890<\/a><\/p>"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 0,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 0
+        }
+      },
+      "related-product": {
+        "type": "related-product",
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 70,
+          "section_padding_bottom_lg": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50,
+          "section_title": "Related Product",
+          "section_product_limit_handle": "10"
+        }
+      },
+      "single-product-tab": {
+        "type": "single-product-tab",
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 0,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 0
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "blog_news_padding_top": 80,
+          "blog_news_padding_bottom": 80,
+          "blog_news_column": "6",
+          "blog_news_limit_handle": "6",
+          "blog_news_through": "By",
+          "blog_news_read_btn": "Read More",
+          "blog_news_cmt": "Comment",
+          "blog_news_sidebar_handle": "left_sidebar_handle",
+          "blog_search_bar_enable": true,
+          "recent_post_enable": true,
+          "archive_enable": true,
+          "tags_enable": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "article_check": false,
+          "article_bgcolor": "rgba(0,0,0,0)",
+          "article_through": "By",
+          "article_cmt": "Comments",
+          "comment_post_limit_handle": "5",
+          "article_avtar_enable": false,
+          "sidebar_handle": "left_sidebar_handle",
+          "blog_search_bar_enable": true,
+          "recent_post_enable": true,
+          "archive_enable": true,
+          "tags_enable": true,
+          "recent_post_limit_handle": "4"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_vendor_enable": true,
+          "shipping_calculator_heading": "Shipping Info",
+          "shipping_calculator_button_title": "Calculate",
+          "cart_note_title": "Special instructions for seller",
+          "cart_total_title": "Total",
+          "checkout_button_title": "Checkout",
+          "cart_empty_title1": "Your",
+          "cart_continue_title": "Continue browsing",
+          "here_title": "here"
+        }
+      },
+      "testimonial": {
+        "type": "testimonial",
+        "settings": {
+        }
+      },
+      "brand-logo": {
+        "type": "brand-logo",
+        "blocks": {
+          "1578114441052": {
+            "type": "single_brand",
+            "settings": {
+            }
+          },
+          "1578114454082": {
+            "type": "single_brand",
+            "settings": {
+            }
+          },
+          "1578114460303": {
+            "type": "single_brand",
+            "settings": {
+            }
+          },
+          "1578114465107": {
+            "type": "single_brand",
+            "settings": {
+            }
+          },
+          "1578114470202": {
+            "type": "single_brand",
+            "settings": {
+            }
+          },
+          "1593869320576": {
+            "type": "single_brand",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "1578114441052",
+          "1578114454082",
+          "1578114460303",
+          "1578114465107",
+          "1578114470202",
+          "1593869320576"
+        ],
+        "settings": {
+          "brand_padding_top": 100,
+          "brand_padding_bottom": 100,
+          "brand_padding_top_lg": 60,
+          "brand_padding_bottom_lg": 60,
+          "brand_padding_top_xs": 40,
+          "brand_padding_bottom_xs": 40
+        }
+      },
+      "list-collection-template": {
+        "type": "list-collection-template",
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 70,
+          "section_padding_bottom_lg": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50,
+          "items_products": "Product",
+          "coll_btn": "Shop now"
+        }
+      },
+      "sitemap": {
+        "type": "sitemap",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "our-services": {
+        "type": "our-services",
+        "blocks": {
+          "1598098392907": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-truck",
+              "service_title": "Free delivery",
+              "service_desc": "For all orders over $150",
+              "service_url": ""
+            }
+          },
+          "1598098476898": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-credit-card",
+              "service_title": "Safe payment",
+              "service_desc": "100% secure payment",
+              "service_url": ""
+            }
+          },
+          "1598098814123": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-clock",
+              "service_title": "24\/7 Help center",
+              "service_desc": "Dedicated 24\/7 support",
+              "service_url": ""
+            }
+          },
+          "221dcf68-0608-4c60-8d27-37109d4255b1": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-award",
+              "service_title": "Friendly services",
+              "service_desc": "30 Day guarantee",
+              "service_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "1598098392907",
+          "1598098476898",
+          "1598098814123",
+          "221dcf68-0608-4c60-8d27-37109d4255b1"
+        ],
+        "settings": {
+          "section_padding_top": 30,
+          "section_padding_bottom": 30,
+          "section_padding_top_lg": 30,
+          "section_padding_bottom_lg": 30,
+          "section_padding_top_xs": 30,
+          "section_padding_bottom_xs": 30,
+          "section_bgcolor_enable": true,
+          "section_bgcolor": "#31af68",
+          "border": 1,
+          "border_color": "#eeeeee",
+          "border_enable": false,
+          "border_color_opacity": 1
+        }
+      },
+      "slider": {
+        "type": "slider",
+        "blocks": {
+          "1b3db085-a0de-4b68-8bd1-0726d19326b5": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider3.jpg"
+            }
+          },
+          "1593690674739": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider1_e0adcdc9-e716-4d48-8698-4d0036f36fbf.jpg"
+            }
+          },
+          "1593690709269": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider2_161a06fa-ed89-470e-9090-a76dda4d67b8.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1b3db085-a0de-4b68-8bd1-0726d19326b5",
+          "1593690674739",
+          "1593690709269"
+        ],
+        "settings": {
+        }
+      },
+      "featured-product": {
+        "type": "featured-product",
+        "blocks": {
+          "1593691077346": {
+            "type": "product_tab",
+            "settings": {
+            }
+          },
+          "1593691084479": {
+            "type": "product_tab",
+            "settings": {
+            }
+          },
+          "1593691089351": {
+            "type": "product_tab",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "1593691077346",
+          "1593691084479",
+          "1593691089351"
+        ],
+        "settings": {
+          "section_title": "Trending Products"
+        }
+      },
+      "blog-home": {
+        "type": "blog-home",
+        "settings": {
+          "blog_padding_top": 50,
+          "blog_padding_bottom": 0,
+          "blog_padding_top_xs": 40,
+          "blog_padding_bottom_xs": 40,
+          "blog_bgcolor": "rgba(0,0,0,0)"
+        }
+      },
+      "copy-right": {
+        "type": "copy-right",
+        "settings": {
+          "copyright_enable": true,
+          "section_padding_top": 14,
+          "section_padding_bottom": 14,
+          "section_bg_color": "rgba(0,0,0,0)",
+          "copyright_text_color": "#808080",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": false,
+          "border_color_opacity": 0.2,
+          "copy_right_text1": "Copyright",
+          "copy_right_icon": "fa fa-copyright",
+          "copy_right_text2": "2024 by \n qodex<sup>TM<\/sup>"
+        }
+      },
+      "our-vision": {
+        "type": "our-vision",
+        "blocks": {
+          "1601796485635": {
+            "type": "our-vision",
+            "settings": {
+              "mission_icon": "shopify:\/\/shop_images\/mission.png",
+              "vision_title": "Our mission",
+              "vision_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit., rutrum massa quis, porttitor lorem. Aliquam non est a ipsum facilisis scelerisque eu sed lectus."
+            }
+          },
+          "1601796536563": {
+            "type": "our-vision",
+            "settings": {
+              "mission_icon": "shopify:\/\/shop_images\/vission.png",
+              "vision_title": "Our vision",
+              "vision_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit., rutrum massa quis, porttitor lorem. Aliquam non est a ipsum facilisis scelerisque eu sed lectus."
+            }
+          }
+        },
+        "block_order": [
+          "1601796485635",
+          "1601796536563"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 70,
+          "section_padding_bottom_lg": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50
+        }
+      },
+      "our-team": {
+        "type": "our-team",
+        "blocks": {
+          "1601884127448": {
+            "type": "our-vision",
+            "settings": {
+              "member_img": "shopify:\/\/shop_images\/t6.jpg"
+            }
+          },
+          "1601884136910": {
+            "type": "our-vision",
+            "settings": {
+              "member_img": "shopify:\/\/shop_images\/t7.jpg"
+            }
+          },
+          "1601884137770": {
+            "type": "our-vision",
+            "settings": {
+              "member_img": "shopify:\/\/shop_images\/t5.jpg"
+            }
+          },
+          "1601884138661": {
+            "type": "our-vision",
+            "settings": {
+              "member_img": "shopify:\/\/shop_images\/t3.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1601884127448",
+          "1601884136910",
+          "1601884137770",
+          "1601884138661"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 70,
+          "section_padding_bottom_lg": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50
+        }
+      },
+      "special-category": {
+        "type": "special-category",
+        "settings": {
+        }
+      },
+      "contact-us": {
+        "type": "contact-us",
+        "settings": {
+          "main_padding_top": 100,
+          "main_padding_bottom": 100,
+          "main_padding_top_lg": 70,
+          "main_padding_bottom_lg": 70,
+          "main_padding_top_xs": 50,
+          "main_padding_bottom_xs": 50,
+          "contact_drop_title": "Drop us message",
+          "name_placeholder": "Your name",
+          "email_placeholder": "Your email address",
+          "mobile_placeholder": "Your Mobile",
+          "message_placeholder": "Your message here...",
+          "form_button_name": "Submit"
+        }
+      },
+      "terms-conditions": {
+        "type": "terms-conditions",
+        "blocks": {
+          "1601892801515": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+            }
+          },
+          "1601892832399": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+            }
+          },
+          "1601892845738": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
+            }
+          },
+          "1601892854484": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable."
+            }
+          },
+          "1601892863674": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+            }
+          },
+          "1601892870367": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            }
+          },
+          "1601892903269": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            }
+          },
+          "1601892925344": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+            }
+          },
+          "1601892933214": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+            }
+          },
+          "1601892948131": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+            }
+          },
+          "1601893030566": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful."
+            }
+          },
+          "1601893034727": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure."
+            }
+          },
+          "1601893081514": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+            }
+          },
+          "1601893111882": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+            }
+          },
+          "1601893124450": {
+            "type": "terms-condition",
+            "settings": {
+              "terms_condi_point": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+            }
+          }
+        },
+        "block_order": [
+          "1601892801515",
+          "1601892832399",
+          "1601892845738",
+          "1601892854484",
+          "1601892863674",
+          "1601892870367",
+          "1601892903269",
+          "1601892925344",
+          "1601892933214",
+          "1601892948131",
+          "1601893030566",
+          "1601893034727",
+          "1601893081514",
+          "1601893111882",
+          "1601893124450"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 70,
+          "section_padding_bottom_lg": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50,
+          "terms_condi_title": "Terms & Conditions"
+        }
+      },
+      "404-template": {
+        "type": "404-template",
+        "settings": {
+          "page_button_title": "Back to homepage",
+          "button_url": "\/"
+        }
+      },
+      "1605848244aeafd51a": {
+        "type": "slider",
+        "blocks": {
+          "58585e36-a886-4e60-984d-69575dbc4190": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/1_18053cab-b111-49c1-a24a-aa7d6525a542.jpg",
+              "slider_mobile_img": "shopify:\/\/shop_images\/phone-1.jpg",
+              "slider_subtitle": "Strawberry juice",
+              "slider_subtitle_color": "#511fba",
+              "slider_subtitle_effect": "e1",
+              "slider_title": "Juice for all occasions.",
+              "slider_title_color": "#333333",
+              "slider_title_effect": "e1",
+              "slider_button": "Shop now",
+              "slider_button_url": "shopify:\/\/collections\/mix-juice",
+              "slider_button_style": "btn-style1",
+              "slider_button_effect": "e1",
+              "slider_content_position": "left",
+              "slider_text_position": "left"
+            }
+          },
+          "a5e55ab8-34e4-4159-857d-b260cda00262": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-2.jpg",
+              "slider_mobile_img": "shopify:\/\/shop_images\/phone-2.jpg",
+              "slider_subtitle": "Fresh and Healthy.",
+              "slider_subtitle_color": "#511fba",
+              "slider_subtitle_effect": "e1",
+              "slider_title": "Mixed with nutrients.",
+              "slider_title_color": "#333333",
+              "slider_title_effect": "e1",
+              "slider_button": "Shop now",
+              "slider_button_url": "shopify:\/\/collections\/fruits",
+              "slider_button_style": "btn-style1",
+              "slider_button_effect": "e1",
+              "slider_content_position": "left",
+              "slider_text_position": "left"
+            }
+          },
+          "a1d185d1-8230-4cf9-a456-e85875111264": {
+            "type": "slide",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-3.jpg",
+              "slider_mobile_img": "shopify:\/\/shop_images\/phone-3.jpg",
+              "slider_subtitle": "100% pure fruits.",
+              "slider_subtitle_color": "#511fba",
+              "slider_subtitle_effect": "e1",
+              "slider_title": "Low calorie fruit juices.",
+              "slider_title_color": "#333333",
+              "slider_title_effect": "e1",
+              "slider_button": "Shop now",
+              "slider_button_url": "shopify:\/\/collections\/frontpage",
+              "slider_button_style": "btn-style1",
+              "slider_button_effect": "e1",
+              "slider_content_position": "left",
+              "slider_text_position": "left"
+            }
+          }
+        },
+        "block_order": [
+          "58585e36-a886-4e60-984d-69575dbc4190",
+          "a5e55ab8-34e4-4159-857d-b260cda00262",
+          "a1d185d1-8230-4cf9-a456-e85875111264"
+        ],
+        "settings": {
+          "slider_bg_img_overlay_color": "#333333",
+          "slider_bg_img_overlay_color_opacity": 0,
+          "slider_autoplay_enable": false,
+          "slider_autoplay_timeout": "5000",
+          "slider_autoplay_speed": "5000",
+          "slider_content_enable": false
+        }
+      },
+      "wishlist": {
+        "type": "wishlist",
+        "settings": {
+          "wish_title": "My Wishlist:",
+          "wish_item_title": "Item",
+          "wish_cart_title": "Add to cart",
+          "wish_cart_add": "Done!",
+          "wish_cart_unvlbe": "ion-android-alert",
+          "wish_cart_stock_out": "Out Of Stock",
+          "wish_buy_now": "Buy Now",
+          "wish_cart_conti": "Continue Shopping",
+          "wish_cart_clear": "Clear Wishlist"
+        }
+      },
+      "return-policy": {
+        "type": "return-policy",
+        "blocks": {
+          "e203eda0-d3aa-44ea-b721-b4480787ca17": {
+            "type": "accordion_area1",
+            "settings": {
+              "accordion_ans1": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "677a415e-3a97-4252-ac3c-a07fd303595a": {
+            "type": "accordion_area1",
+            "settings": {
+              "accordion_ans1": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "46069cbc-d8c6-4c41-bfcc-9eccdf3ed974": {
+            "type": "accordion_area1",
+            "settings": {
+              "accordion_ans1": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "25417b60-a062-4b47-aa8a-e9aa830596d9": {
+            "type": "accordion_area2",
+            "settings": {
+              "accordion_ans2": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "22eebcc3-5b22-4b4c-8703-4e0c5949a3b0": {
+            "type": "accordion_area2",
+            "settings": {
+              "accordion_ans2": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "715620d4-8a54-4167-98e7-61cefcc1a4b9": {
+            "type": "accordion_area2",
+            "settings": {
+              "accordion_ans2": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "f6f539ba-7a6c-4bbe-bb84-f69728d1df71": {
+            "type": "accordion_area3",
+            "settings": {
+              "accordion_ans3": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "6c30c401-a42e-45bf-8f45-f9daaa482484": {
+            "type": "accordion_area3",
+            "settings": {
+              "accordion_ans3": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "ce315a30-de27-42d9-a8e6-11d921fef369": {
+            "type": "accordion_area3",
+            "settings": {
+              "accordion_ans3": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "28199609-3ed3-4527-a2c8-af5d47b8f437": {
+            "type": "accordion_area4",
+            "settings": {
+              "accordion_ans4": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "08460bc3-9b6b-49a9-b795-9ae5a643d402": {
+            "type": "accordion_area4",
+            "settings": {
+              "accordion_ans4": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          },
+          "822132ec-0939-4b82-81dd-fdaf71d7a1fe": {
+            "type": "accordion_area4",
+            "settings": {
+              "accordion_ans4": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers designs which may not be supported in lower version of browsers"
+            }
+          }
+        },
+        "block_order": [
+          "e203eda0-d3aa-44ea-b721-b4480787ca17",
+          "677a415e-3a97-4252-ac3c-a07fd303595a",
+          "46069cbc-d8c6-4c41-bfcc-9eccdf3ed974",
+          "25417b60-a062-4b47-aa8a-e9aa830596d9",
+          "22eebcc3-5b22-4b4c-8703-4e0c5949a3b0",
+          "715620d4-8a54-4167-98e7-61cefcc1a4b9",
+          "f6f539ba-7a6c-4bbe-bb84-f69728d1df71",
+          "6c30c401-a42e-45bf-8f45-f9daaa482484",
+          "ce315a30-de27-42d9-a8e6-11d921fef369",
+          "28199609-3ed3-4527-a2c8-af5d47b8f437",
+          "08460bc3-9b6b-49a9-b795-9ae5a643d402",
+          "822132ec-0939-4b82-81dd-fdaf71d7a1fe"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_ipad": 70,
+          "section_padding_bottom_ipad": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50,
+          "section_title1": "Free & Easy <span>Return<\/span>",
+          "section_title2": "Return Policy <span>30 Day<\/span>",
+          "section_title3": "What is a <span>Return Policy<\/span>",
+          "section_title4": "Secure With Your <span>Payment<\/span>",
+          "section_bg_color": "#ffffff"
+        }
+      },
+      "payment-policy": {
+        "type": "payment-policy",
+        "blocks": {
+          "670b6195-e3c8-4149-bc8b-18936754d550": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Eway payment method",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "eef444e8-e742-44b7-9cd7-3543750f76d6": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Paypal Online Payment",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "b06be19d-462c-41f9-9679-05d3dcbe43ee": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Discover Payment",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "4d427822-beba-42ec-a0bf-13e5e1917456": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Sage Online Payment",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "82fd4ca0-46b6-4b07-a0c1-9aae34a04791": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Mastercard Payment",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "8e16b832-992b-4948-bca1-68aa3ce97bcc": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "American Express",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "9bdc6a27-47d1-4323-8e66-fa17f0ef8e84": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Payment Introduction",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          },
+          "aaac5f6f-f482-46a2-ae57-fd39cddcc5ad": {
+            "type": "payment-policy",
+            "settings": {
+              "pay_policy_que": "Policy Introduction",
+              "pay_policy_ans1": "Lorem ipsum is simply dummy text of the printing and typesetting industry. ipsum has been the industry's standard dummy text ever an unknown printer."
+            }
+          }
+        },
+        "block_order": [
+          "670b6195-e3c8-4149-bc8b-18936754d550",
+          "eef444e8-e742-44b7-9cd7-3543750f76d6",
+          "b06be19d-462c-41f9-9679-05d3dcbe43ee",
+          "4d427822-beba-42ec-a0bf-13e5e1917456",
+          "82fd4ca0-46b6-4b07-a0c1-9aae34a04791",
+          "8e16b832-992b-4948-bca1-68aa3ce97bcc",
+          "9bdc6a27-47d1-4323-8e66-fa17f0ef8e84",
+          "aaac5f6f-f482-46a2-ae57-fd39cddcc5ad"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_ipad": 70,
+          "section_padding_bottom_ipad": 70,
+          "section_padding_top_xs": 50,
+          "section_padding_bottom_xs": 50,
+          "pay_policy_title": "Payment Policy"
+        }
+      },
+      "top-nocification-bar": {
+        "type": "top-nocification-bar",
+        "settings": {
+          "topbar_notification_enable": false,
+          "topbar_notification_bg_color": "#31af68",
+          "topbar_notification_txt_color": "#ffffff",
+          "custom_link_1": "<p><a href=\"\/pages\/contact-us\" title=\"Contact us\">Help & Support<\/a><\/p>",
+          "custom_link_2": "<p><a href=\"\/pages\/payment-policy\" title=\"Payment policy\">Payment method<\/a><\/p>",
+          "offer_text": "<p>Free delivery for all orders over order your food now !<\/p>",
+          "contact_label": "Email now :",
+          "contact_text": "<p> <a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com<\/a><\/p>"
+        }
+      },
+      "slider-category": {
+        "type": "slider-category",
+        "blocks": {
+          "f990250e-1281-466a-825d-79787851e874": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "drone-360"
+            }
+          },
+          "6229a67b-607f-40cb-9182-1a603ab22417": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "fresh-vegetables"
+            }
+          },
+          "5a6ff482-de6d-4313-bc88-e4aa46079369": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "cooking-food"
+            }
+          },
+          "3eb4efb5-d475-41bb-9cac-1ed5781cb947": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "healthy-juice"
+            }
+          },
+          "8d58ccb0-d933-40d7-9c53-60d2ecd8978d": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "exotic-dryfruit-2"
+            }
+          },
+          "c1d7b327-c6d6-4729-b59a-ab591decd994": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "exotic-dryfruit-2"
+            }
+          },
+          "db2311bf-dffc-4525-9304-745a102c0b18": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "exotic-dryfruit-1"
+            }
+          }
+        },
+        "block_order": [
+          "f990250e-1281-466a-825d-79787851e874",
+          "6229a67b-607f-40cb-9182-1a603ab22417",
+          "5a6ff482-de6d-4313-bc88-e4aa46079369",
+          "3eb4efb5-d475-41bb-9cac-1ed5781cb947",
+          "8d58ccb0-d933-40d7-9c53-60d2ecd8978d",
+          "c1d7b327-c6d6-4729-b59a-ab591decd994",
+          "db2311bf-dffc-4525-9304-745a102c0b18"
+        ],
+        "settings": {
+        }
+      },
+      "1661863923c985dc6b": {
+        "type": "blog-home",
+        "settings": {
+          "blog_padding_top": 100,
+          "blog_padding_bottom": 100,
+          "blog_padding_top_ip": 80,
+          "blog_padding_bottom_ip": 80,
+          "blog_padding_top_xs": 60,
+          "blog_padding_bottom_xs": 60,
+          "blog_bgcolor": "rgba(0,0,0,0)",
+          "blog_bgcolor_enable": true,
+          "section_title": "Latest news",
+          "blog_home": "news",
+          "blog_home_limit_handle": "8"
+        }
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "pwd_heder_soon_title": "Coming soon"
+        }
+      },
+      "password-content": {
+        "type": "password-content",
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_form_heading": "Be the first to know when we launch.",
+          "newsletter_form_subheading": "Promotions, new products and sales. Directly to your inbox.",
+          "newsletter_placeholder": "Email address",
+          "newsletter_button_text": "Notify me"
+        }
+      },
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "show_share_buttons": true,
+          "social_message": "Spread the word"
+        }
+      },
+      "1263a92d-5313-423d-90f3-913624a0951c": {
+        "type": "slider-category",
+        "blocks": {
+          "d599fac9-e3fd-40b7-84fb-b8ed58be86ef": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "frontpage",
+              "category_image_1": "shopify:\/\/shop_images\/category-1.png",
+              "cat_item_color": "#ffffff",
+              "cat_title_color": "#ffffff",
+              "cat_btn_color": "#ffffff"
+            }
+          },
+          "b60ed547-9b1d-4021-99c2-6fe7887a0755": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "fruits",
+              "category_image_1": "shopify:\/\/shop_images\/category-2.png",
+              "cat_item_color": "#333333",
+              "cat_title_color": "#333333",
+              "cat_btn_color": "#333333"
+            }
+          },
+          "419b50e6-cbc6-41a1-9684-5a66c33ff7f8": {
+            "type": "product_tab",
+            "settings": {
+              "slider_category_handle": "mix-juice",
+              "category_image_1": "shopify:\/\/shop_images\/category-3.png",
+              "cat_item_color": "#ffffff",
+              "cat_title_color": "#ffffff",
+              "cat_btn_color": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "d599fac9-e3fd-40b7-84fb-b8ed58be86ef",
+          "b60ed547-9b1d-4021-99c2-6fe7887a0755",
+          "419b50e6-cbc6-41a1-9684-5a66c33ff7f8"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 0,
+          "section_padding_top_lg": 80,
+          "section_padding_bottom_lg": 0,
+          "section_padding_top_xs": 60,
+          "section_padding_bottom_xs": 0,
+          "section_bgcolor_enable": true,
+          "section_bgcolor": "#f3f1f8",
+          "section_title": "Juice category",
+          "item_label": "Item",
+          "items_label": "Items",
+          "cat_shop_title": "Shop now"
+        }
+      },
+      "af6db34d-a076-4955-8a2f-810f290f81f5": {
+        "type": "testimonial",
+        "blocks": {
+          "testi_slide_cbMe8g": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "5",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-1.jpg",
+              "testimonial_title": "Simon cyrene",
+              "testimonial_subtitle": "Store customer"
+            }
+          },
+          "testi_slide_XzU8Ve": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "5",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-2.jpg",
+              "testimonial_title": "Michael smith",
+              "testimonial_subtitle": "Store customer"
+            }
+          },
+          "testi_slide_49EdmM": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "4",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-3.jpg",
+              "testimonial_title": "Natosha jacobs",
+              "testimonial_subtitle": "Store customer"
+            }
+          },
+          "testi_slide_6tg4rA": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "2",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-4.jpg",
+              "testimonial_title": "Claire divas",
+              "testimonial_subtitle": "Store customer"
+            }
+          },
+          "testi_slide_RAH8kr": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "4",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-5.jpg",
+              "testimonial_title": "Michael smith",
+              "testimonial_subtitle": "Store customer"
+            }
+          },
+          "testi_slide_Jdn8wz": {
+            "type": "testi_slide",
+            "settings": {
+              "pro_testi_review": "4",
+              "testimonial_desc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+              "testimonial_image": "shopify:\/\/shop_images\/testi-6.jpg",
+              "testimonial_title": "Natosha jacobs",
+              "testimonial_subtitle": "Store customer"
+            }
+          }
+        },
+        "block_order": [
+          "testi_slide_cbMe8g",
+          "testi_slide_XzU8Ve",
+          "testi_slide_49EdmM",
+          "testi_slide_6tg4rA",
+          "testi_slide_RAH8kr",
+          "testi_slide_Jdn8wz"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_ip": 80,
+          "section_padding_bottom_ip": 80,
+          "section_padding_top_xs": 60,
+          "section_padding_bottom_xs": 60,
+          "section_bg_color_enable": true,
+          "section_bg_color": "#f3f1f8",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": true,
+          "border_color_opacity": 0.2,
+          "section_title": "Customer review",
+          "testimonial_slider_limit": "3"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "news_padding_top": 15,
+          "news_padding_bottom": 15,
+          "news_padding_top_ip": 15,
+          "news_padding_bottom_ip": 15,
+          "news_padding_top_xs": 15,
+          "news_padding_bottom_xs": 15,
+          "newsletter_title": "Subscribe newsletter",
+          "newsletter_title_color": "#333333"
+        }
+      },
+      "e31128e7-5ce8-4ee1-8d1f-64cfa38d56ce": {
+        "type": "brand-logo",
+        "blocks": {
+          "711a74a5-b5b9-43bd-9bd0-7d1b79eb6856": {
+            "type": "single_brand",
+            "settings": {
+              "brand_image_1": "shopify:\/\/shop_images\/1.png",
+              "brand_url": ""
+            }
+          },
+          "single_brand_3CcmxB": {
+            "type": "single_brand",
+            "settings": {
+              "brand_image_1": "shopify:\/\/shop_images\/2.png",
+              "brand_url": ""
+            }
+          },
+          "24e3501c-f556-49cb-9667-60d355035617": {
+            "type": "single_brand",
+            "settings": {
+              "brand_image_1": "shopify:\/\/shop_images\/3.png",
+              "brand_url": ""
+            }
+          },
+          "55b98d55-2855-4617-b83b-0edb13f13ec1": {
+            "type": "single_brand",
+            "settings": {
+              "brand_image_1": "shopify:\/\/shop_images\/4.png",
+              "brand_url": ""
+            }
+          },
+          "single_brand_zXGfUF": {
+            "type": "single_brand",
+            "settings": {
+              "brand_image_1": "shopify:\/\/shop_images\/5.png",
+              "brand_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "711a74a5-b5b9-43bd-9bd0-7d1b79eb6856",
+          "single_brand_3CcmxB",
+          "24e3501c-f556-49cb-9667-60d355035617",
+          "55b98d55-2855-4617-b83b-0edb13f13ec1",
+          "single_brand_zXGfUF"
+        ],
+        "settings": {
+          "brand_padding_top": 100,
+          "brand_padding_bottom": 100,
+          "brand_padding_top_lg": 80,
+          "brand_padding_bottom_lg": 80,
+          "brand_padding_top_xs": 60,
+          "brand_padding_bottom_xs": 60,
+          "section_bg_color_enable": false,
+          "section_bg_color": "#f7f7f7",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": true,
+          "border_color_opacity": 0.2
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "logo_menu_KkxiN7": {
+            "type": "logo_menu",
+            "settings": {
+              "container_width": 50,
+              "footer_menu_handle": "footer"
+            }
+          },
+          "newsletter_gwphpX": {
+            "type": "newsletter",
+            "settings": {
+              "container_width": 25,
+              "newsletter_title": "Join newsletter",
+              "news_description": "Subscribe to our newsletter and Get 10% off on your first order."
+            }
+          },
+          "contact_info_nHcJjy": {
+            "type": "contact_info",
+            "settings": {
+              "container_width": 25,
+              "contact_info_title": "Contact us",
+              "contact_1_icon_class": "feather-map-pin",
+              "contact_1_text": "<p>70 Washington square south, <br\/>New york ny 10012, <br\/>United states<\/p>",
+              "contact_2_icon_class": "feather-phone-call",
+              "contact_2_text": "<p><a href=\"tel:+(251) 123 456 7890\" title=\"tel:+(251) 123 456 7890\">+(251) 123 456 7890<\/a><\/p>",
+              "contact_3_icon_class": "feather-mail",
+              "contact_3_text": "<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com<\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "logo_menu_KkxiN7",
+          "newsletter_gwphpX",
+          "contact_info_nHcJjy"
+        ],
+        "settings": {
+          "foot_padding_top": 100,
+          "foot_padding_bottom": 100,
+          "foot_padding_top_ipad": 80,
+          "foot_padding_bottom_ipad": 80,
+          "foot_padding_top_xs": 60,
+          "foot_padding_bottom_xs": 60,
+          "footer_bg_img_enable": false,
+          "footer_bg_color": "#f3f1f8",
+          "text_color": "#808080",
+          "heading_color": "#511fba",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": false,
+          "border_color_opacity": 0.1
+        }
+      },
+      "671b775d-91e5-49fc-968e-23294d305ec6": {
+        "type": "our-services",
+        "blocks": {
+          "7f0fbd3e-aece-4392-aef5-3c691df3d270": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-feather",
+              "service_title": "Fresher juice",
+              "service_desc": "Fresher better for you",
+              "service_url": ""
+            }
+          },
+          "a726e722-b06a-43ea-b255-51878d9f1d0a": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-truck",
+              "service_title": "Free delivery",
+              "service_desc": "Orders from all item",
+              "service_url": ""
+            }
+          },
+          "c66ecbc8-b769-485f-9721-fa7968c14164": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-credit-card",
+              "service_title": "Secured payments",
+              "service_desc": "We accept all major credit cards",
+              "service_url": ""
+            }
+          },
+          "08a0935b-11a2-46c7-9e0b-b2aca5e3d758": {
+            "type": "our_services",
+            "settings": {
+              "service_icon": "feather-refresh-cw",
+              "service_title": "Free returns",
+              "service_desc": "7-days free return policy",
+              "service_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "7f0fbd3e-aece-4392-aef5-3c691df3d270",
+          "a726e722-b06a-43ea-b255-51878d9f1d0a",
+          "c66ecbc8-b769-485f-9721-fa7968c14164",
+          "08a0935b-11a2-46c7-9e0b-b2aca5e3d758"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_lg": 80,
+          "section_padding_bottom_lg": 80,
+          "section_padding_top_xs": 60,
+          "section_padding_bottom_xs": 60,
+          "section_bgcolor_enable": true,
+          "section_bgcolor": "#f3f1f8",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": false,
+          "border_color_opacity": 0.1
+        }
+      },
+      "new_product_7dRQtM": {
+        "type": "new-product",
+        "settings": {
+          "category_special_padding_top": 100,
+          "category_special_padding_bottom": 100,
+          "category_special_padding_top_ip": 80,
+          "category_special_padding_bottom_ip": 80,
+          "category_special_padding_top_xs": 60,
+          "category_special_padding_bottom_xs": 60,
+          "section_bgcolor": "#ffffff",
+          "section_bgcolor_enable": true,
+          "border": 1,
+          "border_color": "#c19d60",
+          "border_enable": false,
+          "border_color_opacity": 0.3,
+          "section_title": "Trending products",
+          "category_special_product_limit_handle": "12",
+          "category_special_product_col": "1",
+          "category_special_product_limit": "4",
+          "special_label_product": "feature-product",
+          "category_special_button_text": "All collection",
+          "category_special_button_enable": true,
+          "category_special_button_style": "btn-style1"
+        }
+      },
+      "banner_grid_peQJzP": {
+        "type": "banner-grid",
+        "blocks": {
+          "deal_banner_kYWxeG": {
+            "type": "deal_banner",
+            "settings": {
+              "deal_banner_img": "shopify:\/\/shop_images\/1_66747d0c-4d71-4fbc-a3cb-ee2f0c288fcc.jpg",
+              "banner_subtitle": "Deal of the day",
+              "banner_subtitle_color": "#ffffff",
+              "banner_title": "Add flavor to your life",
+              "banner_title_color": "#ffffff",
+              "deal_banner_date": "30",
+              "deal_banner_month": "dec",
+              "deal_banner_year": "2025",
+              "deal_banner_day_title": "Day",
+              "deal_banner_hour_title": "Hrs",
+              "deal_banner_minute_title": "Min",
+              "deal_banner_second_title": "Sec",
+              "banner_content_position": "center",
+              "banner_text_position": "center"
+            }
+          },
+          "offer_banner_Y6cbfa": {
+            "type": "offer_banner",
+            "settings": {
+              "offer_banner_img": "shopify:\/\/shop_images\/2.jpg",
+              "banner_subtitle": "Up to 35% off",
+              "banner_subtitle_color": "#333333",
+              "banner_title": "Juices are full of fruits",
+              "banner_title_color": "#333333",
+              "banner_btn_text": "Shop now",
+              "banner_url": "shopify:\/\/collections\/all",
+              "banner_btn_style": "btn-style1",
+              "banner_content_position": "left",
+              "banner_text_position": "left"
+            }
+          }
+        },
+        "block_order": [
+          "deal_banner_kYWxeG",
+          "offer_banner_Y6cbfa"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_ip": 80,
+          "section_padding_bottom_ip": 80,
+          "section_padding_top_xs": 60,
+          "section_padding_bottom_xs": 60,
+          "section_bg_color_enable": true,
+          "section_bg_color": "#f3f1f8",
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": false,
+          "border_color_opacity": 0.2
+        }
+      },
+      "info_service_DRmEYY": {
+        "type": "info-service",
+        "blocks": {
+          "info_service_faBw9d": {
+            "type": "info_service",
+            "settings": {
+              "info_service_icon": "shopify:\/\/shop_images\/2_9332be68-0063-4939-8ab7-83204f8af73f.jpg",
+              "our_service_title": "Plant based",
+              "our_service_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed\ntempor incididunt ut labore et dolore magna aliqua.",
+              "our_service_url": ""
+            }
+          },
+          "info_service_fVcPN3": {
+            "type": "info_service",
+            "settings": {
+              "info_service_icon": "shopify:\/\/shop_images\/1_15f46f9f-ca6e-4856-97c7-1c8cfb7a843e.jpg",
+              "our_service_title": "Sustainable packaging",
+              "our_service_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed\ntempor incididunt ut labore et dolore magna aliqua.",
+              "our_service_url": ""
+            }
+          },
+          "info_service_LtfmM8": {
+            "type": "info_service",
+            "settings": {
+              "info_service_icon": "shopify:\/\/shop_images\/3_2fb3d07e-e643-4f0f-ad94-56c1c3a5480a.jpg",
+              "our_service_title": "Certified organic",
+              "our_service_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed\ntempor incididunt ut labore et dolore magna aliqua.",
+              "our_service_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "info_service_faBw9d",
+          "info_service_fVcPN3",
+          "info_service_LtfmM8"
+        ],
+        "settings": {
+          "section_padding_top": 100,
+          "section_padding_bottom": 100,
+          "section_padding_top_ip": 80,
+          "section_padding_bottom_ip": 80,
+          "section_padding_top_xs": 60,
+          "section_padding_bottom_xs": 60,
+          "section_bgimg_enable": false,
+          "section_bgcolor": "#ffffff",
+          "section_bgcolor_enable": false,
+          "border": 1,
+          "border_color": "#808080",
+          "border_enable": true,
+          "border_color_opacity": 0.2
+        }
+      }
+    },
+    "content_for_index": [
+      "1605848244aeafd51a",
+      "1263a92d-5313-423d-90f3-913624a0951c",
+      "671b775d-91e5-49fc-968e-23294d305ec6",
+      "new_product_7dRQtM",
+      "e31128e7-5ce8-4ee1-8d1f-64cfa38d56ce",
+      "banner_grid_peQJzP",
+      "af6db34d-a076-4955-8a2f-810f290f81f5",
+      "1661863923c985dc6b",
+      "info_service_DRmEYY"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}

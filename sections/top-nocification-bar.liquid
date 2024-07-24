@@ -1,0 +1,233 @@
+{%- if section.settings.topbar_notification_enable -%}
+<section class="top-notification-bar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="notification-block">
+          <ul class="notification-entry">
+            <li class="notify-wrap custon-link">
+              <div class="link-area">
+                {% if section.settings.custom_link_1 != '' %}
+                <div class="link-block">
+                  {{ section.settings.custom_link_1 }}
+                </div>
+                {% endif %}
+                {% if section.settings.custom_link_2 != '' %}
+                <div class="link-block">
+                  {{ section.settings.custom_link_2 }}
+                </div>
+                {% endif %}
+              </div>
+            </li>
+            <li class="notify-wrap offer-text">
+              {%- if section.settings.offer_text -%}
+              <div class="richtext">
+                {{ section.settings.offer_text }}
+              </div>
+              {%- endif -%}
+            </li>
+            <li class="notify-wrap store-contact">
+              <div class="contact-block">
+                {% if section.settings.contact_label != '' %}
+                <span class="label">{{ section.settings.contact_label }}</span>
+                {% endif %}
+                {% if section.settings.contact_text != '' %}
+                {{ section.settings.contact_text }}
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Topbar notification",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Show topbar notification"
+    },
+    {
+      "type": "checkbox",
+      "id": "topbar_notification_enable",
+      "label": "Show topbar notification",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "topbar_notification_bg_color",
+      "label": "Section background color",
+      "default": "#31AF68"
+    },
+    {
+      "type": "color",
+      "id": "topbar_notification_txt_color",
+      "label": "Section text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Custom Link"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_link_1",
+      "label": "Link 1"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_link_2",
+      "label": "Link 2"
+    },
+    {
+      "type": "header",
+      "content": "Offer Text"
+    },
+    {
+      "type": "richtext",
+      "id": "offer_text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Contact Text"
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "Label",
+      "default": "Email now : "
+    },
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "Title"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.top-notification-bar {
+  position: relative;
+  background-color: {{ section.settings.topbar_notification_bg_color }};
+  z-index: 1;
+  padding: 10px 0;
+}
+
+/* main css */
+.top-notification-bar .notification-block ul.notification-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.top-notification-bar .notification-block ul.notification-entry li.notify-wrap {
+  width: 33.33%;
+}
+@media (max-width: 1399px) {
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.custon-link,
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.store-contact {
+    width: 25%;
+  } 
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.offer-text {
+    width: 50%;
+  }
+}
+@media (max-width: 1199px) {
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.custon-link,
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.store-contact {
+    width: 50%;
+  } 
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.offer-text {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.custon-link,
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.store-contact {
+    width: 100%;
+  }
+  .top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area {
+    justify-content: space-between;
+  }
+  .top-notification-bar .notification-block ul.notification-entry li.notify-wrap.store-contact {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #e2e2e2;
+  }
+}
+
+/* custom link css */
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area {
+  display: flex;
+  align-items: center;
+} 
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block {
+  {%- if settings.enable_rtl -%}
+  margin-right: 30px;
+  {%- else -%}
+  margin-left: 30px;
+  {%- endif -%}
+}
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block:first-child {
+  {%- if settings.enable_rtl -%}
+  margin-right: 0px;
+  {%- else -%}
+  margin-left: 0px;
+  {%- endif -%}
+}
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block p,
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block p a {
+  color: {{ section.settings.topbar_notification_txt_color }};
+}
+.top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block p a:hover {
+  color: var(--font-color-body);
+}
+@media (max-width: 767px) {
+  .top-notification-bar .notification-block ul.notification-entry li.custon-link .link-area .link-block {
+    margin-left: 15px;
+  }
+}
+
+/* offer text css */
+.top-notification-bar .notification-block ul.notification-entry li.offer-text .richtext {
+  text-align: center;
+}   
+.top-notification-bar .notification-block ul.notification-entry li.offer-text .richtext p {
+  color: {{ section.settings.topbar_notification_txt_color }};
+}
+
+/* contact css */
+.top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block span.label {
+  color: {{ section.settings.topbar_notification_txt_color }};
+  {%- if settings.enable_rtl -%}
+  margin-left: 10px;
+  {%- else -%}
+  margin-right: 10px;
+  {%- endif -%}
+}
+.top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block p,
+.top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block p a {
+  color: {{ section.settings.topbar_notification_txt_color }};
+}
+.top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block p a:hover {
+  color: var(--font-color-body);
+}
+@media (max-width: 479px) {
+  .top-notification-bar .notification-block ul.notification-entry li.store-contact .contact-block {
+    justify-content: center;
+  }
+}
+</style>

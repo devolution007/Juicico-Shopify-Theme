@@ -1,0 +1,652 @@
+{%- liquid
+  if product.compare_at_price > product.price
+  assign on_sale = true
+  else
+  assign on_sale = false
+  endif
+-%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="product-details-page">
+  <div class="container">
+    <div class="product-breadcrumb">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+        </li>
+        {% if template contains 'product' %}
+        {% if collection %}
+        {% if collection.handle %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+        <li class="breadcrumb-item">
+          {{ collection.title | link_to: url }}
+        </li>
+        {% endif %}
+        {% endif %}
+        <li class="breadcrumb-item">
+          <span>{{ product.title | truncate: 30 }}</span>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="row">
+      {% if section.settings.product_style_handle == 'style_1' %}
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12 product_details product_details_gallery">
+        <div class="product_detail_img">
+          <!-- product_big_images start -->
+          <div class="product_img_top">
+            <div class="slider-for" {% if settings.enable_rtl %}dir="rtl"{% endif %} id="slider-for">
+              {%- for media in product.media -%}
+                {% render 'media', media: media %}
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="product_slider_img">
+            <div class="product_more_img">
+              <div class="slider-nav pro-detail-slider gallery-thumbs product-single__thumbnails-{{ section.id }}" id="pro-detail-slider" {% if settings.enable_rtl %}dir="rtl"{% endif %}>
+                {% for media in product.media %}
+                <div class="slick-slide" data-image-id="{{ media.id }}" data-image="{{ media.src | image_url: 'master' }}">
+                  <a class="product-single__thumbnail" href="javascript:void(0)" class="text-link product-single__thumbnail">
+                    <img src="{{ media.preview_image | image_url: width: 200, height: 220, crop: 'center' }}" class="img-fluid" width="{{ media.preview_image.width }}" height="{{ media.preview_image.height }}" alt="{{ media.preview_image.alt }}" loading="lazy">
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                    <span class="icon-play">
+                      <i class="ti-control-play"></i>
+                    </span>
+                    {%- endif -%}
+                    {%- if media.media_type == 'model' -%}
+                    <div class="product-single__thumbnail-badge">
+                      <i class="ti-box"></i>
+                    </div>
+                    {%- endif -%}
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if section.settings.product_style_handle == 'style_2' %}
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12 product_details product_details_gallery">
+        <div class="product_detail_img">
+          <div class="product_img_top">
+            <div class="slider-for" {% if settings.enable_rtl %}dir="rtl"{% endif %}>
+              {%- for media in product.media -%}
+              {% render 'media', media: media %}
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="product_slider_img">
+            <div class="product_more_img">
+              <div class="slider-nav pro-detail-slider gallery-thumbs product-single__thumbnails-{{ section.id }}" id="pro-detail-slider" {% if settings.enable_rtl %}dir="rtl"{% endif %}>
+                {% for media in product.media %}
+                <div class="slick-slide" data-image-id="{{ media.id }}" data-image="{{ media.src | image_url: 'master' }}">
+                  <a class="product-single__thumbnail" href="javascript:void(0)" class="text-link product-single__thumbnail">
+                    <img class="product-single__thumbnail-image" src="{{ media.preview_image | image_url: 'master' }}" alt="{{ media.alt | escape }}" width="{{ media.width }}" height="{{ media.height }}" loading="lazy">
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                    <span class="icon-play">
+                      <i class="ti-control-play"></i>
+                    </span>
+                    {%- endif -%}
+                    {%- if media.media_type == 'model' -%}
+                    <div class="product-single__thumbnail-badge">
+                      <i class="ti-box"></i>
+                    </div>
+                    {%- endif -%}
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if section.settings.product_style_handle == 'style_3' %}
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12 product_details product_details_gallery">
+        <div class="product_detail_img">
+          <div class="product_slider_img">
+            <div class="product_more_img">
+              <div class="slider-nav pro-detail-slider gallery-thumbs product-single__thumbnails-{{ section.id }}" id="pro-detail-slider" {% if settings.enable_rtl %}dir="rtl"{% endif %}>
+                {% for media in product.media %}
+                <div class="slick-slide" data-image-id="{{ media.id }}" data-image="{{ media.src | image_url: 'master' }}">
+                  <a class="product-single__thumbnail" href="javascript:void(0)" class="text-link product-single__thumbnail">
+                    <img class="product-single__thumbnail-image" src="{{ media.preview_image | image_url: 'master' }}" alt="{{ media.alt | escape }}" width="{{ media.width }}" height="{{ media.height }}" loading="lazy">
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                    <span class="icon-play">
+                      <i class="ti-control-play"></i>
+                    </span>
+                    {%- endif -%}
+                    {%- if media.media_type == 'model' -%}
+                    <div class="product-single__thumbnail-badge">
+                      <i class="ti-box"></i>
+                    </div>
+                    {%- endif -%}
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="product_img_top">
+            <div class="slider-for" {% if settings.enable_rtl %}dir="rtl"{% endif %}>
+              {%- for media in product.media -%}
+              {% render 'media', media: media %}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12 product_details product_details_content">
+        <div class="product_details_info">
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when '@app' -%}
+          {% render block %}
+          {%- when 'text' -%}
+          {{- block.settings.text -}}
+          {%- when 'title_wrap' -%}
+          <div class="product-title">
+            <h6>{{ product.title }}</h6>
+          </div>
+          <div class="small-info">
+            <div class="price-block">
+              <div class="pro-prlb{% if on_sale %} pro-sale{% endif %}">
+                <div class="price-box">
+                  <span class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</span>
+                  {%- if product.compare_at_price_max > product.price -%}
+                  <span class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                  {%- endif -%}
+                </div>
+                {% if on_sale %}
+                {% if settings.sale_percent_enable %}
+                <div class="product-label">
+                  <span id="ProductDiscount">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | replace: ',', '.' | times: 100 | remove: '.0' }}</span>
+                </div>
+                {% endif %}
+                {% endif %}
+              </div>
+              {%- if product.metafields.custom.timer -%}
+              <div class="timer-section counter-event-{{ product.id }}" id="counter-event" data-enddate="{{ product.metafields.custom.timer }}">
+                {{ product.metafields.custom.timer }}
+              </div>
+              {%- endif -%}
+              <div class="product-ratting">
+                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+              </div>
+            </div>
+            <div class="brand-block">
+              <div class="product-brand">
+                <h6>{{ section.settings.brand_title }}</h6>
+                <span>{{ product.vendor }}</span>
+              </div>
+              <div class="product-inventory">
+                <h6>{{ section.settings.availability_title }}</h6>
+                <span class="out-stock text-danger">
+                  <span>{{ section.settings.out_of_stock_title }}<i class="feather-x"></i></span>
+                </span>
+                <span class="in-stock text-success">
+                  <span>{{ section.settings.in_stock_title }}<i class="feather-check"></i></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          {%- when 'short_description' -%}
+          {% if product.metafields.custom.short_description %}
+          <div class="available-desc">
+            <div class="product-description">
+              <p>{{ product.metafields.custom.short_description }}</p>
+            </div>
+          </div>
+          {% endif %}
+          {%- when 'product_variant_picker' -%}
+          <div class="pro-detail-action">
+            <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+              {% render 'product-swatch-variant' product: product, block: block %}
+              <div class="product-actions">
+                <div class="product-quantity-action">
+                  {% render 'product-quantity', product: product %}
+                  {% render 'product-cart-action', product: product %}
+                </div>
+                <div class="instant-buy">
+                  {% render 'instant-buy', product: product %}
+                </div>
+              </div>
+            </form>
+          </div>
+          {%- when 'product_sku' -%}
+          <div class="pro-skss">
+            {%- if current_variant.sku.size > 0 -%}
+            <div class="product-sku">
+              <h6>{{ block.settings.product_sku_title }}</h6>
+              <span class="variant-sku" id="variantsku">{{ current_variant.sku }}</span>
+            </div>
+            {%- endif -%}
+            {% if block.settings.social_share_enable %}
+            {% render 'social-share' %}
+            {% endif %}
+          </div>
+          {%- when 'payment_img' -%}
+          <div class="product-payment-image">
+            {% render 'payment-icon' %}
+          </div>
+          {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "radio",
+      "id": "product_style_handle",
+      "label": "Product Style",
+      "options": [
+        {
+          "label": "Bottom Thumbnail",
+          "value": "style_1"
+        },
+        {
+          "label": "Right Thumbnail",
+          "value": "style_2"
+        },
+        {
+          "label": "Left Thumbnail",
+          "value": "style_3"
+        }
+      ],
+      "default": "style_1"
+    },
+    {
+      "type": "header",
+      "content": "Product Background Color"
+    },
+    {
+      "type": "color",
+      "id": "pro_bg_color",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Product Zoom Option"
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom_enable",
+      "label": "Show product zoom enable",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Product Inventory"
+    },
+    {
+      "type": "text",
+      "id": "availability_title",
+      "label": "Available Title",
+      "default": "Availability:"
+    },
+    {
+      "type": "text",
+      "id": "brand_title",
+      "label": "Brand Title",
+      "default": "Brand:"
+    },
+    {
+      "type": "text",
+      "id": "in_stock_title",
+      "label": "Stock Title",
+      "default": "In stock"
+    },
+    {
+      "type": "text",
+      "id": "out_of_stock_title",
+      "label": "Stock Title",
+      "default": "Out of stock"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "Text block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "Meta metafields text"
+        }
+      ]
+    },
+    {
+      "type": "title_wrap",
+      "name": "Product title",
+      "limit": 1
+    },
+    {
+      "type": "short_description",
+      "name": "Product short description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "metafields add"
+        }
+      ]
+    },
+    {
+      "type": "product_variant_picker",
+      "name": "Product Variant",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product Variant"
+        },
+        {
+          "type": "radio",
+          "id": "product_variant_handle",
+          "label": "Variant Option",
+          "options": [
+            {
+              "label": "Select Option",
+              "value": "product_variant_select_option"
+            },
+            {
+              "label": "Swatch Option",
+              "value": "product_variant_swatch_option"
+            }
+          ],
+          "default": "product_variant_swatch_option"
+        },
+        {
+          "type": "paragraph",
+          "content": "Product Variant Option Swatch Option For Color"
+        },
+        {
+          "type": "checkbox",
+          "id": "product_variant_color_image_enable",
+          "label": "Show Image In-place Of Color",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "product_sku",
+      "name": "Product Sku",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_sku_title",
+          "label": "SKU Title",
+          "default": "SKU:"
+        },
+        {
+          "type": "header",
+          "content": "Social Option"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_share_enable",
+          "label": "Show Social Share",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "social_share_title",
+          "label": "Social Share Title",
+          "default": "Share:"
+        }
+      ]
+    },
+    {
+      "type": "payment_img",
+      "name": "Payment Image",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}
+<script type="text/javascript">
+  window.onload = function() {
+    $('.slider-for').slick({
+      slidesToShow: 1,
+      arrows: false,
+      {% if settings.enable_rtl %}
+      rtl: true,
+      {% endif %}
+      infinite: false,
+      adaptiveHeight: true,
+      asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 4,
+      arrows: false,
+      {% if section.settings.product_style_handle == 'style_2' or section.settings.product_style_handle == 'style_3' %}
+      vertical: true,
+      verticalSwiping: true,
+      {% endif %}
+      {% if settings.enable_rtl %}
+      rtl: true,
+      {% endif %}
+      infinite: false,
+      asNavFor: '.slider-for',
+      dots: false,
+      focusOnSelect: true,
+      responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          vertical: false,
+          verticalSwiping: false,
+        }
+      }
+      ]
+    });
+    $(window).resize(function() {
+      $('.slider-for')[0].slick.refresh();
+      $('.slider-nav')[0].slick.refresh();
+    });
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+    $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+    $('.selector-wrapper').hide();
+    $('.swatch').hide();
+    {% endif %}
+    {%- liquid
+    assign found_one_in_stock = false
+    -%}
+    {% for variant in product.variants %}
+    {% if variant.available and found_one_in_stock == false %}
+    {% assign found_one_in_stock = true %}
+    {% for option in product.options %}
+    $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    $('.product-single .single-option-selector').wrap('<div class="selector-arrow">');
+  };
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+    if (variant) {
+      var form = jQuery('#' + selector.domIdPrefix).closest('form');
+      for (var i=0,size=variant.options.size; i<size; i++) {
+        var val = variant.options[i].replace(/'/g,"&#039;");
+        var radioButton = form.find(".swatch[data-option-index='" + i + "'] :radio[value='" + val +"']");
+        if (radioButton.size()) {
+          radioButton.get(0).checked = true;
+        }
+      }
+    }
+  }
+  {% if section.settings.zoom_enable %}
+  function zoom(e){
+    var zoomer = e.currentTarget;
+    e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+    e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+    x = offsetX/zoomer.offsetWidth*100
+    y = offsetY/zoomer.offsetHeight*100
+    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+  }
+  {% endif %}
+  // product timer js
+  addEventListener('DOMContentLoaded', (event) => {
+  $('.counter-event-{{ product.id }}').countdown($('.counter-event-{{ product.id }}').attr("data-enddate"), {defer: true }).on('update.countdown', function(event) {
+    var $this = $(this).html(event.strftime('' + '<ul class="contdown_row"><li class="countdown_section"><span id="days" class="countdown_timer">%-D</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.day_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="hours" class="countdown_timer">%H</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.hour_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="minutes" class="countdown_timer">%M</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.minute_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="seconds" class="countdown_timer">%S</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.second_title }}</span>{% endif %}</li></ul>'));
+    }).countdown('start');
+  });
+</script>
+<style>
+  .product-details-page{
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.pro_bg_color }};
+    {% if section.settings.border_enable %}
+    border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+    {% endif %}
+  }
+  @media (max-width: 1199px) {
+    .product-details-page{
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .product-details-page{
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  {% render 'product-template-css' product: product %}
+</style>

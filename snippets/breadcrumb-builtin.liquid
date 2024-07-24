@@ -1,0 +1,145 @@
+
+{% unless template == 'index' or template == 'product' %}
+<ul class="breadcrumb-list">
+
+  <li class="breadcrumb-item">
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+  </li>
+  {% if template contains 'product' %}
+
+  {% if collection %}
+  {% if collection.handle %}
+  {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+  <li class="breadcrumb-item">
+    {{ collection.title | link_to: url }}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  <li class="breadcrumb-item">
+    <span>{{ product.title | truncate: 30 }}</span>
+  </li>
+
+  {% elsif template contains 'collection' and collection.handle %}
+
+
+  {% if current_tags %}
+  {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+  <li class="breadcrumb-item">
+    {{ collection.title | link_to: url }}
+  </li>
+
+  <li class="breadcrumb-item">
+    <span>{{ current_tags | join: " + " | replace: "tags_", "#" }}</span>
+  </li>
+  {% else %}
+  <li class="breadcrumb-item">
+    <span>{{ collection.title }}</span>
+  </li>
+  {% endif %}
+
+  {% elsif template == 'blog' %}
+
+  {% if current_tags %}
+  <li class="breadcrumb-item">
+    {{ blog.title | link_to: blog.url }}
+  </li>
+  <li class="breadcrumb-item">
+    <span>{{ current_tags | join: " + " }}</span>
+  </li>
+  {% else %}
+  <li class="breadcrumb-item">
+    <span>{{ blog.title }}</span>
+  </li>
+  {% endif %}
+
+
+  {% elsif template == 'article' %}
+
+  <li class="breadcrumb-item">
+    {{ blog.title | link_to: blog.url }}
+  </li>
+  {% comment %}
+  <li class="breadcrumb-item">
+    <span>{{ article.title | truncate: 30 }}</span>
+  </li>{% endcomment %}
+
+  {% elsif template contains 'page' %}
+
+  <li class="breadcrumb-item">
+    <span>{{ page.title }}</span>
+  </li>
+
+  {% else %}
+
+  <li class="breadcrumb-item">
+    <span>{{ page_title }}</span>
+  </li>
+
+  {% endif %}
+</ul>
+{% endunless %}
+<style>
+  ul.breadcrumb-list {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  ul.breadcrumb-list li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    {% if settings.enable_rtl %}
+    padding-left: 10px;
+    margin-left: 10px;
+    {% else %}
+    padding-right: 10px;
+    margin-right: 10px;
+    {% endif %}
+  }
+  ul.breadcrumb-list li::after{
+    content: '';
+    position: absolute;
+    {% if settings.enable_rtl %}
+    left: -1px;
+    {% else %}
+    right: -1px;
+    {% endif %}
+    height: 12px;
+    width: 2px;
+    background-color: {{ settings.breadcrumb_main_color }};
+  }
+  ul.breadcrumb-list li:last-child::after{
+    display: none;
+  }
+  ul.breadcrumb-list li.breadcrumb-item + li.breadcrumb-item {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  ul.breadcrumb-list li.breadcrumb-item + li.breadcrumb-item::before{
+    content: "";
+    display: block;
+    padding-right: 0;
+  }
+  ul.breadcrumb-list li a{
+    font-size: 18px;
+    color: {{ settings.breadcrumb_main_color }};
+  }
+  ul.breadcrumb-list li span{
+    {% if settings.breadcrumb_main_color %}
+    color: {{ settings.breadcrumb_main_color }};
+    {% else %}
+    color: var(--font-color-primary);;
+    {% endif %}
+    font-size: 18px;
+  }
+  @media (max-width: 1199px) {
+    ul.breadcrumb-list li span,
+    ul.breadcrumb-list li a{
+      font-size: 14px;
+    }
+  }
+</style>

@@ -1,0 +1,304 @@
+<!-- banner-area start -->
+<section class="full-banner-area">
+  <div class="container-fluid">
+    <div class="banner-block" style="background-image: url({% if section.settings.banner_image %}{{ section.settings.banner_image | image_url }}{% else %}https://dummyimage.com/1775x245{% endif %});">
+      <div class="banner-info {% if section.settings.banner_content_position == "right" %} banner-content-right{% elsif section.settings.banner_content_position == "left" %} banner-content-left{% else %} banner-content-center{% endif %} {% if section.settings.banner_text_position == "right" %} banner-text-right{% elsif section.settings.banner_text_position == "left" %} banner-text-left{% else %} banner-text-center{% endif %}">
+        {% if section.settings.banner_subtitle != '' %}
+        <span class="subtitle" style="color: {{ section.settings.banner_subtitle_color }};">{{ section.settings.banner_subtitle }}</span>
+        {% endif %}
+        {% if section.settings.banner_title != '' %}
+        <h2 class="title" style="color: {{ section.settings.banner_title_color }};">{{ section.settings.banner_title }}</h2>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- banner-area end -->
+{% schema %}
+{
+  "name": "Full Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image",
+      "info": "Recommended Size: 1775x245px"
+    },
+    {
+      "type": "header",
+      "content": "Banner Content"
+    },
+    {
+      "type": "text",
+      "id": "banner_subtitle",
+      "label": "Subtitle",
+      "default": "Weekly sale up to 40% off"
+    },
+    {
+      "type": "color",
+      "id": "banner_subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#efed31"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Title",
+      "default": "Portable speaker for indoor & outdoor"
+    },
+    {
+      "type": "color",
+      "id": "banner_title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Banner Content Position"
+    },
+    {
+      "type": "radio",
+      "id": "banner_content_position",
+      "label": "Content Position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Banner Text Position"
+    },
+    {
+      "type": "radio",
+      "id": "banner_text_position",
+      "label": "Text Position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.full-banner-area {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+}
+@media(max-width: 1199px){
+  .full-banner-area {
+    padding-top: {{ section.settings.section_padding_top_lg }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media(max-width: 767px){
+  .full-banner-area {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+.full-banner-area .banner-block {   
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px 30px;
+}
+.full-banner-area .banner-block .banner-info { 
+  width: 25%;
+}
+@media (max-width: 1499px) {
+  .full-banner-area .banner-block .banner-info {
+    width: 41.67%;
+  }
+}
+@media (max-width: 991px) {
+  .full-banner-area .banner-block .banner-info {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .full-banner-area .banner-block {
+    padding: 50px 12px;
+  }
+}
+@media (max-width: 479px) {
+  .full-banner-area .banner-block .banner-info {
+    width: 83.33%;
+  }
+}
+@media (max-width: 320px) {
+  .full-banner-area .banner-block .banner-info {
+    width: 100%;
+  }
+}
+
+/* banner content position css */
+.full-banner-area .banner-info.banner-content-left {
+  {%- if settings.enable_rtl -%}
+  margin-left: auto;
+  {%- else -%}
+  margin-right: auto;
+  {%- endif -%}
+}
+.full-banner-area .banner-info.banner-content-right {
+  {%- if settings.enable_rtl -%}
+  margin-right: auto;
+  {%- else -%}
+  margin-left: auto;
+  {%- endif -%}
+}
+.full-banner-area .banner-info.banner-content-center {
+  margin: 0 auto;
+}
+
+/* banner text position css */
+.full-banner-area .banner-info.banner-text-left {
+  {%- if settings.enable_rtl -%}
+  text-align: right;
+  {%- else -%}
+  text-align: left;
+  {%- endif -%}
+}
+.full-banner-area .banner-info.banner-text-right {
+  {%- if settings.enable_rtl -%}
+  text-align: left;
+  {%- else -%}
+  text-align: right;
+  {%- endif -%}
+}
+.full-banner-area .banner-info.banner-text-center {
+  text-align: center;
+}
+
+/* banner text css */
+.full-banner-area .banner-info span.subtitle {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.full-banner-area .banner-info h2.title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+@media (max-width: 1199px){
+  .full-banner-area .banner-info span.subtitle {
+    margin-bottom: 18px;
+  }
+  .full-banner-area .banner-info h2.title {
+    font-size: 30px;
+  }
+}
+@media(max-width: 767px){
+  .full-banner-area .banner-info h2.title {
+    font-size: 24px;
+  }   
+}
+</style>

@@ -1,0 +1,276 @@
+<section class="privacy-policy4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="service-wrap">
+          {% for block in section.blocks %}
+          <li class="service-wrapper">
+            <div class="service-block">
+              {% if block.settings.service_title != '' %}
+              <h6>{{ block.settings.service_title }}</h6>
+              {% endif %}
+              {% if block.settings.service_desc != '' %}
+              <p>{{ block.settings.service_desc }}</p>
+              {% endif %}
+              {% if block.settings.service_list1 != '' %}
+              <div class="list-block">
+                <span>{{ block.settings.service_count1 }}</span>
+                <h6>{{ block.settings.service_list1 }}</h6>
+              </div>
+              {% endif %}
+              {% if block.settings.service_list2 != '' %}
+              <div class="list-block">
+                <span>{{ block.settings.service_count2 }}</span>
+                <h6>{{ block.settings.service_list2 }}</h6>
+              </div>
+              {% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Privacy policy 4",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#f8f8f8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "privacy_policy",
+      "name": "Privacy policy",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Service Image"
+        },
+        {
+          "type": "textarea",
+          "id": "service_title",
+          "label": "Service Title",
+          "default": "Choose products"
+        },
+        {
+          "type": "textarea",
+          "id": "service_desc",
+          "label": "Service Description",
+          "default": "Lorem Ipsum is simply dummy text printing and typesetting"
+        },
+        {
+          "type": "text",
+          "id": "service_count1",
+          "label": "Service counter",
+          "default": "01"
+        },
+        {
+          "type": "textarea",
+          "id": "service_list1",
+          "label": "Service list",
+          "default": "Providing your personal data to others"
+        },
+        {
+          "type": "text",
+          "id": "service_count2",
+          "label": "Service counter",
+          "default": "02"
+        },
+        {
+          "type": "textarea",
+          "id": "service_list2",
+          "label": "Service list",
+          "default": "How we use your personal data"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Privacy policy 4"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .privacy-policy4 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .privacy-policy4{
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .privacy-policy4 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  /*secrvice content*/
+  .privacy-policy4 ul.service-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .privacy-policy4 ul.service-wrap li.service-wrapper{
+    width: calc(50% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .privacy-policy4 .service-block {
+    border: 1px solid rgba(0,0,0,10%);
+    border-radius: 0px;
+    overflow: hidden;
+    padding: 60px;
+    border-radius: var(--sti-border-radius);
+  }
+  .privacy-policy4 .service-block h6{
+    font-size: 24px;
+    font-weight: var(--font-custom-weight-section-header);
+  }
+  .privacy-policy4 .service-block p{
+    margin-top: 20px;
+  }
+  .privacy-policy4 .service-block a{
+    margin-top: 20px;
+    color: var(--font-color-primary);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: var(--sti-font-weight);
+    border-bottom: 1px solid;
+  }
+  .privacy-policy4 .service-block .list-block {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .privacy-policy4 .service-block .list-block h6 {
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .privacy-policy4 .service-block .list-block span{
+    color: var(--font-color-primary);
+    font-weight: var(--sti-font-weight);
+    line-height: 1;
+    height: 38px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,10%);
+    border-radius: 50%;
+    {% if settings.enable_rtl %}
+    margin-left: 15px;
+    {% else %}
+    margin-right: 15px;
+    {% endif %}
+  }
+  @media (max-width: 1199px) {
+    .privacy-policy4 .service-block{
+      padding: 30px;
+    }
+    .privacy-policy4 .service-block .list-block{
+      margin-top: 15px;
+    }
+  }
+  @media (max-width: 991px) {
+    .privacy-policy4 ul.service-wrap li.service-wrapper {
+      width: calc(100% - 30px);
+    }
+    .privacy-policy4 .service-block p{
+        font-size: 14px;
+        margin-top: 15px;
+    }
+  }
+  @media (max-width: 767px) {
+    .privacy-policy4 .service-block {
+      padding: 15px;
+    }
+  }
+</style>

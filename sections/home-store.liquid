@@ -1,0 +1,409 @@
+<section class="home-store">
+  <div class="container">
+    <ul class="store-wrap">
+      <li class="store-wrapper">
+        <div class="section-heading">
+          {% if section.settings.section_des != '' %}
+          <span>
+            {{ section.settings.section_des }}
+          </span>
+          {% endif %}
+          {% if section.settings.section_title != '' %}
+          <h2>
+            {{ section.settings.section_title }}
+          </h2>
+          {% endif %}
+        </div>
+      </li>
+      <li class="store-wrapper">
+        <ul class="item-wrap">
+          {% for block in section.blocks %}
+          <li class="item-wrapper">
+            <div class="item-block">
+              <div class="img-content">
+                {%- if block.settings.item_img -%}
+                  {{ block.settings.item_img | image_url: width: 100 | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.item_img.width,
+                    height: block.settings.item_img.height,
+                    class: "img-fluid",
+                    alt: block.settings.item_img.alt | escape }}
+                  {%- else -%}
+                  {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+              </div>
+              <div class="text-content">
+                {% if block.settings.item_title != '' %}
+                <h6>{{ block.settings.item_title }}</h6>
+                {% endif %}
+                {% if block.settings.item_text != '' %}
+                <p>{{ block.settings.item_text }}</p>
+                {% endif %}
+                {% if block.settings.item_button != '' %}
+                <a href="{{ block.settings.item_url }}">{{ block.settings.item_button }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+          {%- endfor -%}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Home store",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Section title"
+    },
+    {
+      "type": "textarea",
+      "id": "section_des",
+      "label": "Section subtitle",
+      "default": "Happy clients"
+    },
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Happy clients"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "homestore",
+      "name": "Our store",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "item_img",
+          "label": "Item Image",
+          "info": "Recommended Size: 75px x 75px"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item title",
+          "default": "Online order"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item title",
+          "default": "contact@volia.com"
+        },
+        {
+          "type": "url",
+          "id": "item_url",
+          "label": "Item url"
+        },
+        {
+          "type": "text",
+          "id": "item_button",
+          "label": "Item button",
+          "default": "VIEW DETAILS"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home-store"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .home-store {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .home-store {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-store {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .home-store .container-col{
+    padding-left: 160px;
+    padding-right: 160px;
+  }
+  @media(max-width: 1599px){
+    .home-store .container-col{
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+  }
+  @media(max-width: 1199px){
+    .home-store .container-col{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  @media(max-width: 767px){
+    .home-store .container-col{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+/*section title*/
+.home-store ul.store-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.home-store ul.store-wrap li.store-wrapper:nth-child(1){
+  width: 42%;
+}
+.home-store ul.store-wrap li.store-wrapper:nth-child(2){
+  width: 58%;
+}
+.home-store .section-heading {
+  max-width: 80%;
+}
+.home-store .section-heading h2{
+  font-size: 40px;
+  font-weight: var(--font-custom-weight-header);
+}
+.home-store .section-heading span{
+  color: var(--font-color-primary);
+  font-size: 20px;
+  font-weight: var(--sti-font-weight);
+  line-height: 1;
+  padding-bottom: 30px;
+}
+.home-store ul.item-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  {%- if settings.enable_rtl -%}
+  margin-right: -30px;
+  {%- else -%}
+  margin-left: -30px;
+  {%- endif -%}
+  margin-top: -30px;
+}
+.home-store ul.item-wrap li.item-wrapper {
+  position: relative;
+  width: calc(50% - 30px);
+  {%- if settings.enable_rtl -%}
+  margin-right: 30px;
+  {%- else -%}
+  margin-left: 30px;
+  {%- endif -%}
+  margin-top: 30px;
+  padding: 50px 30px;
+  background-color: #f8f8f8;
+}
+.home-store .item-block {
+  display: flex;
+  align-items: center;
+}
+.home-store .item-block h6{
+  color: var(--font-color-primary);
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+.home-store .item-block p{
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+.home-store .item-block a{
+  color: var(--font-color-primary);
+  font-size: 18px;
+  font-weight: var(--sti-font-weight);
+  text-transform: uppercase;
+  border-bottom: 1px solid;
+}
+.home-store .item-block:after{
+  content: '';
+  display: block;
+  position: absolute;
+  {%- if settings.enable_rtl -%}
+  right: 0;
+  {%- else -%}
+  left: 0;
+  {%- endif -%}
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  transition: transform .3s ease;
+  z-index: 1;
+  transform: scale(0,1);
+  background: var(--font-color-primary);
+}
+.home-store .item-wrapper:hover .item-block:after{
+  transform: scale(-1,1);
+}
+.home-store .item-block .img-content{
+    width: 75px;
+    {%- if settings.enable_rtl -%}
+    margin-left: 30px;
+    {%- else -%}
+    margin-right: 30px;
+    {%- endif -%}
+}
+.home-store .item-block .img-content img{
+  border-radius: 50%;
+}
+.home-store .item-block .text-content{
+  width: calc(100% - 90px);
+}
+
+/*list content*/
+@media(max-width: 1599px){
+  .home-store .section-heading span{
+    font-size: 18px;
+    padding-bottom: 20px;
+  }
+  .home-store .section-heading h2{
+    font-size: 30px;
+  }
+}
+@media(max-width: 1199px){
+  .home-store ul.item-wrap li.item-wrapper{
+    padding: 30px 20px;
+  }
+  .home-store .item-block h6,
+  .home-store .item-block a,
+  .home-store .item-block p{
+    font-size: 14px;
+  }
+}
+@media(max-width: 991px){
+  .home-store ul.store-wrap li.store-wrapper:nth-child(1),
+  .home-store ul.store-wrap li.store-wrapper:nth-child(2){
+    width: 100%;
+  }
+  .home-store ul.store-wrap li.store-wrapper:nth-child(2){
+    margin-top: 30px;
+  }
+}
+@media(max-width: 767px){
+  .home-store .section-heading{
+    max-width: 100%;
+  }
+  .home-store .section-heading span{
+    padding-bottom: 15px;
+    font-size: 14px;
+  }
+  .home-store .section-heading h2 {
+    font-size: 20px;
+  }
+  .home-store ul.item-wrap{
+    {%- if settings.enable_rtl -%}
+    margin-right: 0;
+    {%- else -%}
+    margin-left: 0;
+    {%- endif -%}
+    margin-top: -15px;
+  }
+  .home-store ul.item-wrap li.item-wrapper{
+    width: 100%;
+    padding: 20px;
+    {%- if settings.enable_rtl -%}
+    margin-right: 0;
+    {%- else -%}
+    margin-left: 0;
+    {%- endif -%}
+    margin-top: 15px;
+  }
+}
+</style>

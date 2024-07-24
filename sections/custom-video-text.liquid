@@ -1,0 +1,536 @@
+<section class="custom-video-text" {% if section.settings.section_bg_image_enable %}style="background-image: url('{% if section.settings.section_bg_image %}{{ section.settings.section_bg_image | image_url }}{% else %}https://dummyimage.com/1920x700/f7f7f7/999999{% endif %}');"{% endif %} data-section-id="{{ section.id }}">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="video-text-block">
+          <div class="custom-video">
+						<div class="video-block">
+							<a href="{{ section.settings.video_url }}" class="video-btn play-button popup-youtube">
+								<span class="icon"><i class="ri-play-fill"></i></span>
+							</a>
+						</div>
+					</div>
+					<div class="custom-content" style="background-color: {{ section.settings.content_bg_color }};">
+						<div class="content-area">
+							<div class="section-capture">
+								<div class="section-title">
+									{% if section.settings.subtitle != '' %}
+									<span class="subtitle" style="color: {{ section.settings.subtitle_color }}">{{ section.settings.subtitle }}</span>
+									{% endif %}
+									{% if section.settings.title != '' %}
+									<h2 class="title" style="color: {{ section.settings.title_color }}">{{ section.settings.title }}</h2>
+									{% endif %}
+								</div>
+							</div>
+              <div class="content-info">
+                <ul class="content-info-ul">
+                  {% for block in section.blocks %}
+                  <li class="content-info-li">
+                    <div class="info-item">
+                      {% if block.settings.info_title != '' %}
+                      <h4 class="title">{{ block.settings.info_title }}</h4>
+                      {% endif %}
+                      {% if block.settings.info_desc != '' %}
+                      <p class="desc">{{ block.settings.info_desc }}</p>
+                      {% endif %}
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Video Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "custom_video_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgcolor_enable",
+      "label": "Section Background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Section Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Section Background Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_image_enable",
+      "label": "Show Background Image",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_image",
+      "label": "Background Image",
+      "info": "Recommended Size: 1920 x 700px"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Video Block"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video url"
+    },
+    {
+      "type": "header",
+      "content": "Content Background Color"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Background Color",
+      "default": "#332E84"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Best gym experience"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why choose us?"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Subtitle Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_item",
+      "name": "Info Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "info_title",
+          "label": "Title",
+          "default": "Consultation with expert"
+        },
+        {
+          "type": "textarea",
+          "id": "info_desc",
+          "label": "Description",
+          "default": "If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Video Content",
+      "category": "Custom Video Content"
+    }
+  ]
+}
+{% endschema %}
+
+<style type="text/css">
+	.custom-video-text {
+		padding-top: {{ section.settings.custom_video_padding_top }}px;
+		padding-bottom: {{ section.settings.custom_video_padding_bottom }}px;
+		{% if section.settings.border_enable %}
+		border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+		{% endif %}
+		{% if section.settings.section_bgcolor_enable %}
+		background-color: {{ section.settings.section_bgcolor }};
+		{% endif %}
+    {% if section.settings.section_bg_image_enable %}
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    {% endif %}
+	}
+	@media (max-width: 1199px) {
+		.custom-video-text {
+			padding-top: {{ section.settings.custom_video_padding_top_ip }}px;
+			padding-bottom: {{ section.settings.custom_video_padding_bottom_ip }}px;
+		}
+	}
+	@media (max-width: 767px) {
+		.custom-video-text {
+			padding-top: {{ section.settings.custom_video_padding_top_xs }}px;
+			padding-bottom: {{ section.settings.custom_video_padding_bottom_xs }}px;
+		}
+	}
+
+	/* main css	*/
+	.custom-video-text .video-text-block {
+		display: flex;
+		flex-wrap: wrap;
+		{%- if settings.enable_rtl -%}
+		margin: -50px -30px 0px 0px;
+		{%- else -%}
+		margin: -50px 0px 0px -30px;
+		{%- endif -%}
+	}
+  .custom-video-text .video-text-block .custom-video, 
+	.custom-video-text .video-text-block .custom-content {
+		width: calc(50% - 30px);
+		{%- if settings.enable_rtl -%}
+		margin: 50px 30px 0px 0px;
+		{%- else -%}
+		margin: 50px 0px 0px 30px;
+		{%- endif -%}
+	}
+	@media (max-width: 1399px) {
+    .custom-video-text .video-text-block .custom-video {
+      width: calc(41.67% - 30px);
+    }
+    .custom-video-text .video-text-block .custom-content {
+      width: calc(58.33% - 30px);
+    }
+  }
+	@media (max-width: 991px) {
+		.custom-video-text .video-text-block {
+			{%- if settings.enable_rtl -%}
+			margin: -50px 0px 0px 0px;
+			{%- else -%}
+			margin: -50px 0px 0px 0px;
+			{%- endif -%}
+		}
+		.custom-video-text .video-text-block .custom-content,
+		.custom-video-text .video-text-block .custom-video {
+			width: calc(100% - 0px);
+			{%- if settings.enable_rtl -%}
+			margin: 50px 0px 0px 0px;
+			{%- else -%}
+			margin: 50px 0px 0px 0px;
+			{%- endif -%}
+		}	
+	}
+	@media (max-width: 767px) {
+		.custom-video-text .video-text-block {
+			{%- if settings.enable_rtl -%}
+			margin: -30px 0px 0px 0px;
+			{%- else -%}
+			margin: -30px 0px 0px 0px;
+			{%- endif -%}
+		}
+		.custom-video-text .video-text-block .custom-content,
+		.custom-video-text .video-text-block .custom-video {
+			{%- if settings.enable_rtl -%}
+			margin: 30px 0px 0px 0px;
+			{%- else -%}
+			margin: 30px 0px 0px 0px;
+			{%- endif -%}
+		}	
+	}
+
+	/* content css */
+  .custom-video-text .video-text-block .custom-content {
+    padding: 60px;
+    border-radius: var(--sti-border-radius);
+  }
+	.custom-video-text .video-text-block .custom-content .content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    max-width: 91.67%;
+	}
+  .custom-video-text .video-text-block .custom-content .content-area .section-capture .section-title {
+    {% if settings.enable_rtl %}
+    text-align: right;
+    {% else %}
+    text-align: left;
+    {% endif %}
+  }
+  .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li {
+    position: relative;
+    margin-top: 17px;
+    {% if settings.enable_rtl %}
+    padding-right: 35px;
+    {% else %}
+    padding-left: 35px;
+    {% endif %}
+  }
+  .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li:first-child {
+    margin-top: 0px;
+  }
+  .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li::before {
+    color: var(--font-color-primary);
+    font-size: 22px;
+    content: "\ea81";
+    font-family: remixicon!important;
+    position: absolute;
+    top: 0px;
+    {% if settings.enable_rtl %}
+    right: 0px;
+    {% else %}
+    left: 0px;
+    {% endif %}
+  }
+  .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li .info-item h4.title {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li .info-item p.desc {
+    color: #ffffff;
+    margin-top: 2px;
+  }
+	@media (max-width: 1199px) {
+    .custom-video-text .video-text-block .custom-content {
+      padding: 50px 30px;
+    }
+    .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li .info-item h4.title {
+      font-size: 20px;
+    }
+	}
+	@media (max-width: 479px) {
+    .custom-video-text .video-text-block .custom-content {
+      padding: 30px 12px;
+    }
+    .custom-video-text .video-text-block .custom-content .content-area .content-info ul.content-info-ul li.content-info-li .info-item h4.title {
+      font-size: 18px;
+    }
+	}
+
+	/* video css */
+	.custom-video-text .video-text-block .custom-video .video-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon {
+    position: relative;
+    background-color: #ffffff;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+  }
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon::before {
+    -webkit-animation: hovereffect 2s linear infinite;
+    -moz-animation: hovereffect 2s linear infinite;
+    animation: hovereffect 2s linear infinite;
+  }
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon::after {
+    -webkit-animation: hovereffect 4s linear infinite;
+    -moz-animation: hovereffect 4s linear infinite;
+    animation: hovereffect 4s linear infinite;
+  }
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon::before,
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon::after {
+    background-color: #ffffff;
+    content: '';
+    position: absolute;
+    top: 0;
+    {%- if settings.enable_rtl -%}
+    right: 0px;
+    {%- else -%}
+    left: 0px;
+    {%- endif -%}
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  @keyframes hovereffect {
+    0%{
+      opacity: 0.5;
+    }
+    40%{
+      opacity: 0.7;
+    }
+    100%{
+      opacity: 0;
+      -webkit-transform: scale(1.3);
+      -moz-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      transform: scale(1.3);
+    }
+  }
+  .custom-video-text .video-text-block .custom-video .video-block a.video-btn span.icon i {
+    color: var(--font-color-primary);
+    font-size: 25px;
+    z-index: 2;
+    line-height: 1;
+    display: flex;
+  }
+
+	/* magificant css */
+  .mfp-container.mfp-iframe-holder{
+    width: auto;
+    left: 15px;
+    right: 15px;
+  }
+  .mfp-iframe-holder .mfp-content{
+    max-width: 700px;
+  }
+  .mfp-iframe-holder .mfp-close {
+    display: block!important;
+    font-size: 20px;
+    padding: 0;
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: -20px;
+    {% if settings.enable_rtl %}
+    left: 0;
+    right: auto;
+    {% else %}
+    right: 0;
+    {% endif %}
+    background-color: transparent!important;
+    line-height: 1;        
+  }
+  .mfp-iframe-scaler iframe{
+    border: none;
+  }
+  @media(max-width: 767px) {
+    .mfp-iframe-holder .mfp-content{
+      max-width: 100%;
+    }
+  }
+</style>

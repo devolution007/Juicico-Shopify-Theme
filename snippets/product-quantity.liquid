@@ -1,0 +1,11 @@
+<div class="product-quantity">
+  {% if product.available %}
+  <div class="cart-plus-minus">
+    <input value="1" type="text" name="quantity" min="1" pattern="[0-9]*">
+  </div>
+  {% else %}
+  <div class="cart-plus-minus disabled">
+    <input value="1" type="text" name="quantity" min="1" pattern="[0-9]*" class="disabled" disabled="disabled">
+  </div>
+  {% endif %}
+</div>

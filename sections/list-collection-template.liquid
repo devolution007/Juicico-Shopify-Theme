@@ -1,0 +1,239 @@
+<!-- shop start -->
+<section class="list-collection">
+  <div class="container">
+    <ul class="grid-wrap">
+      {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+      {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+      {% assign collection =  link.object %}
+      <li class="grid-wrapper">
+        <a href="{{ collection.url }}" class="collection-img" style="background-image: url('{% if collection.image %}{{ collection | image_url }}{% else %}{{ collection.products.first | image_url }}{% endif %}');">
+            <div class="collection-content">
+              <div class="content">
+                <h6>{{ collection_title }}</h6>
+                <!-- <span>{{ section.settings.items_products }} ({{ collection.all_products_count }})</span> -->
+              </div>
+              <span class="shop-btn">{{ section.settings.coll_btn }}</span>
+            </div>
+        </a>
+      </li>
+      {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "All collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Button Title"
+    },
+    {
+      "type": "text",
+      "id": "items_products",
+      "label": "Product Title",
+      "default": "Product"
+    },
+    {
+      "type": "text",
+      "id": "coll_btn",
+      "label": "Title",
+      "default": "Shop now"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .list-collection{
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px){
+    .list-collection{
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  } @media (max-width: 767px){
+    .list-collection{
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .list-collection ul.grid-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .list-collection ul.grid-wrap li.grid-wrapper{
+    width: calc(25% - 30px);
+    margin: 30px 0 0 30px;
+    position: relative;
+    cursor: pointer;
+    border: var(--sti-border);
+    border-radius: var(--sti-border-radius); 
+    overflow: hidden;
+  }
+  @media (max-width: 1199px){
+    .list-collection ul.grid-wrap li.grid-wrapper{
+      width: calc(33.33% - 30px);
+    }
+  }
+  @media (max-width: 767px){
+    .list-collection ul.grid-wrap li.grid-wrapper{
+      width: calc(100% - 30px);
+    }
+  }
+
+  .list-collection ul.grid-wrap li.grid-wrapper .collection-img{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;    
+    height: 355px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-color: #f6f6f6;
+    border-radius: var(--sti-border-radius); 
+    overflow: hidden;
+  }
+  @media (max-width: 991px){
+    .list-collection ul.grid-wrap li.grid-wrapper .collection-img{  
+      height: 250px;
+    }
+  }
+
+  .list-collection ul.grid-wrap li.grid-wrapper .collection-content{
+    padding: 16px 15px;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .list-collection ul.grid-wrap li.grid-wrapper .collection-content .content h6{
+    color: var(--font-color-primary); 
+    font-size: var(--font-size-body);
+    font-weight: var(--font-subtitle-weight-body);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .list-collection ul.grid-wrap li.grid-wrapper .collection-content .content span{
+    display: block;
+    margin-top: 5px;
+  }
+  .list-collection ul.grid-wrap li.grid-wrapper .collection-content .shop-btn{
+    color: #fff;
+    font-weight: var(--font-subtitle-weight-body);
+    position: absolute;
+    bottom: -100%;
+    right: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    background-color: var(--font-color-primary);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s ease-in-out 0s;
+    -o-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+  }
+  .list-collection ul.grid-wrap li.grid-wrapper:hover .collection-content .shop-btn{
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+</style>

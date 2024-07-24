@@ -1,0 +1,111 @@
+{%- liquid 
+  assign variant = product.selected_or_first_available_variant
+  if product.available
+  assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)"
+  endif
+-%}
+<div class="single-product-wrap{% unless product.available %} stock-out{% endunless %}">
+  <div class="product-image{% unless product.available %} stock-out{% endunless %}">
+    <a class="pro-img" href="{{ product.url | within: collection }}">
+      <img class="img-fluid{% if settings.pro_hvr_enable %} img1{% endif %}{% unless settings.mobile_pro_hvr_enable %} resp-img1{% endunless %}" src="{{ product.featured_image.src | image_url: width: 630, height: 800, crop: 'center' }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" alt="{{ product.featured_image.alt }}" loading="lazy">
+      {% if settings.pro_hvr_enable or product.images[1] %}
+      <img class="img-fluid{% if settings.pro_hvr_enable %} img2{% endif %}{% unless settings.mobile_pro_hvr_enable %} resp-img2{% endunless %}" src="{{ product.images[1] | image_url: width: 630, height: 800, crop: 'center' }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" alt="{{ product.featured_image.alt }}" loading="lazy">
+      {% endif %}
+    </a>
+    <div class="product-label">
+      {%- render 'product-label' -%}
+    </div>
+    <div class="product-action">
+      {%- if settings.wishlist_enable -%}
+      {% render 'wishlist-button', product: product %}
+      {%- endif -%}
+
+      {%- if settings.product_quickview_enalbe -%}
+      <a href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" class="quick-view{% unless product.available %} disabled{% endunless %}"{% unless product.available %} disabled="disabled"{% endunless %} {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_quickview_title }}"{% endif %}>
+        <span class="quickview-icon btn-icon"><i class="ri-eye-line"></i></span>
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="product-content">
+    <div class="content-block">
+      {% if settings.pro_rew_enable %}
+      <div class="product-ratting">
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      </div>
+      {% endif %}
+      <a href="{{ product.url | within: collection }}" class="title" title="{{ product.title }}">{{ product.title }}</a>
+      <div class="price-box">
+        <span class="new-price">{{ product.price | money }}</span>
+        {% if product.compare_at_price_max > product.price %}
+        <span class="old-price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+      {% if settings.show_product_type %}
+      <div class="product-type">
+        {{ product.type | link_to_type }}
+      </div>
+      {% endif %}
+      {%- if product.metafields.custom.short_description -%}
+      <p class="product-description">{{ product.metafields.custom.short_description | strip_html | truncatewords: 20 }}</p>
+      {%- else -%}
+      <p class="product-description">{{ product.description | strip_html | truncatewords: 20 }}</p>
+      {%- endif -%}
+
+      <div class="product-action">
+        {%- if settings.product_quickview_enalbe -%}
+        <a href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" class="quick-view{% unless product.available %} disabled{% endunless %}"{% unless product.available %} disabled="disabled"{% endunless %} {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_quickview_title }}"{% endif %}>
+          <span class="quickview-icon btn-icon"><i class="ri-eye-line"></i></span>
+        </a>
+        {%- endif -%}
+
+        {% if product.available %}
+        <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="add-to-cart ajax-spin-cart" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_add_to_cart_title }}"{% endif %}>
+          <span class="cart-title">
+            <span class="add-c-title">
+              <span class="btn-icon"><i class="ri-shopping-bag-line"></i></span>
+            </span>
+          </span>
+          <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+          <span class="cart-added"><i class="feather-check"></i></span>
+          <span class="cart-unavailable"><i class="bi bi-exclamation-triangle"></i></span>
+        </a>
+        {% else %}
+        <a href="javascript:void(0);" class="disabled-add-to-cart add-to-cart disabled" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_soldout_title }}"{% endif %}>
+          <span class="cart-title">
+            <span class="add-c-title">
+              <span class="btn-icon"><i class="ri-shopping-bag-line"></i></span>
+            </span>
+          </span>
+        </a>
+        {% endif %}
+
+        {%- if settings.wishlist_enable -%}
+        {% render 'wishlist-button', product: product %}
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="product-action-cart">
+      {% if product.available %}
+      <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="add-to-cart ajax-spin-cart" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_add_to_cart_title }}"{% endif %}>
+        <span class="cart-title">
+          <span class="add-c-title">
+            <span class="btn-title">{{ settings.product_cart_title }}</span>
+          </span>
+        </span>
+        <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+        <span class="cart-added"><i class="feather-check"></i></span>
+        <span class="cart-unavailable"><i class="bi bi-exclamation-triangle"></i></span>
+      </a>
+      {% else %}
+      <a href="javascript:void(0);" class="disabled-add-to-cart add-to-cart disabled" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_soldout_title }}"{% endif %}>
+        <span class="cart-title">
+          <span class="add-c-title">
+            <span class="btn-title">{{ settings.product_sold_title }}</span>
+          </span>
+        </span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

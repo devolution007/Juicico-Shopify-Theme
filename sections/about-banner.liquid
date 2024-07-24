@@ -1,0 +1,199 @@
+<section class="about-banner-section">
+  <div class="container">
+    <div class="banner-content">
+      <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.banner_title != '' %}
+          <h2>{{ section.settings.banner_title }}</h2>
+          {% endif %}
+          {% if section.settings.banner_description != '' %}
+          <p>{{ section.settings.banner_description }}</p>
+          {% endif %}
+
+          {% if section.settings.banner_button != '' %}
+          <a href="{{ section.settings.banner_url }}" class="btn btn-style">{{ section.settings.banner_button }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad Pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner image",
+      "info": "Recommended Size: 1920 x 750px"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "We provided good solutions ranmised"
+    },
+    {
+      "type": "text",
+      "id": "banner_description",
+      "label": "Banner title",
+      "default": "All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true"
+    },
+    {
+      "type": "text",
+      "id": "banner_button",
+      "label": "Banner button",
+      "default": "Read continue"
+    },
+    {
+      "type": "text",
+      "id": "banner_url",
+      "label": "Banner url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-banner-section {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-image: url({% if section.settings.banner_img %}{{ section.settings.banner_img | image_url }}{% else %}https://dummyimage.com/1920x750{% endif %});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media(max-width: 1199px) {
+    .about-banner-section {
+        padding-top: {{ section.settings.section_padding_top_ip }}px;
+        padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+    }
+  }
+  @media(max-width: 767px) {
+    .about-banner-section {
+        padding-top: {{ section.settings.section_padding_top_xs }}px;
+        padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .about-banner-section .banner-content {
+    width: 41.67%;
+    margin-left: auto;
+    padding: 60px;
+    border-radius: var(--sti-border-radius);
+    background-color: #fff;
+  }
+  .about-banner-section .banner-content .section-capture {
+    margin-bottom: 0px;
+  }
+  .about-banner-section .banner-content .section-capture .section-title {
+    text-align: left;
+  }
+  .about-banner-section .banner-content p{
+    margin-top: 30px;
+  }
+  .about-banner-section .banner-content a{
+    margin-top: 30px;
+  }
+  @media(max-width: 1399px){
+    .about-banner-section .banner-content{
+      width: 50%;
+    }
+  }
+  @media(max-width: 1199px){
+    .about-banner-section .banner-content{
+      padding: 50px;
+    }
+  }
+  @media(max-width: 991px){
+    .about-banner-section .banner-content{
+      width: 58.33%;
+    }
+  }
+  @media(max-width: 767px){
+    .about-banner-section .banner-content{
+      padding: 30px;
+    }
+  }
+  @media(max-width: 600px){
+    .about-banner-section .banner-content{
+      width: 100%;
+    }
+  }
+</style>

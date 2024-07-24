@@ -1,0 +1,505 @@
+<section class="home-about-area" {% if section.settings.testi_bgimg_enable %}style="background-image: url('{% if section.settings.testi_bgimg %}{{ section.settings.testi_bgimg | image_url }}{% else %}https://dummyimage.com/1920x800/f7f7f7/999999{% endif %}');"{% endif %}>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="about-area">
+          <div class="about-image">
+            <span class="image">
+              {%- if section.settings.about_image -%}
+              {{ section.settings.about_image | image_url: width: 1080 | image_tag:
+                loading: 'lazy',
+                width: section.settings.about_image.width,
+                height: section.settings.about_image.height,
+                class: "img-fluid",
+                alt: section.settings.about_image.alt | escape }}
+              {%- else -%}
+              {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </span>
+          </div>
+          <div class="about-content">
+            <div class="content-block">
+              {% if section.settings.section_title != '' %}
+              <div class="section-capture">
+                <div class="section-title">
+                  <h2>{{ section.settings.section_title }}</h2>
+                </div>
+              </div>
+              {% endif %}
+              <div class="about-service">
+                <ul class="about-service-ul">
+                  {% for block in section.blocks %}
+                  <li class="about-service-li">
+                    <div class="service-box">
+                      <div class="service-icon">
+                        <a class="{{ block.settings.service_btn_url }}" class="service-image">
+                          {%- if block.settings.service_image -%}
+                          {{ block.settings.service_image | image_url: width: 512 | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.service_image.width,
+                            height: block.settings.service_image.height,
+                            class: "img-fluid",
+                            alt: block.settings.service_image.alt | escape }}
+                          {%- else -%}
+                          {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                          {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                        </a>
+                      </div>
+                      <div class="service-content">
+                        <div class="text-block">
+                          {% if block.settings.service_title != '' %}
+                          <h4 class="title">{{ block.settings.service_title }}</h4>
+                          {% endif %}
+                          {% if block.settings.service_description != '' %}
+                          <p class="desc">{{ block.settings.service_description }}</p>
+                          {% endif %}
+                        </div>
+                        <div class="service-btn">
+                          <a href="{{ section.settings.service_btn_url }}" class="button-block">
+                            <span class="btn-icon"><i class="ri-arrow-right-line"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% if section.settings.service_btn_text != '' %}
+              <div class="about-button">
+                <a href="{{ section.settings.service_btn_url }}" class="about-btn {% if section.settings.banner_1_button_style == 'btn-style1' %}btn-style{% elsif section.settings.banner_1_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">{{ section.settings.service_btn_text }}</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+{% schema %}
+{
+  "name": "Home About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#fcf8f8"
+    },
+    {
+      "type": "header",
+      "content": "Section Backgorund Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "testi_bgimg",
+      "label": "Backgorund Image",
+      "info": "Recommended Size: 1920px x 800px"
+    },
+    {
+      "type": "checkbox",
+      "id": "testi_bgimg_enable",
+      "label": "Show Backgorund Images",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#C19D60"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "About Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "Image",
+      "info": "Recommended Size: 470x705px"
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title",
+      "default": "We believe in the power science to change skin !"
+    },
+    {
+      "type": "header",
+      "content": "Service Button"
+    },
+    {
+      "type": "text",
+      "id": "service_btn_text",
+      "label": "Button Text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "service_btn_url",
+      "label": "url"
+    },
+    {
+      "type": "select",
+      "id": "banner_1_button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "label": "Button Style1",
+          "value": "btn-style1"
+        },
+        {
+          "label": "Button Style2",
+          "value": "btn-style2"
+        },
+        {
+          "label": "Button Style3",
+          "value": "btn-style3"
+        }
+      ],
+      "default": "btn-style3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "About Service",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Service Icon Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_image",
+          "label": "Image",
+          "info": "Recommended Size: 512x512px"
+        },
+        {
+          "type": "header",
+          "content": "Service Content"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Title",
+          "default": "Face powder"
+        },
+        {
+          "type": "textarea",
+          "id": "service_description",
+          "label": "Descriptions",
+          "default": "A luxurious powder witheral complex that adds highlight to the face and body."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home About"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.home-about-area {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  background-color: {{ section.settings.section_bg_color }};
+  {% if section.settings.testi_bgimg_enable %}
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  {% endif %}
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .home-about-area {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 767px) {
+  .home-about-area {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+/* main css */
+.home-about-area .about-area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: -30px;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+}
+.home-about-area .about-area .about-image,
+.home-about-area .about-area .about-content {
+  width: calc(50% - 30px);
+  margin-top: 30px;
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+}
+@media (max-width: 991px) {
+  .home-about-area .about-area .about-image,
+  .home-about-area .about-area .about-content {
+    width: calc(100% - 30px);
+  }
+}
+/* about image css */
+.home-about-area .about-area .about-image {
+  text-align: center;
+}
+.home-about-area .about-area .about-image span.image svg {
+  width: 100%;
+}
+/* service css */
+.home-about-area .about-area .about-content .content-block {
+  width: 83.33%;
+}
+.home-about-area .about-area .about-content .content-block .section-capture {
+  margin-bottom: 51px;
+}
+.home-about-area .about-area .about-content .content-block .section-capture .section-title {
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li {
+  margin-top: 38px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li:first-child {
+  margin-top: 0px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box {
+  display: flex;
+  align-items: center;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-icon a {
+  position: relative;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-icon a svg {
+  width: 55px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-icon a img {
+  width: 55px;
+  height: 55px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content {
+  {% if settings.enable_rtl %}
+  padding-right: 20px;
+  {% else %}
+  padding-left: 20px;
+  {% endif %}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 55px);
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .text-block h4.title {
+  font-size: 18px;
+  font-weight: var(--font-custom-weight-header);
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .text-block p.desc {
+  width: 83.33%;
+  margin-top: 18px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn {
+  opacity: 0;
+  visibility: hidden;
+  padding-left: 20px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li:hover .service-box .service-content .service-btn {
+  opacity: 1;
+  visibility: visible;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn a.button-block {
+  background-color: #ffffff;
+  color: var(--font-color-primary);
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 100%;
+  box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn a.button-block:hover {
+  background-color: var(--font-color-primary);
+  color: #ffffff;
+}
+.home-about-area .about-area .about-content .content-block .about-button {
+  margin-top: 53px;
+}
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn,
+.home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li:hover .service-box .service-content .service-btn {
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+@media (max-width: 1399px) {
+  .home-about-area .about-area .about-content .content-block {
+    width: 100%;
+  }
+}
+@media (max-width: 1199px) {
+  .home-about-area .about-area .about-content .content-block .section-capture {
+    margin-bottom: 32px;
+  }
+  .home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li {
+    margin-top: 28px;
+  }
+  .home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .text-block p.desc {
+    margin-top: 8px;
+  }
+  .home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn {
+    opacity: 1;
+    visibility: visible;
+  }
+  .home-about-area .about-area .about-content .content-block .about-button {
+    margin-top: 33px;
+  }
+}
+@media (max-width: 479px) {
+  .home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .text-block p.desc {
+    width: 100%;
+  }
+  .home-about-area .about-area .about-content .content-block .about-service ul.about-service-ul li.about-service-li .service-box .service-content .service-btn a.button-block {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+  } 
+}
+</style>

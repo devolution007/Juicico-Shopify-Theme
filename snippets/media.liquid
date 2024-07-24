@@ -1,0 +1,37 @@
+{% capture media_class %}product-featured-media{% endcapture %}
+<a class="product-single__thumbnail" href="javascript:void(0)" data-image="{{ media.src | image_url: 'master' }}" data-image-id="{{ media.id }}">
+  {% case media.media_type %}
+    {% when 'image' %}
+      {% capture zoom_media_id %}ImageZoom-{{ section.id }}-{{ media.id }}{% endcapture %}
+      {%- assign img_url = media | image_url -%}
+      {%- if section.settings.zoom_enable -%}
+      <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{ img_url }})">
+        {%- endif -%}
+        <img id="{{ media_id }}"
+          class="img-fluid {{ media_class }} lazyload"
+          src="{{ img_url }}"
+          width="{{ media.width }}"
+          height="{{ media.height }}"
+          alt="{{ media.alt | escape }}" loading="lazy">
+          {%- if section.settings.zoom_enable -%}
+        </figure>
+      {%- endif -%}
+      
+    {% when 'external_video' %}
+      <div class="product-single__media">
+        {{ media | external_video_tag }}
+      </div>
+    {% when 'video' %}
+      <div class="product-single__media product-single__media--video product-single__media--{{ media.id }}">
+        {{ media | video_tag: class: 'media-video', autoplay: true, loop: true, controls: true }}
+      </div>
+    {% when 'model' %}
+      <div class="product-single__media">
+        {{ media | model_viewer_tag: image_size: image_size, reveal: 'interaction', toggleable: true, data-model-id: media.id }}
+      </div>
+    {% else %}
+      <div class="product-single__media">
+        {{ media | media_tag: class: 'media-item', image_size: image_size }}
+      </div>
+  {% endcase %}
+</a>

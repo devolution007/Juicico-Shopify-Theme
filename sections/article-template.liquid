@@ -1,0 +1,427 @@
+<section class="article-area section-ptb">
+    <div class="container">
+        <div class="row {% if section.settings.sidebar_handle == 'left_sidebar_handle' %}left-wrap{% elsif section.settings.sidebar_handle == 'right_sidebar_handle' %}right-wrap{% endif %}">
+            <div class="{% if section.settings.sidebar_handle == 'without_sidebar' %}col{% else %}col-xl-9 col-lg-9 col-md-8 col-12 blog-article-wrap{% endif %}">
+                <div class="single-blog-area">
+                    <div class="blog-image">
+                      <a href="{{ article.url }}" class="banner-hover">
+                        {%- if article.image -%}
+                        {{ article.image | image_url: width: 1920 | image_tag:
+                          loading: 'lazy',
+                          width: article.image.width,
+                          height: article.image.height,
+                          class: "img-fluid",
+                          alt: article.image.alt | escape }}
+                        {%- endif -%}
+                      </a>
+                    </div>
+                    <div class="blog-revert">
+                        <h2 class="post-title">{{ article.title }}</h2>
+                    </div>
+                    <div class="blog-content">
+                        {{ article.content }}
+                    </div>
+                    <div class="post-info">
+                        <blockquote>
+                            <i class="fa fa-quote-left"></i>
+                            <h2 class="post-title">
+                                <span>{{ section.settings.article_through }} {{ article.author | truncatewords: 2 | remove: "." }}</span>
+                            </h2>
+                            <ul>
+                                <li class="date-time">
+                                    <i class="fa fa-calendar"></i>
+                                    <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+                                </li>
+                                <li class="blog-comment">
+                                    <i class="fa fa-comment"></i>
+                                    <span class="comment-count">{{ article.comments_count }}</span>
+                                    <span>{{ section.settings.article_cmt }}</span>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </div>
+                    {% if article.tags.size > 0 %}
+                    <div class="post-info-tag">
+                        <ul class="post-tag">
+                            {% for tag in article.tags %}
+                            <li>{{ tag | link_to_tag: tag }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    <div class="blog-share">
+                        {% render 'social-share-blog' %}
+                    </div>
+                    {% if article.comments_enabled? %}
+                    {% assign comment_post_limit = section.settings.comment_post_limit_handle %}
+                    {% paginate article.comments by comment_post_limit %}
+                    <div id="comments" class="blog-comments">
+                        {% if article.comments.size > 0 %}
+                        {% render 'blog-comments' %}
+                        {% endif %}
+                        {% if paginate.pages > 1 %}
+                        <div class="paginatoin-area">
+                          {%- render 'pagination', paginate: paginate -%}
+                        </div>
+                        {% endif %}
+                        {% endpaginate %}
+                        <div class="blog-comment-form">
+                            {% render 'blog-comment-form' %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% unless section.settings.sidebar_handle == 'without_sidebar' %}
+            <div class="col-xl-3 col-lg-3 col-md-4 col-12 blog-article-wrap">
+                {% render 'blog-sidebar' %}
+            </div>
+            {% endunless %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Article Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "article_check",
+      "label": "With Backgorund",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "article_bgcolor",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Blog Post By"
+    },
+    {
+      "type": "text",
+      "id": "article_through",
+      "label": "Blog Post Through Text",
+      "default": "By"
+    },
+    {
+      "type": "header",
+      "content": "Blog Comment Title"
+    },
+    {
+      "type": "text",
+      "id": "article_cmt",
+      "label": "Comment Title",
+      "default": "Comment"
+    },
+    {
+      "type": "text",
+      "id": "comment_post_limit_handle",
+      "label": "How Many Comment Post Show",
+      "default": "5"
+    },
+    {
+      "type": "header",
+      "content": "Avtar option"
+    },
+    {
+      "type": "checkbox",
+      "id": "article_avtar_enable",
+      "label": "Show Avtar",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Article Sidebar"
+    },
+    {
+      "type": "radio",
+      "id": "sidebar_handle",
+      "label": "Sidebar Position",
+      "options": [
+        {
+          "label": "Left Sidebar",
+          "value": "left_sidebar_handle"
+        },
+        {
+          "label": "Right Sidebar",
+          "value": "right_sidebar_handle"
+        },
+        {
+          "label": "Without Sidebar",
+          "value": "without_sidebar"
+        }
+      ],
+      "default": "left_sidebar_handle"
+    },
+    {
+      "type": "paragraph",
+      "content": "Sidebar List"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_search_bar_enable",
+      "label": "Show Searchbar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "recent_post_enable",
+      "label": "Show Recent Posts",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "archive_enable",
+      "label": "Show Archive",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "tags_enable",
+      "label": "Show Tags",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Recent Post"
+    },
+    {
+      "type": "text",
+      "id": "recent_post_limit_handle",
+      "label": "How Many Recent Post Show",
+      "default": "4"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .article-area {
+    {% if section.settings.article_check %}
+    background-color: {{ section.settings.article_bgcolor }};
+    {% endif %}
+  }
+  .article-area .left-wrap {
+    flex-direction: row-reverse;
+  }
+  @media (max-width : 767px){
+    .article-area .left-wrap,
+    .article-area .right-wrap {
+      flex-direction: column-reverse;
+    }
+    .article-area .blog-article-wrap{
+      margin-top: 20px;
+    }
+    .article-area .blog-article-wrap:last-child{
+      margin-top: 0px;
+    }
+  }
+
+  /* blog image */
+  .single-blog-area .blog-image a {
+    border-radius: var(--sti-border-radius);
+    overflow: hidden;
+    display: block;
+  }
+
+  /* blog title */
+  .single-blog-area .blog-revert{
+    margin-top: 30px;
+  }
+  .single-blog-area .blog-revert h2.post-title{
+    font-size: 22px;
+    font-weight: var(--font-subtitle-weight-body);
+  }
+  @media (max-width: 767px){
+    .single-blog-area .blog-revert{
+      margin-top: 20px;
+    }
+    .single-blog-area .post-info{
+      margin-top: 15px;
+    }
+    .single-blog-area .blog-revert h2.post-title {
+      font-size: 20px;
+    }
+  }
+
+  /* blog content */
+  .single-blog-area .blog-content{
+    margin-top: 15px;
+  }
+  .single-blog-area .blog-content .blog-wrap-desc blockquote{
+    color: var(--font-color-primary);
+    margin: 15px 0;
+    padding: 15px;
+    font-weight: var(--font-custom-weight-header);
+    text-align: center;
+    {% if settings.enable_rtl %}
+    border-right: 2px solid var(--font-color-primary);
+    border-left: none;
+    {% else %}
+    border-left: 2px solid var(--font-color-primary);
+    {% endif %}
+    line-height: 25px;
+  }
+  .single-blog-area .blog-content .blog-wrap-desc p.blog-desc{
+    position: relative;
+    {% if settings.enable_rtl %}
+    padding-right: 15px;
+    {% else %}
+    padding-left: 15px;
+    {% endif %}
+  }
+  .single-blog-area .blog-content .blog-wrap-desc p.blog-desc::before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    {% if settings.enable_rtl %}
+    right: 0;
+    {% else %}
+    left: 0;
+    {% endif %}
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+  }
+
+  /* blog info */
+  .single-blog-area .post-info{
+    margin-top: 25px;
+  }
+  .single-blog-area .post-info blockquote {
+    padding: 30px 15px;
+    margin-bottom: 0;
+    background-color: var(--extra-color-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    {% if settings.enable_rtl %}
+    border-right: 2px solid var(--font-color-primary);
+    border-left: none;
+    {% else %}
+    border-left: 2px solid var(--font-color-primary);
+    {% endif %}
+    border-radius: var(--sti-border-radius);
+  }
+  .single-blog-area .post-info blockquote i {
+    color: var(--font-color-primary);
+    font-size: 30px;
+  }
+  .single-blog-area .post-info blockquote h2 {
+    font-size: 18px;
+    display: flex;
+    margin-top: 14px;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .single-blog-area .post-info blockquote ul{
+    display: flex;
+    margin-top: 16px;
+  }
+  .single-blog-area .post-info blockquote ul li{
+    display: flex;
+    align-items: center;
+    {% if settings.enable_rtl %}
+    margin-left: 15px;
+    {% else %}
+    margin-right: 15px;
+    {% endif %}
+    font-style: normal;
+  }
+  .single-blog-area .post-info blockquote ul li:last-child{
+    {% if settings.enable_rtl %}
+    margin-left: 0px;
+    {% else %}
+    margin-right: 0px;
+    {% endif %}
+  }
+  .single-blog-area .post-info blockquote ul li i,
+  .single-blog-area .post-info blockquote ul li span{
+    font-size: 14px;
+  }
+  .single-blog-area .post-info blockquote ul li span{
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+  }
+  .single-blog-area .post-info blockquote ul li span.comment-count{
+    {% if settings.enable_rtl %}
+    margin-right: 2px;
+    {% else %}
+    margin-left: 2px;
+    {% endif %}
+  }
+
+  /* blog tag */
+  .single-blog-area .post-info-tag{
+    margin-top: 25px;
+  }
+  .single-blog-area .post-info-tag ul{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .single-blog-area .post-info-tag ul li{
+    {% if settings.enable_rtl %}
+    margin: 5px 0px 0 5px;
+    {% else %}
+    margin: 5px 5px 0 0px;
+    {% endif %}
+  }
+  .single-blog-area .post-info-tag ul li a{
+  color: #fff;
+  padding: 5px 10px;
+  background-color: var(--font-color-primary);
+  border: 1px solid var(--font-color-primary);
+  border-radius: var(--sti-border-radius);
+  }
+  .single-blog-area .post-info-tag ul li:hover a{
+    color: var(--font-color-primary);
+    background-color: #fff;
+  }
+  @media (max-width: 767px){
+    .single-blog-area .post-info-tag{
+      margin-top: 15px
+    }
+  }
+
+  /* blog social */
+  .single-blog-area .blog-share {
+    margin-top: 25px;
+  }
+  @media (max-width: 767px){
+    .single-blog-area .blog-share{
+      margin-top: 15px;
+    }
+  }
+
+  /* blog comment form */
+  .single-blog-area .blog-comment-form {
+    margin-top: 30px;
+  }
+  @media (max-width: 767px){
+    .single-blog-area .blog-comment-form{
+      margin-top: 20px;
+    }
+  }
+
+  /* blog comments */
+  .single-blog-area .blog-comments{
+    margin-top: 30px;
+  }
+  @media (max-width: 767px){
+    .single-blog-area .blog-comments{
+      margin-top: 20px;
+    }
+  }
+</style>

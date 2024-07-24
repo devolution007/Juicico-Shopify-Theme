@@ -1,0 +1,125 @@
+{%- liquid 
+  assign variant = product.selected_or_first_available_variant
+  if product.available
+  assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)"
+  endif
+-%}
+<div class="single-product-wrap{% unless product.available %} stock-out{% endunless %}">
+  <div class="product-image{% unless product.available %} stock-out{% endunless %}">
+    <a class="pro-img" href="{{ product.url | within: collection }}">
+      <img class="img-fluid{% if settings.pro_hvr_enable %} img1{% endif %}{% unless settings.mobile_pro_hvr_enable %} resp-img1{% endunless %}" src="{{ product.featured_image.src | image_url: width: 625, height: 685, crop: 'center' }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" alt="{{ product.featured_image.alt }}" loading="lazy">
+      {% if settings.pro_hvr_enable or product.images[1] %}
+      <img class="img-fluid{% if settings.pro_hvr_enable %} img2{% endif %}{% unless settings.mobile_pro_hvr_enable %} resp-img2{% endunless %}" src="{{ product.images[1] | image_url: width: 625, height: 685, crop: 'center' }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" alt="{{ product.featured_image.alt }}" loading="lazy">
+      {% endif %}
+    </a>
+    <div class="product-label">
+      {%- render 'product-label' -%}
+    </div>
+    <div class="timer-section counter-event-{{ product.id }}" id="counter-event" data-enddate="{{ product.metafields.custom.timer }}">
+      {{ product.metafields.custom.timer }}
+    </div>
+    <div class="product-action">
+      {%- if settings.product_quickview_enalbe -%}
+      <a href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" class="quick-view{% unless product.available %} disabled{% endunless %}"{% unless product.available %} disabled="disabled"{% endunless %} {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_quickview_title }}"{% endif %}>
+        <span class="quickview-icon btn-icon"><i class="feather-eye"></i></span>
+      </a>
+      {%- endif -%}
+
+      {% if product.available %}
+      <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="add-to-cart ajax-spin-cart" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_add_to_cart_title }}"{% endif %}>
+        <span class="btn-icon">
+          <span class="cart-title">
+            <span class="add-c-title">
+              <span class="cart-icon"><i class="ri-shopping-bag-line"></i></span>
+            </span>
+          </span>
+          <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+          <span class="cart-added"><i class="feather-check"></i></span>
+          <span class="cart-unavailable"><i class="bi bi-exclamation-triangle"></i></span>
+        </span>
+      </a>
+      {% else %}
+      <a href="javascript:void(0);" class="disabled-add-to-cart add-to-cart disabled" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_soldout_title }}"{% endif %}>
+        <span class="btn-icon">
+          <span class="cart-title">
+            <span class="add-c-title">
+              <span class="cart-icon"><i class="ri-shopping-bag-line"></i></span>
+            </span>
+          </span>
+        </span>
+      </a>
+      {% endif %}
+
+      {%- if settings.wishlist_enable -%}
+      {% render 'wishlist-button', product: product %}
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="product-content">
+    <div class="product-type">
+      {{ product.type | link_to_type }}
+    </div>
+    <h6>
+      <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title }}</a>
+    </h6>
+    <div class="price-box">
+      <span class="new-price">{{ product.price | money }}</span>
+      {% if product.compare_at_price_max > product.price %}
+      <span class="old-price">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+    {% if settings.pro_rew_enable %}
+    <div class="product-ratting">
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    </div>
+    {% endif %}
+    {%- if product.metafields.custom.short_description -%}
+    <p class="product-description">{{ product.metafields.custom.short_description | strip_html | truncatewords: 35 }}</p>
+    {%- else -%}
+    <p class="product-description">{{ product.description | strip_html | truncatewords: 35 }}</p>
+    {%- endif -%}
+    <div class="product-action">
+    {%- if settings.product_quickview_enalbe -%}
+    <a href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" class="quick-view{% unless product.available %} disabled{% endunless %}"{% unless product.available %} disabled="disabled"{% endunless %} {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_quickview_title }}"{% endif %}>
+      <span class="quickview-icon btn-icon"><i class="feather-eye"></i></span>
+    </a>
+    {%- endif -%}
+
+    {% if product.available %}
+    <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="add-to-cart ajax-spin-cart" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_add_to_cart_title }}"{% endif %}>
+      <span class="btn-icon">
+        <span class="cart-title">
+          <span class="add-c-title">
+            <span class="cart-icon"><i class="ri-shopping-bag-line"></i></span>
+          </span>
+        </span>
+        <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+        <span class="cart-added"><i class="feather-check"></i></span>
+        <span class="cart-unavailable"><i class="bi bi-exclamation-triangle"></i></span>
+      </span>
+    </a>
+    {% else %}
+    <a href="javascript:void(0);" class="disabled-add-to-cart add-to-cart disabled" {% if settings.tooltip_enable %}data-bs-toggle="tooltip" data-bs-placement="top" title="{{ settings.tooltip_soldout_title }}"{% endif %}>
+      <span class="btn-icon">
+        <span class="cart-title">
+          <span class="add-c-title">
+            <span class="cart-icon"><i class="ri-shopping-bag-line"></i></span>
+          </span>
+        </span>
+      </span>
+    </a>
+    {% endif %}
+
+    {%- if settings.wishlist_enable -%}
+    {% render 'wishlist-button', product: product %}
+    {%- endif -%}
+    </div>
+  </div>
+</div>
+<script> 
+  window.addEventListener("DOMContentLoaded", function() {
+    $('.counter-event-{{ product.id }}').countdown($('.counter-event-{{ product.id }}').attr("data-enddate"), {defer: true }).on('update.countdown', function(event) {
+        var $this = $(this).html(event.strftime('' + '<ul class="contdown_row"><li class="countdown_section"><span id="days" class="countdown_timer">%-D</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.day_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="hours" class="countdown_timer">%H</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.hour_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="minutes" class="countdown_timer">%M</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.minute_title }}</span>{% endif %}</li>' + '<li class="countdown_section"><span id="seconds" class="countdown_timer">%S</span>{% if settings.count_text_enable %}<span class="countdown_title">{{ settings.second_title }}</span>{% endif %}</li></ul>'));
+    }).countdown('start');
+  });
+</script>

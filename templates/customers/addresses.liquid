@@ -1,0 +1,549 @@
+<section class="customer-page section-ptb my-account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-capture">
+        <div class="section-title">
+          <h2>{{ 'customer.addresses.title' | t }}
+          </h2>
+        </div>
+        </div>
+        <div class="return-acc-detail">
+          <a href="/account">{{ 'customer.account.return' | t }}</a>
+        </div>
+        {% paginate customer.addresses by 5 %}
+        <div class="address-wrap">
+          <ul class="cust-address-wrap">
+            {% for address in customer.addresses %}
+            <li class="cust-address">
+              <div class="cust-wrap">
+                <h6>
+                  <span>{{ address.first_name | capitalize }}</span>
+                  <span>{{ address.last_name | capitalize }}</span>
+                  {% if address == customer.default_address %}
+                  <span>({{ 'customer.addresses.default' | t }})</span>
+                  {% endif %}
+                </h6>
+                <p class="address">
+                  {% if address.company %}
+                  <span>{{ address.company | capitalize }}</span>
+                  {% endif %}
+
+                  {% if address.street %}
+                  <span>{{ address.street | capitalize }}</span>
+                  {% endif %}
+
+                  {% if address.city %}
+                  <span>{{ address.city | capitalize }}</span>
+                  {% endif %}
+
+                  {% if address.province_code %}
+                  <span>{{ address.province_code | upcase }}</span>
+                  {% endif %}
+
+                  {% if address.zip %}
+                  <span>{{ address.zip | upcase }}</span>
+                  {% endif %}
+
+                  {% if address.country %}
+                  <span>{{ address.country }}</span>
+                  {% endif %}
+
+                  {% if address.phone %}
+                  <span>{{ address.phone }}</span>
+                  {% endif %}
+                </p>
+              </div>
+              <div class="cust-add-wrap">
+                <p class="edit-address-button">
+                  {{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }}
+                  {{ 'customer.addresses.delete' | t | delete_customer_address_link: address.id }}
+                </p>
+              </div>
+            </li>
+            {% form 'customer_address', address %}
+            <div id="EditAddress_{{ address.id }}" class="address-form" {% unless form.errors %}style="display:none;"{% endunless %}>
+              <h6>{{ 'customer.addresses.edit_address' | t }}</h6>
+              {{ form.errors | default_errors }}
+              <ul class="cust-form">
+                <li class="form-input">
+                  <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+                  <input type="text" id="AddressFirstName_{{ form.id }}" class="input-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+                  <input type="text" id="AddressLastName_{{ form.id }}" class="input-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }}</label>
+                  <input type="text" id="AddressCompany_{{ form.id }}" class="input-full" name="address[company]" value="{{ form.company }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+                  <input type="text" id="AddressAddress1_{{ form.id }}" class="input-full" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressAddress2_{{ form.id }}">{{ 'customer.addresses.address2' | t }}</label>
+                  <input type="text" id="AddressAddress2_{{ form.id }}" class="input-full" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                  <input type="text" id="AddressCity_{{ form.id }}" class="input-full" name="address[city]" value="{{ form.city }}" autocapitalize="words">
+                </li>
+                <li class="form-input">
+                  <label for="AddressCountry_{{ form.id }}">{{ 'customer.addresses.country' | t }}</label>
+                  <select id="AddressCountry_{{ form.id }}" class="input-full" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+                </li>
+                <li class="form-input" id="AddressProvinceContainer_{{ form.id }}" style="display:none">
+                  <label for="AddressProvince_{{ form.id }}">{{ 'customer.addresses.province' | t }}</label>
+                  <select id="AddressProvince_{{ form.id }}" class="input-full" name="address[province]" data-default="{{ form.province }}"></select>
+                </li>
+                <li class="form-input">
+                  <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+                  <input type="text" id="AddressZip_{{ form.id }}" class="input-full" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+                <li class="form-input">
+                  <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+                  <input type="tel" id="AddressPhone_{{ form.id }}" class="input-full" name="address[phone]" value="{{ form.phone }}">
+                </li>
+              </ul>
+              <p class="my-account-checkbox">
+                <label for="address_default_address_{{ form.id }}" class="inline">
+                  <span class="default-title">{{ 'customer.addresses.set_default' | t }}</span>
+                  {{ form.set_as_default_checkbox }}
+                  <span class="checkmark"></span>
+                </label>
+              </p>
+              <p class="update-cancel-btn">
+                <input type="submit" value="{{ 'customer.addresses.update' | t }}">
+                <a href="#" onclick="Shopify.CustomerAddress.toggleForm({{ form.id }}); return false;">{{ 'customer.addresses.cancel' | t }}</a>
+              </p>
+            </div>
+            {% endform %}
+            {% endfor %}
+            <li class="cust-address">
+              <a href="#" class="add-more-add" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">
+                <i class="ri-add-circle-line"></i>
+                <span>{{ 'customer.addresses.add_new' | t }}</span>
+              </a>
+            </li>
+          </ul>
+          {% if paginate.pages > 1 %}
+          <div class="paginatoin-area">
+            {%- render 'pagination', paginate: paginate -%}
+          </div>
+          {% endif %}
+        </div>
+        {% form 'customer_address', customer.new_address %}
+        <div id="AddAddress" class="address-form" {% unless form.errors %}style="display:none;"{% endunless %}>
+          <h6>{{ 'customer.addresses.add_new' | t }}</h6>
+          {{ form.errors | default_errors }}
+          <ul class="cust-form">
+            <li class="form-input">
+              <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+              <input type="text" id="AddressFirstNameNew" class="input-full{% if form.errors contains 'first_name' %} error{% endif %}" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words" placeholder="{{ 'customer.addresses.first_name' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+              <input type="text" id="AddressLastNameNew" class="input-full{% if form.errors contains 'last_name' %} error{% endif %}" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words" placeholder="{{ 'customer.addresses.last_name' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
+              <input type="text" id="AddressCompanyNew" class="input-full" name="address[company]" value="{{ form.company }}" autocapitalize="words" placeholder="{{ 'customer.addresses.company' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+              <input type="text" id="AddressAddress1New" class="input-full{% if form.errors contains 'address1' %} error{% endif %}" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words" placeholder="{{ 'customer.addresses.address1' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+              <input type="text" id="AddressAddress2New" class="input-full" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words" placeholder="{{ 'customer.addresses.address2' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+              <input type="text" id="AddressCityNew" class="input-full{% if form.errors contains 'city' %} error{% endif %}" name="address[city]" value="{{ form.city }}" autocapitalize="words" placeholder="{{ 'customer.addresses.city' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+              <select id="AddressCountryNew" class="input-full{% if form.errors contains 'country' %} error{% endif %}" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+            </li>
+            <li class="form-input" id="AddressProvinceContainerNew" style="display:none">
+              <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+              <select id="AddressProvinceNew" class="input-full{% if form.errors contains 'province' %} error{% endif %}" name="address[province]" data-default="{{ form.province }}"></select>
+            </li>
+            <li class="form-input">
+              <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+              <input type="text" id="AddressZipNew" class="input-full{% if form.errors contains 'zip' %} error{% endif %}" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" placeholder="{{ 'customer.addresses.zip' | t }}">
+            </li>
+            <li class="form-input">
+              <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+              <input type="tel" id="AddressPhoneNew" class="input-full{% if form.errors contains 'phone' %} error{% endif %}" name="address[phone]" value="{{ form.phone }}" placeholder="{{ 'customer.addresses.phone' | t }}">
+            </li>
+          </ul>
+          <p class="my-account-checkbox">
+            <label for="address_default_address_new" class="inline">
+              <span class="default-title">{{ 'customer.addresses.set_default' | t }}</span>
+              {{ form.set_as_default_checkbox }}
+              <span class="checkmark"></span>
+            </label>
+          </p>
+          <p class="update-cancel-btn">
+            <input type="submit" value="{{ 'customer.addresses.add' | t }}">
+            <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.cancel' | t }}</a>
+          </p>
+        </div>
+        {% endform %}
+        {% endpaginate %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+// Initialize observers on address selectors
+new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
+  hideElement: 'AddressProvinceContainerNew'
+});
+// Setup province selector on each customer address
+{% paginate customer.addresses by 5 %}
+{% for address in customer.addresses %}
+new Shopify.CountryProvinceSelector('AddressCountry_{{ address.id }}', 'AddressProvince_{{ address.id }}', {
+  hideElement: 'AddressProvinceContainer_{{ address.id }}'}
+  );
+{% endfor %}
+{% endpaginate %}
+// Modified contents of customer_area.js (global asset)
+Shopify.CustomerAddress = {
+  toggleForm: function(id) {
+    var editEl = document.getElementById('EditAddress_'+id);
+    editEl.style.display = editEl.style.display == 'none' ? '' : 'none';
+    return false;
+  },
+  toggleNewForm: function() {
+    var el = document.getElementById('AddAddress');
+    el.style.display = el.style.display == 'none' ? '' : 'none';
+    return false;
+  },
+  destroy: function(id, confirm_msg) {
+    if (confirm(confirm_msg || "Are you sure you wish to delete this address?")) {
+      Shopify.postLink('/account/addresses/'+id, {'parameters': {'_method': 'delete'}});
+    }
+  }
+}
+});
+</script>
+<style>
+.my-account-page .return-acc-detail a {
+  color: var(--font-color-primary);
+  text-decoration: underline;
+}
+.my-account-page .address-wrap ul.cust-address-wrap {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 30px;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  border-radius: var(--sti-border-radius);
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-wrap {
+  width: 50%;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-wrap h6 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: var(--font-custom-weight-header);
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-wrap p.address span {
+  display: block;
+  margin-top: 10px;
+  
+  line-height: 1;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-wrap p.address span:first-child{
+  margin-top: 15px;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap {
+  width: 50%;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap p.edit-address-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap p.edit-address-button a {
+  position: relative;
+  padding: 5px 10px;
+  {%- if settings.enable_rtl -%}
+  margin-right: -1px;
+  {%- else -%}
+  margin-left: -1px;
+  {%- endif -%}
+  border: 1px solid #000;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address a.add-more-add {
+  color: #828282;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address a.add-more-add i {
+  font-size: 45px;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address a.add-more-add span {
+  margin-top: 15px;
+}
+.my-account-page .address-wrap ul.cust-address-wrap li.cust-address:hover a.add-more-add{
+  color: var(--font-color-primary);
+}
+.my-account-page .address-wrap .paginatoin-area ul.paginate li.page-numerous ul.pagination-box {
+  margin-top: 0;
+}
+@media (max-width: 767px) {
+  .my-account-page .address-wrap ul.cust-address-wrap li.cust-address {
+    flex-direction: column;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-wrap,
+  .my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap {
+    width: 100%;
+  }
+  .my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap {
+    margin-top: 15px;
+  }
+  .my-account-page .address-wrap ul.cust-address-wrap li.cust-address .cust-add-wrap p.edit-address-button{
+    justify-content: flex-start;
+  }
+}
+
+/* adress form css */
+.my-account-page .address-form {
+  margin-top: 30px;
+}
+.my-account-page .address-form h6 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: var(--font-custom-weight-header);
+}
+.my-account-page .address-form ul.cust-form {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  {%- if settings.enable_rtl -%}
+  margin-right: -30px;
+  {%- else -%}
+  margin-left: -30px;
+  {%- endif -%}
+}
+.my-account-page .address-form ul.cust-form li {
+  width: calc(50% - 30px);
+  {%- if settings.enable_rtl -%}
+  margin: 18px 30px 0 0px;
+  {%- else -%}
+  margin: 18px 0 0 30px;
+  {%- endif -%}
+}
+.my-account-page .address-form ul.cust-form li:nth-child(1),
+.my-account-page .address-form ul.cust-form li:nth-child(2){
+  margin-top: 0;
+}
+@media (max-width: 767px) {
+  .my-account-page .address-form {
+    margin-top: 20px;
+  }
+  .my-account-page .address-form ul.cust-form {
+    margin-top: 20px;
+    {%- if settings.enable_rtl -%}
+    margin-right: -15px;
+    {%- else -%}
+    margin-left: -15px;
+    {%- endif -%}
+  }
+  .my-account-page .address-form ul.cust-form li {
+    width: calc(100% - 15px);
+    {%- if settings.enable_rtl -%}
+    margin: 15px 15px 0 0px;
+    {%- else -%}
+    margin: 15px 0 0 15px;
+    {%- endif -%}
+  }
+  .my-account-page .address-form ul.cust-form li:nth-child(2) {
+    margin-top: 15px;
+  }
+}
+
+/* adress form checkbox css */
+.my-account-page .address-form ul.cust-form li label {
+  font-size: 16px;
+  font-weight: var(--sti-font-weight);
+  display: block;
+  cursor: auto;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+.my-account-page .address-form ul.cust-form li select {
+  padding: 10px 30px 10px 15px;
+}
+.my-account-page .address-form p.my-account-checkbox{
+  margin-top: 30px;
+  line-height: normal;
+}
+.my-account-page .address-form p.my-account-checkbox label {
+  color: #222;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  {%- if settings.enable_rtl -%}
+  padding-right: 25px;
+  {%- else -%}
+  padding-left: 25px;
+  {%- endif -%}
+  margin-bottom: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+.my-account-page .address-form p.my-account-checkbox label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.my-account-page .address-form p.my-account-checkbox label .checkmark {
+  position: absolute;
+  {%- if settings.enable_rtl -%}
+  right: 0;
+  {%- else -%}
+  left: 0;
+  {%- endif -%}
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--sti-border);
+  background-color: #fff;
+}
+/* On mouse-over, add a grey background color */
+.my-account-page .address-form p.my-account-checkbox label:hover input ~ .checkmark {
+  box-shadow: inset 0 0px 3px rgba(0, 0, 0, 0.2);
+}
+/* When the checkbox is checked, add a blue background */
+.my-account-page .address-form p.my-account-checkbox label input:checked ~ .checkmark {
+  background-color: var(--font-color-primary);
+  border: 1px solid var(--font-color-primary);
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.my-account-page .address-form p.my-account-checkbox label .checkmark:after {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  {%- if settings.enable_rtl -%}
+  right: 5px;
+  {%- else -%}
+  left: 5px;
+  {%- endif -%}
+  width: 5px;
+  height: 12px;
+  border: solid white;
+  border-width: 0px 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* Show the checkmark when checked */
+.my-account-page .address-form p.my-account-checkbox label input:checked ~ .checkmark:after {
+  display: block;
+}
+@media (max-width: 767px) {
+  .my-account-page .address-form p.my-account-checkbox {
+    margin-top: 20px;
+  }
+}
+
+/* adress form update cancel button css */
+.my-account-page .address-form p.update-cancel-btn {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.my-account-page .address-form p.update-cancel-btn input {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+.my-account-page .address-form p.update-cancel-btn input,
+.my-account-page .address-form p.update-cancel-btn a {
+  color: var(--font-color-primary);
+  text-decoration: underline;
+}
+.my-account-page .address-form p.update-cancel-btn a {
+  {%- if settings.enable_rtl -%}
+  padding-right: 30px;
+  {%- else -%}
+  padding-left: 30px;
+  {%- endif -%}
+}
+@media (max-width: 767px) {
+  .my-account-page .address-form p.update-cancel-btn a{
+    {%- if settings.enable_rtl -%}
+    padding-right: 15px;
+    {%- else -%}
+    padding-left: 15px;
+    {%- endif -%}
+  }
+}
+
+/* error css */
+.my-account-page .address-form .errors {
+  padding: 10px 15px;
+  margin: 30px 0 -15px;
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+}
+.my-account-page .address-form .errors ul{
+  {% if settings.enable_rtl %}
+  margin-right: 15px;
+  margin-left: 0;
+  {% else %}
+  margin-left: 15px;
+  {% endif %}
+  list-style: square;
+}
+.my-account-page .address-form .errors ul li{
+  margin-top: 5px;
+}
+.my-account-page .address-form .errors ul li:first-child{
+  margin-top: 0px;
+}
+@media (max-width: 767px) {
+  .my-account-page .address-form .errors {
+    margin: 20px 0 -5px;
+  }
+}
+</style>

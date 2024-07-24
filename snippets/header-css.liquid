@@ -1,0 +1,17 @@
+{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+{{ 'animate.min.css' | asset_url | stylesheet_tag }}
+{{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+{{ 'owl.carousel.min.css' | asset_url | stylesheet_tag }}
+{{ 'owl.theme.default.min.css' | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+{{ 'swatch-color.css' | asset_url | stylesheet_tag }}
+{{ 'feather.css' | asset_url | stylesheet_tag }}
+{{ 'remixicon.css' | asset_url | stylesheet_tag }}
+{%- if settings.enable_rtl -%}
+{{ 'style-rtl.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+{{ 'style.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{{ 'skin-theme.css' | asset_url | stylesheet_tag }}

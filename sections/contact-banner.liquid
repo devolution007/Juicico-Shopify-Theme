@@ -1,0 +1,244 @@
+<!-- banner-area start -->
+<section class="contact-banner">
+  <div class="container">
+    <ul class="banner-wrap">
+      <li class="banner-wrapper">
+        <div class="banner-text">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.banner_title != '' %}
+              <h2>{{ section.settings.banner_title }}</h2>
+              {% endif %}
+              {% if section.settings.banner_description != '' %}
+              <p>{{ section.settings.banner_description }}</p>
+              {% endif %}
+              {% if section.settings.banner_button != '' %}
+              <a class="btn btn-style" href="{{ section.settings.banner_url }}">
+                {{ section.settings.banner_button }}
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="banner-wrapper banner-block">
+        <a href="{{ section.settings.banner_url }}">
+          {%- if section.settings.banner_img -%}
+          {{ section.settings.banner_img | image_url: width: 1024 | image_tag:
+          loading: 'lazy',
+          width: section.settings.banner_img.width,
+          height: section.settings.banner_img.height,
+          class: "img-fluid",
+          alt: section.settings.banner_img.alt | escape }}
+          {%- else -%}
+          {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+          {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- banner-area end -->
+{% schema %}
+{
+  "name": "Contact banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "section background color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner Image",
+      "info": "Recommended Size: 880x720px"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "The higher the heel the closer to heaven!!!"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_description",
+      "label": "Banner description",
+      "default": "Give us a call or drop by anytime, we endeavourto answer all enquiries within 24 hours on business days I’ve created a vocabulary of different styles i draw from many different ways to take a picture."
+    },
+    {
+      "type": "text",
+      "id": "banner_button",
+      "label": "Banner button",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.contact-banner{
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  background-color: {{ section.settings.section_bg_color }};
+}
+@media(max-width: 1199px){
+  .contact-banner{
+    padding-top: {{ section.settings.section_padding_top_lg }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media(max-width: 767px){
+  .contact-banner{
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+/*banner text content*/
+.contact-banner ul.banner-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin: -30px 0 0 -30px;
+}
+.contact-banner ul.banner-wrap li.banner-wrapper.banner-block{
+  width: calc(55% - 30px);
+  margin: 30px 0 0 30px;
+}
+.contact-banner ul.banner-wrap li.banner-wrapper{
+  width: calc(45% - 30px);
+  margin: 30px 0 0 30px;
+}
+.contact-banner .banner-block a {
+  display: block;
+}
+.contact-banner .banner-block svg {
+  width: 100%;
+}
+.contact-banner .banner-block img {
+  border-radius: var(--sti-border-radius);
+}
+.contact-banner .banner-text {
+  max-width: 83.33%;
+}
+.contact-banner .banner-text .section-capture {
+  margin-bottom: 0px;
+}
+.contact-banner .banner-text .section-capture .section-title {
+  text-align: left;
+}
+.contact-banner .banner-text .section-capture .section-title p {
+  margin-top: 30px;
+}
+.contact-banner .banner-text .section-capture .section-title a {
+  margin-top: 30px;
+}
+@media(max-width: 1399px){
+  .contact-banner .banner-text{
+    max-width: 100%;
+  }
+}
+@media(max-width: 991px){
+  .contact-banner ul.banner-wrap li.banner-wrapper.banner-block,
+  .contact-banner ul.banner-wrap li.banner-wrapper{
+    width: calc(100% - 30px);
+  }
+}
+@media(max-width: 767px){ 
+  .contact-banner .banner-text .section-capture .section-title p{
+    margin-top: 15px;
+    line-height: 25px;
+  }
+  .contact-banner .banner-text .section-capture .section-title a {
+    margin-top: 15px;
+  }
+}
+</style>

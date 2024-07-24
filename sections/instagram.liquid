@@ -1,0 +1,253 @@
+<section class="insta-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                {% if section.settings.section_title != '' %}
+                <div class="section-capture">
+                    <div class="section-title">
+                        {% if section.settings.section_sub_title != '' %}
+                        <span>{{ section.settings.section_sub_title }}</span>
+                        {% endif %}
+                        {% if section.settings.section_title != '' %}
+                        <h2>{{ section.settings.section_title }}</h2>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="owl-carousel owl-theme" id="insta-slider">
+                    {% for block in section.blocks %}
+                    <div class="item">
+                        <a class="insta-content banner-hover" href="{{ block.settings.insta_url }}">
+                            {%- if block.settings.insta_img -%}
+                            {{ block.settings.insta_img | image_url: width: 500 | image_tag:
+                                loading: 'lazy',
+                                width: block.settings.insta_img.width,
+                                height: block.settings.insta_img.height,
+                                class: "img-fluid",
+                                alt: block.settings.insta_img.alt | escape }}
+                            {%- else -%}
+                            {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                            {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+    $('#insta-slider').owlCarousel({
+        loop:true,
+        margin:30,
+        items:8,
+        {%- if settings.enable_rtl -%}
+        rtl: true,
+        {%- else -%}
+        fade: true,
+        {%- endif -%}
+        nav: false,
+        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        dots: false,
+        responsive:{
+            0:{
+                items: 2,
+                margin: 15
+            },
+            479:{
+                items: 3,
+                margin: 15
+            },
+            768:{
+                items: 4,
+                margin: 15
+            },
+            979:{
+                items: 5,
+                margin: 15
+            },
+            1199: {
+                items: 5
+            }
+        }
+    });
+});
+</script>
+{% schema %}
+{
+  "name": "instagram slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_sub_title",
+      "label": "Section sub title",
+      "default": "Instagram Feed"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Instagram Feed"
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "insta_bgcolor",
+      "label": "Background Color",
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "insta_img",
+          "label": "Image",
+          "info": "Recommended Size: 110px x 110px"
+        },
+        {
+          "type": "url",
+          "id": "insta_url",
+          "label": "Banner URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Slider",
+      "category": "Instagram"
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+    .insta-wrap {
+        padding-top:{{ section.settings.section_padding_top }}px;
+        padding-bottom:{{ section.settings.section_padding_bottom }}px;
+        background-color: {{ section.settings.insta_bgcolor }};
+    }
+    @media (max-width: 1199px) {
+        .insta-wrap {
+            padding-top:{{ section.settings.section_padding_top_lg }}px;
+            padding-bottom:{{ section.settings.section_padding_bottom_lg }}px;
+        }
+    }
+    @media (max-width: 767px) {
+        .insta-wrap {
+            padding-top:{{ section.settings.section_padding_top_xs }}px;
+            padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+        }
+    }
+    .insta-content:hover:after{
+        opacity: 1;
+        visibility: visible;
+    }
+    .insta-content.banner-hover:before{
+        background-color: {{ settings.color_secondary | color_modify: 'alpha', 0.5 }};
+    }
+    .insta-content:after{
+        content: '\f16d';
+        position: absolute;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2;
+        font: normal normal normal 24px/1 FontAwesome;
+        -webkit-transition: all .3s ease-in-out 0s;
+        -o-transition: all .3s ease-in-out 0s;
+        transition: all .3s ease-in-out 0s;
+    }
+</style>

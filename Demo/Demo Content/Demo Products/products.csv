@@ -1,0 +1,848 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Google Shopping / Google Product Category,Google Shopping / Gender,Google Shopping / Age Group,Google Shopping / MPN,Google Shopping / Condition,Google Shopping / Custom Product,Google Shopping / Custom Label 0,Google Shopping / Custom Label 1,Google Shopping / Custom Label 2,Google Shopping / Custom Label 3,Google Shopping / Custom Label 4,Variant Image,Variant Weight Unit,Variant Tax Code,Cost per item,Included / Australia,Price / Australia,Compare At Price / Australia,Included / International,Price / International,Compare At Price / International,Status
+jamun-juice,Jamun juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, darkorange, hotpink, juice, juicico, lightyellow",true,Color,Lightyellow,Size,100 ml,,,abccd-17,0.0,shopify,22,deny,manual,269.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_4d2de06e-92e2-4f9a-a79c-e572f4da1921.jpg?v=1707995932,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_17b190ae-ec2b-40c4-8d42-93f3b3a397f5.jpg?v=1707995931,lb,,299.00,true,,,true,,,active
+jamun-juice,,,,,,,,,Hotpink,,100 ml,,,abccd-18,0.0,shopify,72,deny,manual,275.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_287c7c5a-6da7-4c87-ad9f-393cc22e2691.jpg?v=1707995931,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_4d2de06e-92e2-4f9a-a79c-e572f4da1921.jpg?v=1707995932,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Darkorange,,100 ml,,,abccd-16,0.0,shopify,26,deny,manual,279.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/26.jpg?v=1707995931,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/26.jpg?v=1707995931,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Lightyellow,,250 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27_7cc5de72-5465-4969-b6a0-119c2552e5f1.jpg?v=1707995930,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_17b190ae-ec2b-40c4-8d42-93f3b3a397f5.jpg?v=1707995931,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Lightyellow,,500 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_17b190ae-ec2b-40c4-8d42-93f3b3a397f5.jpg?v=1707995931,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_17b190ae-ec2b-40c4-8d42-93f3b3a397f5.jpg?v=1707995931,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Hotpink,,250 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_4d2de06e-92e2-4f9a-a79c-e572f4da1921.jpg?v=1707995932,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Hotpink,,500 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_4d2de06e-92e2-4f9a-a79c-e572f4da1921.jpg?v=1707995932,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Darkorange,,250 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/26.jpg?v=1707995931,lb,,299.00,,,,,,,
+jamun-juice,,,,,,,,,Darkorange,,500 ml,,,"",0.0,shopify,0,deny,manual,269.00,299.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/26.jpg?v=1707995931,lb,,299.00,,,,,,,
+mint-juice,Mint juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, juice, juicico, lightseagreen, rosybnrown, salmon",true,Color,LightseaGreen,Size,100 ml,,,abccd-16,0.0,shopify,119,deny,manual,267.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_a5cc56c8-2f4f-43d5-9a09-b17755b6c025.jpg?v=1707995560,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_a5cc56c8-2f4f-43d5-9a09-b17755b6c025.jpg?v=1707995560,lb,,279.00,true,,,true,,,active
+mint-juice,,,,,,,,,LightseaGreen,,250 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_b20f798d-a5fd-477e-8182-425e3517ac4e.jpg?v=1707995560,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_a5cc56c8-2f4f-43d5-9a09-b17755b6c025.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,LightseaGreen,,500 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d9f042eb-1e46-419f-9172-a754f5312e6b.jpg?v=1707995560,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_a5cc56c8-2f4f-43d5-9a09-b17755b6c025.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Salmon,,100 ml,,,abccd-17,0.0,shopify,50,deny,manual,259.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23_577f4012-ae39-49b8-8b79-bda7755e8357.jpg?v=1707995560,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_b20f798d-a5fd-477e-8182-425e3517ac4e.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Salmon,,250 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_873d8e46-c789-403c-abc9-39bb70035732.jpg?v=1707995560,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_b20f798d-a5fd-477e-8182-425e3517ac4e.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Salmon,,500 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_b20f798d-a5fd-477e-8182-425e3517ac4e.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Rosybnrown,,100 ml,,,abccd-18,0.0,shopify,20,deny,manual,270.00,,true,true,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23_577f4012-ae39-49b8-8b79-bda7755e8357.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Rosybnrown,,250 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23_577f4012-ae39-49b8-8b79-bda7755e8357.jpg?v=1707995560,lb,,279.00,,,,,,,
+mint-juice,,,,,,,,,Rosybnrown,,500 ml,,,"",0.0,shopify,0,deny,manual,267.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23_577f4012-ae39-49b8-8b79-bda7755e8357.jpg?v=1707995560,lb,,279.00,,,,,,,
+trainer-stepper,Rose juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, juice, juicico, lightsalmon, purple, yellowgreen",true,Color,Lightsalmon,,,,,abccd-19,0.0,shopify,24,deny,manual,369.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17_51460781-f24f-4d9a-974f-8c0630680406.jpg?v=1707995196,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17_51460781-f24f-4d9a-974f-8c0630680406.jpg?v=1707995196,lb,,399.00,true,,,true,,,active
+trainer-stepper,,,,,,,,,Purple,,,,,abccd-15,0.0,shopify,87,deny,manual,341.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33.jpg?v=1707995196,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33.jpg?v=1707995196,lb,,399.00,,,,,,,
+trainer-stepper,,,,,,,,,Yellowgreen,,,,,abccd-17,0.0,shopify,30,deny,manual,374.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/1_9d45d6f3-b3c5-4248-b0c9-f77d4c62ef09.jpg?v=1707995196,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/1_9d45d6f3-b3c5-4248-b0c9-f77d4c62ef09.jpg?v=1707995196,lb,,399.00,,,,,,,
+trainer-stepper,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31.jpg?v=1707995190,4,"",,,,,,,,,,,,,,,,,,,,,,,,,
+trainer-stepper,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32_cee89e4a-d7f5-4191-be03-87d9f75471dd.jpg?v=1707995189,5,"",,,,,,,,,,,,,,,,,,,,,,,,,
+trainer-kit,Pomegranate juioce,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, black, darkorange, juice, juicico, lightpink",true,Color,black,Size,100 ml,,,abccd-15,0.0,shopify,28,deny,manual,345.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_041aa6d8-77ac-4e3d-b8f7-c8dcd960c91e.jpg?v=1707994547,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_041aa6d8-77ac-4e3d-b8f7-c8dcd960c91e.jpg?v=1707994547,lb,,349.00,true,,,true,,,active
+trainer-kit,,,,,,,,,Lightpink,,100 ml,,,abccd-19,0.0,shopify,66,deny,manual,325.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_a6f13ce4-6ac2-4bb3-b6a7-adf5eb7b50e4.jpg?v=1707994547,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_a6f13ce4-6ac2-4bb3-b6a7-adf5eb7b50e4.jpg?v=1707994547,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,DarkOrange,,100 ml,,,abccd-17,0.0,shopify,44,deny,manual,329.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7.jpg?v=1707994537,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7.jpg?v=1707994537,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,black,,250 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d403cd8f-345b-4296-bd38-8ee4c0c9d849.jpg?v=1707994537,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_041aa6d8-77ac-4e3d-b8f7-c8dcd960c91e.jpg?v=1707994547,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,black,,500 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23_db1cdf28-c44a-45a1-9013-d2934622b978.jpg?v=1707994538,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_041aa6d8-77ac-4e3d-b8f7-c8dcd960c91e.jpg?v=1707994547,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,Lightpink,,250 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_a6f13ce4-6ac2-4bb3-b6a7-adf5eb7b50e4.jpg?v=1707994547,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,Lightpink,,500 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_a6f13ce4-6ac2-4bb3-b6a7-adf5eb7b50e4.jpg?v=1707994547,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,DarkOrange,,250 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7.jpg?v=1707994537,lb,,349.00,,,,,,,
+trainer-kit,,,,,,,,,DarkOrange,,500 ml,,,"",0.0,shopify,0,deny,manual,345.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7.jpg?v=1707994537,lb,,349.00,,,,,,,
+studio-deck,Sugarcane Juice,"<div class=""more-description"">
+<h2>juiMore Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, darkmagenta, juice, juicico, lightgray, saddlebrown",true,Color,Lightgray,Size,100 ml,,,abccd-16,0.0,shopify,89,deny,manual,245.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_154b2c6c-0175-47c2-90bb-2172f883a06b.jpg?v=1707994185,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_154b2c6c-0175-47c2-90bb-2172f883a06b.jpg?v=1707994185,lb,,249.00,true,,,true,,,active
+studio-deck,,,,,,,,,Saddlebrown,,100 ml,,,abccd-17,0.0,shopify,65,deny,manual,229.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4_a0f10bde-aee8-4694-8a4c-60e3143d35a5.jpg?v=1707994185,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4_a0f10bde-aee8-4694-8a4c-60e3143d35a5.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Darkmagenta,,100 ml,,,abccd-14,0.0,shopify,31,deny,manual,219.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d4c926ef-760e-4362-abb3-17165528bdbc.jpg?v=1707994185,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d4c926ef-760e-4362-abb3-17165528bdbc.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Lightgray,,250 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24_d1d61fa1-ee02-4096-9871-726315c8f331.jpg?v=1707994185,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_154b2c6c-0175-47c2-90bb-2172f883a06b.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Lightgray,,500 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/25_2fe5a82a-6c2a-4abe-88c8-b57f69755d68.jpg?v=1707994185,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21_154b2c6c-0175-47c2-90bb-2172f883a06b.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Saddlebrown,,250 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4_a0f10bde-aee8-4694-8a4c-60e3143d35a5.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Saddlebrown,,500 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4_a0f10bde-aee8-4694-8a4c-60e3143d35a5.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Darkmagenta,,250 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d4c926ef-760e-4362-abb3-17165528bdbc.jpg?v=1707994185,lb,,249.00,,,,,,,
+studio-deck,,,,,,,,,Darkmagenta,,500 ml,,,"",0.0,shopify,0,deny,manual,245.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_d4c926ef-760e-4362-abb3-17165528bdbc.jpg?v=1707994185,lb,,249.00,,,,,,,
+guava-juice,Guava juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, darkkhakhi, darksalmon, juice, juicico, mediumvioletRed",true,Color,MediumvioletRed,,,,,abccd-18,0.0,shopify,22,deny,manual,269.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a8cba4bc-86ff-41f8-aa5d-95bb96e1075a.jpg?v=1707993933,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a8cba4bc-86ff-41f8-aa5d-95bb96e1075a.jpg?v=1707993933,lb,,299.00,true,,,true,,,active
+guava-juice,,,,,,,,,Darksalmon,,,,,abccd-16,0.0,shopify,26,deny,manual,279.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_77cf2ed8-9c6a-4ae3-a21f-ac409768581d.jpg?v=1707993933,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_77cf2ed8-9c6a-4ae3-a21f-ac409768581d.jpg?v=1707993933,lb,,299.00,,,,,,,
+guava-juice,,,,,,,,,Darkkhaki,,,,,abccd-19,0.0,shopify,72,deny,manual,275.00,299.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_c2de036a-544a-4a72-8530-039cb5a08c61.jpg?v=1707993933,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/29_e462e236-6582-4471-94da-f0efa5a1d3a1.jpg?v=1707993933,lb,,299.00,,,,,,,
+guava-juice,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32_501eafd4-7742-42e9-b2f0-1d7cac90af06.jpg?v=1707993933,4,"",,,,,,,,,,,,,,,,,,,,,,,,,
+guava-juice,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/29_e462e236-6582-4471-94da-f0efa5a1d3a1.jpg?v=1707993933,5,"",,,,,,,,,,,,,,,,,,,,,,,,,
+natural-apple-juice,Natural apple juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, darkblue, darkslategray, juice, juicico, khaki",true,Color,Darkslategray,Size,100 ml,,,abccd-18,0.0,shopify,99,deny,manual,135.00,149.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_f4462fb9-5877-4072-989c-fb8231808fca.jpg?v=1707993101,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_df319388-4282-477d-aabc-0078e4d1a3dc.jpg?v=1707993101,lb,,149.00,true,,,true,,,active
+natural-apple-juice,,,,,,,,,Khaki,,100 ml,,,abccd-16,0.0,shopify,36,deny,manual,125.00,149.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/25.jpg?v=1707993102,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_f4462fb9-5877-4072-989c-fb8231808fca.jpg?v=1707993101,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Darkblue,,100 ml,,,abccd-19,0.0,shopify,88,deny,manual,145.00,149.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27.jpg?v=1707993102,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27.jpg?v=1707993102,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Darkslategray,,250 ml,,,"",0.0,shopify,24,deny,manual,135.00,149.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28.jpg?v=1707993101,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_df319388-4282-477d-aabc-0078e4d1a3dc.jpg?v=1707993101,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Khaki,,250 ml,,,"",0.0,shopify,88,deny,manual,135.00,149.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_df319388-4282-477d-aabc-0078e4d1a3dc.jpg?v=1707993101,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_f4462fb9-5877-4072-989c-fb8231808fca.jpg?v=1707993101,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Darkblue,,250 ml,,,"",0.0,shopify,57,deny,manual,135.00,149.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27.jpg?v=1707993102,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Darkslategray,,500 ml,,,"",0.0,shopify,85,deny,manual,135.00,149.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_df319388-4282-477d-aabc-0078e4d1a3dc.jpg?v=1707993101,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Khaki,,500 ml,,,"",0.0,shopify,74,deny,manual,135.00,149.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_f4462fb9-5877-4072-989c-fb8231808fca.jpg?v=1707993101,lb,,149.00,,,,,,,
+natural-apple-juice,,,,,,,,,Darkblue,,500 ml,,,"",0.0,shopify,23,deny,manual,135.00,149.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27.jpg?v=1707993102,lb,,149.00,,,,,,,
+flavored-juice,Flavored  juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 500 ml, black, darkgreen, darkmagenta, juice, juicico",true,Color,DarkMagenta,Size,100 ml,,,abccd-12,0.0,shopify,24,deny,manual,319.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_7899bac4-216c-4148-989d-33f03e3ff4b0.jpg?v=1707992738,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_7899bac4-216c-4148-989d-33f03e3ff4b0.jpg?v=1707992738,lb,,325.00,true,,,true,,,active
+flavored-juice,,,,,,,,,DarkMagenta,,250 ml,,,"",0.0,shopify,35,deny,manual,321.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32_000ddbe3-161a-4804-9d6a-bc4dc1bfb686.jpg?v=1707992737,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_7899bac4-216c-4148-989d-33f03e3ff4b0.jpg?v=1707992738,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,DarkMagenta,,500 ml,,,"",0.0,shopify,71,deny,manual,321.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_43fca702-0d42-4f12-b12f-1f806dc872ca.jpg?v=1707992738,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_7899bac4-216c-4148-989d-33f03e3ff4b0.jpg?v=1707992738,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Darkgreen,,100 ml,,,abccd-11,0.0,shopify,33,deny,manual,321.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8.jpg?v=1707992738,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_1e72cd3b-0fd9-459e-9736-dbef57495d7c.jpg?v=1707992737,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Darkgreen,,250 ml,,,"",0.0,shopify,24,deny,manual,321.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_1e72cd3b-0fd9-459e-9736-dbef57495d7c.jpg?v=1707992737,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_1e72cd3b-0fd9-459e-9736-dbef57495d7c.jpg?v=1707992737,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Darkgreen,,500 ml,,,"",0.0,shopify,63,deny,manual,321.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22_1e72cd3b-0fd9-459e-9736-dbef57495d7c.jpg?v=1707992737,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Black,,100 ml,,,abccd-13,0.0,shopify,30,deny,manual,299.00,,true,true,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_43fca702-0d42-4f12-b12f-1f806dc872ca.jpg?v=1707992738,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Black,,250 ml,,,"",0.0,shopify,55,deny,manual,321.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_43fca702-0d42-4f12-b12f-1f806dc872ca.jpg?v=1707992738,lb,,325.00,,,,,,,
+flavored-juice,,,,,,,,,Black,,500 ml,,,"",0.0,shopify,29,deny,manual,321.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_43fca702-0d42-4f12-b12f-1f806dc872ca.jpg?v=1707992738,lb,,325.00,,,,,,,
+green-apple,Green apple,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more addPlay Mats &amp; Gyms</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkblue, darkkhaki, darkred, juice, juicico",true,Color,Darkkhaki,Size,100 ml,,,abccd-18,0.0,shopify,31,deny,manual,559.00,599.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/22.jpg?v=1707991107,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/25_8f01d8b8-8e2c-48ae-9509-cc87248e0c45.jpg?v=1707991099,lb,,599.00,true,,,true,,,active
+green-apple,,,,,,,,,DarkBlue,,100 ml,,,abccd-16,0.0,shopify,15,deny,manual,589.00,599.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21.jpg?v=1707991107,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21.jpg?v=1707991107,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,Darkred,,100 ml,,,abccd-14,0.0,shopify,20,deny,manual,269.00,599.00,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23.jpg?v=1707991099,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23.jpg?v=1707991099,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,Darkred,,250 ml,,,abccd-12,0.0,shopify,30,deny,manual,559.00,599.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/24.jpg?v=1707991100,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23.jpg?v=1707991099,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,Darkred,,750 ml,,,abccd-13,0.0,shopify,25,deny,manual,559.00,599.00,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/25_8f01d8b8-8e2c-48ae-9509-cc87248e0c45.jpg?v=1707991099,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/23.jpg?v=1707991099,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,Darkkhaki,,250 ml,,,abccd-19,0.0,shopify,22,deny,manual,559.00,599.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21.jpg?v=1707991107,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,DarkBlue,,250 ml,,,abccd-17,0.0,shopify,20,deny,manual,559.00,599.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21.jpg?v=1707991107,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,Darkkhaki,,750 ml,,,abccd-20,0.0,shopify,35,deny,manual,559.00,599.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/25_8f01d8b8-8e2c-48ae-9509-cc87248e0c45.jpg?v=1707991099,lb,,599.00,,,,,,,
+green-apple,,,,,,,,,DarkBlue,,750 ml,,,abccd-11,0.0,shopify,54,deny,manual,559.00,599.00,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/21.jpg?v=1707991107,lb,,599.00,,,,,,,
+mocktail-juice,Mocktail juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, hotpink, juice, juicico, lightyellow, limegreen",true,Color,Lightyellow,Size,100 ml,,,abccd-19,0.0,shopify,24,deny,manual,369.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/33_8487a790-948b-487b-8e07-d25920e40427.jpg?v=1707992400,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32.jpg?v=1707992612,lb,,399.00,true,,,true,,,active
+mocktail-juice,,,,,,,,,Hotpink,,100 ml,,,abccd-17,0.0,shopify,30,deny,manual,374.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_444a5a61-0fc1-4441-b067-f90679a8f3b8.jpg?v=1707992399,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_990003aa-9d3f-4441-81ea-cfb0e824dcf6.jpg?v=1707992612,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Lightyellow,,250 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8_92dcf008-d70e-4798-9495-9fc17350008c.jpg?v=1707992612,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32.jpg?v=1707992612,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Lightyellow,,750 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32.jpg?v=1707992612,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/32.jpg?v=1707992612,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Hotpink,,250 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_990003aa-9d3f-4441-81ea-cfb0e824dcf6.jpg?v=1707992612,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_990003aa-9d3f-4441-81ea-cfb0e824dcf6.jpg?v=1707992612,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Hotpink,,750 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/31_990003aa-9d3f-4441-81ea-cfb0e824dcf6.jpg?v=1707992612,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Limegreen,,100 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_444a5a61-0fc1-4441-b067-f90679a8f3b8.jpg?v=1707992399,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Limegreen,,250 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_444a5a61-0fc1-4441-b067-f90679a8f3b8.jpg?v=1707992399,lb,,399.00,,,,,,,
+mocktail-juice,,,,,,,,,Limegreen,,750 ml,,,"",0.0,shopify,0,deny,manual,341.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_444a5a61-0fc1-4441-b067-f90679a8f3b8.jpg?v=1707992399,lb,,399.00,,,,,,,
+bubblegum-juice,Bubblegum juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkkhakhi, hotpink, juice, juicico, lightseagreen",true,Color,Darkkhaki,Size,100 ml,,,abccd-16,0.0,shopify,24,deny,manual,169.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/29_36573157-0056-4bf5-a856-99d981304183.jpg?v=1707995875,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a52652da-3929-474e-b9b6-d4c9b38c3a71.jpg?v=1707995875,lb,,199.00,true,,,true,,,active
+bubblegum-juice,,,,,,,,,LightSeagreen,,100 ml,,,abccd-18,0.0,shopify,20,deny,manual,169.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a52652da-3929-474e-b9b6-d4c9b38c3a71.jpg?v=1707995875,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_c04e3a16-5bb0-4cc1-8b35-8e678740f19a.jpg?v=1707991741,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,HotPink,,100 ml,,,abccd-19,0.0,shopify,15,deny,manual,189.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/26_6acfa911-548d-49c2-b0a7-2e555742c0af.jpg?v=1707995875,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27_7454de05-5e23-4e95-b7d6-7f74c8487807.jpg?v=1707995875,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,Darkkhaki,,250 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27_7454de05-5e23-4e95-b7d6-7f74c8487807.jpg?v=1707995875,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a52652da-3929-474e-b9b6-d4c9b38c3a71.jpg?v=1707995875,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,Darkkhaki,,750 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_c04e3a16-5bb0-4cc1-8b35-8e678740f19a.jpg?v=1707991741,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/30_a52652da-3929-474e-b9b6-d4c9b38c3a71.jpg?v=1707995875,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,LightSeagreen,,250 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_c04e3a16-5bb0-4cc1-8b35-8e678740f19a.jpg?v=1707991741,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,LightSeagreen,,750 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/28_c04e3a16-5bb0-4cc1-8b35-8e678740f19a.jpg?v=1707991741,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,HotPink,,250 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27_7454de05-5e23-4e95-b7d6-7f74c8487807.jpg?v=1707995875,lb,,199.00,,,,,,,
+bubblegum-juice,,,,,,,,,HotPink,,750 ml,,,"",0.0,shopify,0,deny,manual,169.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/27_7454de05-5e23-4e95-b7d6-7f74c8487807.jpg?v=1707995875,lb,,199.00,,,,,,,
+blue-juice,Blue juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkkhakhi, juice, juicico, lightyellow, saddlebrown",true,Color,Lightyellow,Size,100 ml,,,abccd-16,0.0,shopify,32,deny,manual,285.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/16.jpg?v=1707990606,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/19.jpg?v=1707990605,lb,,299.00,true,,,true,,,active
+blue-juice,,,,,,,,,Saddlebrown,,100 ml,,,abccd-17,0.0,shopify,12,deny,manual,265.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17.jpg?v=1707990606,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17.jpg?v=1707990606,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Darkkhaki,,100 ml,,,abccd-18,0.0,shopify,22,deny,manual,289.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/18.jpg?v=1707990606,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/18.jpg?v=1707990606,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Lightyellow,,250 ml,,,"",0.0,shopify,24,deny,manual,285.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/19.jpg?v=1707990605,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/19.jpg?v=1707990605,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Saddlebrown,,250 ml,,,"",0.0,shopify,34,deny,manual,285.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/20.jpg?v=1707990605,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17.jpg?v=1707990606,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Darkkhaki,,250 ml,,,"",0.0,shopify,85,deny,manual,285.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/18.jpg?v=1707990606,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Lightyellow,,750 ml,,,"",0.0,shopify,68,deny,manual,285.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/19.jpg?v=1707990605,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Saddlebrown,,750 ml,,,"",0.0,shopify,55,deny,manual,285.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/17.jpg?v=1707990606,lb,,299.00,,,,,,,
+blue-juice,,,,,,,,,Darkkhaki,,750 ml,,,"",0.0,shopify,62,deny,manual,285.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/18.jpg?v=1707990606,lb,,299.00,,,,,,,
+lemon-juice,Lemon Juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkorange, juice, juicico, lightyellow, saddlebrown",true,Color,Lightyellow,Size,100 ml,,,abccd-19,0.0,shopify,22,deny,manual,289.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/12.jpg?v=1707990469,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/12.jpg?v=1707990469,lb,,299.00,true,,,true,,,active
+lemon-juice,,,,,,,,,Saddlebrown,,100 ml,,,abccd-16,0.0,shopify,32,deny,manual,285.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/11_f5c2a117-fb51-47d8-a033-ef5b65264e33.jpg?v=1707990469,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/11_f5c2a117-fb51-47d8-a033-ef5b65264e33.jpg?v=1707990469,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Darkorange,,100 ml,,,abccd-18,0.0,shopify,12,deny,manual,265.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/13.jpg?v=1707990195,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/13.jpg?v=1707990195,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Lightyellow,,250 ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/14.jpg?v=1707990195,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/12.jpg?v=1707990469,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Lightyellow,,750ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/15.jpg?v=1707990195,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/12.jpg?v=1707990469,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Saddlebrown,,250 ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/11_f5c2a117-fb51-47d8-a033-ef5b65264e33.jpg?v=1707990469,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Saddlebrown,,750ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/11_f5c2a117-fb51-47d8-a033-ef5b65264e33.jpg?v=1707990469,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Darkorange,,250 ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/13.jpg?v=1707990195,lb,,299.00,,,,,,,
+lemon-juice,,,,,,,,,Darkorange,,750ml,,,"",0.0,shopify,0,deny,manual,289.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/13.jpg?v=1707990195,lb,,299.00,,,,,,,
+apricot-juice,Apricot juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkkhakhi, hotpink, juice, juicico, lightyellow",true,Color,Lightyellow,Size,100 ml,,,abccd-16,0.0,shopify,25,deny,manual,315.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/7_0c4d56d4-0395-420a-a33e-88d89fc36e05.jpg?v=1707990145,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/10_0047aa25-5bfe-4824-bfcf-d2ce9a43a473.jpg?v=1707990145,lb,,349.00,true,,,true,,,active
+apricot-juice,,,,,,,,,DarkKhaki,,100 ml,,,abccd-18,0.0,shopify,79,deny,manual,325.00,,true,true,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/9_a7e01c3d-d359-4f71-a875-cc4c0b78b362.jpg?v=1707990145,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8_97597536-dd03-42ef-9357-da93f5df7083.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,Lightyellow,,250 ml,,,"",0.0,shopify,84,deny,manual,339.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/6.jpg?v=1707990145,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/10_0047aa25-5bfe-4824-bfcf-d2ce9a43a473.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,DarkKhaki,,250 ml,,,"",0.0,shopify,62,deny,manual,339.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/10_0047aa25-5bfe-4824-bfcf-d2ce9a43a473.jpg?v=1707990145,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8_97597536-dd03-42ef-9357-da93f5df7083.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,Lightyellow,,750 ml,,,"",0.0,shopify,57,deny,manual,339.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8_97597536-dd03-42ef-9357-da93f5df7083.jpg?v=1707990145,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/10_0047aa25-5bfe-4824-bfcf-d2ce9a43a473.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,DarkKhaki,,750 ml,,,"",0.0,shopify,87,deny,manual,339.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/8_97597536-dd03-42ef-9357-da93f5df7083.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,Hotpink,,100 ml,,,abccd-17,0.0,shopify,89,deny,manual,339.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/6.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,Hotpink,,250 ml,,,"",0.0,shopify,25,deny,manual,339.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/6.jpg?v=1707990145,lb,,349.00,,,,,,,
+apricot-juice,,,,,,,,,Hotpink,,750 ml,,,"",0.0,shopify,36,deny,manual,339.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/6.jpg?v=1707990145,lb,,349.00,,,,,,,
+orange-juice,Orange juice,"<div class=""more-description"">
+<h2>More Detail</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>
+<div class=""more-description"">
+<h2>Key Specification</h2>
+<ul>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</li>
+<li>
+<p>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</p>
+</li>
+<li>
+<p>type here your detail one by one li more add</p>
+</li>
+<li>
+<p>has been the industry’s standard dummy text ever since. Lorem Ips</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+<li>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</p>
+</li>
+</ul>
+</div>",Juicico,"Food, Beverages & Tobacco > Beverages > Juice",Juice,"100 ml, 250 ml, 750 ml, darkkhakhi, darkorange, hotpink, juice, juicico",true,Color,DarkKhaki,Size,100 ml,,,abccd-17,0.0,shopify,22,deny,manual,379.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/5.jpg?v=1707988869,1,"",false,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/3.jpg?v=1707988868,lb,,399.00,true,,,true,,,active
+orange-juice,,,,,,,,,Darkorange,,100 ml,,,abccd-15,0.0,shopify,11,deny,manual,389.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/1_dfa2a15a-1654-42a4-be08-19c682f4cda6.jpg?v=1707988870,2,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/5.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,Darkorange,,250 ml,,,abccd-16,0.0,shopify,48,deny,manual,395.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/2_aef6c089-2efc-412d-8d15-a53d0d872f20.jpg?v=1707988869,3,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/5.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,Darkorange,,750 ml,,,"",0.0,shopify,62,deny,manual,389.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/3.jpg?v=1707988868,4,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/5.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,DarkKhaki,,250 ml,,,abccd-20,0.0,shopify,30,deny,manual,369.00,,true,true,"",https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4.jpg?v=1707988869,5,"",,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/3.jpg?v=1707988868,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,Hotpink,,100 ml,,,abccd-19,0.0,shopify,65,deny,manual,375.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,Hotpink,,250 ml,,,abccd-18,0.0,shopify,90,deny,manual,385.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,Hotpink,,750 ml,,,"",0.0,shopify,66,deny,manual,389.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/4.jpg?v=1707988869,lb,,399.00,,,,,,,
+orange-juice,,,,,,,,,DarkKhaki,,750 ml,,,"",0.0,shopify,45,deny,manual,389.00,,true,true,"",,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0641/7747/1651/files/3.jpg?v=1707988868,lb,,399.00,,,,,,,

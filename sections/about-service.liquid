@@ -1,0 +1,264 @@
+<section class="about-service-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+          <ul class="service-wrap">
+            {% for block in section.blocks %}
+            <li class="service-wrapper">
+              <div class="service-block">
+                <div class="icon">
+                  {% if block.settings.service_icon != '' %}
+                  <a href="{{ block.settings.service_url }}">
+                    {{ block.settings.service_icon }}
+                  </a>
+                  {% endif %}
+                </div>
+                <div class="service-text">
+                  {% if block.settings.service_title != '' %}
+                  <h6>{{ block.settings.service_title }}</h6>
+                  {% endif %}
+                  {% if block.settings.service_desc != '' %}
+                  <p>{{ block.settings.service_desc }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About service",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "our_services",
+      "name": "Our Services",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "service_icon",
+          "label": "Icon Class",
+          "info": "[See Icon Name](https://remixicon.com)"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Service Title",
+          "default": "Free shipping"
+        },
+        {
+          "type": "textarea",
+          "id": "service_desc",
+          "label": "Service Description",
+          "default": "Orders over $100"
+        },
+        {
+          "type": "url",
+          "id": "service_url",
+          "label": "Service URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About service"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-service-area {
+    padding-top:{{ section.settings.section_padding_top }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bgcolor }};
+    border-top: 1px solid rgba(0,0,0,10%);
+  }
+  @media (max-width: 1199px) {
+    .about-service-area {
+      padding-top:{{ section.settings.section_padding_top_lg }}px;
+      padding-bottom:{{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .about-service-area {
+      padding-top:{{ section.settings.section_padding_top_xs }}px;
+      padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  /* service css */
+  .about-service-area ul.service-wrap{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -30px 0 0 -30px;
+  }
+  .about-service-area ul.service-wrap li.service-wrapper{
+    width: calc(25% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .about-service-area .service-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,10%);
+    border-radius: var(--sti-border-radius);
+    padding: 30px;
+  }
+  .about-service-area .service-block .icon {
+    position: relative;
+  }
+  .about-service-area .service-block .icon a{
+    color: var(--font-color-primary);
+    position: relative;
+    font-size: 30px;
+    line-height: 1;
+  }
+  .about-service-area .service-block .service-text{
+    width: 100%;
+    {% if settings.enable_rtl %}
+    margin-right: 20px;
+    {% else %}
+    margin-left: 20px;
+    {% endif %}
+  }
+  .about-service-area .service-block h6 {
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    list-style: 1;
+  }
+  .about-service-area .service-block p {
+    margin-top: 4px;
+  }
+  @media (max-width: 1399px) {
+    .about-service-area ul.service-wrap li.service-wrapper{
+      width: calc(50% - 30px);
+    }
+    .about-service-area .service-block{
+      padding: 20px;
+    }
+  }
+  @media (max-width: 991px) {
+    .about-service-area ul.service-wrap li.service-wrapper{
+      width: calc(50% - 30px);
+    }
+    .about-service-area .service-block .icon:after{
+      display: none ;
+    }
+  }
+  @media (max-width: 767px) {
+    .about-service-area ul.service-wrap{
+      margin: -30px 0 0 -12px;
+    }
+    .about-service-area ul.service-wrap li.service-wrapper{
+      width: calc(50% - 12px);
+      margin: 30px 0 0 12px;
+    }
+  }
+  @media (max-width: 479px) {
+    .about-service-area ul.service-wrap{
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: -30px 0 0 -12px;
+    }
+    .about-service-area ul.service-wrap li.service-wrapper{
+      width: calc(100% - 12px);
+      margin: 30px 0 0 12px;
+    }
+  }
+</style>

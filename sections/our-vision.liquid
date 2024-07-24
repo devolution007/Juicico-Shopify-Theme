@@ -1,0 +1,243 @@
+<section class="about-vision">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="our-vision">
+          {% for block in section.blocks %}
+            <li class="text-content">
+              {% if block.settings.mission_icon %}
+              <span class="icon">
+              {{ block.settings.mission_icon }}
+              </span>
+              {% endif %}
+              <div class="content_wrap">
+                <h6>{{ block.settings.vision_title }}</h6>
+                <p>{{ block.settings.vision_desc }}</p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Our Vision",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Title Font Weight"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "our-vision",
+      "name": "Our Vision",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "mission_icon",
+          "label": "Mission Icon",
+          "info": "[See Icon Name](https://remixicon.com)"
+        },
+        {
+          "type": "text",
+          "id": "vision_title",
+          "label": "Vision Title",
+          "default": "Our mission"
+        },
+        {
+          "type": "text",
+          "id": "vision_desc",
+          "label": "Vision Desscription",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit., rutrum massa quis, porttitor lorem. Aliquam non est a ipsum facilisis scelerisque eu sed lectus."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Vision",
+      "category": "2. About Us"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-vision{
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px){
+    .about-vision{
+      padding-top: {{ section.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px){
+    .about-vision{
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settingsn.section_padding_bottom_xs }}px;
+    }
+  }
+  
+  /* textcontent */
+  ul.our-vision{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    {%- if settings.enable_rtl -%}
+    margin-right: -30px;
+    {%- else -%}
+    margin-left: -30px;
+    {%- endif -%}
+  }
+  ul.our-vision li.text-content{
+    width: calc(50% - 30px);
+    {%- if settings.enable_rtl -%}
+    margin-right: 30px;
+    {%- else -%}
+    margin-left: 30px;
+    {%- endif -%}
+    display: flex;
+    align-items: center;
+  }
+  ul.our-vision li.text-content:hover span{
+    -webkit-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  ul.our-vision li.text-content span{
+    color: var(--font-color-primary);
+    font-size: 35px;
+    line-height: 0;
+    {%- if settings.enable_rtl -%}
+    padding-left: 15px;
+    {%- else -%}
+    padding-right: 15px;
+    {%- endif -%}
+  }
+  ul.our-vision li.text-content span,
+  ul.our-vision li.text-content:hover span{
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  ul.our-vision li.text-content h6{
+    font-size: 20px;
+    
+    line-height: 1;
+    
+  }
+  ul.our-vision li.text-content p{
+    color: #999;
+    margin-top: 7px;
+  }
+  @media (max-width: 767px){
+    ul.our-vision{
+      {%- if settings.enable_rtl -%}
+      margin-right: -15px;
+      {%- else -%}
+      margin-left: -15px;
+      {%- endif -%}
+    }
+    ul.our-vision li.text-content{
+      width: calc(100% - 15px);
+      margin-top: 20px;
+      {%- if settings.enable_rtl -%}
+      margin-right: 15px;
+      {%- else -%}
+      margin-left: 15px;
+      {%- endif -%}
+    }
+    ul.our-vision li.text-content:first-child{
+      margin-top: 0;
+    }
+  }
+</style>

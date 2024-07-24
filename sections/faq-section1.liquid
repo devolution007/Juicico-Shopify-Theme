@@ -1,0 +1,309 @@
+<section class="faq-section1">
+  <div class="container">
+    <ul class="faq-wrap">
+      <li class="faq-wrapper">
+        <a href="{{ section.settings.banner_url }}" class="banner-bg" style="background-image: url({% if section.settings.faq_img %}{{ section.settings.faq_img | image_url }}{% else %}https://dummyimage.com/680x580{% endif %});"></a>
+      </li>
+      <li class="faq-wrapper">
+        <div class="que-ans">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.list_main_title1 != '' %}
+              <h2 class="list-main-title">{{ section.settings.list_main_title1 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <ul id="collapse-{{ section.id }}">
+            {% for block in section.blocks %}
+            <li>
+              <a href="#collapse-{{ block.id }}" class="question" data-bs-toggle="collapse" {% if forloop.first %}aria-expanded="true"{% endif %}>
+                <span class="que">{{ block.settings.accordion_title }}</span>
+                <span class="que-accordian"><i class="feather-plus"></i></span>
+              </a>
+              <div class="ans-accordian collapse{% if forloop.first %} show{% endif %}" id="collapse-{{ block.id }}" data-parent="#collapse-{{ section.id }}">
+                <p>{{ block.settings.accordion_ans1 }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Faq section 1",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#f6f6f6"
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "faq_img",
+      "label": "Faq banner image",
+      "info": "Recommended Size: 680px x 580px"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner url"
+    },
+    {
+      "type": "text",
+      "id": "list_main_title1",
+      "label": "Faq list title",
+      "default": "Yes, everything a the side from pre-orders"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_area",
+      "name": "Faq Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion Title",
+          "info": "Type Here For Question?",
+          "default": "How do I activate my account?"
+        },
+        {
+          "type": "textarea",
+          "id": "accordion_ans1",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq section 1"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .faq-section1 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .faq-section1 {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .faq-section1 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .faq-section1 .banner-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .faq-section1 ul.faq-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--extra-color-body);
+    border-radius: 0px;
+    overflow: hidden;
+    border-radius: var(--sti-border-radius);
+  } 
+  .faq-section1 ul.faq-wrap li.faq-wrapper{
+    width: 50%;
+  }
+  .faq-section1 .que-ans {
+    padding: 60px;
+  }
+  .faq-section1 .que-ans .section-capture {
+    margin-bottom: 30px;
+  }
+  .faq-section1 .que-ans .section-capture .section-title {
+    text-align: left;
+  }
+  .faq-section1 .que-ans ul li {
+    border-radius: 0px;
+    margin-top: 15px;
+    padding: 20px 30px;
+    border: 1px solid rgba(0,0,0,5%);
+    background-color: #fff;
+    border-radius: var(--sti-border-radius);
+  }
+  .faq-section1 .que-ans ul li:first-child{
+    margin-top: 0;
+  }
+  .faq-section1 .que-ans ul li a.question{
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    color: var(--font-color-body);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .faq-section1 .que-ans ul li a.question:hover,
+  .faq-section1 .que-ans ul li a.question[aria-expanded="true"] {
+    color: var(--font-color-primary);
+  }
+  .faq-section1 .que-ans ul li a.question span.que {
+    display: block;
+  }
+  .faq-section1 .que-ans ul li a.question span.que-accordian {
+    color: var(--font-color-body);
+    font-size: 14px;
+    position: absolute;
+    {%- if settings.enable_rtl -%}
+    left: 0;
+    {%- else -%}
+    right: 0;
+    {%- endif -%}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-section1 .que-ans ul li a.question[aria-expanded="true"] span.que-accordian i:before {
+    content: "\e996";
+  }
+  .faq-section1 .que-ans ul li .ans-accordian p{
+    padding-top: 15px;
+  }
+  @media(max-width: 1199px){
+    .faq-section1 .text-cotent h2{
+      font-size: 30px;
+    }
+    .faq-section1 .text-cotent p{
+      font-size: 14px;
+      line-height: 25px;
+    }
+    .faq-section1 .que-ans{
+      padding: 30px;
+    }
+    .faq-section1 .que-ans ul li{
+      padding: 15px 25px;
+    }
+  }
+  @media(max-width: 991px){
+    .faq-section1 .banner-bg{
+      height: 400px;
+    }
+    .faq-section1 .text-cotent a,
+    .faq-section1 .text-cotent p{
+      margin-top: 15px;
+    }
+    .faq-section1 ul.faq-wrap li.faq-wrapper{
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px){
+    .faq-section1 .banner-bg{
+      height: 200px;
+    }
+    .faq-section1 .text-cotent{
+      max-width: 100%;
+    }
+    .faq-section1 .text-cotent h2 {
+      font-size: 24px;
+      }
+    .faq-section1 .que-ans {
+      padding: 15px;
+    }
+    .faq-section1 .que-ans ul li {
+      padding: 15px;
+    }
+    .faq-section1 .que-ans .section-capture {
+      margin-bottom: 15px;
+    }
+  }
+</style>

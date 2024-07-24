@@ -1,0 +1,187 @@
+<section class="terms-conditions">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.terms_condi_title != '' %}
+          <h2>{{ section.settings.terms_condi_title }}</h2>
+          {% endif %}
+        </div>
+        </div>
+        <div class="rule-wrap">
+          <ul>
+            {% for block in section.blocks %}
+            {% if block.settings.terms_condi_point != '' %}
+            <li>
+              <p>{{ block.settings.terms_condi_point }}</p>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Terms & Conditions",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "terms_condi_title",
+      "label": "Title",
+      "default": "Terms & Conditions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "terms-condition",
+      "name": "Terms & Conditions",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "terms_condi_point",
+          "label": "Terms & Conditions Text",
+          "default": "Type Text Here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Terms condition"
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+  .terms-conditions {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px) {
+    .terms-conditions {
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .terms-conditions {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+.terms-conditions .rule-wrap ul li {
+  margin-top: 15px;
+  {%- if settings.enable_rtl -%}
+  padding-right: 15px;
+  {%- else -%}
+  padding-left: 15px;
+  {%- endif -%}
+  position: relative;
+}
+.terms-conditions .rule-wrap ul li:first-child {
+  margin-top: 0px;
+}
+.terms-conditions .rule-wrap ul li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  {%- if settings.enable_rtl -%}
+  right: 0;
+  {%- else -%}
+  left: 0;
+  {%- endif -%}
+  height: 5px;
+  width: 5px;
+  background-color: var(--font-color-primary);
+  border-radius: 50%;
+}
+@media (max-width: 767px) {
+  .terms-conditions .rule-wrap ul li {
+    margin-top: 5px;
+  }
+}
+</style>

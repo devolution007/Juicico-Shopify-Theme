@@ -1,0 +1,254 @@
+<section class="about-team">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="our-team">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_sub_title != '' %}
+              <span>{{ section.settings.section_sub_title }}</span>
+              {% endif %}
+              {% if section.settings.section_title != '' %}
+              <h2>{{ section.settings.section_title }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <ul class="team-wrap">
+            {% for block in section.blocks %}
+            <li class="team-content">
+              <a href="javascript:void(0)" class="banner-hover">
+                {%- if block.settings.member_img -%}
+                  {{ block.settings.member_img | image_url: width: 500 | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.member_img.width,
+                    height: block.settings.member_img.height,
+                    class: "img-fluid",
+                    alt: block.settings.member_img.alt | escape }}
+                  {%- else -%}
+                  {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+              </a>
+              <div class="team-info">
+                {% if block.settings.team_title != '' %}
+                <h4 class="title">{{ block.settings.team_title }}</h4>
+                {% endif %}
+                {% if block.settings.team_bio != '' %}
+                <p class="team-bio">{{ block.settings.team_bio }}</p>
+                {% endif %}
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Our Team",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_sub_title",
+      "label": "Section sub title",
+      "default": "Customer team"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Who we are"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "our-vision",
+      "name": "Our Team",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Team Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "member_img",
+          "label": "Image",
+          "info": "Recommended Size: 350px x 450px"
+        },
+        {
+          "type": "paragraph",
+          "content": "Team Information"
+        },
+        {
+          "type": "text",
+          "id": "team_title",
+          "label": "Title",
+          "default": "Johnny walker"
+        },
+        {
+          "type": "text",
+          "id": "team_bio",
+          "label": "Bio",
+          "default": "Web designer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Team",
+      "category": "2. About Us"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-team{
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px){
+    .about-team{
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px){
+    .about-team{
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  /* teamcontent */
+  .our-team ul.team-wrap{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .our-team ul.team-wrap li.team-content{
+    width: calc(25% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .our-team ul.team-wrap li.team-content a{
+    border-radius: var(--sti-border-radius);
+    overflow: hidden;
+  }
+  .our-team ul.team-wrap li.team-content .team-info {
+    margin-top: 15px;
+  }
+  .our-team ul.team-wrap li.team-content .team-info h4.title {
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+  }
+  .our-team ul.team-wrap li.team-content .team-info p.team-bio {
+    margin-top: 4px;
+  }
+  @media (max-width: 991px) {
+    .our-team ul.team-wrap li.team-content{
+      width: calc(50% - 30px);
+    }
+  }
+  @media (max-width: 767px) {
+    .our-team ul.team-wrap{
+      margin: -30px 0 0 -15px;
+    }
+    .our-team ul.team-wrap li.team-content{
+      width: calc(50% - 15px);
+      margin: 30px 0 0 15px;
+    }
+  }
+  @media (max-width: 479px) {
+    .our-team ul.team-wrap li.team-content{
+      width: calc(100% - 15px);
+    }
+  }
+</style>

@@ -1,0 +1,378 @@
+<section class="info-service" {% if section.settings.section_bgimg_enable %}style="background-image: url('{% if section.settings.section_bgimg %}{{ section.settings.section_bgimg | image_url }}{% else %}https://dummyimage.com/1920x550/f7f7f7/999999{% endif %}');"{% endif %}>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="info-service-block">
+          <ul class="info-service-ul">
+            {% for block in section.blocks %}
+              <li class="info-service-li">
+                <div class="info-service-main">
+                  {% if block.settings.our_service_icon != '' %}
+                  <div class="service-icon">
+                    <a href="{{ block.settings.our_service_url }}" class="icon-block">
+                      <span class="icon">
+                        {%- if block.settings.info_service_icon -%}
+                        {{ block.settings.info_service_icon | image_url: width: 512 | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.info_service_icon.width,
+                        height: block.settings.info_service_icon.height,
+                        class: "img-fluid image-1",
+                        alt: block.settings.info_service_icon.alt | escape }}
+                        {%- else -%}  
+                        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </span>
+                    </a>
+                  </div>
+                  {% endif %}
+                  <div class="service-content">
+                    {% if block.settings.our_service_title != '' %}
+                    <h4 class="title">{{ block.settings.our_service_title }}</h4>
+                    {% endif %}
+                    {% if block.settings.our_service_description != '' %}
+                    <p class="description">{{ block.settings.our_service_description }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+{% schema %}
+{
+  "name": "info Service",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad Pro/ Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bgimg",
+      "label": "Background Image",
+      "info": "Recommended Size: 1920 x 550px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgimg_enable",
+      "label": "Show Background Image",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgcolor_enable",
+      "label": "Show Background Color",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    }
+  ],
+  "blocks": [
+    {
+      "name": "info Service",
+      "limit": 3,
+      "type": "info_service",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Service Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "info_service_icon",
+          "label": "Icon image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "header",
+          "content": "Service content"
+        },
+        {
+          "type": "text",
+          "id": "our_service_title",
+          "label": "Service Title",
+          "default": "Plant based"
+        },
+        {
+          "type": "textarea",
+          "id": "our_service_description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed tempor incididunt ut labore et dolore magna aliqua. "
+        },
+        {
+          "type": "url",
+          "id": "our_service_url",
+          "label": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "info Service"
+    }
+  ]
+}
+{% endschema %}
+  
+<style>
+.info-service {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.section_bgimg_enable %}
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  {% endif %}
+  {% if section.settings.section_bgcolor_enable %}
+  background-color: {{ section.settings.section_bgcolor }};
+  {% endif %}
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .info-service {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 767px) {
+  .info-service {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+.info-service .info-service-block ul.info-service-ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -50px;
+  {%- if settings.enable_rtl -%}
+  margin-right: -30px;
+  {%- else -%}
+  margin-left: -30px;
+  {%- endif -%}
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li {
+  width: calc(33.33% - 30px);
+  margin-top: 50px;
+  {%- if settings.enable_rtl -%}
+  margin-right: 30px;
+  {%- else -%}
+  margin-left: 30px;
+  {%- endif -%}
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main {
+  text-align: center;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-icon a.icon-block {
+  position: relative;
+  color: var(--font-color-primary);
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-icon a.icon-block::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border: 1px dashed var(--font-color-primary);
+  border-radius: 100%;
+  -webkit-animation: spin 10s linear infinite;
+  animation: spin 10s linear infinite;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-icon a.icon-block span.icon {
+  width: 30px;
+  display: flex;
+  line-height: 1;
+  -webkit-transition: transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li:hover .info-service-main .service-icon a.icon-block span.icon {
+  transform: scaleX(-1);
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-icon a.icon-block span.icon svg {   
+  width: 100%;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-content {
+  margin-top: 26px;
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-content h4.title {
+  font-size: 18px;
+  font-weight: var(--font-subtitle-weight-body);
+}
+.info-service .info-service-block ul.info-service-ul li.info-service-li .info-service-main .service-content p.description {
+  margin-top: 5px;
+  font-weight: 500;
+}
+@media (max-width: 1199px) {
+  .info-service .info-service-block ul.info-service-ul {
+    margin-top: -40px;
+  }
+  .info-service .info-service-block ul.info-service-ul li.info-service-li {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 991px) {
+  .info-service .info-service-block ul.info-service-ul li.info-service-li {
+    width: calc(50% - 30px);
+  }
+}
+@media (max-width: 767px) {
+  .info-service .info-service-block ul.info-service-ul {
+    margin-top: -30px;
+    {%- if settings.enable_rtl -%}
+    margin-right: -12px;
+    {%- else -%}
+    margin-left: -12px;
+    {%- endif -%}
+  }
+  .info-service .info-service-block ul.info-service-ul li.info-service-li {
+    width: calc(50% - 12px);
+    margin-top: 30px;
+    {%- if settings.enable_rtl -%}
+    margin-right: 12px;
+    {%- else -%}
+    margin-left: 12px;
+    {%- endif -%}
+  }
+}
+@media (max-width: 600px) {
+  .info-service .info-service-block ul.info-service-ul li.info-service-li {
+    width: calc(100% - 12px);
+  }
+}
+</style>

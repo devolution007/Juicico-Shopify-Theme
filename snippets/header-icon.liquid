@@ -1,0 +1,108 @@
+<ul class="shop-element">
+  <li class="side-wrap toggle-wrap">
+    <button class="navbar-toggle" type="button">
+      <span class="menu-icon">
+        <i class="ri-menu-line"></i>
+      </span>
+    </button>
+  </li>
+  {%- if settings.search_enable -%}
+  <li class="side-wrap search-wrap">
+    <a class="search-btn header-icon" data-bs-toggle="modal" href="#seachmodal">
+      <span class="icon"><i class="ri-search-line"></i></span>
+    </a>
+  </li>
+  {%- endif -%}
+  <li class="side-wrap user-wrap">
+    <div class="user-warp">
+      {% if customer %}
+      <a class="header-icon" href="{{ routes.account_url }}">
+        <span class="icon"><i class="feather-user-check"></i></span>
+      </a>
+      {% else %}
+      <a class="header-icon" href="{{ routes.account_login_url }}">
+        <span class="icon"><i class="feather-user"></i></span>
+      </a>
+      {% endif %}
+    </div>
+  </li>
+  {%- if settings.wishlist_enable -%}
+  <li class="side-wrap wishlist-wrap">
+    <a class="header-icon" href="/pages/wishlist" title="Wishlist">
+      <span class="icon"><i class="feather-heart"></i></span>
+      <span class="wishlist-counter count">{{ wishlist.count }}</span>
+    </a>
+  </li>
+  {%- endif -%}
+  <li class="side-wrap cart-wrap">
+    <div class="shopping-cart">
+      <a class="cart-count header-icon" href="javascript:void(0);">
+        <span class="icon"><i class="feather-shopping-bag"></i></span>
+        <span id="cart-total" class="bigcounter count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </li>
+</ul>
+{% style %}
+button.navbar-toggle,
+a.header-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+button.navbar-toggle span.menu-icon,
+a.header-icon span.icon {
+  font-size: 16px;
+  display: block;
+  line-height: 0;
+}
+a.header-icon span.count {
+  position: relative;
+  {% if settings.enable_rtl %}
+  margin-right: 5px;
+  {% else %}
+  margin-left: 5px;
+  {% endif %}
+}
+a.header-icon span.count::before {
+  content: "(";
+}
+a.header-icon span.count::after {
+  content: ")";
+}
+@media (max-width: 479px) {
+  .wishlist-wrap a.header-icon span.icon,
+  .cart-wrap a.header-icon span.icon {
+    {% if settings.enable_rtl %}
+    margin-left: 5px;
+    {% else %}
+    margin-right: 5px;
+    {% endif %}
+  }
+  a.header-icon span.count::before,
+  a.header-icon span.count::after {
+    display: none;
+  }
+  a.header-icon span.count {
+    background-color: var(--font-color-primary);
+    color: #ffffff;
+    font-size: 10px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    {% if settings.enable_rtl %}
+    margin-right: 0px;
+    left: 0;
+    {% else %}
+    margin-left: 0px;
+    right: 0;
+    {% endif %}
+    border-radius: 100%;
+  } 
+}
+{% endstyle %}

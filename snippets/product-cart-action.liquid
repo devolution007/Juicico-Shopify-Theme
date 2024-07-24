@@ -1,0 +1,55 @@
+{% if product.available %}
+<button type="submit" class="btn add-to-cart ajax-spin-cart" id="AddToCart">
+  <span class="cart-title" id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+  <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+  <span class="cart-added"><i class="ri-check-line"></i></span>
+  <span class="cart-unavailable">{{ 'products.product.sold_out' | t }}</span>
+</button>
+{% else %}
+<button class="btn add-to-cart disabled" disabled="disabled">
+  <span class="cart-text">{{ 'products.product.sold_out' | t }}</span>
+</button>
+{% endif %}
+<script type="text/javascript">
+window.addEventListener("DOMContentLoaded", function() {
+  
+    $('.ajax-spin-cart').on("click", function(e){
+      e.preventDefault();
+      Shopify.addItemFromForm('add-item-form');
+    });
+  
+});   
+  
+</script>
+<style>
+  .product-actions button.add-to-cart{
+    background-color: var(--font-color-primary);
+    color: #fff;
+    font-size: var(--font-size-body);
+    padding: 10px 30px;
+    line-height: 1;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: var(--font-subtitle-weight-body);
+    border-radius: var(--sti-border-radius);
+  }
+  .product-actions button.add-to-cart:hover{
+    background-color: var(--font-color-secondary);
+  }
+  .product-actions button.add-to-cart.btn[disabled],
+  .product-actions button.add-to-cart.btn.disabled{
+    color: #eaeaea;
+    background-color: #ababab;
+    opacity: .65;
+    pointer-events: none;
+  }
+  @media(max-width: 767px){
+    .product-actions button.add-to-cart{
+      margin-top: 15px;
+    }
+  }
+</style>

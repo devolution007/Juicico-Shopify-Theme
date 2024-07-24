@@ -1,0 +1,124 @@
+<ul class="pagination-box">
+  {% if paginate.previous %}
+  <li class="prev np-icon">
+    <a href="{{ paginate.previous.url }}" class="previous" aria-label="Previous" title="{{ paginate.previous.title }}">
+      <i class="feather-arrow-left"></i>
+    </a>
+  </li>
+  {% endif %}
+  {% for part in paginate.parts %}
+  {% if part.is_link %}
+  <li class="number">
+    <a href="{{ part.url }}" title="{{ part.title }}">{{ part.title }}</a>
+  </li>
+  {% else %}
+  {% if part.title == paginate.current_page %}
+  <li class="number active">
+    <a href="javascript:void(0)">{{ part.title }}</a>
+  </li>
+  {% else %}
+  <li class="number">
+    <a href="javascript:void(0)">{{ part.title }}</a>
+  </li>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+  {% if paginate.next %}
+  <li class="next np-icon">
+    <a href="{{ paginate.next.url }}" class="next" aria-label="Next" title="{{ paginate.next.title }}">
+      <i class="feather-arrow-right"></i>
+    </a>
+  </li>
+  {% endif %}
+</ul>
+<script type="text/javascript">
+window.addEventListener("DOMContentLoaded", function() {
+  $(".theme-default-pagination .disabled a").removeAttr("href");
+  $(".theme-default-pagination li.active a").removeAttr("href");
+});
+</script>
+<style type="text/css">
+  /* page-area css */
+.paginatoin-area{
+  padding-top: {{ settings.section_padding_top }}px;
+}
+@media (max-width: 1199px) {
+  .paginatoin-area{
+    padding-top: {{ settings.section_padding_top_ip }}px;
+  }
+}
+@media (max-width: 767px) {
+  .paginatoin-area{
+    padding-top: {{ settings.section_padding_top_xs }}px;
+  }
+}
+
+/* page-showing-result css */
+.paginatoin-area ul.paginate li.page-numerous p{
+  margin-bottom: 23px;
+  text-align: center;
+}
+
+/* page-number css */
+.paginatoin-area ul.pagination-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paginatoin-area ul.pagination-box li{
+  {% if settings.enable_rtl %}
+  margin-left: 5px;
+  {% else %}
+  margin-right: 5px;
+  {% endif %}
+  line-height: 0;
+}
+.paginatoin-area ul.pagination-box li:last-child{
+  {% if settings.enable_rtl %}
+  margin-left: 0px;
+  {% else %}
+  margin-right: 0px;
+  {% endif %}
+}
+.paginatoin-area ul.pagination-box li.number a{
+  color: var(--font-color-primary);
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: var(--sti-border-radius);
+  box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+}
+.paginatoin-area ul.pagination-box li.number:hover a,
+.paginatoin-area ul.pagination-box li.number.active a{
+  color: #FFFFFF;
+  background-color: var(--font-color-primary);
+}
+.paginatoin-area ul.pagination-box li.np-icon a{
+  color: #FFFFFF;
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--font-color-secondary);
+  border-radius: var(--sti-border-radius);
+}
+.paginatoin-area ul.pagination-box li.np-icon:hover a{
+  color: #FFFFFF;
+  background-color: var(--font-color-primary);
+}
+.paginatoin-area ul.pagination-box li a i{
+  display: block;
+  {%- if settings.enable_rtl -%}
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  {%- endif -%}
+  line-height: 0;
+}
+</style>

@@ -1,0 +1,49 @@
+<div class="blog-post">
+  <div class="blog-main-img">
+    <a href="{{ article.url }}" class="blog-img">
+      {%- if article.image -%}
+      {{ article.image.src | image_url: width: 625, height: 625, crop: 'center' | image_tag:
+        loading: 'lazy',
+        width: article.image.width,
+        height: article.image.height,
+        class: "img-fluid",
+        widths: "625",
+        alt: article.image.alt | escape }}
+      {%- else -%}
+      {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+      {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </a>
+    <a href="{{ article.url }}" class="blog-icon">
+      <span class="icon"><i class="ri-arrow-right-up-line"></i></span>
+    </a>
+  </div>
+  <div class="blog-post-content">
+    <div class="blog-title">
+      <h6 class="title">
+        <a href="{{ article.url }}">{{ article.title | truncate: 100 }}</a>
+      </h6>
+    </div>
+    <div class="date-author">
+      <span class="date-time">{{ article.published_at | date: '<span class="date">%d</span> <span class="month">%b</span> <span class="year">%y</span>' }}</span>
+      <ul class="post-tag">
+        {% for tag in article.tags %}
+        <li><a href="{{ tag | handleize | prepend:'/blogs/news/tagged/' }}">{{ tag }}</a></li>
+        {% break %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="read-btn-buttol">
+      <a href="{{ article.url }}" class="read-btn" aria-label="Read more: {{ article.title }}">
+        <span>{{ settings.blog_read_btn }}</span>
+      </a>
+    </div>
+
+    {% comment %}
+    <div class="blog-description">
+      <p class="description">{{ article.content | strip_html | strip | truncate: 75 | remove: "." }}</p>
+    </div>
+    <span class="author">{{ 'blogs.article.author_by' | t }} {{ article.author | truncatewords: 2 | remove: "." }}</span>
+    {% endcomment %}
+  </div>
+</div>

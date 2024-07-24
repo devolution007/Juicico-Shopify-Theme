@@ -1,0 +1,309 @@
+<section class="home-about1">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% for block in section.blocks %}
+                <div class="home-about1-wrap {% if block.settings.row_reverse %} rowreverse {% endif %}">
+                    <div class="home-about1-sideimg">
+                        <div class="home-about1-sideimg1 banner-hover">
+                          {%- if block.settings.home_about1_bgimg -%}
+                          {{ block.settings.home_about1_bgimg | image_url: width: 1024 | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.home_about1_bgimg.width,
+                            height: block.settings.home_about1_bgimg.height,
+                            class: "img-fluid",
+                            alt: block.settings.home_about1_bgimg.alt | escape }}
+                          {%- else -%}
+                          {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                          {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                      </div>
+                    </div>
+                    <div class="home-about1-txt">
+                        <div class="home-about1-wrapper">
+                            {% if block.settings.home_about1_lable != '' %}
+                            <span>{{ block.settings.home_about1_lable }}</span>
+                            {% endif %}
+                            {% if block.settings.home_about1_title != '' %}
+                            <h2 class="home-about1-texttl">{{ block.settings.home_about1_title }}</h2>
+                            {% endif %}
+                            {% if block.settings.sub_title != '' %}
+                            <p class="home-about1-texdes">{{ block.settings.sub_title }}</p>
+                            {% endif %}
+                            {% if block.settings.home_about1_button != '' %}
+                            <div class="home-about1-btn">
+                                <a href="{{ block.settings.home_about1_url }}" class="btn-style-medium">{{ block.settings.home_about1_button }}</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Homeabout 01",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "about-description",
+      "name": "About Description",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Backgorund Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "row_reverse",
+          "label": "Row Reverse",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "home_about1_bgimg",
+          "label": "Image",
+          "info": "Recommended Size: 700px x 650px"
+        },
+        {
+          "type": "checkbox",
+          "id": "bg_img_check",
+          "label": "Show Backgorund Images",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "About Title"
+        },
+        {
+          "type": "text",
+          "id": "home_about1_lable",
+          "label": "Home About1 Label",
+          "default": "For everyday"
+        },
+        {
+          "type": "text",
+          "id": "home_about1_title",
+          "label": "Home About1 Title",
+          "default": "General Mood"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Description",
+          "default": "This striking collection is an inspiring take on the shape of the initial letter adding a touch of modern luxury"
+        },
+        {
+          "type": "text",
+          "id": "home_about1_button",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "home_about1_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homeabout 01"
+    }
+  ]
+}
+{% endschema %}
+<style>
+    .home-about1{
+      padding-top: {{ section.settings.section_padding_top }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom }}px;
+      {% if section.settings.bg_img_check %}
+      background-repeat: no-repeat;
+      background-size: cover;
+      {% endif %}
+    }
+    @media (max-width : 1199px){
+      .home-about1{
+        padding-top: {{ section.settings.section_padding_top_lg }}px;
+        padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+      }
+    }
+    @media (max-width : 767px){
+      .home-about1{
+        padding-top: {{ section.settings.section_padding_top_xs }}px;
+        padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+      }
+    }
+    .home-about1 .home-about1-wrap{
+      display: flex;
+    }
+    .home-about1 .home-about1-wrap.rowreverse{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    .home-about1-sideimg{
+      width: 50%;
+    }
+    .home-about1-txt{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .home-about1-txt .home-about1-wrapper{
+      width: 60%;
+      margin: 0 auto;
+    }
+    .home-about1-txt span{
+      color: var(--font-color-primary);
+      font-size: 17px;
+      text-transform: uppercase;
+      font-weight: var(--font-custom-weight-header);
+      letter-spacing: 1px;
+    }
+    .home-about1-txt h2{
+      font-size: 40px;
+      line-height: 1;
+      margin-top: 17px;
+    }
+    .home-about1-txt p{
+      font-size: 18px;
+      margin-top: 19px;
+    }
+    .home-about1-txt .home-about1-btn{
+      margin-top: 24px;
+    }
+    @media (max-width: 1199px){
+        .home-about1-sideimg,
+        .home-about1-txt{
+          width: 50%;
+        }
+        .home-about1-txt h2{
+          font-size: 30px;
+        }
+    }
+    @media (max-width : 991px){
+      .home-about1-txt .home-about1-wrapper{
+        width: 70%;
+      }
+      .home-about1-txt span{
+        font-size: 16px;
+      }
+      .home-about1-txt h2{
+        margin-top: 9px;
+      }
+      .home-about1-txt p {
+        margin-top: 6px;
+      }
+      .home-about1-txt .home-about1-btn{
+        margin-top: 14px;
+      }
+    }
+    @media (max-width : 767px){
+      .home-about1-txt .home-about1-wrapper{
+        width: 100%;
+        margin-top: 15px;
+      }
+      .home-about1 .home-about1-wrap.rowreverse,
+      .home-about1 .home-about1-wrap{
+        flex-direction: column;
+        margin-top: 30px;
+      }
+      .home-about1 .home-about1-wrap:first-child{
+        margin-top: 0px;
+      }
+      .home-about1-sideimg{
+        width: 100%;
+      }
+      .home-about1-txt{
+        width: 100%;
+      }
+      .home-about1-txt span{
+        font-size: 14px;
+      }
+      .home-about1-txt h2{
+        font-size: 24px;
+      }
+    }
+</style>

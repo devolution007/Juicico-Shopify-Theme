@@ -1,0 +1,28 @@
+<div class="mm-fullscreen-bg"></div>
+<style>
+.mm-fullscreen-bg {
+    position: fixed;
+    top: 0;
+    {% if settings.enable_rtl %}
+	right: 0;
+	{% else %}
+	left: 0;
+	{% endif %}
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+}
+.mm-fullscreen-bg.active {
+    opacity: 1;
+    visibility: visible;
+}
+.mm-fullscreen-bg,
+.mm-fullscreen-bg.active {
+	-webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+</style>

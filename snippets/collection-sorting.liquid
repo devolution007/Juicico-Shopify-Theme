@@ -1,0 +1,429 @@
+<!-- shop-top-bar start -->
+<div class="shop-top-bar">
+  <div class="product-filter{% if section.settings.sidebar_handle == 'without_sidebar' %} without-sidebar{% endif %}">
+    <button class="filter-button" type="button">
+      <i class="feather-filter"></i>
+      <span>{{ 'collections.facets.filter_button' | t }}</span>
+    </button>
+  </div>
+  {% if section.settings.tab_bar_enable %}
+  <div class="product-view-mode">
+    <!-- shop-item-filter-list start -->
+    <a class="list-change-view grid-three {% if template == 'collection' or template == 'collection.right' or template == 'collection.without' %}active{% endif %}" data-grid-view="3">
+      <i class="feather-grid"></i>
+    </a>
+    <a class="list-change-view list-one {% if template == 'collection.list' or template == 'collection.list-right' or template == 'collection.list-without' %}active{% endif %}" data-grid-view="1">
+      <i class="feather-list"></i>
+    </a>      
+    <!-- shop-item-filter-list end -->
+  </div>
+  {% endif %}
+  {% comment %}<span class="tt-title-total listing-total-js">items({{ collection.all_products_count }})</span>{% endcomment %}
+  {% if section.settings.short_by_enable %}
+  <!-- product-short start -->
+  <div class="product-short">
+    <label for="SortBy">{{ 'collections.sorting.title' | t | append: ":" }}</label>
+    <select class="nice-select" name="sortby" id="SortBy">
+      <option value="manual">{{ 'collections.sorting.featured' | t }}</option>
+      <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+      <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+      <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+      <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+      <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+      <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+      <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+    </select>
+    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+    <a href="javascript:void(0)" class="short-title">
+      <span class="sort-title">{%- liquid
+        case sort_by
+        when 'manual'
+          echo 'collections.sorting.featured' | t
+        when 'best-selling'
+          echo 'collections.sorting.best_selling' | t
+        when 'title-ascending'
+          echo 'collections.sorting.az' | t
+        when 'title-descending'
+          echo 'collections.sorting.za' | t
+        when 'price-ascending'
+          echo 'collections.sorting.price_ascending' | t
+        when 'price-descending'
+          echo 'collections.sorting.price_descending' | t
+        when 'created-descending'
+          echo 'collections.sorting.date_descending' | t
+        when 'created-ascending'
+          echo 'collections.sorting.date_ascending' | t
+        endcase
+      -%}</span>
+      <span class="sort-icon"><i class="feather-chevron-down"></i></span>
+    </a>
+    <a href="javascript:void(0)" class="short-title short-title-lg">
+      <span class="sort-title">{%- liquid
+        case sort_by
+        when 'manual'
+          echo 'collections.sorting.featured' | t
+        when 'best-selling'
+          echo 'collections.sorting.best_selling' | t
+        when 'title-ascending'
+          echo 'collections.sorting.az' | t
+        when 'title-descending'
+          echo 'collections.sorting.za' | t
+        when 'price-ascending'
+          echo 'collections.sorting.price_ascending' | t
+        when 'price-descending'
+          echo 'collections.sorting.price_descending' | t
+        when 'created-descending'
+          echo 'collections.sorting.date_descending' | t
+        when 'created-ascending'
+          echo 'collections.sorting.date_ascending' | t
+        endcase
+      -%}</span>
+      <span class="sort-icon"><i class="feather-chevron-down"></i></span>
+    </a>
+    <ul role="list" class="collapse" id="select-wrap">
+      <li{% if sort_by == "manual" %} class="selected"{% endif %}><a href="?sort_by=manual">{{ 'collections.sorting.featured' | t }}</a></li>
+      <li{% if sort_by == 'best-selling' %} class="selected"{% endif %}><a href="?sort_by=best-selling">{{ 'collections.sorting.best_selling' | t }}</a></li>
+      <li{% if sort_by == 'title-ascending' %} class="selected"{% endif %}><a href="?sort_by=title-ascending">{{ 'collections.sorting.az' | t }}</a></li>
+      <li{% if sort_by == 'title-descending' %} class="selected"{% endif %}><a href="?sort_by=title-descending">{{ 'collections.sorting.za' | t }}</a></li>
+      <li{% if sort_by == 'price-ascending' %} class="selected"{% endif %}><a href="?sort_by=price-ascending">{{ 'collections.sorting.price_ascending' | t }}</a></li>
+      <li{% if sort_by == 'price-descending' %}  class="selected"{% endif %}><a href="?sort_by=price-descending">{{ 'collections.sorting.price_descending' | t }}</a></li>
+      <li{% if sort_by == 'created-descending' %} class="selected"{% endif %}><a href="?sort_by=created-descending">{{ 'collections.sorting.date_descending' | t }}</a></li>
+      <li{% if sort_by == 'created-ascending' %} class="selected"{% endif %}><a href="?sort_by=created-ascending">{{ 'collections.sorting.date_ascending' | t }}</a></li>
+    </ul>
+  </div>
+  {% endif %}
+  <!-- product-short end -->
+</div>
+<!-- shop-top-bar end -->
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+  Shopify.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+
+  var $select = $('#SortBy');
+  $('a[href="#sort"]').click(function () {
+    $select.val( $(this).data('select') );
+    event.preventDefault();
+    Shopify.queryParams.sort_by = jQuery(this).data('select');
+    location.search = jQuery.param(Shopify.queryParams);
+  });
+
+  $('.list-change-view').on("click",function () {
+    event.preventDefault();
+    var data_grid = $(this).attr('data-grid-view');
+    if($('.shop-product-wrap').hasClass('grid-1') || $('.shop-product-wrap').hasClass('grid-2') || $('.shop-product-wrap').hasClass('grid-3') || $('.shop-product-wrap').hasClass('grid-4')){
+
+      $('.shop-product-wrap').removeClass('grid-1');
+      $('.shop-product-wrap').removeClass('grid-2');
+      $('.shop-product-wrap').removeClass('grid-3');
+      $('.shop-product-wrap').removeClass('grid-4');
+      $('.shop-product-wrap').addClass('grid-'+data_grid);
+    }else{
+      $('.shop-product-wrap').addClass('grid-'+data_grid);
+    }
+  });
+
+  $('.list-change-view').on("click",function () {
+    $('.list-change-view').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  $(function() {
+    $('#SortBy').val('{{ collection.sort_by | default: collection.default_sort_by }}').bind('change', function() {
+      Shopify.queryParams.sort_by = jQuery(this).val();
+      location.search = jQuery.param(Shopify.queryParams);
+    });
+  });
+
+  $('.product-short a.short-title-lg').on('click', function () {
+    if ($('#select-wrap').hasClass('active')) {
+      $('#select-wrap').removeClass('active');
+      $(this).removeClass('active');
+    }
+    else {
+      $('#select-wrap').addClass('active');
+      $(this).addClass('active');
+    }
+  });
+});
+</script>
+<style>
+  /*=====================================
+    collection sorting css
+  ======================================*/
+  /* shop top bar css */
+  .shop-top-bar {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: var(--sti-border);
+  }
+
+  /* filter button css */
+  .shop-top-bar .product-filter {
+    display: none;
+    {% if settings.enable_rtl %}
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #e2e2e2;
+    {% else %}
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 2px solid #e2e2e2;
+    {% endif %}
+  }
+  .shop-top-bar .product-filter.without-sidebar {
+    display: block;
+  }
+  .shop-top-bar .product-filter button {
+    color: var(--font-color-body);;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 0;
+  }
+  .shop-top-bar .product-filter button span {
+    display: block;
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+    font-weight: var(--sti-font-weight);
+    line-height: 1;
+  }
+  @media (max-width: 991px) {
+    .shop-top-bar .product-filter {
+      display: block;
+    }
+  }
+  @media (max-width: 479px) {
+    .shop-top-bar .product-filter {
+      {% if settings.enable_rtl %}
+      margin-left: 0px;
+      padding-left: 0px;
+      border-left: none;
+      {% else %}
+      margin-right: 0px;
+      padding-right: 0px;
+      border-right: none;
+      {% endif %}
+    }
+  }
+
+  /* grid-list css */
+  .shop-top-bar .product-view-mode {
+    display: flex;
+    {% if settings.enable_rtl %}
+    margin-left: auto;
+    {% else %}
+    margin-right: auto;
+    {% endif %}
+  }
+  .shop-top-bar .product-view-mode .list-change-view {
+    display: block;
+    color: var(--font-color-body);
+    font-size: 18px;
+    {% if settings.enable_rtl %}
+    margin-left: 15px;
+    {% else %}
+    margin-right: 15px;
+    {% endif %}
+    cursor: pointer;
+    -webkit-transition: all 0s ease-in-out 0s;
+    -o-transition: all 0s ease-in-out 0s;
+    transition: all 0s ease-in-out 0s;
+  }
+  .shop-top-bar .product-view-mode .list-change-view:last-child {
+    {% if settings.enable_rtl %}
+    margin-left: 0px;
+    {% else %}
+    margin-right: 0px;
+    {% endif %}
+  }
+  .shop-top-bar .product-view-mode .list-change-view.active {
+    color: var(--font-color-primary);
+  }
+  .shop-top-bar .product-view-mode .list-change-view i {
+    display: block;
+  }
+  @media (max-width: 479px) {
+    .shop-top-bar .product-view-mode {
+      {% if settings.enable_rtl %}
+      margin-left: unset;
+      {% else %}
+      margin-right: unset;
+      {% endif %}
+    }
+  }
+
+  /* product sorting css */
+  .product-short {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .product-short label {
+    color: var(--font-color-primary);
+    margin-bottom: 0;
+    font-weight: var(--sti-font-weight);
+    line-height: 1;
+  }
+  .product-short select {
+    display: none;
+    color: var(--font-color-body);;
+    {% if settings.enable_rtl %}
+    padding: 0px 15px 0px 20px;
+    background-position: left 0px center;
+    {% else %}
+    padding: 0px 20px 0px 15px;
+    background-position: right 0px center;
+    {% endif %}
+    min-width: 200px;
+    background-color: transparent;
+    border: none;
+  }
+  @media (max-width: 767px) {
+    .product-short select {
+      display: block;
+    }
+    .product-short label {
+      min-width: 85px;
+    }
+  }
+  @media (max-width: 479px) {
+    .product-short {
+      order: 1;
+      width: 100%;
+      margin-top: 30px;
+    }
+    .product-short select {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+
+  /* product sorting ul li css */
+  .product-short a.short-title {
+    color: var(--font-color-body);;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    {% if settings.enable_rtl %}
+    padding: 0px 15px 0px 0px;
+    {% else %}
+    padding: 0px 0px 0px 15px;
+    {% endif %}
+  }
+  .product-short a.short-title:hover {
+    color: var(--font-color-primary);
+  }
+  .product-short a.short-title span.sort-title {
+    display: block;
+  }
+  .product-short a.short-title span.sort-icon {
+    font-size: 12px;
+    display: block;
+    line-height: 0;
+  }
+  .product-short a.short-title span.sort-icon i {
+    display: block;
+    line-height: 0;
+  }
+  .product-short a.short-title span.sort-icon i::before {
+    font-weight: 600!important;
+  }
+  .product-short a.short-title.short-title-lg {
+    display: none;
+  }
+  .product-short ul.collapse:not(.show) {
+    display: block;
+  }
+  .product-short ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .product-short:hover ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  .product-short ul,
+  .product-short:hover ul {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  .product-short ul li a {
+    display: block;
+    color: var(--font-color-body);;
+    padding: 7px 15px;
+    background-color: #FFFFFF;
+  }
+  .product-short ul li:hover a,
+  .product-short ul li.selected a {
+    color: var(--font-color-primary);
+    background-color: #F9F9F9;
+  }
+  @media (max-width: 1199px) {
+    .product-short a.short-title {
+      display: none;
+    }
+    .product-short a.short-title.short-title-lg {
+      color: var(--font-color-body);;
+      display: flex;
+    }
+    .product-short a.short-title.short-title-lg.active {
+      color: var(--font-color-secondary);
+    }
+    .product-short ul.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .product-short ul,
+    .product-short:hover ul {
+      -webkit-transition: all 0s ease-in-out 0s;
+      -o-transition: all 0s ease-in-out 0s;
+      transition: all 0s ease-in-out 0s;
+    }    
+    .product-short ul.collapse:not(.show) {
+      display: none;
+    }
+    .product-short ul.collapse:not(.show).active {
+      display: block;
+    }
+  }
+  @media (max-width: 767px) {
+    .product-short a.short-title.short-title-lg {
+      display: none;
+    }
+    .product-short ul {
+      display: none;
+    }
+  }
+  @media (max-width: 479px) {
+    .product-short a.short-title {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+</style>

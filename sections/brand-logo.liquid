@@ -1,0 +1,360 @@
+<!-- our-brand-area start -->
+<section class="our-brand-logo">
+  <div class="container">
+  <div class="row">
+    <div class="col branlogo-wrap">
+      <div class="brand-logo swiper" id="brand-logo">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="brand-img">
+              <a href="{{ block.settings.brand_url }}" class="logo-url">
+                <span class="logo-image">
+                  {%- if block.settings.brand_image_1 -%}
+                  {{ block.settings.brand_image_1 | image_url: width: 512 | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.brand_image_1.width,
+                    height: block.settings.brand_image_1.height,
+                    class: "img-fluid",
+                    alt: block.settings.brand_image_1.alt | escape }}
+                  {%- else -%}
+                  {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </span>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- our-brand-area end -->
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('.swiper#brand-logo', {
+      slidesPerView: 5,
+      grid: {
+        rows: 1,
+        fill: 'row' | 'column',
+      },
+      spaceBetween: 30,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      {%- if settings.enable_rtl -%}
+      rtl: true,
+      {%- endif -%}
+      navigation: {
+        nextEl: '.swiper-next-{{ section.id }}',
+        prevEl: '.swiper-prev-{{ section.id }}',
+      },
+      pagination: {
+        el: ".swiper-pagination-{{ section.id }}",
+        clickable: true
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        320: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        360: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        640: {
+          slidesPerView: 3,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: 3,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 4,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1199: {
+          slidesPerView: 5,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1399: {
+          slidesPerView: 5,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        }
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Brand Logo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "brand_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_color_enable",
+      "label": "Show background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "single_brand",
+      "name": "Single Brand Logo",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Logo Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_image_1",
+          "label": "Brand Image 1",
+          "info": "Recommended Size: 140 x 75px"
+        },
+        {
+          "type": "url",
+          "id": "brand_url",
+          "label": "Brand Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo",
+      "category": "brand logo"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .our-brand-logo {
+    padding-top:{{ section.settings.brand_padding_top }}px;
+    padding-bottom:{{ section.settings.brand_padding_bottom }}px;
+    {% if section.settings.section_bg_color_enable %}
+    background-color: {{ section.settings.section_bg_color }};
+    {% endif %}
+    {% if section.settings.border_enable %}
+    border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+    {% endif %}
+  }
+  @media (max-width: 1199px){
+    .our-brand-logo {
+      padding-top:{{ section.settings.brand_padding_top_lg }}px;
+      padding-bottom:{{ section.settings.brand_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px){
+    .our-brand-logo {
+      padding-top:{{ section.settings.brand_padding_top_lg }}px;
+      padding-bottom:{{ section.settings.brand_padding_bottom_xs }}px;
+    }
+  }
+  .our-brand-logo .branlogo-wrap{
+    margin: 0 auto;
+  }
+  .our-brand-logo .brand-logo .brand-img {
+    text-align: center;
+  }
+  .our-brand-logo .brand-logo .brand-img a.logo-url span.logo-image img {
+    filter: opacity(0.5);
+    -webkit-transition: filter .3s ease-in-out;
+    -o-transition: filter .3s ease-in-out;
+    transition: filter .3s ease-in-out;
+  }
+  .our-brand-logo .brand-logo .brand-img a.logo-url:hover span.logo-image img {
+    filter: opacity(1);
+  }
+  .our-brand-logo .brand-logo .brand-img a.logo-url span.logo-image svg {
+    width: 100%;
+  }
+  .our-brand-logo .brand-logo .brand-img a.logo-url span.logo-image img,
+  .our-brand-logo .brand-logo .brand-img a.logo-url:hover span.logo-image img {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+</style>

@@ -1,0 +1,86 @@
+<ul class="social-icon">
+  {% if settings.social_icon_1_name != blank %}
+  <li class="facebook">
+    <a href="{{ settings.social_icon_1_link }}">
+      <i class="{{ settings.social_icon_1_name }}"></i>
+    </a>
+  </li>        
+  {% endif %}
+
+  {% if settings.social_icon_2_name != blank %}
+  <li class="twitter">
+    <a href="{{ settings.social_icon_2_link }}">
+      <i class="{{ settings.social_icon_2_name }}"></i>
+    </a>
+  </li>        
+  {% endif %}
+
+  {% if settings.social_icon_3_name != blank %}
+  <li class="gplus">
+    <a href="{{ settings.social_icon_3_link }}">
+      <i class="{{ settings.social_icon_3_name }}"></i>
+    </a>
+  </li>        
+  {% endif %}
+
+  {% if settings.social_icon_4_name != blank %}
+  <li class="pinterest">
+    <a href="{{ settings.social_icon_4_link }}">
+      <i class="{{ settings.social_icon_4_name }}"></i>
+    </a>
+  </li>        
+  {% endif %}
+
+  {% if settings.social_icon_5_name != blank %}
+  <li class="youtube">
+    <a href="{{ settings.social_icon_5_link }}">
+      <i class="{{ settings.social_icon_5_name }}"></i>
+    </a>
+  </li>        
+  {% endif %}
+</ul>
+<style>
+  /* social icon css */
+  ul.social-icon{
+    margin-top: -5px;
+    {% if settings.enable_rtl %}
+    margin-right: -5px;
+    {% else %}
+    margin-left: -5px;
+    {% endif %}
+    line-height: 1;
+  }
+  ul.social-icon li{
+    display: inline-block;
+    margin-top: 5px;
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+  }
+  ul.social-icon li:first-child{
+    {% if settings.enable_rtl %}
+    margin-right: 0px;
+    {% else %}
+    margin-left: 0px;
+    {% endif %}
+  }
+  ul.social-icon li a {
+    color: var(--color-text);
+    font-size: 18px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 100%;
+    line-height: 0;
+  }
+  ul.social-icon li a:hover {
+    background-color: var(--font-color-primary);
+    color: #FFFFFF;
+    border-color: var(--font-color-primary);
+  }
+</style>

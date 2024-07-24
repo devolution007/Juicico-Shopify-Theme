@@ -1,0 +1,48 @@
+{%- assign variant = product.selected_or_first_available_variant -%}
+{%- if product.available -%}
+{%- assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)" -%}
+{%- endif -%}
+<div class="product-grid-list">
+  <div class="single-product-wrap">
+    <div class="product-image">
+      <a class="pro-img" href="{{ product.url | within: collection }}">
+        <img class="img-fluid img1" src="{{ product.featured_image.src | image_url : '500X500', crop: 'center' }}" width="{{ product.featured_image.src.width }}" height="{{ product.featured_image.src.height }}" alt="{{ product.featured_image.src.alt | escape }}" loading="lazy">
+        <img class="img-fluid img2" src="{{ product.images[1] | image_url: '500X500', crop: 'center' }}" width="{{ product.images[1].width }}" height="{{ product.images[1].height }}" alt="{{ product.images[1].alt }}" loading="lazy"/>
+      </a>
+    </div>
+    <div class="product-content">
+      <div class="product-ratting">
+          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      </div>
+      <div class="product-title">
+        <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title | truncate: 30 }}</a>
+      </div>
+      <div class="price-box" id="ProductPrice">
+        <span class="new-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+        {%- if product.compare_at_price_max > product.price -%}
+        <span class="old-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+        {%- endif -%}
+      </div>
+      <div class="product-action">
+        {% if product.available %}
+        <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="add-to-cart ajax-spin-cart" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'products.product.add_to_cart' | t }}">
+          <span class="cart-title"><i class="ri-shopping-cart-line"></i></span>
+          <span class="cart-loading load-anim"><i class="ri-loader-4-line"></i></span>
+          <span class="cart-added"><i class="ri-check-line"></i></span>
+          <span class="cart-unavailable"><i class="ri-error-warning-fill"></i></span>
+        </a>
+        {% else %}
+        <a class="disabled-add-to-cart add-to-cart disabled" disabled="disabled" href="#" title="Out of stock"><i class="ri-shopping-cart-line"></i></a>
+        {% endif %}
+        {%- if settings.product_quickview_enalbe -%}
+        <a href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" class="quick-view" data-bs-toggle="tooltip" data-placement="top" title="{{ settings.quick_view_title }}">
+          <i class="ri-eye-line"></i>
+        </a>
+        {%- endif -%}
+        {%- if settings.wishlist_enable -%}
+        {% render 'wishlist-button3', product: product %}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{% if product.available %}
+<a href="javascript:void(0)" class="buy-btn" id="buyNow" onClick="instantBuy{{ product.id }}()">
+  {{ 'products.product.buy_now' | t }}
+</a>
+{% endif %}
+<script type="text/javascript">
+  function instantBuy{{ product.id }}(){
+    jQuery.post('/cart/add', $(".cart-{{ product.id }}").serialize()).
+     always(function(data){
+     window.location.href ='/checkout';
+  });
+  }
+</script>
+<style>
+  a.buy-btn{
+    background-color: var(--font-color-secondary);
+    color: #ffffff;
+    padding: 10px 30px;
+    line-height: 1;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: var(--font-subtitle-weight-body);
+    border-radius: var(--sti-border-radius);
+  }
+  a.buy-btn:hover{
+    color: #fff;
+    background-color: var(--font-color-primary);
+  }
+  a.buy-btn[disabled],
+  a.buy-btn.disabled{
+    color: #eaeaea;
+    background-color: #ababab;
+    opacity: .65;
+    pointer-events: none;
+  }
+  @media(max-width: 767px){
+    a.buy-btn{
+      margin-top: 10px;
+      margin-left: 0px;
+    }
+  }
+</style>

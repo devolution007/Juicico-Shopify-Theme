@@ -1,0 +1,188 @@
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+{% paginate search.results by 12 %}
+<section class="section-ptb search-page">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-capture">
+          <div class="section-title">
+            <div class="section-cont-title">
+              {% if search.performed %}
+              {% if search.results_count == 0 %}
+              <h2>
+                <span>{{ 'general.search.no_results_html' | t: terms: search.terms }}</span>
+              </h2>
+              {% else %}
+              <h2>
+                <span>{{ 'general.search.results_for_html' | t: terms: search.terms }}</span>
+              </h2>
+              {% endif %}
+              {% else %}
+              <h2>
+                <span>{{ 'general.search.title' | t }}</span>
+              </h2>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        <div class="page-search-bar">
+          <form action="/search" method="get" class="page-search-form" role="search">
+            <div class="form-search">
+              <input type="hidden" name="type" value="product">
+              <input type="hidden" name="options[unavailable_products]" value="show">
+              <input type="hidden" name="options[prefix]" value="last">
+              <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}" required>
+              <button type="submit" class="page-search-button"><i class="feather-search"></i></button>
+            </div>
+          </form>
+        </div>
+        
+        {% if search.performed %}
+        <div id="gf-products" class="search-list">
+          {% for item in search.results %}
+          {%- assign product = item -%}
+          {% if item.object_type == 'product' %}
+          {% render 'product-grid-item', product: product %}
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% comment %}
+        {% if paginate.pages > 1 %}
+        <div class="paginatoin-area">
+          <ul class="paginate">
+            <li class="page-numerous">
+              {%- render 'pagination', paginate: paginate -%}
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+        {% endcomment %}
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endpaginate %}
+{% else %}
+{% render 'respond' %}
+{% layout none %}
+{% endunless %}
+<style>
+/*=====================================
+search page css
+======================================*/
+.search-page .page-search-bar form .form-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-page .page-search-bar form .form-search input {
+  width: calc(100% - 49px);
+  border-radius: var(--sti-border-radius);
+}
+.search-page .page-search-bar form .form-search button.page-search-button {
+  color: #FFFFFF;
+  font-size: 16px;
+  position: absolute;
+  {% if settings.enable_rtl %}
+  left: 0;
+  border-radius: var(--sti-border-radius) 0px 0px var(--sti-border-radius);
+  {% else %}
+  right: 0;
+  border-radius: 0px var(--sti-border-radius) var(--sti-border-radius) 0px;
+  {% endif %}
+  width: 50px;
+  height: 100%;
+  background-color: var(--font-color-primary);
+}
+.search-page .page-search-bar form .form-search button.page-search-button:hover {
+  color: #FFFFFF;
+  background-color: var(--font-color-secondary);
+}
+
+/*search grid css*/
+.search-page .search-list {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  {% if settings.enable_rtl %}
+  margin: 0px -30px 0px 0px;
+  {% else %}
+  margin: 0px 0px 0px -30px;
+  {% endif %}  
+}
+@media (max-width: 767px) {
+  .search-page .search-list{
+    {% if settings.enable_rtl %}
+    margin: 0px -12px 0px 0px;
+    {% else %}
+    margin: 0px 0px 0px -12px;
+    {% endif %}
+  }
+}
+
+/* search product css */
+.search-page .search-list .single-product-wrap {
+  width: calc(25% - 30px);
+  {% if settings.enable_rtl %}
+  margin: 30px 30px 0px 0px;
+  {% else %}
+  margin: 30px 0px 0px 30px;
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .search-page .search-list .single-product-wrap {
+    width: calc(33.33% - 30px);
+  }
+}
+@media (max-width: 767px) {
+  .search-page .search-list .single-product-wrap {
+    width: calc(33.33% - 12px);
+    {% if settings.enable_rtl %}
+    margin: 30px 12px 0px 0px;
+    {% else %}
+    margin: 30px 0px 0px 12px;
+    {% endif %}
+  }
+}
+@media (max-width: 600px) {
+  .search-page .search-list .single-product-wrap {
+    width: calc(50% - 12px);
+  }
+}
+@media (max-width: 320px) {
+  .search-page .search-list .single-product-wrap {
+    width: calc(100% - 12px);
+  }
+}
+
+/* search blog css */
+.search-page .search-list .search-blog-item {
+  width: calc(33.33% - 30px);
+  {% if settings.enable_rtl %}
+  margin: 30px 30px 0px 0px;
+  {% else %}
+  margin: 30px 0px 0px 30px;
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .search-page .search-list .search-blog-item {
+    width: calc(50% - 30px);
+  }
+}
+@media (max-width: 767px) {
+  .search-page .search-list .search-blog-item {
+    width: calc(100% - 12px);
+    {% if settings.enable_rtl %}
+    margin: 30px 12px 0px 0px;
+    {% else %}
+    margin: 30px 0px 0px 12px;
+    {% endif %}
+  }
+}
+</style>

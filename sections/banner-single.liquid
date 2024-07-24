@@ -1,0 +1,210 @@
+<!-- banner-area start -->
+<section class="banner-single" style="background-image: url('{%- if section.settings.banner_img -%}{{ section.settings.banner_img | image_url: width: 1024 }}{%- else -%}https://dummyimage.com/1920x800{%- endif -%}')">
+  <div class="text-content">
+    {% if section.settings.banner_title != '' %}
+      <h2 style="color: {{ section.settings.banner_title_color }}">{{ section.settings.banner_title }}</h2>
+    {% endif %}
+    <a href="{{ section.settings.banner_url }}" class="arrow-icon" style="color: {{ section.settings.banner_btn_color }}">
+      <i class="feather-arrow-right"></i>
+    </a>
+  </div>
+</section>
+<!-- banner-area end -->
+{% schema %}
+{
+  "name": "Banner Single",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner Image",
+      "info": "Recommended Size: 1920x800px"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "Sport bermuda"
+    },
+    {
+      "type": "color",
+      "id": "banner_title_color",
+      "label": "Banner title color",
+      "default": "#fff"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "URL"
+    },
+    {
+      "type": "color",
+      "id": "banner_btn_color",
+      "label": "Banner button color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Single"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.banner-single{
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media(max-width: 1199px){
+  .banner-single{
+    padding-top: {{ section.settings.section_padding_top_lg }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media(max-width: 767px){
+  .banner-single{
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+.banner-single .text-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+.banner-single .text-content h2 {
+  font-size: 100px;
+}
+.banner-single .text-content a.arrow-icon {
+  font-size: 18px;
+  color: #fff;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-single .text-content a.arrow-icon:hover {
+  background-color: var(--font-color-primary);
+  border-color: var(--font-color-primary);
+}
+@media(max-width: 1399px){
+  .banner-single .text-content{
+    padding: 0 60px;
+  }
+  .banner-single .text-content h2 {
+    font-size: 64px;
+  }
+  .banner-single .text-content a.arrow-icon{
+    height: 60px;
+    width: 60px;
+  }
+}
+@media(max-width: 1199px){ 
+  .banner-single .text-content h2 {
+    font-size: 40px;
+  }
+}
+@media(max-width: 991px){
+  .banner-single .text-content {
+    padding: 0 30px;
+  }
+  .banner-single .text-content h2 {
+    font-size: 30px;
+  }
+}
+@media(max-width: 479px){
+  .banner-single .text-content {
+    flex-direction: column;
+  }
+  .banner-single .text-content a.arrow-icon {
+    height: 40px;
+    width: 40px;
+    margin-top: 15px;
+  }
+}
+</style>

@@ -1,0 +1,178 @@
+<section class="contact-us-page">
+  <div class="container">
+    <div class="form-contact">
+      <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.contact_drop_title != '' %}
+          <h2>{{ section.settings.contact_drop_title }}</h2>
+          {% endif %}
+        </div>
+      </div>
+      <div class="contact-form-list">
+        {% render 'contact-form' %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Contact Us",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop "
+    },
+    {
+      "type": "range",
+      "id": "main_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "main_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "main_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "main_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "main_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "main_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Form info"
+    },
+    {
+      "type": "text",
+      "id": "contact_drop_title",
+      "label": "Form Title",
+      "default": "Drop us message"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Name Placeholder",
+      "default": "Your name"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "mobile_placeholder",
+      "label": "Mobile Placeholder",
+      "default": "Your Mobile"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "label": "Message Placeholder",
+      "default": "Your message here..."
+    },
+    {
+      "type": "text",
+      "id": "form_button_name",
+      "label": "Button Name",
+      "default": "Submit"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Us",
+      "category": "contact us"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .contact-us-page{
+    padding-top: {{ section.settings.main_padding_top }}px;
+    padding-bottom: {{ section.settings.main_padding_bottom }}px;
+  }
+  @media (max-width: 1199px){
+    .contact-us-page{
+      padding-top: {{ section.settings.main_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.main_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px){
+    .contact-us-page{
+      padding-top: {{ section.settings.main_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.main_padding_bottom_xs }}px;
+    }
+  }
+  .contact-us-page .form-contact .form-title h6{
+    font-size: 34px;
+    font-weight: var(--font-custom-weight-section-header);
+  }
+  @media (max-width: 1199px){
+    .contact-us-page .form-contact .form-title h6{
+      font-size: 24px;
+    }
+  }
+  @media (max-width: 767px){
+    .contact-us-page .form-contact .form-title h6{
+      font-size: 20px;
+    }
+  }
+</style>

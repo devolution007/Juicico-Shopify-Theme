@@ -1,0 +1,28 @@
+<a href="javascript:void(0)" class="payment-icon">
+    {% assign enabled_payment_types = settings.payment_picker | replace: ', ', ',' | replace: ' ,', ',' | split: ',' %}
+    {% for type in enabled_payment_types %}
+    {{ type | payment_type_svg_tag }}
+    {% endfor %}
+</a>
+<style>
+    .payment-icon {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .payment-icon svg {
+        width: {{ settings.payment_svg_width }}px;
+        height: auto;
+        {% if settings.enable_rtl %}
+        margin-left: 5px;
+        {% else %}
+        margin-right: 5px;
+        {% endif %}
+    }
+    .payment-icon svg:last-child{
+        {% if settings.enable_rtl %}
+        margin-left: 0px;
+        {% else %}
+        margin-right: 0px;
+        {% endif %}
+    }
+</style>

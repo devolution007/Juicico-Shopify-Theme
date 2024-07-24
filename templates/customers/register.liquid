@@ -1,0 +1,189 @@
+<section class="customer-page section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="acc-form">
+          <div class="log-acc-page">
+            <div class="acc-page">
+              <div class="registers">
+                {% form 'create_customer' %}
+                <div class="login-form-container">
+                  <div class="section-capture">
+                    <div class="section-title">
+                      <h2>{{ 'customer.register.title' | t }}</h2>
+                    </div>
+                  </div>
+                  {{ form.errors | default_errors }}
+                  <ul class="fill-form">
+                    <li class="fname">
+                      <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+                      <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus required>
+                    </li>
+                    <li class="lname">
+                      <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+                      <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words" required>
+                    </li>
+                    <li class="log-email">
+                      <label for="Email">{{ 'customer.register.email' | t }}</label>
+                      <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" required>
+                    </li>
+                    <li class="log-pwd">
+                      <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+                      <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}" required>
+                    </li>
+                  </ul>
+                  <div class="form-action-button">
+                    <button class="btn-style" type="submit">{{ 'customer.register.submit' | t }}</button>
+                  </div>
+                </div>
+                {% endform %}
+              </div>
+              <div class="acc-wrapper">
+                <h6>{{ settings.alredy_acc_title }}</h6>
+                <div class="account-optional-action">
+                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  {% comment %}<a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>{% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .customer-page .log-acc-page{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .customer-page .log-acc-page .acc-page{
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+    background-color: var(--extra-color-body);
+    display: flex!important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--sti-border-radius);
+  }
+  .customer-page .log-acc-page .acc-page .registers{
+    width: 100%;
+  }
+  @media(max-width: 1199px){
+    .customer-page .log-acc-page .acc-page{
+      padding: 30px;
+    }
+  }
+  @media(max-width: 991px){
+    .customer-page .log-acc-page{
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px){
+    .customer-page .log-acc-page{
+      margin-top: 30px;
+    }
+  }
+  /* form css */
+  .customer-page .log-acc-page .login-form-container p{
+    max-width: 100%;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li{
+    margin-top: 28px;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li:first-child{
+    margin-top: 0px;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li label{
+    display: block;
+    margin-bottom: 14px;
+    cursor: auto;
+    line-height: 1;
+    font-size: 16px;
+    color: var(--font-color-body);
+    font-weight: var(--sti-font-weight);
+  }
+  .customer-page .log-acc-page .login-form-container input{
+    width: 100%;
+    background-color: #ffffff;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button{
+    margin-top: 50px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button a{
+    display: block;
+    color: #999;
+    margin-top: 18px;
+    text-decoration: underline;
+    line-height: 1;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button a:hover{
+    color: var(--font-color-primary);
+  }
+  .customer-page .log-acc-page .acc-wrapper{
+    margin-top: 25px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .acc-wrapper h6{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action{
+    margin-top: 11px;
+  }
+  @media (max-width: 1199px){
+    .customer-page .log-acc-page .login-form-container .form-action-button{
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 767px){
+    .customer-page .log-acc-page .login-form-container .form-action-button{
+      margin-top: 20px;
+    }
+  }
+
+  /* acc-link css */
+  .customer-page .log-acc-page .acc-wrapper{
+    margin-top: 25px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .acc-wrapper h6{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action{
+    margin-top: 11px;
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action a{
+    color: var(--font-color-primary);
+    text-decoration: underline;
+  }
+
+  /* error css */
+  .customer-page .log-acc-page .errors{
+    padding: 10px 15px;
+    {% if settings.enable_rtl %}
+    text-align: right;
+    {% else %}
+    text-align: left;
+    {% endif %}
+  }
+  .customer-page .log-acc-page .errors ul{
+    {% if settings.enable_rtl %}
+    margin-right: 15px;
+    margin-left: 0;
+    {% else %}
+    margin-left: 15px;
+    {% endif %}
+    list-style: square;
+  }
+  .customer-page .log-acc-page .errors ul li{
+    margin-top: 5px;
+  }
+  .customer-page .log-acc-page .errors ul li:first-child{
+    margin-top: 0px;
+  }
+</style>

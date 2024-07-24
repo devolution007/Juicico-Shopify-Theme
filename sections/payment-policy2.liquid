@@ -1,0 +1,215 @@
+<section class="payment-policy2">
+  <div class="container">
+    <ul class="grid-wrap">
+      <li class="grid-wrapper">
+        <div class="main-title">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.main_title != '' %}
+              <h2>{{ section.settings.main_title }}</h2>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="grid-wrapper">
+        <div class="text-content">
+          {% if section.settings.list_desc != '' %}
+          <p>{{ section.settings.list_desc }}</p>
+          {% endif %}
+          {% if section.settings.text_button != '' %}
+          <a href="{{ section.settings.text_url }}">{{ section.settings.text_button }}</a>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Payemnt policy 2",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Page Title"
+    },
+    {
+      "type": "textarea",
+      "id": "main_title",
+      "label": "Main title",
+      "default": "To create a credit card for testing use one of is test card numbers "
+    },
+    {
+      "type": "textarea",
+      "id": "list_desc",
+      "label": "List description",
+      "default": "Describes supported payment methods, such as credit cards, debit cards, & bank transfersThis article introduces what payment method is applied to pay invoices in simply dummy text of the printing and typesetting industry.  "
+    },
+    {
+      "type": "url",
+      "id": "text_url",
+      "label": "Text url"
+    },
+    {
+      "type": "text",
+      "id": "text_button",
+      "label": "Text button",
+      "default": "Payment method"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment policy 2"
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+  .payment-policy2 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media (max-width: 1199px) {
+    .payment-policy2 {
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .payment-policy2 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .payment-policy2 ul.grid-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .payment-policy2 ul.grid-wrap li.grid-wrapper{
+    width: calc(50% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .payment-policy2 .main-title {
+    max-width: 70%;
+  }
+  .payment-policy2 .main-title .section-capture {
+    margin-bottom: 0px;
+  }
+  .payment-policy2 .main-title .section-capture .section-title {
+    text-align: left;
+  }
+  .payment-policy2 .text-content{
+    max-width: 85%;
+  }
+  .payment-policy2 .text-content a {
+    color: var(--font-color-primary);
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    text-transform: uppercase;
+    margin-top: 30px;
+    border-bottom: 1px solid;
+  }
+  .payment-policy2 .text-content a:hover {
+    color: var(--font-color-secondary):
+  }
+  @media(max-width: 1599px){
+    .payment-policy2 .main-title {
+      max-width: 83.33%;
+    }
+    .payment-policy2 .text-content{
+      max-width: 100%;
+    }
+  }
+  @media(max-width: 1199px){
+    .payment-policy2 .text-content p{
+      font-size: 14px;
+      line-height: 25px;
+    }
+    .payment-policy2 .text-content a{
+      margin-top: 20px;
+    }
+  }
+  @media(max-width: 991px) {
+    .payment-policy2 .main-title {
+      max-width: 100%;
+    }
+  }
+  @media(max-width: 767px){
+    .payment-policy2 ul.grid-wrap li.grid-wrapper{
+      width: calc(100% - 30px);
+    }
+  }
+</style>

@@ -1,0 +1,255 @@
+<section class="payment-policy-banner">
+  <ul class="banner-wrap">
+    <li class="banner-wrapper">
+      <div class="banner-bg" style="background-image: url({% if section.settings.banner_img %}{{ section.settings.banner_img | image_url }}{% else %}https://dummyimage.com/950x700{% endif %});"></div>
+    </li>
+    <li class="banner-wrapper">
+      <div class="banner-content">
+        <div class="section-capture">
+          <div class="section-title">
+            {% if section.settings.banner_title != '' %}
+            <h2>{{ section.settings.banner_title }}</h2>
+            {% endif %}
+          </div>
+        </div>
+        {% assign i = 0 %}
+        {% for block in section.blocks %}
+        {% assign i = i | plus: 1 %}
+        <div class="block-list">
+          <span>{{ i }}</span>
+          <p>{{ block.settings.block_list }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </li>
+  </ul>
+</section>
+{% schema %}
+{
+  "name": "Payment policy banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad Pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner image",
+      "info": "Recommended Size: 950 x 700px"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "We provided good solutions ranmised"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "block_list",
+          "label": "Block list",
+          "default": "Bank transfers are a payment method the from a customer bank to a merchant bank"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment policy banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .payment-policy-banner {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media(max-width: 1199px) {
+    .payment-policy-banner {
+      padding-top: {{ section.settings.section_padding_top_ip }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+    }
+  }
+  @media(max-width: 767px) {
+    .payment-policy-banner {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .payment-policy-banner ul.banner-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .payment-policy-banner ul.banner-wrap li.banner-wrapper{
+    width: 50%;
+    background-color: var(--extra-color-body);
+  }
+  .payment-policy-banner .banner-bg {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .payment-policy-banner .banner-content {
+    padding: 60px 120px;
+    max-width: 70%;
+  }
+  .payment-policy-banner .banner-content .section-capture {
+    margin-bottom: 40px;
+  }
+  .payment-policy-banner .banner-content .section-capture .section-title {
+    text-align: left;
+  }
+  .payment-policy-banner .banner-content .block-list{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .payment-policy-banner .banner-content .block-list:first-of-type{
+    margin-top: 0;
+  }
+  .payment-policy-banner .banner-content .block-list span{
+    color: var(--font-color-primary);
+    font-size: 18px;
+    font-weight: var(--sti-font-weight);
+    line-height: 1;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,10%);
+    border-radius: 50%;
+  }
+  .payment-policy-banner .banner-content .block-list p{
+    width: calc(100% - 65px);
+    {% if settings.enable_rtl %}
+    margin-right: 15px;
+    {% else %}
+    margin-left: 15px;
+    {% endif %}
+  }
+  @media(max-width: 1599px){
+    .payment-policy-banner .banner-content{
+      padding: 60px;
+      max-width: 90%;
+    }
+  }
+  @media(max-width: 1199px){
+    .payment-policy-banner .banner-content{
+      padding: 60px;
+      max-width: 100%;
+    }
+    .payment-policy-banner .banner-content .block-list{
+      margin-top: 20px;
+    }
+  }
+  @media(max-width: 991px){
+    .payment-policy-banner .banner-content {
+      padding: 50px 30px;
+    }
+    .payment-policy-banner ul.banner-wrap li.banner-wrapper{
+      width: 100%;
+    }
+    .payment-policy-banner .banner-bg{
+      height: 400px;
+    }
+  }
+  @media(max-width: 767px){
+    .payment-policy-banner .banner-content{
+      padding: 30px 12px;
+    }
+    .payment-policy-banner .banner-content .section-capture {
+      margin-bottom: 15px;
+    }
+    .payment-policy-banner .banner-content .block-list {
+      margin-top: 15px;
+    }
+  }
+  @media(max-width: 320px){
+    .payment-policy-banner .banner-bg {
+      height: 200px;
+    }
+    .payment-policy-banner .banner-content {
+      padding: 15px;
+    }
+  }
+</style>

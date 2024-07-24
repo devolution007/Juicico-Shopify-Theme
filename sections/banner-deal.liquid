@@ -1,0 +1,671 @@
+<section class="banner-grid-deal">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="banner-block-area">
+          <ul class="banner-ul">
+            {% for block in section.blocks %}
+            {% case block.type %}
+            {% when 'offer_banner' %}
+            {% assign offer_banner_collection = collections[block.settings.offer_banner_collection] %}
+            <li class="banner-li offer-banner">
+              <div class="banner-item">
+                <a href="{{ offer_banner_collection.url }}" class="banner-block">
+                  {%- if block.settings.offer_banner_image -%}
+                  {{ block.settings.offer_banner_image | image_url: width: 1024 | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.offer_banner_image.width,
+                    height: block.settings.offer_banner_image.height,
+                    class: "img-fluid",
+                    alt: block.settings.offer_banner_image.alt | escape }}
+                  {%- else -%}
+                  {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </a>
+                <div class="banner-content {% if block.settings.banner3_text_position == 'left' %} banner-text-left{% elsif block.settings.banner3_text_position == 'right' %} banner-text-right{% else %} banner-text-center{% endif %}{% if block.settings.banner3_content_position == 'left' %} banner-content-left{% elsif block.settings.banner3_content_position == 'right' %} banner-content-right{% else %} banner-content-center{% endif %}">
+                  {% if block.settings.offer_banner_title != '' %}
+                  <h4 class="title" style="color: {{ block.settings.offer_banner_title_color }}">{{ block.settings.offer_banner_title }}</h4>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+            
+            {% when 'deal_banner' %}
+            {% assign deal_banner_collection = collections[block.settings.deal_banner_collection] %}
+            <li class="banner-li deal-banner">
+              <div class="banner-item"  style="background-image: url({% if block.settings.deal_banner_image %}{{ block.settings.deal_banner_image | image_url }}{% else %}https://dummyimage.com/1210x1240{% endif %});">
+                <div class="banner-content">
+                  <div class="deal-content-block">
+                    <div class="title-block">
+                      {% if block.settings.deal_banner_title != '' %}
+                      <h4 class="title" style="color: {{ block.settings.deal_banner_title_color }}">{{ block.settings.deal_banner_title }}</h4>
+                      {% endif %}
+                    </div>
+                    <div class="timer-section">
+                      <div class="deal-content-timer" id="the-24h-countdown">
+                        <ul></ul>
+                      </div>
+                    </div>
+                    <div class="banner-button">
+                      {% if block.settings.banner_btn_text != '' %}
+                      <a href="{{ deal_banner_collection.url }}" class="btn {% if block.settings.slider_button_style == 'btn-style1' %}btn-style{% elsif block.settings.slider_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">{{ block.settings.banner_btn_text }}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <script>
+              addEventListener('DOMContentLoaded', (event) => {
+                if(jQuery('#the-24h-countdown').length) {
+                  setInterval(function time(){
+                    var d = new Date();
+                    var days = d.getDay();
+                    var hours = 24 - d.getHours();
+                    var min = 60 - d.getMinutes();
+                    if((min + '').length == 1){
+                      min = '0' + min;
+                    }
+                    var sec = 60 - d.getSeconds();
+                    if((sec + '').length == 1){
+                      sec = '0' + sec;
+                    }
+                  jQuery('#the-24h-countdown ul').html('<li class="banner-countdown"><span class="banner-countdown-timer">'+days+'</span><span class="banner-countdown-title">{{ block.settings.day_title }}</span></li><li class="banner-countdown"><span class="banner-countdown-timer">'+hours+'</span><span class="banner-countdown-title">{{ block.settings.hour_title }}</span></li><li class="banner-countdown"><span class="banner-countdown-timer">'+min+'</span><span class="banner-countdown-title">{{ block.settings.minute_title }}</span></li><li class="banner-countdown"><span class="banner-countdown-timer">'+sec+'</span><span class="banner-countdown-title">{{ block.settings.second_title }}</span></li>')
+                }, 500);
+              }
+            });
+            </script>
+            {% endcase %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banner Grid & Deal",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad Pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "offer_banner",
+      "name": "Offer Banner",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "offer_banner_image",
+          "label": "Banner Image",
+          "info": "Recommended Size: 625px x 640px"
+        },
+        {
+          "type": "collection",
+          "id": "offer_banner_collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "offer_banner_title",
+          "label": "Title",
+          "default": "Advanced hand sanitizer liquid"
+        },
+        {
+          "type": "color",
+          "id": "offer_banner_title_color",
+          "label": "Title Color",
+          "default": "#333333"
+        },
+        {
+          "type": "radio",
+          "id": "banner3_content_position",
+          "label": "Content Position",
+          "options": [
+            {
+              "label": "Content Left",
+              "value": "left"
+            },
+            {
+              "label": "Content Right",
+              "value": "right"
+            },
+            {
+              "label": "Content Center",
+              "value": "center"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "radio",
+          "id": "banner3_text_position",
+          "label": "Text Position",
+          "options": [
+            {
+              "label": "Text Left",
+              "value": "left"
+            },
+            {
+              "label": "Text Right",
+              "value": "right"
+            },
+            {
+              "label": "Text Center",
+              "value": "center"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "deal_banner",
+      "name": "Deal Banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "deal_banner_image",
+          "label": "Banner Image",
+          "info": "Recommended Size: 1210px x 1240px"
+        },
+        {
+          "type": "collection",
+          "id": "deal_banner_collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "deal_banner_title",
+          "label": "Banner Title",
+          "default": "Hot deals up to 30% off"
+        },
+        {
+          "type": "color",
+          "id": "deal_banner_title_color",
+          "label": "Banner Title Color",
+          "default": "#333333"
+        },
+        {
+          "type": "header",
+          "content": "Countdown Timer Title"
+        },
+        {
+          "type": "text",
+          "id": "day_title",
+          "label": "Day Title",
+          "default": "Day"
+        },
+        {
+          "type": "text",
+          "id": "hour_title",
+          "label": "Hour Title",
+          "default": "Hrs"
+        },
+        {
+          "type": "text",
+          "id": "minute_title",
+          "label": "Minute Title",
+          "default": "Min"
+        },
+        {
+          "type": "text",
+          "id": "second_title",
+          "label": "Second Title",
+          "default": "Sec"
+        },
+        {
+          "type": "header",
+          "content": "Deal Banner Button"
+        },
+        {
+          "type": "text",
+          "id": "banner_btn_text",
+          "label": "Button Text",
+          "default": "Shop now"
+        },
+        {
+          "type": "select",
+          "id": "slider_button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "label": "Button Style1",
+              "value": "btn-style1"
+            },
+            {
+              "label": "Button Style2",
+              "value": "btn-style2"
+            },
+            {
+              "label": "Button Style3",
+              "value": "btn-style3"
+            }
+          ],
+          "default": "btn-style3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Grid & Deal",
+      "category": "Banner Grid & Deal"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .banner-grid-deal {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  @media(max-width: 1199px) {
+    .banner-grid-deal {
+      padding-top: {{ section.settings.section_padding_top_ip }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+    }
+  }
+  @media(max-width: 767px) {
+    .banner-grid-deal {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  /*=====================================
+      banner css
+  ======================================*/
+  .banner-grid-deal .banner-block-area ul.banner-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    {%- if settings.enable_rtl -%}
+    margin: -30px -30px 0px 0px;
+    {%- else -%}
+    margin: -30px 0px 0px -30px;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li {
+    position: relative;
+    {%- if settings.enable_rtl -%}
+    margin: 30px 30px 0px 0px;
+    {%- else -%}
+    margin: 30px 0px 0px 30px;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li {
+    width: calc(33.33% - 30px);
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item {
+    height: 100%;
+    border-radius: var(--sti-border-radius);
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-item {
+    padding: 50px 30px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block {
+    position: relative;
+    height: 100%;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--sti-border-radius);
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block svg {
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 1199px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner {
+      width: calc(50% - 30px);
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner {
+      width: calc(100% - 30px);
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner:last-child {
+      order: -1;
+    }
+  }
+  @media (max-width: 767px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul {
+      {%- if settings.enable_rtl -%}
+      margin: -30px -12px 0px 0px;
+      {%- else -%}
+      margin: -30px 0px 0px -12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li {
+      {%- if settings.enable_rtl -%}
+      margin: 30px 12px 0px 0px;
+      {%- else -%}
+      margin: 30px 0px 0px 12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner {
+      width: calc(50% - 12px);
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner {
+      width: calc(100% - 12px);
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-item {
+      padding: 30px 15px;
+    }
+  }
+  @media (max-width: 479px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner {
+      width: calc(100% - 12px);
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner:last-child {
+      order: unset;
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item,
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block,
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block img {
+      height: unset;
+      object-fit: unset;
+    } 
+  }
+
+  {%- if settings.enable_rtl -%}
+  /* banner img css */
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item a.banner-block img {
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  {%- endif -%}
+
+  /* banner info css */
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item {
+    position: relative;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner .banner-item .banner-content {
+    position: absolute;
+    top: 50px;
+  }
+  @media (max-width: 1199px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.offer-banner .banner-item .banner-content {
+      top: 30px;
+    }
+  }
+
+  /* banner content position css */
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-left {
+    {%- if settings.enable_rtl -%}
+    right: 50px;
+    margin-left: auto;
+    {%- else -%}
+    left: 50px;
+    margin-right: auto;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-right {
+    {%- if settings.enable_rtl -%}
+    left: 50px;
+    margin-right: auto;
+    {%- else -%}
+    right: 50px;
+    margin-left: auto;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-center {
+    left: 30px;
+    right: 30px;
+    margin: 0 auto;
+    width: 75%;
+  }
+  @media (max-width: 767px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-left {
+      {%- if settings.enable_rtl -%}
+      right: 12px;
+      {%- else -%}
+      left: 12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-right {
+      {%- if settings.enable_rtl -%}
+      left: 12px;
+      {%- else -%}
+      right: 12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-center {
+      left: 0px;
+      right: 0px;
+      padding: 0px 12px;
+    }
+  }
+  @media (max-width: 479px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-content-center {
+      width: 100%;
+    }
+  }
+
+  /* banner text position css */
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-text-left {
+    {%- if settings.enable_rtl -%}
+    text-align: right;
+    {%- else -%}
+    text-align: left;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-text-right {
+    {%- if settings.enable_rtl -%}
+    text-align: left;
+    {%- else -%}
+    text-align: right;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content.banner-text-center {
+    text-align: center;
+  }
+
+  /* banner text css */
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content span.subtitle {
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .title-block {
+    width: 58.33%;
+    margin: 0 auto;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content h4.title {
+    font-size: 30px;
+    font-weight: var(--font-custom-weight-section-header); 
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .banner-button {
+    margin-top: 48px;
+  } 
+  @media (max-width: 1399px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content h4.title {
+      font-size: 24px;
+    }
+  }
+  @media (max-width: 479px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .title-block {
+      width: 100%;
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content span.subtitle {
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content h4.title {
+      font-size: 20px;
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li .banner-item .banner-content a.banner-btn {
+      margin-top: 14px;
+    }
+  }
+
+  /* deal banner css */ 
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section {
+    margin-top: 24px;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li {
+    {%- if settings.enable_rtl -%}
+    margin-right: 15px;
+    {%- else -%}
+    margin-left: 15px;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li:first-child {
+    {%- if settings.enable_rtl -%}
+    margin-right: 0px;
+    {%- else -%}
+    margin-left: 0px;
+    {%- endif -%}
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li span {
+    display: block;
+    line-height: 1;
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li span.banner-countdown-timer {
+    color: var(--font-color-primary);
+    font-size: 24px;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    font-weight: var(--font-custom-weight-section-header);
+    border-radius: var(--sti-border-radius);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
+  }
+  .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li span.banner-countdown-title {
+    color: var(--font-color-paragraph);
+    margin-top: 14px;
+  }
+  @media (max-width: 1399px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li span.banner-countdown-timer {
+      font-size: 20px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+  @media (max-width: 1199px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .banner-button {
+      margin-top: 38px;
+    } 
+  }
+  @media (max-width: 767px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .banner-button {
+      margin-top: 28px;
+    } 
+  }
+  @media (max-width: 479px) {
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .content-timer {
+      {%- if settings.enable_rtl -%}
+      margin: -30px -12px 0px 0px;
+      {%- else -%}
+      margin: -30px 0px 0px -12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .content-timer .banner-countdown {
+      width: calc(50% - 12px);
+      {%- if settings.enable_rtl -%}
+      margin: 30px 12px 0px 0px;
+      {%- else -%}
+      margin: 30px 0px 0px 12px;
+      {%- endif -%}
+    }
+    .banner-grid-deal .banner-block-area ul.banner-ul li.banner-li.deal-banner .banner-content .deal-content-block .timer-section .deal-content-timer ul li span.banner-countdown-timer {
+      font-size: 18px;
+      width: 50px;
+      height: 50px;
+    } 
+  }
+</style>

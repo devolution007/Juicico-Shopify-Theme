@@ -1,0 +1,271 @@
+<section class="promo-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <div class="promo-block">
+          <div class="promo-icon">
+            {% if section.settings.promo_icon != '' %}
+            <span>{{ section.settings.promo_icon }}</span>
+            {% endif %}
+            {%- if section.settings.promo_img -%}
+              {{ section.settings.promo_img | image_url: width: 85, height: 85, crop: 'center' | image_tag:
+                loading: 'lazy',
+                width: section.settings.promo_img.width,
+                widths: "85",
+                height: section.settings.promo_img.height,
+                class: "img-fluid",
+                alt: section.settings.promo_img.alt | escape }}
+              {%- else -%}
+              {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+          </div>
+          {% if section.settings.promo_text != '' %}
+          <div class="section-title">
+            <h2>{{ section.settings.promo_text }}</h2>
+          </div>
+          {% endif %}
+          {% if section.settings.promo_button != '' %}
+          <div class="button-content">
+            <a class="btn-style-medium" href="{{ section.settings.promo_url }}">{{ section.settings.promo_button }}</a>
+          </div>
+          {% endif %}
+        </div>  
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Promo heading",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section title"
+    },
+    {
+      "type": "textarea",
+      "id": "promo_icon",
+      "label": "Call icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_img",
+      "label": "Call Image",
+      "info": "Recommended Size: 130px x 130px"
+    },
+    {
+      "type": "textarea",
+      "id": "promo_text",
+      "label": "Promo text",
+      "default": "Lets Ride it now!"
+    },
+    {
+      "type": "url",
+      "id": "promo_url",
+      "label": "promo url"
+    },
+    {
+      "type": "text",
+      "id": "promo_button",
+      "label": "Promo button",
+      "default": "Get started"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo heading"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.promo-heading {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+}
+@media (max-width: 1199px) {
+  .promo-heading {
+    padding-top: {{ section.settings.section_padding_top_ipad }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+  }
+}
+@media (max-width: 767px) {
+  .promo-heading {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+.promo-heading .promo-block{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.promo-heading .promo-block .promo-icon{
+  display: flex;
+  align-content: center;
+  width: 15%;
+}
+.promo-heading .promo-block .promo-icon span{
+  color: #fff;
+  font-size: 30px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  background-color: var(--font-color-primary);
+  border-radius: 50%;
+}
+.promo-heading .promo-block .promo-icon img{
+  display: block;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  {%- if settings.enable_rtl -%}
+  margin-right: -30px;
+  {%- else -%}
+  margin-left: -30px;
+  {%- endif -%}
+  z-index: -1;
+}
+.promo-heading .promo-block .section-title{
+  width: 35%;
+  {%- if settings.enable_rtl -%}
+  text-align: right;
+  {%- else -%}
+  text-align: left;
+  {%- endif -%}
+  display: flex;
+  align-items: center;
+}
+.promo-heading .promo-block .button-content{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-end;
+}
+.promo-heading .promo-block .button-content:before{
+  content: "";
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  {%- if settings.enable_rtl -%}
+  right: 0;
+  {%- else -%}
+  left: 0;
+  {%- endif -%}
+  background-color: rgba(0,0,0,10%);
+}
+@media(max-width: 991px){
+  .promo-heading .promo-block .promo-icon{
+    width: 50%;
+  }
+  .promo-heading .promo-block .section-title{
+    width: 50%;
+  }
+  .promo-heading .promo-block .button-content{
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+@media(max-width: 767px){
+  .promo-heading .promo-block .promo-icon{
+    width: 100%;
+  }
+  .promo-heading .promo-block .section-title{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .promo-heading .promo-block .button-content{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .promo-heading .promo-block .button-content:before{
+    display: none;
+  }
+  .promo-heading .promo-block .button-content{
+    justify-content: flex-start;
+  }
+}
+
+</style>

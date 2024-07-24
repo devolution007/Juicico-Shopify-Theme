@@ -1,0 +1,352 @@
+<section class="return-policy1">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+        <div class="policy-wrap nth-child1">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title1 != '' %}
+              <h2>{{ section.settings.section_title1 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <div class="que-ans">
+            <ul>
+              {% for block in section.blocks %}
+              {% case block.type %}
+              {% when 'accordion_area1' %}
+              <li>
+                <div class="ans-accordian">
+                  <p>{{ block.settings.accordion_ans1 }}</p>
+                </div>
+              </li>
+              {% endcase %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+        <div class="policy-wrap nth-child2">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title2 != '' %}
+              <h2>{{ section.settings.section_title2 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <div class="que-ans">
+            <ul>
+              {% for block in section.blocks %}
+              {% case block.type %}
+              {% when 'accordion_area2' %}
+              <li>
+                <div class="ans-accordian">
+                  <p>{{ block.settings.accordion_ans2 }}</p>
+                </div>
+              </li>
+              {% endcase %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+        <div class="policy-wrap nth-child3">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title3 != '' %}
+              <h2>{{ section.settings.section_title3 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <div class="que-ans">
+            <ul>
+              {% for block in section.blocks %}
+              {% case block.type %}
+              {% when 'accordion_area3' %}
+              <li>
+                <div class="ans-accordian">
+                  <p>{{ block.settings.accordion_ans3 }}</p>
+                </div>
+              </li>
+              {% endcase %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+        <div class="policy-wrap nth-child4">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title4 != '' %}
+              <h2>{{ section.settings.section_title4 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <div class="que-ans">
+            <ul>
+              {% for block in section.blocks %}
+              {% case block.type %}
+              {% when 'accordion_area4' %}
+              <li>
+                <div class="ans-accordian">
+                  <p>{{ block.settings.accordion_ans4 }}</p>
+                </div>
+              </li>
+              {% endcase %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Return policy",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title1",
+      "label": "Section Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "section_title2",
+      "label": "Section Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "section_title3",
+      "label": "Section Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "section_title4",
+      "label": "Section Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#f6f6f6"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_area1",
+      "name": "Accordion 1",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "accordion_ans1",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    },
+    {
+      "type": "accordion_area2",
+      "name": "Faq Accordion 2",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "accordion_ans2",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    },
+    {
+      "type": "accordion_area3",
+      "name": "Faq Accordion 3",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "accordion_ans3",
+          "label": "Answer3",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    },
+    {
+      "type": "accordion_area4",
+      "name": "Faq Accordion 4",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "accordion_ans4",
+          "label": "Answer4",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Return policy"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .return-policy1 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  .return-policy1 .policy-wrap.nth-child3,
+  .return-policy1 .policy-wrap.nth-child4{
+    padding-top: {{ section.settings.section_padding_top }}px;
+  }
+  @media (max-width: 1199px) {
+    .return-policy1 .policy-wrap.nth-child3,
+    .return-policy1 .policy-wrap.nth-child4{
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+    }
+    .return-policy1 {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 991px) {
+    .return-policy1 .policy-wrap.nth-child2{
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .return-policy1 .policy-wrap.nth-child2,
+    .return-policy1 .policy-wrap.nth-child3,
+    .return-policy1 .policy-wrap.nth-child4{
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+    }
+    .return-policy1 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .return-policy1 .section-title {
+    {%- if settings.enable_rtl -%}
+    text-align: right;
+    {%- else -%}
+    text-align: left;
+    {%- endif -%}
+  }
+  .return-policy1 .que-ans ul li {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: var(--sti-border);
+  }
+  .return-policy1 .que-ans ul li:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .return-policy1 .que-ans ul li a.question{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .return-policy1 .que-ans ul li a.question span.que {
+    display: block;
+  }
+</style>

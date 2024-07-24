@@ -1,0 +1,70 @@
+{% assign child_list_handle = link.title | handleize %}
+{% if linklists[child_list_handle].links != '' %}
+<li class="menu-link parant">
+  <a href="{{ link.url }}" class="link-title {% if link.current %}active{% endif %}" {% if link.current %}aria-current="page"{% endif %}>
+    <span class="sp-link-title">{{ link.title }}</span>
+    <i class="ri-arrow-down-s-line"></i>
+  </a>
+  <a href="#main-collapse-{{ link.title | handleize }}" data-bs-toggle="collapse" class="link-title link-title-lg">
+    <span class="sp-link-title">{{ link.title }}</span>
+    <i class="ri-arrow-down-s-line"></i>
+  </a>
+  <ul class="dropdown-submenu collapse" id="main-collapse-{{ link.title | handleize }}">
+    <div class="container p-0 ul">
+      {% for childlink in linklists[child_list_handle].links %}
+      {% assign grand_childlink_handle = childlink.title | handle %}
+      {% if linklists[grand_childlink_handle] and linklists[grand_childlink_handle].links.size > 0 %}
+      <li class="megamenu-li parant">
+        <h2 class="sublink-title">{{ childlink.title }}</h2>
+        <a href="{{ childlink.url }}" class="sublink-title">
+          <span class="sp-link-title">{{ childlink.title }}</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </a>
+        <a data-bs-toggle="collapse" href="#main-collapse-{{ childlink.title | handleize }}" class="sublink-title sublink-title-lg">
+          <span class="spb-link-title">{{ childlink.title }}</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </a>
+        <ul class="dropdown-supmenu collapse" id="main-collapse-{{ childlink.title | handleize }}">
+          {% for grand_childlink_handle in linklists[grand_childlink_handle].links %}
+          <li class="supmenu-li">
+            <a href="{{ grand_childlink_handle.url }}" class="suplink-title">
+              <span class="spbp-link-title">{{ grand_childlink_handle.title }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+
+      {% else %}
+
+      {% if childlink.type == "collection_link" and childlink.object.image %}
+      <li class="menu-banner banner-hover">
+        <a href="{{ childlink.url }}" class="banner-img">
+          <img src="{{ childlink.object.image | image_url }}" width="{{ childlink.object.image.width }}" height="{{ childlink.object.image.height }}" class="img-fluid" alt="{{ childlink.object.image.alt }}" loading="lazy">
+        </a>
+        <a href="{{ childlink.url }}" class="menu-banner-title">
+          <span>{{ childlink.title }}</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="submenu-li parant">
+        <a href="{{ childlink.url }}" class="sublink-title">
+          <span class="sp-link-title">{{ childlink.title }}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </ul>
+</li>
+{% else %}
+<li class="menu-link">
+  <a href="{{ link.url }}" class="link-title {% if link.current %}active{% endif %}" {% if link.current %}aria-current="page"{% endif %}>
+    <span class="sp-link-title">{{ link.title }}</span>
+  </a>
+  <a href="{{ link.url }}" class="link-title link-title-lg">
+    <span class="sp-link-title">{{ link.title }}</span>
+  </a>
+</li>
+{% endif %}

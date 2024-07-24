@@ -1,0 +1,285 @@
+<section class="payment-policy">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% if section.settings.pay_policy_title != '' %}
+        <div class="section-capture">
+          <div class="section-title">
+            <h2>{{ section.settings.pay_policy_title }}</h2>
+          </div>
+        </div>
+        {% endif %}
+        <div class="que-ans">
+          <ul class="payment-wrap">
+            {% for block in section.blocks %}
+            <li class="payment-wrapper">
+              <div class="payment-block">
+                <span class="icon">
+                  {%- if block.settings.pay_img -%}
+                    {{ block.settings.pay_img | image_url: width: 155, height: 155 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.pay_img.width,
+                      height: block.settings.pay_img.height,
+                      class: "img-fluid",
+                      alt: block.settings.pay_img.alt | escape }}
+                    {%- else -%}
+                    {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                    {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                </span>
+                <div class="text-content">
+                  <h6>{{ block.settings.pay_policy_que }}</h6>
+                  <p>{{ block.settings.pay_policy_ans1 }}</p>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Payment Policy",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgcolor_enable",
+      "label": "Show Background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "pay_policy_title",
+      "label": "Title",
+      "default": "Payment Policy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "payment-policy",
+      "name": "Payment Policy",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "pay_img",
+          "label": "Payment image",
+          "info": "Recommended Size: 80px x 80px"
+        },
+        {
+          "type": "text",
+          "id": "pay_policy_que",
+          "label": "Question",
+          "info": "Type Here For Question?",
+          "default": "Type In SideBox For Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "pay_policy_ans1",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "Type In SideBox For Answer."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+  .payment-policy {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    {% if section.settings.section_bgcolor_enable %}
+    background-color: {{ section.settings.section_bgcolor }};
+    {% endif %}
+  }
+  @media (max-width: 1199px) {
+    .payment-policy {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .payment-policy {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .payment-policy .que-ans ul.payment-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .payment-policy .que-ans ul.payment-wrap li.payment-wrapper{
+    width: calc(33.33% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .payment-policy .que-ans .payment-block {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    background-color: var(--extra-color-body);
+    border-radius: var(--sti-border-radius);
+  }
+  .payment-policy .que-ans .payment-block .icon{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .payment-policy .que-ans .payment-block .text-content {
+    width: calc(100% - 105px);
+    {% if settings.enable_rtl %}
+    margin-right: 30px;
+    {% else %}
+    margin-left: 30px;
+    {% endif %}
+  }
+  .payment-policy .que-ans .payment-block h6{
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    line-height: 1;
+  }
+  .payment-policy .que-ans .payment-block p{
+    padding-top: 10px;
+  }
+  @media(max-width: 1599px){
+    .payment-policy .que-ans .payment-block{
+      padding: 30px;
+    }
+  }
+  @media(max-width: 1199px){
+    .payment-policy .que-ans ul.payment-wrap li.payment-wrapper{
+      width: calc(50% - 30px);
+    }
+  }
+  @media(max-width: 767px){
+    .payment-policy .que-ans ul.payment-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -30px 0 0 -12px;
+    }
+    .payment-policy .que-ans ul.payment-wrap li.payment-wrapper{
+      width: calc(50% - 12px);
+      margin: 30px 0 0 12px;
+    }
+    .payment-policy .que-ans .payment-block p {
+      font-size: 14px;
+    }
+  }
+  @media(max-width: 600px) {
+    .payment-policy .que-ans ul.payment-wrap li.payment-wrapper{
+      width: calc(100% - 12px);
+    }
+  } 
+  @media(max-width: 320px){ 
+    .payment-policy .que-ans .payment-block {
+        padding: 15px;
+        display: block;
+        text-align: center;
+    }
+    .payment-policy .que-ans .payment-block .icon{
+      margin: 0 auto;
+    }
+    .payment-policy .que-ans .payment-block .text-content{
+      width: 100%;
+      margin: 15px 0 0 0;
+    }
+  }
+</style>

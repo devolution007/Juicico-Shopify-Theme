@@ -1,0 +1,567 @@
+<section class="customer-page section-ptb my-account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="return-acc-detail">
+          <a href="/account">{{ 'customer.account.return' | t }}</a>
+        </div>
+        <div class="order-info-overwrap">
+          <h2>
+            <span class="order-title">{{ 'customer.order.title' | t: name: order.name }}</span>
+            <span class="order-date">{{ 'customer.order.date' | t: date: order.created_at | date: "%b %d, %Y %I:%M%p" }}</span>
+          </h2>
+        </div>
+        {% if order.cancelled %}
+        <div class="errors order-cancel">
+          {% assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" %}
+          <p>{{ 'customer.order.cancelled' | t: date: cancelled_at }}</p>
+          <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason }}</p>
+        </div>
+        {% endif %}
+        <ul class="order-address">
+          <li>
+            <h6>{{ 'customer.order.billing_address' | t }}</h6>
+            <div class="order-status">
+              <span class="payment-status-title">{{ 'customer.order.payment_status' | t }}:</span>
+              <span class="payment-status{% if order.financial_status == 'paid' %} text-success{% else %} text-danger{% endif %}">{{ order.financial_status_label }}</span>
+            </div>
+            <div class="order-status">
+              <span class="payment-status-title">{{ 'customer.order.fulfillment_status' | t }}:</span>
+              <span class="payment-status">{{ order.fulfillment_status_label }}</span>
+            </div>
+            <p class="address">
+              {% if order.billing_address.name %}
+              <span>{{ order.billing_address.name | capitalize }}</span>
+              {% endif %}
+
+              {% if order.billing_address.company %}
+              <span>{{ order.billing_address.company | capitalize }}</span>
+              {% endif %}
+
+              {% comment %}
+              {% if order.billing_address.street %}
+              <span>{{ order.billing_address.street | capitalize }}</span>
+              {% endif %}
+              {% endcomment %}
+
+              {% if order.billing_address.address1 %}
+              <span>{{ order.billing_address.address1 | capitalize }}</span>
+              {% endif %}
+
+              {% if order.billing_address.address2 %}
+              <span>{{ order.billing_address.address2 | capitalize }}</span>
+              {% endif %}
+
+              {% if order.billing_address.city %}
+              <span>{{ order.billing_address.city | capitalize }}</span>
+              {% endif %}
+
+              {% if order.billing_address.province %}
+              <span>{{ order.billing_address.province | upcase }}</span>
+              {% endif %}
+
+              {% if order.billing_address.zip %}
+              <span>{{ order.billing_address.zip | upcase }}</span>
+              {% endif %}
+
+              {% if order.billing_address.country %}
+              <span>{{ order.billing_address.country }}</span>
+              {% endif %}
+
+              {% if order.billing_address.phone %}
+              <span>{{ order.billing_address.phone }}</span>
+              {% endif %}
+            </p>
+          </li>
+          <li>
+            <h6>{{ 'customer.order.shipping_address' | t }}</h6>
+            <div class="order-status">
+              <span class="payment-status-title">{{ 'customer.order.payment_status' | t }}:</span>
+              <span class="payment-status{% if order.financial_status == 'paid' %} text-success{% else %} text-danger{% endif %}">{{ order.financial_status_label }}</span>
+            </div>
+            <div class="order-status">
+              <span class="payment-status-title">{{ 'customer.order.fulfillment_status' | t }}:</span>
+              <span class="payment-status">{{ order.fulfillment_status_label }}</span>
+            </div>
+            <p class="address">
+              {% if order.shipping_address.name %}
+              <span>{{ order.shipping_address.name | capitalize }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.company %}
+              <span>{{ order.shipping_address.company | capitalize }}</span>
+              {% endif %}
+
+              {% comment %}
+              {% if order.shipping_address.street %}
+              <span>{{ order.shipping_address.street | capitalize }}</span>
+              {% endif %}
+              {% endcomment %}
+
+              {% if order.shipping_address.address1 %}
+              <span>{{ order.shipping_address.address1 | capitalize }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.address2 %}
+              <span>{{ order.shipping_address.address2 | capitalize }}</span>
+              {% endif %}              
+
+              {% if order.shipping_address.city %}
+              <span>{{ order.shipping_address.city | capitalize }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.province %}
+              <span>{{ order.shipping_address.province | upcase }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.zip %}
+              <span>{{ order.shipping_address.zip | upcase }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.country %}
+              <span>{{ order.shipping_address.country }}</span>
+              {% endif %}
+
+              {% if order.shipping_address.phone %}
+              <span>{{ order.shipping_address.phone }}</span>
+              {% endif %}
+            </p>
+          </li>
+        </ul>
+        <div class="order-overview">
+          <div class="over-view-summary">
+            <h6>Order Summary</h6>
+            <ul class="order-product">
+              {% for line_item in order.line_items %}
+              <li id="{{ line_item.key }}">
+                <div class="order-overview-wrap">
+                  <div class="order-item">
+                    <span class="order-product">{{ 'customer.order.product' | t }}</span>
+                    <span class="order-info">{{ line_item.title | link_to: line_item.product.url }}</span>
+                  </div>
+                  <div class="order-item">
+                    <span class="order-product">{{ 'customer.order.sku' | t }}</span>
+                    <span class="order-info">{{ line_item.sku }}</span>
+                  </div>
+                  <div class="order-item">
+                    <span class="order-product">{{ 'customer.order.price' | t }}</span>
+                    <span class="order-info">{{ line_item.price | money }}</span>
+                  </div>
+                </div>
+                <div class="order-overview-wrap">
+                  <span class="order-pro-title">{{ 'customer.order.quantity' | t }}</span>
+                  <span class="order-pro-info">{{ line_item.quantity }}</span>
+                </div>
+                <div class="order-overview-wrap">
+                  <span class="order-pro-title">{{ 'customer.order.total' | t }}</span>
+                  <span class="order-pro-info">{{ line_item.quantity | times: line_item.price | money }}</span>
+                </div>
+
+                {% if line_item.fulfillment %}
+                <div class="note">
+                  {% assign created_at = line_item.fulfillment.created_at | date: format: 'month_day_year' %}
+                  <span class="order-fulfill-date">{{ 'customer.order.fulfilled_at' | t: date: created_at }}</span>
+                  {% if line_item.fulfillment.tracking_number %}
+                  <a href="{{ line_item.fulfillment.tracking_url }}" class="order-company-track">
+                    <span class="track-company">{{ line_item.fulfillment.tracking_company }}</span>
+                    <span class="track-num">{{ line_item.fulfillment.tracking_number }}</span>
+                  </a>
+                  {% endif %}
+                </div>
+                {% endif %}
+
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="payment-summary">
+            <h6>Payment Summary</h6>
+            <ul class="order-total-wrap">
+              <li>
+                <span class="order-t-title">{{ 'customer.order.subtotal' | t }}</span>
+                <span class="order-t-price">{{ order.subtotal_price | money }}</span>
+              </li>
+
+              {% for discount in order.discounts %}
+              <li>
+                <span class="order-t-title">{{ discount.code }}{{ 'customer.order.discount' | t }}</span>
+                <span class="order-t-price">{{ discount.savings | money }}</span>
+              </li>
+              {% endfor %}
+
+              {% for shipping_method in order.shipping_methods %}
+              <li>
+                <span class="order-t-title">{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</span>
+                <span class="order-t-price">{{ shipping_method.price | money }}</span>
+              </li>
+              {% endfor %}
+
+              {% for tax_line in order.tax_lines %}
+              <li>
+                <span class="order-t-title">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</span>
+                <span class="order-t-price">{{ tax_line.price | money }}</span>
+              </li>
+              {% endfor %}
+
+              <li>
+                <span class="order-t-title">{{ 'customer.order.total' | t }}</span>
+                <span class="order-t-price">{{ order.total_price | money }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .my-account-page .return-acc-detail a {
+    color: var(--font-color-primary);
+    text-decoration: underline;
+  }
+  .my-account-page .order-info-overwrap {
+    margin-top: 30px;
+  }
+  .my-account-page .order-info-overwrap h2 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    
+    line-height: 1;
+  }
+  .my-account-page .order-info-overwrap h2 span.order-date {
+    font-size: 14px;
+    font-weight: 400;
+    {%- if settings.enable_rtl -%}
+    margin-right: 5px;
+    {%- else -%}
+    margin-left: 5px;
+    {%- endif -%}
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .my-account-page .order-info-overwrap h2 span.order-date::before {
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: #000;
+    {%- if settings.enable_rtl -%}
+    margin-left: 5px;
+    {%- else -%}
+    margin-right: 5px;
+    {%- endif -%}
+  }
+  .my-account-page ul.order-address {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  }
+  .my-account-page ul.order-address li {
+    width: 50%;
+    {%- if settings.enable_rtl -%}
+    padding-right: 30px;
+    {%- else -%}
+    padding-left: 30px;
+    {%- endif -%}
+  }
+  .my-account-page ul.order-address li:first-child {
+    {%- if settings.enable_rtl -%}
+    padding-right: 0px;
+    {%- else -%}
+    padding-left: 0px;
+    {%- endif -%}
+  }
+  .my-account-page ul.order-address li h6 {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .my-account-page ul.order-address li .order-status {
+    display: flex;
+    margin-top: 10px;
+  }
+  .my-account-page ul.order-address li .order-status span.payment-status-title {
+    font-weight: var(--sti-font-weight);
+  }
+  .my-account-page ul.order-address li .order-status span.payment-status {
+    {%- if settings.enable_rtl -%}
+    margin-right: 5px;
+    {%- else -%}
+    margin-left: 5px;
+    {%- endif -%}
+  }
+  .my-account-page ul.order-address li p.address {
+    line-height: normal;
+  }
+  .my-account-page ul.order-address li p.address span {
+    display: block;
+    margin-top: 10px;
+    
+  }
+  @media (max-width: 767px) {
+    .my-account-page ul.order-address{
+      padding: 15px;
+    }
+    .my-account-page ul.order-address li {
+      width: 100%;
+      {%- if settings.enable_rtl -%}
+      padding-right: 0px;
+      {%- else -%}
+      padding-left: 0px;
+      {%- endif -%}
+      margin-top: 20px;
+    }
+    .my-account-page ul.order-address li:first-child {
+      margin-top: 0;
+    }
+  }
+
+  /* order-overview css */
+  .my-account-page .order-overview {
+    display: flex;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    {%- if settings.enable_rtl -%}
+    margin-right: -30px;
+    {%- else -%}
+    margin-left: -30px;
+    {%- endif -%}
+    margin-top: 30px;
+  }
+  .my-account-page .order-overview .over-view-summary {
+    width: calc(70% - 30px);
+  }
+  .my-account-page .order-overview .payment-summary {
+    width: calc(30% - 30px);
+    position: sticky;
+    top: 0;
+  }
+  .my-account-page .order-overview .over-view-summary,
+  .my-account-page .order-overview .payment-summary {
+    {%- if settings.enable_rtl -%}
+    margin-right: 30px;
+    {%- else -%}
+    margin-left: 30px;
+    {%- endif -%}
+  }
+  .my-account-page .order-overview h6 {
+    font-size: 18px;
+    
+    line-height: 1;
+  }
+  .my-account-page .order-overview ul {
+    padding: 30px;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  }
+  @media (max-width: 1199px) {
+    .my-account-page .order-overview .over-view-summary {
+      width: calc(65% - 30px);
+    }
+    .my-account-page .order-overview .payment-summary {
+      width: calc(35% - 30px);
+    }
+  }
+  @media (max-width: 991px) {
+    .my-account-page .order-overview .over-view-summary {
+      width: calc(60% - 30px);
+    }
+    .my-account-page .order-overview .payment-summary {
+      width: calc(40% - 30px);
+    }
+  }
+  @media (max-width: 767px) {
+    .my-account-page .order-overview {
+      display: flex;
+      align-items: flex-start;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      {%- if settings.enable_rtl -%}
+      margin-right: -15px;
+      {%- else -%}
+      margin-left: -15px;
+      {%- endif -%}
+      margin-top: 20px;
+    }
+    .my-account-page .order-overview .over-view-summary,
+    .my-account-page .order-overview .payment-summary {
+      width: calc(100% - 15px);
+      {%- if settings.enable_rtl -%}
+      margin-right: 15px;
+      {%- else -%}
+      margin-left: 15px;
+      {%- endif -%}
+    }
+    .my-account-page .order-overview .payment-summary {
+      margin-top: 20px;
+    }
+    .my-account-page .order-overview ul {
+      padding: 15px;
+    }
+  }
+
+  /* order-summary css */
+  .my-account-page .order-overview ul.order-product li {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    border-top: var(--sti-border);
+  }
+  .my-account-page .order-overview ul.order-product li:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+  .my-account-page .order-overview ul.order-product li:last-child {
+    padding-bottom: 0;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(1) {
+    width: 60%;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap .order-item {
+    display: flex;
+    margin-top: 10px;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap .order-item:first-child {
+    margin-top: 0;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap .order-item span.order-product {
+    width: 70px;
+    font-weight: var(--sti-font-weight);
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap .order-item span.order-info {
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap .order-item span a{
+    color: var(--font-color-primary);
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2) {
+    text-align: center;
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) {
+    {% if settings.enable_rtl %}
+    text-align: left;
+    {% else %}
+    text-align: right;
+    {% endif %}
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2) span.order-pro-title,
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) span.order-pro-title,
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) span.order-pro-info {
+    font-weight: var(--sti-font-weight);
+  }
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2) span.order-pro-info,
+  .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) span.order-pro-info {
+    margin-top: 10px;
+  }
+  @media (max-width: 991px) {
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(1),
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2),
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) {
+      width: 100%;
+    }
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2),
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) {
+      display: flex;
+      flex-direction: row;
+      {% if settings.enable_rtl %}
+      text-align: right;
+      {% else %}
+      text-align: left;
+      {% endif %}
+      margin-top: 10px;
+    }
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2) span.order-pro-title,
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) span.order-pro-title {
+      width: 70px;
+    }
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(2) span.order-pro-info,
+    .my-account-page .order-overview ul.order-product li .order-overview-wrap:nth-child(3) span.order-pro-info {
+      margin-top: 0px;
+      {% if settings.enable_rtl %}
+      margin-right: 5px;
+      {% else %}
+      margin-left: 5px;
+      {% endif %}
+    }
+  }
+  @media (max-width: 767px) {}
+
+  /* order note css */
+  .my-account-page .order-overview ul.order-product li .note {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    {% if settings.enable_rtl %}
+    text-align: right;
+    {% else %}
+    text-align: left;
+    {% endif %}
+  }
+  .my-account-page .order-overview ul.order-product li .note span.order-fulfill-date {
+    display: block;
+  }
+  .my-account-page .order-overview ul.order-product li .note a.order-company-track {
+    display: flex;
+    margin-top: 10px;
+  }
+  .my-account-page .order-overview ul.order-product li .note a.order-company-track span.track-company {
+    color: #222;
+    width: 70px;
+    font-weight: var(--sti-font-weight);
+  }
+  .my-account-page .order-overview ul.order-product li .note a.order-company-track span.track-num {
+    color: var(--font-color-primary);
+    {% if settings.enable_rtl %}
+    margin-right: 5px;
+    {% else %}
+    margin-left: 5px;
+    {% endif %}
+    font-weight: var(--sti-font-weight);
+  }
+
+  /* order cancel css */
+  .my-account-page .errors.order-cancel {
+    padding: 10px 15px;
+    margin: 15px 0;
+  }
+
+  /* payment summary css */
+  .my-account-page .order-overview .payment-summary ul li {
+    padding: 15px 0;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: var(--sti-border);
+  }
+  .my-account-page .order-overview .payment-summary ul li:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+  .my-account-page .order-overview .payment-summary ul li:last-child {
+    padding-bottom: 0;
+  }
+  .my-account-page .order-overview .payment-summary ul li span {
+    font-weight: var(--sti-font-weight);
+  }
+  .my-account-page .order-overview .payment-summary ul li span.order-t-price {
+    color: var(--font-color-primary);
+  }
+</style>

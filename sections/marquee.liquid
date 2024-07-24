@@ -1,0 +1,218 @@
+<!-- our-brand-area start -->
+<section class="marquee-section">
+  <div class="marquee-slider" id="marquee-slider-{{ section.id }}">
+    {% for block in section.blocks %}
+    <div class="slide">
+        <a href="{{ block.settings.marquee_text_url }}">
+          <h6>{{ block.settings.marquee_text }}</h6>
+        </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- our-brand-area end -->
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+  $(function(){
+    $('#marquee-slider-{{ section.id }}').slick({
+      {% if settings.enable_rtl %}
+      rtl: true,
+      {% endif %}
+      infinite: true,
+      slidesToShow: 5,
+      variableWidth: true,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 0,
+      speed: 8000,
+      pauseOnHover: false,
+      cssEase: 'linear',
+      arrows:false
+    });
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Marquee section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "blog_bgcolor",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "marquee_text",
+      "name": "marquee text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "marquee_text",
+          "label": "marquee text",
+          "default": "Get your fashion style"
+        },
+        {
+          "type": "url",
+          "id": "marquee_text_url",
+          "label": "Marquee text URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee section"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.marquee-section {
+  padding-top:{{ section.settings.section_padding_top }}px;
+  padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  background-color: {{ section.settings.blog_bgcolor }};
+}
+@media (max-width: 1199px){
+  .marquee-section {
+    padding-top:{{ section.settings.section_padding_top_ipad }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom_ipad }}px;
+  }
+}
+@media (max-width: 767px){
+  .marquee-section {
+    padding-top:{{ section.settings.section_padding_top_xs }}px;      
+    padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+.marquee-section .marquee-slider .slide h6{
+  color: {{ section.settings.text_color }};
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1;
+}
+.marquee-section .marquee-slider .slide{
+  position: relative;
+  margin-right: 60px;
+  padding-right: 60px;
+  display: flex;
+  align-items: center;
+}
+.marquee-section .marquee-slider .slide:before{
+  content: "*";
+  color: var(--font-color-primary);
+  font-size: 30px;
+  position: absolute;
+  line-height: 15px;
+  right: 0;
+  line-height: 10px;
+  bottom: 0;
+}
+@media(max-width: 1599px){
+  .marquee-section .marquee-slider .slide h6{
+    font-size: 20px;
+  }
+}
+@media(max-width: 1199px){
+  .marquee-section .marquee-slider .slide{
+    margin-right: 30px;
+    padding-right: 30px;
+  }
+  .marquee-section .marquee-slider .slide h6 {
+    font-size: 18px;
+  }
+  .marquee-section .marquee-slider .slide:before{
+    font-size: 22px;
+  }
+}
+@media(max-width: 767px){
+  .marquee-section .marquee-slider .slide h6{
+    font-size: 14px;
+  }
+}
+</style>

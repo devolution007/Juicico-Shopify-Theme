@@ -1,0 +1,357 @@
+<section class="about-section2">
+  <div class="container">
+    <ul class="about-wrap">
+      <li class="about-wrapper">
+        <div class="main-title">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title_1 != '' %}
+              <h2>{{ section.settings.section_title_1 }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          {% if section.settings.section_des1 != '' %}
+          <p>{{ section.settings.section_des1 }}</p>
+          {% endif %}
+          {% if section.settings.section_des2 != '' %}
+          <p>{{ section.settings.section_des2 }}</p>
+          {% endif %}
+        </div>
+      </li>
+      <li class="about-wrapper banner-wrapper">
+        <div class="about-banner">
+          <a href="{{ section.settings.title_button_url }}">
+            {%- if section.settings.about_banner -%}
+            {{ section.settings.about_banner | image_url: width: 500 | image_tag:
+              loading: 'lazy',
+              width: section.settings.about_banner.width,
+              height: section.settings.about_banner.height,
+              class: "img-fluid",
+              alt: section.settings.about_banner.alt | escape }}
+            {%- else -%}
+            {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+            {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </a>
+        </div>
+      </li>
+      <li class="about-wrapper service-wrapper">
+        <div class="list-content">
+          <ul>
+            {% for block in section.blocks %}
+            <li>
+              <div class="list-block">
+                <span class="icon">
+                  {{ block.settings.service_icon }}
+                </span>
+                <div class="text-content">
+                  <h6>{{ block.settings.service_title }}</h6>
+                  <p>{{ block.settings.service_description }}</p>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About section 2",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#F7EEEE"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "text",
+      "id": "section_title_1",
+      "label": "Main Title",
+      "default": "World's premium design brands"
+    },
+    {
+      "type": "textarea",
+      "id": "section_des1",
+      "label": "Text description",
+      "default": "Contrary to popular belief, lorem Ipsum is not simply random text it has roots in a piece of classical latin literature from "
+    },
+    {
+      "type": "textarea",
+      "id": "section_des2",
+      "label": "Text description",
+      "default": "Looked up one of the more obscure latin words consectetur, from a passage word design."
+    },
+    {
+      "type": "url",
+      "id": "title_button_url",
+      "label": "Title URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_banner",
+      "label": "About Banner Image",
+      "info": "Recommended Size: 500px x 565px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "counter",
+      "name": "About service",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "service_icon",
+          "label": "Service icon"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Service title",
+          "default": "Soft fabric"
+        },
+        {
+          "type": "textarea",
+          "id": "service_description",
+          "label": "Service description",
+          "default": "Get complimentary ground shipping everyorder don’t love it send it back."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About section 2"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-section2 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .about-section2 {
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .about-section2 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  /*section title*/
+  .about-section2 ul.about-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    {% if settings.enable_rtl %}
+    margin-right: -30px;
+    {% else %}
+    margin-left: -30px;
+    {% endif %}
+  }
+  .about-section2 ul.about-wrap li.about-wrapper {
+    width: calc(33.33% - 30px);
+    margin-top: 30px;
+    {% if settings.enable_rtl %}
+    margin-right: 30px;
+    {% else %}
+    margin-left: 30px;
+    {% endif %}
+  }
+  .about-section2 .about-banner {
+    text-align: center;
+  }
+  .about-section2 .about-banner img {
+    border-radius: var(--sti-border-radius);
+  }
+  .about-section2 .about-banner svg {
+    width: 100%;
+  }
+  .about-section2 .main-title .section-capture {
+    margin-bottom: 0px.about-banner-section .banner-content h2;
+  }
+  .about-section2 .main-title .section-capture .section-title {
+    text-align: left;
+  }
+  .about-section2 .main-title p{
+    margin-top: 30px;
+  }
+  .about-section2 .main-title a{
+    margin-top: 40px;
+  }
+
+  /*service icon*/
+  .about-section2 .list-content ul li:not(:first-child){
+    margin-top: 30px;
+  }
+  .about-section2 .list-block {
+    display: flex;
+  }
+  .about-section2 .list-block .icon{
+    color: var(--font-color-primary);
+    font-size: 40px;
+    line-height: 1;
+  }
+  .about-section2 .list-block .text-content {
+    {% if settings.enable_rtl %}
+    margin-right: 20px;
+    {% else %}
+    margin-left: 20px;
+    {% endif %}
+  }
+  .about-section2 .list-block .text-content h6{
+    font-size: 18px;
+  }
+  .about-section2 .list-block .text-content p {
+    margin-top: 8px;
+  }
+  @media(max-width: 1599px){
+    .about-section2 .list-block .icon{
+      font-size: 30px;
+    }
+    .about-section2 .list-content ul li:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+  @media(max-width: 1199px){
+    .about-section2 .main-title p{
+      margin-top: 15px;
+    }
+  }
+  @media(max-width: 991px) {
+    .about-section2 ul.about-wrap li.about-wrapper,
+    .about-section2 ul.about-wrap li.about-wrapper.banner-wrapper {
+      width: calc(50% - 30px);
+    } 
+    .about-section2 ul.about-wrap li.about-wrapper.banner-wrapper {
+      order: 1;
+    }
+  }
+  @media(max-width: 767px){
+    .about-section2 ul.about-wrap {
+      {% if settings.enable_rtl %}
+      margin-right: -12px;
+      {% else %}
+      margin-left: -12px;
+      {% endif %}
+    }
+    .about-section2 ul.about-wrap li.about-wrapper,
+    .about-section2 ul.about-wrap li.about-wrapper.banner-wrapper {
+      width: calc(50% - 12px);
+      {% if settings.enable_rtl %}
+      margin-right: 12px;
+      {% else %}
+      margin-left: 12px;
+      {% endif %}
+    }
+    .about-section2 .main-title p {
+      font-size: 14px;
+    }
+  }
+  @media(max-width: 479px){
+    .about-section2 ul.about-wrap li.about-wrapper,
+    .about-section2 ul.about-wrap li.about-wrapper.banner-wrapper {
+      width: calc(100% - 12px);
+    }
+    .about-section2 ul.about-wrap li.about-wrapper.banner-wrapper {
+      order: unset;
+    }
+  }
+</style>

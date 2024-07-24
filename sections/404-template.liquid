@@ -1,0 +1,72 @@
+<section class="page-not-found section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="search-error-wrapper">
+          <div class="img-text">
+            <h2>404</h2>
+          </div>
+          {% if section.settings.page_button_title != '' %}
+          <a class="btn-style" href="{{ section.settings.button_url }}" data-text="{{ section.settings.page_button_title }}">
+            <span>{{ section.settings.page_button_title }}</span>
+            <i class="ri-home-4-line"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .page-not-found .search-error-wrapper h2{
+    font-size: 180px;
+    line-height: 1;
+  }
+  .page-not-found .search-error-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .page-not-found .search-error-wrapper a {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-not-found .search-error-wrapper a i{
+    {%- if section.settings.enable_rtl -%}
+    margin-right: 5px;
+    {%- else -%}
+    margin-left: 5px;
+    {%- endif -%}
+  }
+  @media (max-width: 767px) {
+    .page-not-found .search-error-wrapper h2{
+      font-size: 80px;
+      line-height: 1;
+    }
+    .page-not-found .search-error-wrapper a{
+      margin-top: 15px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Page Not Found",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_button_title",
+      "label": "Button Title",
+      "default": "Back to homepage"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/"
+    }
+  ]
+}
+{% endschema %}

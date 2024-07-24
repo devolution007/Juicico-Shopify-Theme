@@ -1,0 +1,194 @@
+{% if section.settings.copyright_enable %}
+<footer class="copyright-block">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="copyright-main">
+          <ul class="copyright-ul">
+            <li class="copyright-li copy-text">
+              <div class="text-block">
+                <p>
+                  <span>{{ section.settings.copy_right_text1 }}</span>
+                  <span class="copy-icon"><i class="{{ section.settings.copy_right_icon }}"></i></span>
+                  <span>{{ section.settings.copy_right_text2 }}</span>
+                </p>
+              </div>
+            </li>
+            <li class="copyright-li payment">
+              {% render 'payment-icon' %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endif %}
+{% schema %}
+{
+  "name": "Copyright",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "copyright_enable",
+      "label": "Copyright Enable",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "copyright_text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Copyright Text"
+    },
+    {
+      "type": "text",
+      "id": "copy_right_text1",
+      "label": "CopyRight Text1",
+      "default": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copy_right_icon",
+      "label": "CopyRight Class",
+      "default": "fa fa-copyright"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_right_text2",
+      "label": "CopyRight Text2",
+      "default": "2023 by qodex<sup>TM</sup>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copyright"
+    }
+  ]
+}
+{% endschema %}
+{% if section.settings.copyright_enable %}
+<style>
+.copyright-block {
+  background-color: {{ section.settings.section_bg_color }};
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+/* main css */
+.copyright-block .copyright-main ul.copyright-ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li {
+  width: 50%;
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li.payment a {
+  justify-content: flex-end;
+}
+@media (max-width: 1199px) {
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.copy-text,
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.payment {
+    width: 50%;
+  }
+}
+@media (max-width: 479px) {
+  .copyright-block .copyright-main ul.copyright-ul {
+    flex-direction: column;
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.copy-text {
+    text-align: center; 
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.copy-text,
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.payment {
+    width: 100%;
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.payment {
+    margin-top: 10px;
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.payment a {
+    justify-content: center;
+  }
+}
+</style>
+{% endif %}

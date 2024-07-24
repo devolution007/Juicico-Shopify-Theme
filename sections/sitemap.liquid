@@ -1,0 +1,171 @@
+<section class="section-ptb sitemap">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="sitemap-wrap"> 
+          {% for link in linklists[section.settings.menu].links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links == '' %}
+          <li class="sitemap-wrapper">
+            <a href="{{ link.url }}" class="sitemap-title-link">{{ link.title }}</a>
+          </li>
+          {% else %}
+          <li class="sitemap-wrapper">
+            <a href="javascript:void(0)" class="sitemap-title-link">{{ link.title }}</a>
+            <ul class="sitemap-subwrap">
+              {% for childlink in linklists[child_list_handle].links %}
+              {% assign sub_childlink_handle = childlink.title | handle %}
+              {% if linklists[sub_childlink_handle].links == '' %}
+              <li class="sitemap-subwrapper">
+                <a href="{{ childlink.url }}" class="sitemap-title-subtitle">{{ childlink.title }}</a>
+              </li>
+              {% else %}
+              <li class="sitemap-subwrapper">
+                <a href="javascript:void(0)" class="sitemap-title-subtitle">{{ childlink.title }}</a>
+                <ul class="sitemap-supwrap">
+                  {% for sub_childlink_handle in linklists[sub_childlink_handle].links %}
+                  <li class="sitemap-sup-wrapper">
+                    <a href="{{ sub_childlink_handle.url }}" class="sitemap-title-suplink">{{ sub_childlink_handle.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+          {% endif %}
+          {% endfor %}
+          <!-- navbar ends -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Site Map",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Sitemap"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Sitemap Menu"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.sitemap ul.sitemap-wrap{
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper{
+  width: calc(33.33% - 30px);
+  margin-top: 30px;
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  padding-right: 15px;
+  {% else %}
+  margin-left: 30px;
+  padding-left: 15px;
+  {% endif %}
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(1),
+.sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(2),
+.sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(3){
+  margin-top: 0;
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper a.sitemap-title-link,
+.sitemap ul.sitemap-subwrap li.sitemap-subwrapper a.sitemap-title-subtitle,
+.sitemap ul.sitemap-supwrap li.sitemap-sup-wrapper a.sitemap-title-suplink{
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper a.sitemap-title-link{
+  font-size: 18px;
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper a.sitemap-title-link::before,
+.sitemap ul.sitemap-subwrap li.sitemap-subwrapper a.sitemap-title-subtitle::before,
+.sitemap ul.sitemap-supwrap li.sitemap-sup-wrapper a.sitemap-title-suplink::before{
+  content: "";
+  position: absolute;
+  {% if settings.enable_rtl %}
+  right: -15px;
+  {% else %}
+  left: -15px;
+  {% endif %}
+  width: 5px;
+  height: 5px;
+  background-color: var(--font-color-primary);
+}
+.sitemap ul.sitemap-wrap li.sitemap-wrapper ul.sitemap-subwrap li.sitemap-subwrapper{
+  margin-top: 30px;
+  {% if settings.enable_rtl %}
+  padding-right: 15px;
+  {% else %}
+  padding-left: 15px;
+  {% endif %}
+}
+.sitemap ul.sitemap-subwrap li.sitemap-subwrapper a.sitemap-title-subtitle{
+  font-size: 14px;
+}
+.sitemap ul.sitemap-supwrap li.sitemap-sup-wrapper{
+  margin-top: 15px;
+  {% if settings.enable_rtl %}
+  padding-right: 15px;
+  {% else %}
+  padding-left: 15px;
+  {% endif %}
+}
+.sitemap ul.sitemap-supwrap li.sitemap-sup-wrapper:first-child{
+  margin-top: 30px;
+}
+@media (max-width: 991px){
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper{
+    width: calc(50% - 30px);
+  }
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(3){
+    margin-top: 30px;
+  }
+}
+@media (max-width: 767px){
+  .sitemap ul.sitemap-wrap{
+    {% if settings.enable_rtl %}
+    margin-right: -15px;
+    {% else %}
+    margin-left: -15px;
+    {% endif %}
+  }
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper{
+    width: calc(100% - 15px);
+    margin-top: 20px;
+    {% if settings.enable_rtl %}
+    margin-right: 15px;
+    {% else %}
+    margin-left: 15px;
+    {% endif %}
+  }
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(2),
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper:nth-child(3){
+    margin-top: 20px;
+  }
+  .sitemap ul.sitemap-wrap li.sitemap-wrapper ul.sitemap-subwrap li.sitemap-subwrapper{
+    margin-top: 20px;
+  }
+  .sitemap ul.sitemap-supwrap li.sitemap-sup-wrapper:first-child{
+    margin-top: 20px;
+  }
+}
+</style>

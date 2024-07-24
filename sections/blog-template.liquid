@@ -1,0 +1,236 @@
+<section class="blog-content-wrap section-ptb">
+  <div class="container">
+    <div class="row {% if section.settings.blog_news_sidebar_handle == 'left_sidebar_handle' %}left-wrap{% elsif section.settings.blog_news_sidebar_handle == 'right_sidebar_handle' %}right-wrap{% endif %}">
+      {%- assign blogs_limit = section.settings.blog_news_limit_handle -%}
+      {%- paginate blog.articles by blogs_limit -%}
+      <div class="{% if section.settings.blog_news_sidebar_handle == 'without_sidebar' %}col{% else %}col-xl-9 col-lg-8 col-md-12 blog-grid-wrap{% endif %}">
+        <ul class="single-blog-area">
+          {% for article in blog.articles %}
+          <li class="blog-slider">
+            {% render 'blog-grid-item', article: article %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% if paginate.pages > 1 %}
+        <div class="paginatoin-area">
+          {%- render 'pagination', paginate: paginate -%}
+        </div>
+        {% endif %}
+      </div>
+      {%- endpaginate -%}
+      {%- unless section.settings.blog_news_sidebar_handle == 'without_sidebar' -%}
+      <div class="col-xl-3 col-lg-4 col-md-12 col-12 blog-grid-wrap">
+        {% render 'blog-sidebar' %}
+      </div>
+      {%- endunless -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Blog Page",
+  "settings": [
+    {
+      "type": "range",
+      "id": "blog_news_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "blog_news_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "select",
+      "id": "blog_news_column",
+      "label": "Post Column",
+      "options": [
+        {
+          "label": "2 Blogs",
+          "value": "6"
+        },
+        {
+          "label": "3 Blogs",
+          "value": "4"
+        }
+      ],
+      "default": "6"
+    },
+    {
+      "type": "text",
+      "id": "blog_news_limit_handle",
+      "label": "Post Limit",
+      "default": "6",
+      "info": "How many posts will appear on each page"
+    },
+    {
+      "type": "text",
+      "id": "blog_news_through",
+      "label": "Through",
+      "default": "By"
+    },
+    {
+      "type": "text",
+      "id": "blog_news_read_btn",
+      "label": "Button Text",
+      "default": "Read More"
+    },
+    {
+      "type": "text",
+      "id": "blog_news_cmt",
+      "label": "Comment",
+      "default": "Comment"
+    },
+    {
+      "type": "header",
+      "content": "Blog Sidebar"
+    },
+    {
+      "type": "radio",
+      "id": "blog_news_sidebar_handle",
+      "label": "Sidebar Position",
+      "options": [
+        {
+          "label": "Left Sidebar",
+          "value": "left_sidebar_handle"
+        },
+        {
+          "label": "Right Sidebar",
+          "value": "right_sidebar_handle"
+        },
+        {
+          "label": "Without Sidebar",
+          "value": "without_sidebar"
+        }
+      ],
+      "default": "left_sidebar_handle"
+    },
+    {
+      "type": "paragraph",
+      "content": "Sidebar List"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_search_bar_enable",
+      "label": "Show Searchbar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "recent_post_enable",
+      "label": "Show Recent Posts",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "archive_enable",
+      "label": "Show Archive",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "tags_enable",
+      "label": "Show Tags",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+<style>
+
+  .blog-content-wrap .left-wrap {
+    flex-direction: row-reverse;
+  }
+  @media (max-width : 991px){
+    .blog-content-wrap .left-wrap,
+    .blog-content-wrap .right-wrap {
+      flex-direction: column-reverse;
+    }
+    .blog-content-wrap .blog-grid-wrap{
+      margin-top: 30px;
+    }
+    .blog-content-wrap .blog-grid-wrap:last-child{
+      margin-top: 0px;
+    }
+  }
+  .blog-content-wrap ul.single-blog-area {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    {% if settings.enable_rtl %}
+    margin-right: -30px;
+    {% else %}
+    margin-left: -30px;
+    {% endif %}
+    margin-top: -40px;
+  }
+  .blog-content-wrap ul.single-blog-area > li {
+    position: relative;
+    {% if settings.enable_rtl %}
+    margin-right: 30px;
+    {% else %}
+    margin-left: 30px;
+    {% endif %}
+    margin-top: 40px;
+  }
+
+  {% if section.settings.blog_news_sidebar_handle == 'left_sidebar_handle' or section.settings.blog_news_sidebar_handle == 'right_sidebar_handle' or section.settings.blog_news_column == '6' %}
+  .blog-content-wrap ul.single-blog-area > li{
+    width: calc(50% - 30px);
+  }
+
+  @media (max-width : 1199px){
+    .blog-content-wrap ul.single-blog-area {
+      margin-top: -30px;
+    }
+    .blog-content-wrap ul.single-blog-area > li {
+      margin-top: 30px;
+    }
+  }
+
+  {% endif %}
+
+  {% if section.settings.blog_news_sidebar_handle == 'without_sidebar' or section.settings.blog_news_column == '4' %}
+  .blog-content-wrap ul.single-blog-area > li{
+    width: calc(33.33% - 30px);
+  }
+  @media (max-width : 1199px){
+    .blog-content-wrap ul.single-blog-area > li{
+      width: calc(50% - 30px);
+    }
+  }
+  {% endif %}
+
+  @media (max-width : 767px){
+    .blog-content-wrap ul.single-blog-area{
+      {%- if settings.enable_rtl -%}
+      margin-right: -15px;
+      {%- else -%}
+      margin-left: -15px;
+      {%- endif -%}
+    }
+    .blog-content-wrap ul.single-blog-area > li{
+      width: calc(50% - 15px);
+       {%- if settings.enable_rtl -%}
+      margin: 30px 15px 0 0;
+      {%- else -%}
+      margin: 30px 0 0 15px;
+      {%- endif -%}
+    }
+  }
+  @media (max-width: 600px) {
+    .blog-content-wrap ul.single-blog-area > li{
+      width: calc(100% - 15px);
+    }
+  }
+</style>

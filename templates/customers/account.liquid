@@ -1,0 +1,261 @@
+<section class="customer-page section-ptb my-account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-capture">
+        <div class="section-title">
+          <span>{{ 'customer.account.welcome' | t }}</span>
+          <h2>{{ customer.name | capitalize }}</h2>
+        </div>
+        </div>
+        <div class="account-history">
+          <ul>
+            <li>
+              <div class="acc-info-wrap">
+                <h6>{{ 'customer.account.title' | t }}</h6>
+                <span class="acc-info-link">
+                  <a href="/pages/wishlist">{{ 'customer.account.wishlist' | t }}(<span class="wishlist-counter"></span>)</a>
+                  <a href="/account/addresses">{{ 'customer.account.view_addresses' | t }}<span class="address-counter">({{ customer.addresses_count }})</span></a>
+                  <a href="/account/logout">{{ 'customer.account.logout' | t }}</a>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="acc-info-wrap">
+                <h6>{{ 'customer.account.details' | t }}</h6>
+                <span>{{ customer.name }}</span>
+                <span>{{ customer.email }}</span>
+                {% comment %}
+                <span>{{ customer.phone }}</span>
+                {% endcomment %}
+
+                {% if customer.default_address != "" %}
+                <span>{{ customer.default_address.address1 }}</span>
+
+                {% if customer.default_address.address2 != "" %}
+                <span>{{ customer.default_address.address2 }}</span>
+                {% endif %}
+
+                {% if customer.default_address.city != "" %}
+                <span>{{ customer.default_address.city }}</span>
+                {% endif %}
+
+                {% if customer.default_address.province_code != "" %}
+                <span>{{ customer.default_address.province_code | upcase }}</span>
+                {% endif %}
+
+                {% if customer.default_address.zip != "" %}
+                <span>{{ customer.default_address.zip }}</span>
+                {% endif %}
+
+                {% if customer.default_address.country != "" %}
+                <span>{{ customer.default_address.country }}</span>
+                {% endif %}
+
+                {% if customer.default_address.phone != "" %}
+                <span>{{ customer.default_address.phone }}</span>
+                {% endif %}
+
+                {% endif %}
+
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="order-history-wrap">
+          <h6>{{ 'customer.orders.title' | t }}</h6>
+          {% paginate customer.orders by 5 %}
+          {% if customer.orders.size != 0 %}
+          <div class="order-wrap">
+            <ul>
+              {% for order in customer.orders %}
+              <li class="{% if order.cancelled %}error{% endif %}">
+                {% if order.cancelled %}
+                <div class="errors">
+                  {% assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" %}
+                  <p>{{ 'customer.order.cancelled' | t: date: cancelled_at }}</p>
+                </div>
+                {% endif %}
+                <label>
+                  <span>{{ 'customer.orders.order_number' | t }}</span>
+                  <span>{{ order.name | link_to: order.customer_url }}</span>
+                </label>
+                <div class="order-info-wrap">
+                  <div class="order-detail order-info">
+                    <div class="order-info-check order-date">
+                      <span>{{ 'customer.orders.date' | t }}</span>
+                      <span>{{ order.created_at | date: format: 'month_day_year' }}</span>
+                    </div>
+                    <div class="order-info-check order-total">
+                      <span>{{ 'customer.orders.total' | t }}</span>
+                      <span>{{ order.total_price | money }}</span>
+                    </div>
+                  </div>
+                  <div class="order-detail order-status">
+                    <div class="order-info-check order-payment">
+                      <span>{{ 'customer.orders.payment_status' | t }}</span>
+                      <span class="{% if order.financial_status == 'paid' %}text-success{% else %}text-danger{% endif %}">{{ order.financial_status_label }}</span>
+                    </div>
+                    <div class="order-info-check order-fulfill">
+                      <span>{{ 'customer.orders.fulfillment_status' | t }}</span>
+                      <span>{{ order.fulfillment_status_label }}</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% else %}
+          <div class="order-wrap">
+            <div class="order-info-wrap">
+              <p class="text-danger">{{ 'customer.orders.none' | t }}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if paginate.pages > 1 %}
+          <div class="paginatoin-area">
+            {%- render 'pagination', paginate: paginate -%}
+          </div>
+          {% endif %}
+          {% endpaginate %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* address css */
+  .my-account-page .account-history {
+    padding: 30px;
+    border: 1px dashed #e2e2e2;
+  }
+  .my-account-page .account-history ul {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .my-account-page .account-history ul li {
+    width: 50%;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap h6 {
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+    line-height: 1;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap span.acc-info-link a {
+    display: flex;
+    margin-top: 10px;
+    text-decoration: underline;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap span.acc-info-link a:first-child {
+    margin-top: 0;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap span.acc-info-link a span {
+    margin-top: 0;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap span {
+    display: block;
+    margin-top: 10px;
+  }
+  .my-account-page .account-history ul li .acc-info-wrap span:first-of-type {
+    margin-top: 15px;
+  }
+  @media (max-width: 767px) {
+    .my-account-page .account-history {
+      padding: 15px;
+    }
+    .my-account-page .account-history ul li {
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 19px;
+      border-top: var(--sti-border);
+    }
+    .my-account-page .account-history ul li:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  /* order css */
+  .my-account-page .order-history-wrap {
+    margin-top: 30px;
+  }
+  .my-account-page .order-history-wrap h6 {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .my-account-page .order-history-wrap .order-wrap{
+    margin-top: 15px;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li {
+    margin-top: 30px;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li:first-child {
+    margin-top: 0px;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li label {
+    padding: 10px 15px;
+    margin-bottom: 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li label span a{
+    color: var(--font-color-primary);
+  }
+  .my-account-page .order-history-wrap .order-wrap .order-info-wrap {
+    padding: 30px;
+    border: 1px dashed #e2e2e2;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li span:first-child {
+    font-weight: var(--sti-font-weight);
+    width: 150px;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li .order-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li .order-detail:first-child {
+    margin-top: 0;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li .order-detail .order-info-check {
+    width: 50%;
+  }
+  @media (max-width: 767px) {
+    .my-account-page .order-history-wrap {
+      margin-top: 20px;
+    }
+    .my-account-page .order-history-wrap .order-wrap ul li {
+      margin-top: 20px;
+    }
+    .my-account-page .order-history-wrap .order-wrap .order-info-wrap {
+      padding: 15px;
+    }
+    .my-account-page .order-history-wrap .order-wrap ul li .order-detail {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    .my-account-page .order-history-wrap .order-wrap ul li .order-detail .order-info-check {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .my-account-page .order-history-wrap .order-wrap ul li .order-detail .order-info-check:first-child {
+      margin-top: 0;
+    }
+  }
+
+  /* order cancel css */
+  .my-account-page .order-history-wrap .order-wrap .errors{
+    padding: 10px 15px;
+    margin-bottom: 0;
+  }
+  .my-account-page .order-history-wrap .order-wrap ul li.error label,
+  .my-account-page .order-history-wrap .order-wrap ul li.error .order-info-wrap{
+    background-color: #fff6f6;
+  }
+</style>

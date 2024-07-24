@@ -1,0 +1,287 @@
+<!-- header-area start -->
+<section class="header-kaj">
+    <div class="header-area">
+      <div class="header-main-area">
+        <div class="container">
+          <div class="header-main">
+            <div class="header-element offer-text">
+              {% if section.settings.offer_text != '' %}
+              <div class="text-block">
+                {{ section.settings.offer_text }}
+              </div>
+              {% endif %}
+            </div>
+            <div class="header-element logo-wrap">
+              {%- render 'company-logo' -%}
+            </div>
+            <div class="header-element search-wrap">
+              {%- render 'search-bar', section: section -%}
+            </div>
+            <div class="header-element right-block">
+              {%- render 'header-icon', section: section -%}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-bottom-wrap">
+        <div class="container">
+          <div class="menu-rightblock">
+            <div class="info-text-main">
+              <div class='header-info-text'>
+                {% if section.settings.info_text != '' %}
+                <div class="text">{{ section.settings.info_text }}</div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="megamenu-block">
+              <nav class="main-navigation">
+                <div class="megamenu-content">
+                  <ul class="main-menu">
+                    {% assign header_main_menu = section.settings.header_main_menu %}
+                    {% for link in linklists[header_main_menu].links %}
+                    {% if linklists[header_main_menu].links != '' %}
+                    {% render 'main-menu', link: link %}
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="right-block desk">
+              {%- render 'header-icon', section: section -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu">
+      <div class="main-menu-area">
+        <nav class="main-navigation">
+            <div class="box-header">
+                <button class="close-box" type="button"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="offer-text">
+              {% if section.settings.offer_text != '' %}
+              <div class="text-block">
+                {{ section.settings.offer_text }}
+              </div>
+              {% endif %}
+            </div>
+            <div class='header-info-text'>
+                {% if section.settings.info_text != '' %}
+                <div class="text">{{ section.settings.info_text }}</div>
+                {% endif %}
+              </div>
+            <div class="megamenu-content">
+              <ul class="main-menu">
+                  {%- liquid
+                  assign header_main_menu = section.settings.header_main_menu
+                  for link in linklists[header_main_menu].links
+                  if linklists[header_main_menu].links != ''
+                  render 'main-menu', link: link
+                  endif
+                  endfor
+                  -%}
+              </ul>
+            </div>
+        </nav>
+      </div>
+    </div>
+</section>
+{%- render 'search-popup-modal' -%}
+{% render 'mini-cart-drawer' %}
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Notice"
+    },
+    {
+      "type": "paragraph",
+      "content": "For logo go to 'Theme Settings' click on 'Company Logo' & set both Header-Footer Logo"
+    },
+    {
+      "type": "header",
+      "content": "Header Sticky Option"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_sticky_enable",
+      "label": "Show Header Sticky",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "This option available only for 'index', 'collection' & 'product' template respectively"
+    },
+    {
+      "type": "header",
+      "content": "Header Top"
+    },
+    {
+      "type": "header",
+      "content": "Header Top Background Color"
+    },
+    {
+      "type": "color",
+      "id": "header_top_bg_color",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "color",
+      "id": "header_top_text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Offer Text"
+    },
+    {
+      "type": "richtext",
+      "id": "offer_text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Header Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Header Bottom Background Color"
+    },
+    {
+      "type": "color",
+      "id": "header_bottom_bg_color",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "color",
+      "id": "header_bottom_text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Header Top Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Main Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "header_main_menu",
+      "label": "Select mainmenu"
+    },
+    {
+      "type": "header",
+      "content": "Info Text"
+    },
+    {
+      "type": "richtext",
+      "id": "info_text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+{% if section.settings.header_sticky_enable %}
+{% if template == 'index' or template == 'collection' or template == 'product' %}
+/* sticky menu css */
+.is-sticky{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+.header-bottom-wrap.is-sticky{
+  animation: smoothScroll 1s forwards;
+  border-bottom: none;
+}
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+{% endif %}
+{% endif %}
+
+/* header border css */
+{% if template == "product" %}
+.header-kaj {
+  border-bottom: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+}
+{% endif %}
+
+/* header top css */
+.header-area .header-main-area {
+  background-color: {{ section.settings.header_top_bg_color }};
+}
+.offer-text .text-block p {
+  color: {{ section.settings.header_top_text_color }};
+}
+
+/* header bottom css */
+.header-area .header-bottom-wrap {
+  background-color: {{ section.settings.header_bottom_bg_color }};
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+.header-info-text .text p,
+.header-info-text .text p a,
+.megamenu-content ul.main-menu li.menu-link a.link-title,
+button.navbar-toggle,
+a.header-icon {
+  color: {{ section.settings.header_bottom_text_color }};
+}
+.header-info-text .text p a:hover,
+.megamenu-content ul.main-menu li.menu-link:hover a.link-title,
+button.navbar-toggle:hover,
+a.header-icon:hover {
+  color: var(--font-color-primary);
+}
+</style>

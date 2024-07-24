@@ -1,0 +1,231 @@
+<section class="customer-page section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="acc-form">
+          <div class="log-acc-page" id="CustomerLoginForm">
+            <div class="acc-page">
+              <div class="login">
+                {% form 'customer_login' %}
+                <div class="login-form-container">
+                  <div class="section-capture">
+                    <div class="section-title">
+                      <h2>{{ 'customer.login.title' | t }}</h2>
+                    </div>
+                  </div>
+                  {{ form.errors | default_errors }}
+                  <ul class="fill-form">
+                    <li class="log-email">
+                      <label for="Email">{{ 'customer.login.email' | t }}</label>
+                      <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus required>
+                    </li>
+
+                    {% if form.password_needed %}
+                    <li class="log-pwd">
+                      <label>{{ 'customer.login.password' | t }}</label>
+                      <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}" required>
+                    </li>
+                    {% endif %}
+                  </ul>
+                  <div class="form-action-button">
+                    <button class="btn-style" type="submit">{{ 'customer.login.sign_in' | t }}</button>
+                    {% if form.password_needed %}
+                    <a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endform %}
+              </div>
+              <div class="acc-wrapper">
+                <h6>{{ settings.dnt_acc_title }}</h6>
+                <div class="account-optional-action">
+                  {{ 'layout.customer.create_account' | t | customer_register_link }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="log-acc-page" id="RecoverPasswordForm" style="display: none;">
+            <div class="acc-page">
+              <div class="login">
+              {% form 'recover_customer_password' %}
+              {% if form.posted_successfully? %}
+              {% endif %}
+              <div class="login-form-container">
+                <div class="section-capture">
+                  <div class="section-title">
+                  <h2>{{ 'customer.recover_password.title' | t }}</h2>
+                  <p>{{ 'customer.recover_password.subtext' | t }}</p>
+                </div>
+                </div>
+                {{ form.errors | default_errors }}
+                <ul class="fill-form">
+                  <li class="log-email">
+                    <label for="Email">{{ 'customer.login.email' | t }}</label>
+                    <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off" required>
+                  </li>
+                  <li class="form-toggle-btn">
+                    <div class="form-action-button">
+                      <button class="btn-style" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+                      <a href="#" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              {% endform %}
+            </div>
+            </div>
+          </div>
+        </div>
+        {% if shop.checkout.guest_login %}
+        <div class="log-acc-page" id="guest-login">
+          <div class="login-form-container">
+            <div class="section-capture">
+              <div class="section-title">
+              <h2>{{ 'customer.login.guest_title' | t }}</h2>
+              {% form 'guest_login' %}
+              <input type="submit" value="{{ 'customer.login.guest_continue' | t }}">
+              {% endform %}
+            </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .customer-page .log-acc-page{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .customer-page .log-acc-page .acc-page{
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+    background-color: var(--extra-color-body);
+    display: flex!important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--sti-border-radius);
+  }
+  .customer-page .log-acc-page .acc-page .login{
+    width: 100%;
+  }
+  @media(max-width: 1199px){
+    .customer-page .log-acc-page .acc-page{
+      padding: 30px;
+    }
+  }
+  @media(max-width: 991px){
+    .customer-page .log-acc-page{
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px){
+    .customer-page .log-acc-page{
+      margin-top: 30px;
+    }
+  }
+  /* form css */
+  .customer-page .log-acc-page .login-form-container p{
+    margin-top: 15px;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li{
+    margin-top: 28px;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li:first-child{
+    margin-top: 0px;
+  }
+  .customer-page .log-acc-page .login-form-container ul.fill-form li label{
+    display: block;
+    margin-bottom: 14px;
+    cursor: auto;
+    line-height: 1;
+    font-size: 16px;
+    color: var(--font-color-body);
+    font-weight: var(--sti-font-weight);
+  }
+  .customer-page .log-acc-page .login-form-container input{
+    width: 100%;
+    background-color: #ffffff;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button{
+    margin-top: 50px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button a{
+    display: block;
+    color: #999;
+    margin-top: 18px;
+    text-decoration: underline;
+    line-height: 1;
+  }
+  .customer-page .log-acc-page .login-form-container .form-action-button a:hover{
+    color: var(--font-color-primary);
+  }
+  .customer-page .log-acc-page .acc-wrapper{
+    margin-top: 25px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .acc-wrapper h6{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action{
+    margin-top: 11px;
+  }
+  @media (max-width: 1199px){
+    .customer-page .log-acc-page .login-form-container .form-action-button{
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 767px){
+    .customer-page .log-acc-page .login-form-container .form-action-button{
+      margin-top: 20px;
+    }
+  }
+
+  /* acc-link css */
+  .customer-page .log-acc-page .acc-wrapper{
+    margin-top: 25px;
+    text-align: center;
+  }
+  .customer-page .log-acc-page .acc-wrapper h6{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action{
+    margin-top: 11px;
+  }
+  .customer-page .log-acc-page .acc-wrapper .account-optional-action a{
+    color: var(--font-color-primary);
+    text-decoration: underline;
+  }
+
+  /* error css */
+  .customer-page .log-acc-page .errors{
+    padding: 10px 15px;
+    {% if settings.enable_rtl %}
+    text-align: right;
+    {% else %}
+    text-align: left;
+    {% endif %}
+  }
+  .customer-page .log-acc-page .errors ul{
+    {% if settings.enable_rtl %}
+    margin-right: 15px;
+    margin-left: 0;
+    {% else %}
+    margin-left: 15px;
+    {% endif %}
+    list-style: square;
+  }
+  .customer-page .log-acc-page .errors ul li{
+    margin-top: 5px;
+  }
+  .customer-page .log-acc-page .errors ul li:first-child{
+    margin-top: 0px;
+  }
+</style>

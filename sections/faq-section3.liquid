@@ -1,0 +1,344 @@
+<section class="faq-section3">
+  <div class="container">
+    <ul class="faq-wrap">
+      <li class="faq-wrapper">
+        <div class="text-cotent">
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_title != '' %}
+              <h2>{{ section.settings.section_title }}</h2>
+              {% endif %}
+              {% if section.settings.section_description != '' %}
+              <p>{{ section.settings.section_description }}</p>
+              {% endif %}
+              {% if section.settings.text_button != '' %}
+              <a href="{{ section.settings.text_url }}">{{ section.settings.text_button }}</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="faq-wrapper">
+        <div class="que-ans">
+          {% if section.settings.list_main_title1 != '' %}
+          <h3 class="list-main-title">{{ section.settings.list_main_title1 }}</h3>
+          {% endif %}
+          <ul id="collapse-{{ section.id }}">
+            {% for block in section.blocks %}
+            <li>
+              <a href="#collapse-{{ block.id }}" class="question" data-bs-toggle="collapse" {% if forloop.first %}aria-expanded="true"{% endif %}>
+                <span class="que">{{ block.settings.accordion_title }}</span>
+                <span class="que-accordian"><i class="feather-plus"></i></span>
+              </a>
+              <div class="ans-accordian collapse{% if forloop.first %} show{% endif %}" id="collapse-{{ block.id }}" data-parent="#collapse-{{ section.id }}">
+                <p>{{ block.settings.accordion_ans1 }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Faq section 3",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#f6f6f6"
+    },
+    {
+      "type": "header",
+      "content": "Main title"
+    },
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section description",
+      "default": "Lorem ipsum is simply dummy text of the printing and type setting industry. Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown !"
+    },
+    {
+      "type": "text",
+      "id": "text_button",
+      "label": "Text button",
+      "default": "More information"
+    },
+    {
+      "type": "url",
+      "id": "text_url",
+      "label": "Text url"
+    },
+    {
+      "type": "text",
+      "id": "list_main_title1",
+      "label": "Accordion Main Title",
+      "default": "Manufacturing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_area",
+      "name": "Faq Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion Title",
+          "info": "Type Here For Question?",
+          "default": "How do I activate my account?"
+        },
+        {
+          "type": "textarea",
+          "id": "accordion_ans1",
+          "label": "Answer1",
+          "info": "Type Here For Answer",
+          "default": "As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq section 3"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .faq-section3 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .faq-section3 {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .faq-section3 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  .faq-section3 .text-cotent {
+    max-width: 80%;
+  }
+  .faq-section3 .text-cotent .section-capture {
+    margin-bottom: 0px;
+  }
+  .faq-section3 .text-cotent .section-capture .section-title {
+    text-align: left;
+  }
+  .faq-section3 .text-cotent .section-capture .section-title p{
+    margin-top: 30px;
+  }
+  .faq-section3 .text-cotent .section-capture .section-title a{
+    color: var(--font-color-primary);
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    margin-top: 30px;
+    border-bottom: 1px solid;
+    text-transform: uppercase;
+  }
+  .faq-section3 .text-cotent .section-capture .section-title a:hover {
+    color: var(--font-color-secondary):
+  }
+
+  .faq-section3 .que-ans {
+    padding: 60px;
+    border-radius: 0px;
+    border: 1px solid rgba(0,0,0,5%);
+    background-color: var(--extra-color-body);
+    border-radius: var(--sti-border-radius);
+  }
+  .faq-section3 .que-ans h3.list-main-title{
+    font-size: 18px;
+    font-weight: var(--font-custom-weight-header);
+    line-height: 1;
+    margin-bottom: 30px;
+  }
+  .faq-section3 ul.faq-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -30px 0 0 -30px;
+  } 
+  .faq-section3 ul.faq-wrap li.faq-wrapper{
+    width: calc(50% - 30px);
+    margin: 30px 0 0 30px;
+  }
+  .faq-section3 .que-ans ul li {
+    margin-top: 15px;
+    padding: 20px 30px;
+    border: 1px solid rgba(0,0,0,5%);
+    background-color: #fff;
+    border-radius: var(--sti-border-radius);
+  }
+  .faq-section3 .que-ans ul li:first-child{
+    margin-top: 0;
+  }
+  .faq-section3 .que-ans ul li a.question{
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    color: var(--font-color-body);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .faq-section3 .que-ans ul li a.question:hover,
+  .faq-section3 .que-ans ul li a.question[aria-expanded="true"] {
+    color: var(--font-color-primary);
+  }
+  .faq-section3 .que-ans ul li a.question span.que {
+    display: block;
+  }
+  .faq-section3 .que-ans ul li a.question span.que-accordian {
+    color: var(--font-color-body);
+    font-size: 14px;
+    position: absolute;
+    {%- if settings.enable_rtl -%}
+    left: 0;
+    {%- else -%}
+    right: 0;
+    {%- endif -%}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-section3 .que-ans ul li a.question[aria-expanded="true"] span.que-accordian i:before {
+    content: "\e996";
+  }
+  .faq-section3 .que-ans ul li .ans-accordian p{
+    padding-top: 15px;
+    letter-spacing: 0;
+  }
+  @media(max-width: 1199px){
+    .faq-section3 .text-cotent .section-capture .section-title p{
+      font-size: 14px;
+      line-height: 25px;
+    }
+    .faq-section3 .que-ans{
+      padding: 30px;
+    }
+    .faq-section3 .que-ans ul li{
+      padding: 15px 25px;
+    }
+    .faq-section3 .que-ans ul li .ans-accordian p{
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+  @media(max-width: 991px){
+    .faq-section3 .text-cotent .section-capture .section-title a,
+    .faq-section3 .text-cotent .section-capture .section-title p{
+      margin-top: 15px;
+    }
+    .faq-section3 ul.faq-wrap li.faq-wrapper{
+      width: calc(100% - 30px);
+    }
+  }
+  @media(max-width: 767px){
+    .faq-section3 .text-cotent{
+      max-width: 100%;
+    }
+    .faq-section3 .que-ans {
+      padding: 15px;
+    }
+    .faq-section3 .que-ans ul li {
+      padding: 15px;
+    }
+    .faq-section3 .que-ans h3.list-main-title{
+      margin-bottom: 15px;
+    }
+  }
+</style>

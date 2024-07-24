@@ -1,0 +1,414 @@
+<section class="slider-category">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% if section.settings.section_title != '' %}
+        <div class="section-capture">
+          <div class="section-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        </div>
+        {% endif %}
+        <div class="cat-slider swiper" id="category-slider-{{ section.id }}">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            {% assign category_product = collections[block.settings.slider_category_handle] %}
+            <div class="swiper-slide">
+              <div class="category-wrap">
+                <div class="category-block item-{{ block.id }}">
+                  <a href="{{ category_product.url }}" class="cat-main">
+                    <span class="image">
+                      {%- if block.settings.category_image_1 -%}  
+                      {{ block.settings.category_image_1 | image_url: width: 1024 | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.category_image_1.width,
+                        height: block.settings.category_image_1.height,
+                        class: "img-fluid",
+                        alt: block.settings.category_image_1.alt | escape }} 
+                      {%- else -%}
+                      {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                      {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
+                      {%- endif -%}
+                    </span>
+                    <div class="category-content">
+                      <span class="item-btn">
+                        <span class="count">{{ category_product.products.count | default: "0" }}+ </span>
+                        {% if category_product.products.count == 0 or category_product.products.count == 1 %}
+                        <span class="item">{{ section.settings.item_label }}</span>
+                        {%- else -%}
+                        <span class="item">{{ section.settings.items_label }}</span>
+                        {% endif %}           
+                      </span>
+                      <h4 class="title">{{ category_product.title | default: "Category" }}</h4>
+                      <span class="cat-button">{{ section.settings.cat_shop_title }}</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% style %}
+            .slider-category .category-wrap .category-block.item-{{ block.id }} a.cat-main .category-content span.item-btn {
+              color: {{ block.settings.cat_item_color }};
+            }
+            .slider-category .category-wrap .category-block.item-{{ block.id }} a.cat-main .category-content h4.title {
+              color: {{ block.settings.cat_title_color }};
+            }
+            .slider-category .category-wrap .category-block.item-{{ block.id }} a.cat-main .category-content span.cat-button {
+              color: {{ block.settings.cat_btn_color }};
+            }
+            .slider-category .category-wrap .category-block.item-{{ block.id }} a.cat-main .category-content span.cat-button::before {
+              background-color: {{ block.settings.cat_btn_color }}
+            }
+            {% endstyle %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+  var swiper = new Swiper('.swiper#category-slider-{{ section.id }}', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    loop: true,
+    {%- if settings.enable_rtl -%}
+    rtl: true,
+    {%- endif -%}
+    navigation: {
+      nextEl: '.swiper-next-{{ section.id }}',
+      prevEl: '.swiper-prev-{{ section.id }}',
+    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    //   pauseOnMouseEnter: true
+    // },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      540: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1199: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1299: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1399: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1599: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      }
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Category",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bgcolor_enable",
+      "label": "Show Background Color",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bgcolor",
+      "label": "Background Color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title",
+      "default": "Juice category"
+    },
+    {
+      "type": "header",
+      "content": "Category Item Label"
+    },
+    {
+      "type": "text",
+      "id": "item_label",
+      "label": "Item Label",
+      "default": "Item"
+    },
+    {
+      "type": "text",
+      "id": "items_label",
+      "label": "Items Label",
+      "default": "Items"
+    },
+    {
+      "type": "header",
+      "content": "Category Button Text"
+    },
+    {
+      "type": "text",
+      "id": "cat_shop_title",
+      "label": "Button Text",
+      "default": "Shop now"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "slider-category",
+      "type": "product_tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Select Your Collection"
+        },
+        {
+          "type": "collection",
+          "id": "slider_category_handle",
+          "label": "Collection"
+        },
+        {
+          "type": "header",
+          "content": "Category Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "category_image_1",
+          "label": "Image 1",
+          "info": "Recommended Size: 430px x 385px"
+        },
+        {
+          "type": "header",
+          "content": "Text Color"
+        },
+        {
+          "type": "color",
+          "id": "cat_item_color",
+          "label": "Category Item Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "cat_title_color",
+          "label": "Title Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "cat_btn_color",
+          "label": "Button Color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.slider-category {
+  padding-top:{{ section.settings.section_padding_top }}px;
+  padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.section_bgcolor_enable %}
+  background-color: {{ section.settings.section_bgcolor }};
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .slider-category {
+    padding-top:{{ section.settings.section_padding_top_lg }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media (max-width: 767px) {
+  .slider-category {
+    padding-top:{{ section.settings.section_padding_top_xs }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+/* category item css */
+.slider-category .category-wrap .category-block a.cat-main {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--sti-border-radius);
+}
+.slider-category .category-wrap .category-block a.cat-main span.image svg {
+  width: 100%;
+}
+.slider-category .category-wrap .category-block a.cat-main .category-content {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(calc(50% + 30px));
+  width: calc(50% - 45px);
+  inset-inline-end: 30px;
+}
+.slider-category .category-wrap .category-block a.cat-main .category-content span.item-btn {
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.slider-category .category-wrap .category-block a.cat-main .category-content h4.title {
+  font-size: 30px;
+  font-weight: var(--font-custom-weight-section-header);
+  text-transform: uppercase;
+}
+.slider-category .category-wrap .category-block a.cat-main .category-content span.cat-button {
+  position: relative;
+  margin-top: 16px;
+  font-weight: var(--font-subtitle-weight-body);
+  line-height: 1.5;
+}
+.slider-category .category-wrap .category-block a.cat-main .category-content span.cat-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  inset-inline-start: 0px;
+  width: 35%;
+  height: 1px;
+  -webkit-transition: width .3s ease-in-out;
+  -o-transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
+}
+.slider-category .category-wrap:hover .category-block a.cat-main .category-content span.cat-button::before {
+  width: 100%;
+}
+@media (max-width: 1399px) {
+  .slider-category .category-wrap .category-block a.cat-main .category-content h4.title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 1199px) {
+  .slider-category .category-wrap .category-block a.cat-main .category-content {
+    width: calc(50% - 15px);
+    inset-inline-end: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .slider-category .category-wrap .category-block a.cat-main .category-content span.item-btn {
+    margin-bottom: 11px;
+  }
+  .slider-category .category-wrap .category-block a.cat-main .category-content h4.title {
+    font-size: 20px;
+  }
+  .slider-category .category-wrap .category-block a.cat-main .category-content span.cat-button {
+    margin-top: 10px;
+  }
+}
+</style>

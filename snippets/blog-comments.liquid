@@ -1,0 +1,88 @@
+<div class="review_comment">
+  <div class="cmt-tit-count">
+    <h2 class="comment-title">
+      <span class="cmt-count">{{ article.comments_count }}</span>
+      <span class="cmt-title">{{ section.settings.article_cmt }}</span>
+    </h2>
+  </div>
+  <div class="cmt-info-wrap">
+    {% for comment in article.comments %}
+    <div class="comment-info">
+      <div class="comment-avtar">
+        <span class="avtar-cmt">
+          {% if section.settings.article_avtar_enable %}
+          <i class="fa fa-user"></i>
+          {% else %}
+          <span class="cmt-auth">{{ comment.author | slice: 0, 2 }}</span>
+          {% endif %}
+        </span>
+      </div>
+      <div class="comment-content">
+        <div class="comment-desc">
+          {{ comment.content }}
+        </div>
+        <div class="review_info">
+          <p class="username">
+            <span class="cmt-thrgh">{{ section.settings.article_through }}</span>
+            <span class="cmt-authr">{{ comment.author }}</span>
+          </p>
+          <p class="time">{{ comment.created_at | date: "%b %d, %Y" }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .cmt-tit-count h2 {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .cmt-info-wrap .comment-info {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin-top: -1px;
+    border: 1px solid #eee;
+  }
+  .cmt-info-wrap .comment-info:first-child{
+    margin-top: 18px;
+  }
+  .cmt-info-wrap .comment-info .comment-avtar .avtar-cmt,
+  .cmt-info-wrap .comment-info .comment-avtar .avtar-cmt .cmt-auth {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cmt-info-wrap .comment-info .comment-avtar .avtar-cmt {
+    font-size: 20px;
+    color: #fff;
+  }
+  .cmt-info-wrap .comment-info .comment-avtar .avtar-cmt .cmt-auth {
+    font-size: 14px;
+    font-weight: var(--sti-font-weight);
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .cmt-info-wrap .comment-info .comment-content .review_info{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .cmt-info-wrap .comment-info .comment-content .review_info p{
+    line-height: 1;
+  }
+  .cmt-info-wrap .comment-info .comment-content .review_info span {
+    font-style: italic;
+  }
+  .cmt-info-wrap .comment-info .comment-content .review_info p span.cmt-authr {
+    font-weight: var(--sti-font-weight);
+    
+  }
+  .cmt-info-wrap .comment-info .comment-content .comment-desc {
+    margin-top: 6px;
+  }
+</style>

@@ -1,0 +1,391 @@
+<section class="privacy-policy3">
+  <div class="section-content">
+    <div class="container">
+      <ul class="grid-wrap">
+        <li class="grid-wrapper">
+          <div class="privacy-img">
+            {%- if section.settings.privacy_img -%}
+              {{ section.settings.privacy_img | image_url: width: 1024 | image_tag:
+                loading: 'lazy',
+                width: section.settings.privacy_img.width,
+                height: section.settings.privacy_img.height,
+                class: "img-fluid",
+                alt: section.settings.privacy_img.alt | escape }}
+              {%- else -%}
+              {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            <div class="img-text-content wow animate__fadeInUp">
+              <h3>{{ section.settings.image_title }}</h3>
+              <h6>{{ section.settings.image_sub_title }}</h6>
+            </div>
+          </div>
+        </li>
+        <li class="grid-wrapper">
+          <div class="text-wrap">
+            <div class="text-wrapper">
+              <div class="flag-icon">
+                {%- if section.settings.flag_img1 -%}
+                {{ section.settings.flag_img1 | image_url: width: 100 | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.flag_img1.width,
+                  height: section.settings.flag_img1.height,
+                  class: "img-fluid",
+                  alt: section.settings.flag_img1.alt | escape }}
+                {%- else -%}
+                {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+                <h6>{{ section.settings.content_title1 }}</h6>
+              </div>
+              <p>{{ section.settings.content_description1 }}</p>
+              <a href="{{ section.settings.content_button_url1 }}">{{ section.settings.content_button1 }}</a>
+            </div>
+            <div class="text-wrapper">
+              <div class="flag-icon">
+                {%- if section.settings.flag_img2 -%}
+                {{ section.settings.flag_img2 | image_url: width: 100 | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.flag_img2.width,
+                  height: section.settings.flag_img2.height,
+                  class: "img-fluid",
+                  alt: section.settings.flag_img2.alt | escape }}
+                {%- else -%}
+                {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+                <h6>{{ section.settings.content_title2 }}</h6>
+              </div>
+              <p>{{ section.settings.content_description2 }}</p>
+              <a href="{{ section.settings.content_button_url2 }}">{{ section.settings.content_button2 }}</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Privacy policy 3",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#F3F1F8"
+    },
+    {
+      "type": "header",
+      "content": "Banner image"
+    },
+    {
+      "type": "image_picker",
+      "id": "privacy_img",
+      "label": "Banner Image",
+      "info": "Recommended Size: 660px x 630px"
+    },
+    {
+      "type": "text",
+      "id": "image_title",
+      "label": "Images title",
+      "default": "180+"
+    },
+    {
+      "type": "text",
+      "id": "image_sub_title",
+      "label": "Images title",
+      "default": "Worldwide shipping"
+    },
+    {
+      "type": "header",
+      "content": "Location"
+    },
+    {
+      "type": "image_picker",
+      "id": "flag_img1",
+      "label": "Flag image",
+      "info": "Recommended Size: 50px x 30px"
+    },
+    {
+      "type": "text",
+      "id": "content_title1",
+      "label": "Content title",
+      "default": "Providing your personal data to others"
+    },
+    {
+      "type": "textarea",
+      "id": "content_description1",
+      "label": "Content description",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+    },
+    {
+      "type": "url",
+      "id": "content_button_url1",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "content_button1",
+      "label": "Button Text",
+      "default": "Read more"
+    },
+    {
+      "type": "header",
+      "content": "Location"
+    },
+    {
+      "type": "image_picker",
+      "id": "flag_img2",
+      "label": "Flag image",
+      "info": "Recommended Size: 50px x 30px"
+    },
+    {
+      "type": "text",
+      "id": "content_title2",
+      "label": "Content Title",
+      "default": "Providing your personal data to others"
+    },
+    {
+      "type": "textarea",
+      "id": "content_description2",
+      "label": "Content Description",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+    },
+    {
+      "type": "url",
+      "id": "content_button_url2",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "content_button2",
+      "label": "Button Text",
+      "default": "Read more"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Privacy policy 3"
+    }
+  ]
+}
+{% endschema %}
+<style type="text/css">
+  .privacy-policy3 {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media(max-width: 1199px){
+    .privacy-policy3 {
+      padding-top: {{ section.settings.section_padding_top_lg }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_lg }}px;
+    }
+  }
+  @media(max-width: 767px){
+    .privacy-policy3 {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+  .privacy-policy3 ul.grid-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px 0 0 -30px;
+  }
+  .privacy-policy3 ul.grid-wrap li.grid-wrapper{
+    width: calc(50% - 30px);
+    margin: 30px 0 0 30px;
+  }
+
+  .privacy-policy3 .privacy-img {
+    position: relative;
+  }
+  .privacy-policy3 .privacy-img img{
+    border-radius: 0px;
+    border-radius: var(--sti-border-radius);
+  }
+  .privacy-policy3 .privacy-img .img-text-content{
+    position: absolute;
+    bottom: 15%;
+    {% if settings.enable_rtl %}
+    left: -15%;
+    {% else %}
+    right: -15%;
+    {% endif %}
+    background-color: var(--font-color-primary);
+    padding: 40px 50px;
+    text-align: center;
+    border-radius: var(--sti-border-radius);
+  }
+  .privacy-policy3 .privacy-img .img-text-content h3{
+    color: #fff;
+    font-size: 50px;
+    font-weight: var(--sti-font-weight);
+  }
+  .privacy-policy3 .privacy-img .img-text-content h6{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  .privacy-policy3 .text-wrap {
+    width: 70%;
+    {% if settings.enable_rtl %}
+    margin-right: auto;
+    {% else %}
+    margin-left: auto;
+    {% endif %}
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .privacy-policy3 .text-wrapper{
+    margin-top: 30px;
+    border-radius: 0px;
+    padding: 30px 50px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,10%);
+    border-radius: var(--sti-border-radius);
+  }
+  .privacy-policy3 .text-wrapper:first-child{
+    margin-top: 0;
+  }
+  .privacy-policy3 .text-wrapper .flag-icon{
+    display: flex;
+    align-items: center;
+  }
+  .privacy-policy3 .text-wrapper .flag-icon img{
+    {% if settings.enable_rtl %}
+    margin-left: 30px;
+    {% else %}
+    margin-right: 30px;
+    {% endif %}
+  }
+  .privacy-policy3 .text-wrap h6{
+    font-size: 18px;
+    font-weight: var(--font-subtitle-weight-body);
+    line-height: 1;
+  }
+  .privacy-policy3 .text-wrap p{
+    margin-top: 15px;
+  }
+  .privacy-policy3 .text-wrap a{
+    color: var(--font-color-primary);
+    margin-top: 15px;
+    font-weight: var(--sti-font-weight);
+  }
+  .privacy-policy3 .text-wrap a:hover{
+    border-color: var(--font-color-secondary); 
+    color: var(--font-color-secondary);
+  }
+  @media(max-width: 1199px){
+    .privacy-policy3 .privacy-img .img-text-content{
+      width: 100%;
+      position: unset;
+      padding: 30px; 
+    }
+    .privacy-policy3 .privacy-img .img-text-content h3{
+      font-size: 20px;
+    }
+    .privacy-policy3 .text-wrap{
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px){
+    .privacy-policy3 ul.grid-wrap li.grid-wrapper{
+      width: calc(100% - 30px);
+    }
+    .privacy-policy3 .text-wrapper{
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .privacy-policy3 .text-wrap h6{
+      font-size: 18px;
+    }
+    .privacy-policy3 .text-wrap p{
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+</style>

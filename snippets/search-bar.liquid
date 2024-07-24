@@ -1,0 +1,76 @@
+<div class="search-rap">
+  <div class="crap-search">
+    <form action="/search" method="get" class="search-bar" role="search">
+      <div class="form-search">
+        <input type="hidden" name="type" value="product">
+        <input type="hidden" name="options[unavailable_products]" value="show">
+        <input type="hidden" name="options[prefix]" value="last">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ settings.search_bar_placeholder }}" id="search" class="input-text" aria-label="{{ 'general.search.placeholder' | t }}" required>
+        <button class="search-btn" type="submit"><i class="ri-search-line"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+<style>
+  .search-rap {
+    width: 100%;
+  }
+  .search-rap form .form-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  .search-rap form .form-search input.input-text {
+    width: 100%;
+    background-color: transparent;
+  }
+  .search-rap form .form-search button {
+    background-color: var(--font-color-primary);
+    color: #ffffff;
+    font-size: 16px;
+    position: absolute;
+    {% if settings.enable_rtl %}
+    left: 0px;
+    border-radius: var(--sti-border-radius) 0px 0px var(--sti-border-radius);
+    {% else %}
+    right: 0px;
+    border-radius: 0px var(--sti-border-radius) var(--sti-border-radius) 0px;
+    {% endif %}
+    line-height: 1;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-rap form .form-search button:hover {
+    background-color: var(--font-color-secondary);
+  }
+  @media (max-width: 1199px) {
+    .search-rap {
+      display: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .search-rap .crap-search {
+      position: absolute;
+      top: calc(100% + 15px);
+      left: 15px;
+      right: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+    .search-rap form .form-search::after {
+      display: none;
+    }
+    .search-rap form .form-search button {
+      {% if settings.enable_rtl %}
+      left: 15px;
+      {% else %}
+      right: 15px;
+      {% endif %}
+      height: 100%;
+    }
+  }
+</style>
